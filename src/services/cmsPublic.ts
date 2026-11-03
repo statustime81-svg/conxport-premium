@@ -1,0 +1,3 @@
+import {requireSupabase} from '../lib/supabase/client';import type{CmsEntry,CmsKind}from '../types/cms';
+export async function listCmsPublic(kind:CmsKind,limit=30):Promise<CmsEntry[]>{const db=requireSupabase();const{data,error}=await db.from('cms_entries').select('*').eq('kind',kind).eq('is_published',true).order('published_at',{ascending:false}).limit(Math.min(limit,100));if(error)throw error;return(data??[])as CmsEntry[];}
+export async function getCmsPublic(kind:CmsKind,slug:string):Promise<CmsEntry|null>{const db=requireSupabase();const{data,error}=await db.from('cms_entries').select('*').eq('kind',kind).eq('slug',slug).eq('is_published',true).maybeSingle();if(error)throw error;return data as CmsEntry|null;}

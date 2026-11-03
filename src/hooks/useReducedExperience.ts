@@ -1,0 +1,2 @@
+import {useEffect,useState} from 'react';import {usePrefersReducedMotion} from './usePrefersReducedMotion';
+export function useReducedExperience(){const reduced=usePrefersReducedMotion();const [small,setSmall]=useState(()=>typeof window!=='undefined'&&window.matchMedia('(max-width: 720px)').matches);useEffect(()=>{const m=window.matchMedia('(max-width: 720px)');const cb=()=>setSmall(m.matches);m.addEventListener('change',cb);return()=>m.removeEventListener('change',cb)},[]);return reduced||small;}

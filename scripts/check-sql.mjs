@@ -1,0 +1,2 @@
+import {existsSync,readFileSync} from 'node:fs';
+for(let i=1;i<=8;i++){const filename=['0001_initial_schema','0002_rls_policies','0003_storage_policies','0004_admin_catalogue','0005_categories_media','0006_inventory_rpc','0007_enquiry_crm','0008_content_cms'][i-1];const path=`supabase/migrations/${filename}.sql`;if(!existsSync(path)||!readFileSync(path,'utf8').trim()){console.error('Missing migration:',path);process.exit(1)}}console.log('All 8 migration files exist. This does not prove live DB migrations ran.');

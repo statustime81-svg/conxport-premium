@@ -1,0 +1,3 @@
+import {spawnSync} from 'node:child_process';
+const steps=[['node',['scripts/check-env.mjs']],['node',['scripts/audit-security.mjs']],['npm',['run','typecheck']],['npm',['run','lint']],['npm',['run','build']]];
+for(const [cmd,args] of steps){console.log('\nCHECK:',cmd,...args);const p=spawnSync(process.platform==='win32' && cmd==='npm'?'npm.cmd':cmd,args,{stdio:'inherit',shell:process.platform==='win32'});if(p.status!==0){console.error('STOP: release check failed');process.exit(p.status||1)}}console.log('Local release checks PASS; live RLS, email, payments and browser flows still need manual verification.');

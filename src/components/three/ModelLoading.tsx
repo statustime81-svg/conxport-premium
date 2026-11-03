@@ -1,0 +1,1 @@
+export default function ModelLoading(){return <div role="status" style={{display:'grid',placeItems:'center',minHeight:360,color:'#c7efeb',background:'#11232a',borderRadius:18}}>Loading interactive 3D model…</div>;}

@@ -1,0 +1,2 @@
+import { useEffect } from 'react';
+export function usePagePerformance(enabled=false){useEffect(()=>{if(!enabled || typeof PerformanceObserver==='undefined')return;const observer=new PerformanceObserver(list=>{for(const entry of list.getEntries())console.info('[ConXport performance]',entry.entryType,Math.round(entry.startTime))});try{observer.observe({entryTypes:['largest-contentful-paint','layout-shift']})}catch{observer.disconnect()}return ()=>observer.disconnect()},[enabled])}

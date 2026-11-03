@@ -1,0 +1,50 @@
+/* ConXport admin pages, scoped to admin page containers. */
+:root { --cx-ad-green:#0d5c4f;--cx-ad-ink:#18302a;--cx-ad-muted:#647b74;--cx-ad-border:#dce9e4; }
+/* Fix narrow admin content caused by inherited layout/grid rules. */
+main:has(> .cx-portal),main:has(> .cx-dashboard-repair),main:has(> .cx-admin-page),
+.cx-admin-content:has(.cx-portal),.cx-admin-content:has(.cx-dashboard-repair),.cx-admin-content:has(.cx-admin-page){min-width:0!important;width:100%!important;max-width:none!important;display:block!important;grid-template-columns:none!important;}
+.cx-portal,.cx-admin-page,.cx-dashboard-repair {width:100%!important;min-width:0!important;max-width:none!important;box-sizing:border-box!important;color:var(--cx-ad-ink)!important;font-family:Manrope,Inter,system-ui,sans-serif!important;}
+.cx-portal *, .cx-admin-page * {box-sizing:border-box;}
+.cx-portal h1,.cx-portal h2,.cx-portal h3,.cx-admin-page h1,.cx-admin-page h2,.cx-admin-page h3{font-family:Manrope,Inter,system-ui,sans-serif!important;color:var(--cx-ad-ink)!important;letter-spacing:-.035em!important;line-height:1.3!important;overflow-wrap:break-word!important;word-break:normal!important;white-space:normal!important;}
+.cx-portal h1,.cx-admin-page h1{font-size:clamp(22px,2.4vw,30px)!important;font-weight:800!important;margin:0 0 8px!important;}
+.cx-portal h2,.cx-admin-page h2{font-size:17px!important;font-weight:750!important;}
+.cx-portal p,.cx-admin-page p{font-size:13px!important;line-height:1.65!important;color:var(--cx-ad-muted)!important;}
+.cx-overline{font-size:10px!important;letter-spacing:.16em!important;font-weight:800!important;color:var(--cx-ad-green)!important;text-transform:uppercase!important;margin:0 0 10px!important;}
+.cx-portal{padding:6px 0 32px!important;}
+.cx-panel,.cx-admin-form-shell,.cx-form-card{border:1px solid var(--cx-ad-border)!important;border-radius:16px!important;background:#fff!important;padding:20px!important;box-shadow:0 5px 24px rgba(20,67,55,.035)!important;min-width:0!important;}
+.cx-admin-heading{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:16px!important;flex-wrap:wrap!important;margin:0 0 20px!important;}
+.cx-primary,.cx-admin-page .cx-primary{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;border:0!important;border-radius:11px!important;background:var(--cx-ad-green)!important;color:white!important;padding:11px 17px!important;font-size:12px!important;font-weight:750!important;text-decoration:none!important;cursor:pointer!important;white-space:nowrap!important;}
+.cx-primary:hover{background:#09493f!important;}
+.cx-portal button,.cx-admin-page button{font-family:inherit;font-size:12px;cursor:pointer;}
+.cx-portal input,.cx-portal select,.cx-portal textarea,.cx-admin-page input,.cx-admin-page select,.cx-admin-page textarea{max-width:100%;border:1px solid #d7e4df;border-radius:10px;padding:11px 12px;background:#fff;color:#1a342d;font-family:inherit;font-size:13px;}
+.cx-portal input:focus,.cx-admin-page input:focus,.cx-portal textarea:focus,.cx-admin-page textarea:focus{outline:2px solid #b7d9cd;outline-offset:1px;}
+.cx-admin-category-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:14px!important;width:100%!important;}
+.cx-admin-category{min-width:0!important;padding:19px!important;background:white!important;border:1px solid var(--cx-ad-border)!important;border-radius:15px!important;box-shadow:0 5px 22px rgba(12,54,44,.035)!important;}
+.cx-admin-category-top,.cx-admin-category-actions{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:9px!important;flex-wrap:wrap!important;}
+.cx-admin-category h2{font-size:16px!important;margin:16px 0 5px!important;}
+.cx-admin-category p{overflow-wrap:anywhere;}
+.cx-admin-kind{font-size:10px!important;letter-spacing:.09em;color:var(--cx-ad-green);font-weight:800;}
+.cx-admin-status{font-size:10px;padding:5px 9px;border-radius:99px;background:#f0f2f1;color:#63766f;}
+.cx-admin-status.live{background:#e8f6ed;color:#126646;}
+.cx-admin-category-actions{margin-top:17px;padding-top:14px;border-top:1px solid #e7efeb;justify-content:flex-start!important;}
+.cx-admin-category-actions button,.cx-admin-danger{border:1px solid #d9e6e0;background:#fff;border-radius:9px;padding:8px 12px;color:#1d5145;}
+.cx-admin-danger{color:#b43f3f!important;}
+.cx-admin-alert,.cx-error{border:1px solid #f2d2d2!important;background:#fff5f5!important;color:#a52e2e!important;padding:12px!important;border-radius:10px!important;}
+.cx-admin-page__header{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:22px;}
+.cx-admin-page__sub{margin:5px 0 0!important;}
+.cx-admin-page__toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;}
+.cx-admin-page__search{display:flex;gap:8px;flex:1;min-width:min(100%,260px);}
+.cx-admin-page__search input{width:100%;min-width:0;}
+.cx-admin-page__search button,.cx-admin-page__soft{border:1px solid #d7e4df!important;border-radius:10px!important;background:white!important;color:#174b40!important;padding:10px 14px!important;font-weight:700!important;}
+.cx-admin-page__table-wrap{overflow-x:auto;border:1px solid var(--cx-ad-border);border-radius:16px;background:white;}
+.cx-admin-page__table{width:100%;border-collapse:collapse;min-width:650px;text-align:left;}
+.cx-admin-page__table th{padding:14px 17px;background:#f4f9f7;color:#607a71;font-size:10px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;}
+.cx-admin-page__table td{padding:15px 17px;border-top:1px solid #edf2ef;font-size:13px;color:#263d35;vertical-align:middle;}
+.cx-admin-page__table a{color:var(--cx-ad-green)!important;font-weight:750;text-decoration:none;}
+.cx-admin-page__table button{border:0;background:transparent;color:#a43e3e;font-weight:700;}
+.cx-admin-page__pill{display:inline-flex;padding:5px 9px;border-radius:99px;background:#f0f2f1;color:#62766e;font-size:10px;font-weight:800;}
+.cx-admin-page__pill--live{background:#e8f6ee;color:#166b4c;}
+.cx-admin-page__empty{padding:28px;text-align:center;color:#6a8177;}
+.cx-admin-page__hint{font-size:11px!important;margin-top:14px!important;}
+@media(max-width:1100px){.cx-admin-category-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;}}
+@media(max-width:700px){.cx-admin-category-grid{grid-template-columns:1fr!important;}.cx-admin-page__header{align-items:flex-start;}.cx-panel,.cx-admin-form-shell,.cx-form-card{padding:15px!important;}}

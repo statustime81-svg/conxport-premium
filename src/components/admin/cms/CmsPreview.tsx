@@ -1,0 +1,2 @@
+import type{CmsInput}from '../../../types/cms';import{safeCmsUrl}from '../../../lib/cms/format';
+export default function CmsPreview({entry}:{entry:CmsInput}){const img=safeCmsUrl(entry.image_url);return <article style={{display:'grid',gap:16,maxWidth:850}}><p className="cx-overline">PREVIEW ONLY · {entry.kind}</p><h1>{entry.title}</h1><p>{entry.excerpt}</p>{img&&<img src={img} alt="" style={{width:'100%',maxHeight:420,objectFit:'cover'}}/>}<div style={{whiteSpace:'pre-wrap',lineHeight:1.85}}>{entry.body}</div></article>;}

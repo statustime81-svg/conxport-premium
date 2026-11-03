@@ -1,0 +1,2 @@
+import {describe,it,expect} from 'vitest';import {safeExternalUrl,safeInternalPath} from '../../src/lib/launch/safe-url';
+describe('safe urls',()=>{it('accepts HTTPS',()=>expect(safeExternalUrl('https://example.com/a')).toBe('https://example.com/a'));it('rejects script URLs',()=>expect(safeExternalUrl('javascript:alert(1)')).toBeNull());it('rejects protocol-relative paths',()=>expect(safeInternalPath('//evil.example')).toBeNull());it('accepts internal routes',()=>expect(safeInternalPath('/products/a')).toBe('/products/a'))});

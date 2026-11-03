@@ -1,0 +1,1 @@
+import { ManagedExpo } from '../../components/home/ManagedShowcase'; export default function ExpoPage(){return <ManagedExpo/>;}

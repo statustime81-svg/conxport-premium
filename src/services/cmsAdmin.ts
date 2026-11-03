@@ -1,0 +1,7 @@
+import {requireCmsAdmin} from './cmsAccess';
+import {cmsSchema} from '../lib/validations/cms';
+import type{CmsEntry,CmsInput,CmsKind}from '../types/cms';
+export async function listCmsAdmin(kind?:CmsKind):Promise<CmsEntry[]>{const db=await requireCmsAdmin();let q=db.from('cms_entries').select('*').order('updated_at',{ascending:false}).limit(300);if(kind)q=q.eq('kind',kind);const{data,error}=await q;if(error)throw error;return(data??[])as CmsEntry[];}
+export async function getCmsAdmin(id:string):Promise<CmsEntry|null>{const db=await requireCmsAdmin();const{data,error}=await db.from('cms_entries').select('*').eq('id',id).maybeSingle();if(error)throw error;return data as CmsEntry|null;}
+export async function saveCmsEntry(input:CmsInput,id?:string){const values=cmsSchema.parse(input);const db=await requireCmsAdmin();const payload={...values,image_url:values.image_url||null,external_url:values.external_url||null,updated_at:new Date().toISOString(),published_at:values.is_published?new Date().toISOString():null};if(id){const{data,error}=await db.from('cms_entries').update(payload).eq('id',id).select('id').single();if(error)throw error;return data.id as string;}const{data,error}=await db.from('cms_entries').insert(payload).select('id').single();if(error)throw error;return data.id as string;}
+export async function removeCmsEntry(id:string){const db=await requireCmsAdmin();const{data,error}=await db.from('cms_entries').delete().eq('id',id).select('id');if(error)throw error;if(!data?.length)throw Error('Content was not deleted.');}

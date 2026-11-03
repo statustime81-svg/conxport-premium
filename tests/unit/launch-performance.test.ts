@@ -1,0 +1,2 @@
+import {describe,it,expect} from 'vitest';import {formatBytes,isHeavyAsset,shouldEnable3D} from '../../src/lib/launch/performance';
+describe('performance helpers',()=>{it('formats sizes',()=>expect(formatBytes(1024)).toBe('1.0 KB'));it('detects large assets',()=>expect(isHeavyAsset(6*1024*1024)).toBe(true));it('disables expensive 3D for reduced motion',()=>expect(shouldEnable3D(true,false)).toBe(false))});

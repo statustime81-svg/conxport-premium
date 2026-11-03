@@ -1,0 +1,1 @@
+export default function CmsNotice({error,loading,success}:{error?:string;loading?:boolean;success?:string}){return <>{loading&&<p role="status">Loading content…</p>}{error&&<p role="alert" style={{color:'#ff9e9e'}}>{error}</p>}{success&&<p role="status" style={{color:'#77e6be'}}>{success}</p>}</>;}

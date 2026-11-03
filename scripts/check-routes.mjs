@@ -1,0 +1,2 @@
+import {readFileSync} from 'node:fs';
+const router=readFileSync('src/app/router.tsx','utf8');const required=['products','categories','request-quote','login','admin','account','blog','case-studies','resources'];const missing=required.filter(r=>!router.includes(r));if(missing.length){console.error('Missing route references:',missing);process.exit(1)}console.log('Route references found. Runtime navigation must still be tested.');

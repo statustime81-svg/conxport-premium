@@ -1,0 +1,10 @@
+import { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router';
+import { useAuthState } from '../../app/providers';
+import { requireSupabase } from '../../lib/supabase/client';
+import type { EnquiryRecord } from '../../lib/supabase/types';
+type Item={quantity:number;products:{name:string;slug:string}|null};
+export default function EnquiryDetailPage(){const {id}=useParams();const {session}=useAuthState();const [record,setRecord]=useState<EnquiryRecord|null>(null);const [items,setItems]=useState<Item[]>([]);const [error,setError]=useState('');const [loading,setLoading]=useState(true);
+ useEffect(()=>{if(!id||!session?.user.id){setLoading(false);return;}let active=true;(async()=>{const db=requireSupabase();const result=await db.from('enquiries').select('*').eq('id',id).eq('user_id',session.user.id).maybeSingle();if(!active)return;if(result.error){setError(result.error.message);setLoading(false);return;}setRecord(result.data as EnquiryRecord|null);if(result.data){const related=await db.from('enquiry_items').select('quantity,products(name,slug)').eq('enquiry_id',id);if(!active)return;if(related.error)setError(related.error.message);else setItems((related.data??[]).map(row => ({ quantity: row.quantity, products: Array.isArray(row.products) ? (row.products[0] ?? null) : (row.products ?? null) })) as Item[]);}setLoading(false);})();return()=>{active=false};},[id,session?.user.id]);
+ return <section className="cx-portal"><Link to="/account/enquiries">← All enquiries</Link>{loading?<p>Loading…</p>:error?<p role="alert">{error}</p>:!record?<p>Enquiry not found or not accessible.</p>:<><p className="cx-overline">ENQUIRY DETAIL</p><h1>{record.reference}</h1><div className="cx-panel"><p><b>Status:</b> {record.status.replaceAll('_',' ')}</p><p><b>Submitted:</b> {new Date(record.created_at).toLocaleString()}</p><p><b>Company:</b> {record.company}</p><p><b>Requirements:</b> {record.requirements}</p><h2>Requested equipment</h2>{items.length?items.map((item,i)=><p key={i}>{item.products?.name??'Product'} · Quantity {item.quantity}</p>):<p>No linked product items.</p>}</div></>}</section>;
+}

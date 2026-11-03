@@ -1,0 +1,6 @@
+import {useState} from 'react';
+import type {EnquiryStatus} from '../../../types/crm';
+import{CRM_STATUSES}from '../../../types/crm';
+import{crmStatusLabel}from '../../../lib/crm/format';
+import{changeEnquiryStatus}from '../../../services/crmStatus';
+export default function StatusEditor({id,status,onUpdated}:{id:string;status:EnquiryStatus;onUpdated:()=>Promise<void>}){const[value,setValue]=useState<EnquiryStatus>(status);const[busy,setBusy]=useState(false);const[error,setError]=useState('');async function save(){setBusy(true);setError('');try{await changeEnquiryStatus(id,value);await onUpdated();}catch(e){setError(e instanceof Error?e.message:'Update failed');}finally{setBusy(false);}}return <div className="cx-panel"><h2>Update enquiry status</h2><div style={{display:'flex',gap:12,flexWrap:'wrap'}}><select aria-label="New enquiry status" value={value} onChange={e=>setValue(e.target.value as EnquiryStatus)} style={{padding:12,background:'#142a32',color:'white'}}>{CRM_STATUSES.map(s=><option key={s} value={s}>{crmStatusLabel(s)}</option>)}</select><button className="cx-primary" type="button" disabled={busy||value===status} onClick={()=>void save()}>{busy?'Saving…':'Save status'}</button></div>{error&&<p role="alert">{error}</p>}</div>;}

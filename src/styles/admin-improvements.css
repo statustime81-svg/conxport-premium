@@ -1,0 +1,16 @@
+/* Admin-only visual corrections; preserve public theme and layout. */
+.cx-admin-shell{--admin-accent:#0d5c4f;background:#f5f8f7!important;min-width:0}
+.cx-admin-main,.cx-admin-content{min-width:0!important;width:100%;box-sizing:border-box}
+.cx-admin-content{padding:clamp(16px,2.4vw,34px)!important;max-width:none!important;overflow-x:clip}
+.cx-admin-top{min-height:90px;padding:16px clamp(16px,2.4vw,32px)!important}
+.cx-admin-sidebar{box-shadow:8px 0 34px rgba(12,53,46,.035)}
+.cx-admin-navlink{border-radius:12px!important;transition:background .2s,transform .2s!important}
+.cx-admin-navlink:hover{transform:translateX(2px);background:#eff8f3!important}
+.cx-admin-shell input:not([type=checkbox]):not([type=radio]):not([type=file]),.cx-admin-shell select,.cx-admin-shell textarea{min-width:0;max-width:100%;box-sizing:border-box}
+.cx-admin-shell table{width:100%;border-collapse:separate;border-spacing:0}
+.cx-admin-shell th{text-align:left;font-size:12px;letter-spacing:.04em;color:#4d6961;background:#f5faf7;padding:13px}
+.cx-admin-shell td{padding:13px;border-bottom:1px solid #eaf0ed;vertical-align:middle}
+.cx-admin-shell button,.cx-admin-shell a{transition:background .2s,color .2s,transform .2s,box-shadow .2s}
+.cx-admin-shell .cx-panel,.cx-admin-shell .cx-form-card{min-width:0;overflow-wrap:anywhere}
+@media(max-width:900px){.cx-admin-content{padding:16px!important}.cx-admin-shell table{display:block;overflow-x:auto;white-space:nowrap}.cx-admin-top{min-height:74px}}
+@media(prefers-reduced-motion:reduce){.cx-admin-shell *{animation:none!important;transition:none!important}}

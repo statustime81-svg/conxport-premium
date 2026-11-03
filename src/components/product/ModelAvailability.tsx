@@ -1,0 +1,1 @@
+export default function ModelAvailability({available,loading}:{available:boolean;loading?:boolean}){return <p style={{fontSize:13,color:'#aecdcf',margin:'10px 0'}}>{loading?'Checking 3D asset availability…':available?'Interactive 3D file available. Use controls to rotate and zoom.':'No verified GLB model is attached to this product.'}</p>}

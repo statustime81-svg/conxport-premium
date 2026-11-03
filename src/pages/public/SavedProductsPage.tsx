@@ -1,0 +1,2 @@
+import PublicInfoPage from "./PublicInfoPage";
+export default function SavedProductsPage(){return <PublicInfoPage title='Saved products' intro='Create a shortlist of medical equipment you would like to revisit.' points={[{"title": "Your account", "description": "Saved product management may require a signed-in customer account."}, {"title": "Browse catalogue", "description": "Find published products and identify models of interest."}]} path='/saved-products'/>;}

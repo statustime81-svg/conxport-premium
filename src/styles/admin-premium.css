@@ -1,0 +1,33 @@
+/* ConXport admin visual alignment; scoped to admin shell */
+.cx-admin-shell {background:#f6faf8; color:#14252a; font-family:Manrope,system-ui,sans-serif; min-height:100vh}
+.cx-admin-sidebar {background:#ffffff; border-right:1px solid #dce9e4}
+.cx-admin-logo {color:#0d5c4f!important; font-weight:900; letter-spacing:-.035em}
+.cx-admin-top {background:rgba(255,255,255,.96); border-bottom:1px solid #dce9e4; backdrop-filter:blur(14px)}
+.cx-admin-content {color:#172b30}
+.cx-admin-shell .cx-portal h1 {font-family:Manrope,system-ui,sans-serif; font-size:clamp(2rem,3vw,3rem); font-weight:850; letter-spacing:-.05em; color:#10252a}
+.cx-admin-shell .cx-portal h2 {font-family:Manrope,system-ui,sans-serif; color:#132c2d}
+.cx-admin-shell .cx-overline {color:#0d5c4f!important; font-weight:800; letter-spacing:.13em}
+.cx-admin-shell .cx-panel,.cx-admin-shell .cx-form-card,.cx-admin-shell .cx-admin-feature,.cx-admin-shell .cx-admin-category {border:1px solid #dae9e4;background:#fff;border-radius:20px;box-shadow:0 7px 30px rgba(13,92,79,.035)}
+.cx-admin-shell .cx-primary,.cx-admin-shell button[type=submit]:not(:disabled) {background:#0d5c4f;color:white!important;border:0;border-radius:12px;padding:12px 18px;font-weight:800;cursor:pointer;text-decoration:none}
+.cx-admin-shell .cx-primary:hover,.cx-admin-shell button[type=submit]:hover:not(:disabled){background:#08483e}
+.cx-admin-shell .cx-admin-input,.cx-admin-shell .cx-input {background:#fff;border:1px solid #cdded9;color:#182c30;border-radius:10px;padding:12px;width:100%;max-width:100%}
+.cx-admin-shell .cx-admin-input:focus,.cx-admin-shell .cx-input:focus {outline:3px solid #0d5c4f22;border-color:#0d5c4f}
+.cx-admin-feature-grid,.cx-admin-category-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:18px;margin-top:28px}
+.cx-admin-feature {padding:28px;text-decoration:none;display:block;transition:transform .2s,box-shadow .2s}
+.cx-admin-feature:hover{transform:translateY(-4px);box-shadow:0 20px 45px rgba(13,92,79,.12)}
+.cx-admin-feature h2{font-size:22px;margin:20px 0 8px}
+.cx-admin-feature p{font-size:14px;line-height:1.75;color:#607578}
+.cx-admin-feature-tag,.cx-admin-kind{font-size:10px;font-weight:850;letter-spacing:.12em;color:#0d5c4f}
+.cx-admin-heading{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.cx-admin-category{padding:24px;min-width:0}
+.cx-admin-category-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.cx-admin-category h2{font-size:21px;font-weight:850;margin:28px 0 5px}
+.cx-admin-category p{color:#74858a;overflow-wrap:anywhere}
+.cx-admin-status{display:inline-block;padding:5px 10px;border-radius:999px;background:#f1f3f4;color:#626f73;font-size:11px;font-weight:800}
+.cx-admin-status.live{background:#e4f6ef;color:#0d5c4f}
+.cx-admin-category-actions{display:flex;gap:12px;margin-top:28px}
+.cx-admin-category-actions button{padding:8px 14px;border:1px solid #cdded9;border-radius:9px;background:white;color:#0d5c4f;font-weight:800;cursor:pointer}
+.cx-admin-category-actions .cx-admin-danger{color:#aa3b3b;border-color:#f0d2d2}
+.cx-admin-form-shell{background:white;border:1px solid #dce9e4;border-radius:20px;padding:18px;margin:20px 0}
+.cx-admin-alert {border:1px solid #f1cccc;padding:14px;border-radius:12px;background:#fff5f5;color:#a33}
+@media(max-width:700px){.cx-admin-heading{align-items:start}.cx-admin-content{padding:16px}}

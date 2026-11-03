@@ -1,0 +1,121 @@
+/* ConXport admin-only layout fix.
+   Load AFTER admin-improvements.css, admin-premium.css,
+   admin-compact.css and admin-v2.css.
+   Does not modify public website styles. */
+
+.cx-admin-shell.cx-admin-compact,
+.cx-admin-compact.cx-admin-shell[data-admin-layout] {
+  display: block !important; /* globals.css uses an incompatible 2-column grid */
+  position: relative;
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  min-height: 100dvh;
+  overflow: visible !important;
+}
+
+/* Fixed sidebar: excluded from the main content's width. */
+.cx-admin-compact .cx-admin-sidebar,
+.cx-admin-compact [data-admin-sidebar] {
+  position: fixed !important;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 258px !important;
+  min-width: 258px !important;
+  max-width: 258px !important;
+  height: 100dvh;
+  z-index: 90;
+  box-sizing: border-box;
+}
+
+/* Avoid width:100% + margin-left causing clipped, narrow content. */
+.cx-admin-compact .cx-admin-main,
+.cx-admin-compact [data-admin-main] {
+  display: block !important;
+  position: relative;
+  flex: none !important;
+  margin-left: 258px !important;
+  width: calc(100% - 258px) !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  box-sizing: border-box;
+}
+
+.cx-admin-compact .cx-admin-content,
+.cx-admin-compact [data-admin-content] {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 30px clamp(16px, 2.5vw, 44px) 64px !important;
+  box-sizing: border-box;
+  overflow-x: visible !important;
+}
+
+.cx-admin-compact .cx-admin-content > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.cx-admin-compact.is-collapsed .cx-admin-sidebar,
+.cx-admin-compact.is-collapsed [data-admin-sidebar] {
+  width: 74px !important;
+  min-width: 74px !important;
+  max-width: 74px !important;
+}
+
+.cx-admin-compact.is-collapsed .cx-admin-main,
+.cx-admin-compact.is-collapsed [data-admin-main] {
+  margin-left: 74px !important;
+  width: calc(100% - 74px) !important;
+}
+
+/* Keep wide data tables scrollable without shrinking the whole page. */
+.cx-admin-compact :is(.cx-admin-page__table-wrap, .cx-table-wrap, .table-responsive) {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+@media (max-width: 800px) {
+  .cx-admin-compact .cx-admin-sidebar,
+  .cx-admin-compact [data-admin-sidebar],
+  .cx-admin-compact.is-collapsed .cx-admin-sidebar {
+    width: 270px !important;
+    min-width: 270px !important;
+    max-width: 270px !important;
+    transform: translateX(-110%);
+  }
+
+  .cx-admin-compact .cx-admin-sidebar.is-open,
+  .cx-admin-compact [data-admin-sidebar].is-open {
+    transform: translateX(0);
+  }
+
+  .cx-admin-compact .cx-admin-main,
+  .cx-admin-compact [data-admin-main],
+  .cx-admin-compact.is-collapsed .cx-admin-main {
+    margin-left: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .cx-admin-compact .cx-admin-content,
+  .cx-admin-compact [data-admin-content] {
+    padding: 20px 16px 40px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .cx-admin-compact .cx-admin-top {
+    min-width: 0;
+    gap: 8px;
+  }
+  .cx-admin-compact .cx-admin-top-left {
+    min-width: 0;
+  }
+  .cx-admin-compact .cx-admin-crumb {
+    flex-wrap: wrap;
+  }
+}

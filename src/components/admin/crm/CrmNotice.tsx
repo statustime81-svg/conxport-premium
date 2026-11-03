@@ -1,0 +1,1 @@
+export default function CrmNotice({error,loading}:{error?:string;loading?:boolean}){return <>{loading&&<p role="status">Loading records…</p>}{error&&<div className="cx-panel" role="alert" style={{borderColor:'#dc7373'}}>{error}</div>}</>;}

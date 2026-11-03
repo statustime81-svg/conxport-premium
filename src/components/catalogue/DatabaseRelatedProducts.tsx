@@ -1,0 +1,3 @@
+import {Link} from 'react-router';
+import type {PublicProduct} from '../../services/publicCatalogue';
+export default function DatabaseRelatedProducts({items}:{items:PublicProduct[]}){if(!items.length)return null;return <section style={{paddingBlock:60}}><h2 style={{fontSize:'clamp(1.6rem,4vw,3rem)',marginBottom:25}}>Related equipment</h2><div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))',gap:20}}>{items.slice(0,4).map(p=><article key={p.id} style={{background:'#fff',border:'1px solid #d7e1e2',borderRadius:16,padding:25}}><small>{p.sku}</small><h3>{p.name}</h3><p>{p.summary??'Request product information.'}</p><Link to={`/products/${p.slug}`}>View product →</Link></article>)}</div></section>}

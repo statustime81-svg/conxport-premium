@@ -1,0 +1,1 @@
+import { ManagedFaq } from '../../components/home/ManagedShowcase'; export default function FaqPage(){return <main><ManagedFaq/></main>;}

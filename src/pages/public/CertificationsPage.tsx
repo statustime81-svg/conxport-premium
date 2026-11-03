@@ -1,0 +1,1 @@
+import { ManagedCertificates } from '../../components/home/ManagedShowcase'; export default function CertificationsPage(){return <ManagedCertificates/>;}

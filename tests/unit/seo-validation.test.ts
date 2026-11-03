@@ -1,0 +1,2 @@
+import {describe,it,expect} from 'vitest';import {validateSeoMetadata} from '../../src/lib/launch/seo-validation';
+describe('SEO metadata',()=>{it('validates good metadata',()=>expect(validateSeoMetadata('ConXport Products','Medical equipment catalogue','https://example.com/products').valid).toBe(true));it('rejects HTTP canonical',()=>expect(validateSeoMetadata('Title','Description','http://example.com').valid).toBe(false))});

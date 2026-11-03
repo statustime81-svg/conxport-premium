@@ -1,0 +1,2 @@
+import {requireSupabase} from '../lib/supabase/client';
+export async function requireCmsAdmin(){const db=requireSupabase();const{data:auth,error:ae}=await db.auth.getUser();if(ae||!auth.user)throw Error('Sign in to manage content.');const{data,error}=await db.from('admin_users').select('user_id').eq('user_id',auth.user.id).maybeSingle();if(error||!data)throw Error('Administrator access required.');return db;}

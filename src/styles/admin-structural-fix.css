@@ -1,0 +1,17 @@
+/* ConXport admin structural repair: overrides legacy grid + fixed sidebar styles. */
+.cx-admin-shell.cx-admin-compact {display:block!important;grid-template-columns:none!important;position:relative!important;width:100%!important;max-width:none!important;min-width:0!important;min-height:100dvh!important;overflow:visible!important;}
+.cx-admin-shell.cx-admin-compact > .cx-admin-sidebar {position:fixed!important;inset:0 auto 0 0!important;width:258px!important;min-width:258px!important;max-width:258px!important;height:100dvh!important;z-index:90!important;}
+.cx-admin-shell.cx-admin-compact > .cx-admin-main {display:block!important;position:relative!important;margin-left:258px!important;width:calc(100% - 258px)!important;min-width:0!important;max-width:none!important;flex:none!important;}
+.cx-admin-shell.cx-admin-compact > .cx-admin-main > .cx-admin-content {display:block!important;width:100%!important;min-width:0!important;max-width:none!important;margin:0!important;overflow:visible!important;padding:28px clamp(16px,2.5vw,44px) 64px!important;}
+.cx-admin-shell.cx-admin-compact .cx-dashboard-v2 {display:block!important;width:100%!important;min-width:0!important;max-width:none!important;}
+.cx-admin-shell.cx-admin-compact .cx-dashboard-v2__hero {width:100%!important;min-width:0!important;}
+.cx-admin-shell.cx-admin-compact .cx-dashboard-v2__stats,.cx-admin-shell.cx-admin-compact .cx-dashboard-v2__modules {width:100%!important;min-width:0!important;}
+.cx-admin-shell.cx-admin-compact :is(.cx-admin-page__table-wrap,.cx-table-wrap) {max-width:100%;overflow-x:auto;}
+.cx-admin-shell.cx-admin-compact.is-collapsed > .cx-admin-sidebar {width:74px!important;min-width:74px!important;max-width:74px!important;}
+.cx-admin-shell.cx-admin-compact.is-collapsed > .cx-admin-main {margin-left:74px!important;width:calc(100% - 74px)!important;}
+@media(max-width:800px){
+.cx-admin-shell.cx-admin-compact > .cx-admin-sidebar,.cx-admin-shell.cx-admin-compact.is-collapsed > .cx-admin-sidebar {width:270px!important;min-width:270px!important;max-width:270px!important;transform:translateX(-110%);}
+.cx-admin-shell.cx-admin-compact > .cx-admin-sidebar.is-open {transform:translateX(0)!important;}
+.cx-admin-shell.cx-admin-compact > .cx-admin-main,.cx-admin-shell.cx-admin-compact.is-collapsed > .cx-admin-main {margin-left:0!important;width:100%!important;}
+.cx-admin-shell.cx-admin-compact > .cx-admin-main > .cx-admin-content {padding:18px 15px 40px!important;}
+}

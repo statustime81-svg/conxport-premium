@@ -1,0 +1,2 @@
+import { requireSupabase } from '../lib/supabase/client';
+export async function requireCrmAdmin(){const db=requireSupabase();const{data:user,error:authError}=await db.auth.getUser();if(authError||!user.user)throw new Error('Please sign in as an administrator.');const {data,error}=await db.rpc('is_conxport_admin');if(error||data!==true)throw new Error('Super Admin permission required.');return db;}
