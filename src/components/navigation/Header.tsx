@@ -398,10 +398,10 @@ export default function Header() {
 
           {/* CASE STUDIES */}
           <NavLink
-            to="/case-studies"
+            to="/turnkey-projects"
             className={navLinkClass}
           >
-            Case Studies
+            Turnkey Projects
           </NavLink>
 
           {/* ABOUT */}

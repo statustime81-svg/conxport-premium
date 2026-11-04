@@ -13,6 +13,7 @@ const groups = [
     {label:'Customers', to:'/admin/customers', icon:Users},
   ]},
   { title: 'CONTENT', items: [
+    {label:'Homepage', to:'/admin/homepage', icon:House},
     {label:'Testimonials', to:'/admin/showcase/testimonial', icon:Users},
     {label:'Client logos', to:'/admin/showcase/client', icon:House},
     {label:'Latest products', to:'/admin/products', icon:Package},
@@ -23,7 +24,7 @@ const groups = [
     {label:'Contact inbox', to:'/admin/contact-messages', icon:Mail},
     {label:'Content pages', to:'/admin/pages', icon:FileText},
     {label:'Blog', to:'/admin/blog', icon:BookOpen},
-    {label:'Case studies', to:'/admin/case-studies', icon:TrendingUp},
+    {label:'Turnkey Projects', to:'/admin/turnkey-projects', icon:TrendingUp},
     {label:'Resources', to:'/admin/resources', icon:FolderOpen},
   ]},
   { title: 'SYSTEM', items: [

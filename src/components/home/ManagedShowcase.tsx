@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router';
-import { ArrowUpRight, Quote, Download, ShieldCheck, ArrowRight, ArrowLeft } from 'lucide-react';
+import { createPortal } from 'react-dom';
+import { ArrowUpRight, Quote, Download, ShieldCheck, ArrowRight, ArrowLeft, X, FileText, ZoomIn, ZoomOut, ChevronUp, ChevronDown, Play, Pause, Volume2, VolumeX, Maximize, Minus, Plus } from 'lucide-react';
 import { getShowcase, safeImage, youtubeEmbed, type ShowcaseItem, type ShowcaseKind } from '../../services/showcase';
 const fallbackFaq=[
  ['How can I find medical equipment?','Browse our equipment categories or search the catalogue by product name.'],
@@ -262,5 +263,450 @@ export function ManagedFaq() {
   );
 }
 
-export function ManagedCertificates(){const items=useShowcase('certificate');return <section className="bg-white py-20"><div className="container"><p className="text-xs font-bold uppercase tracking-widest text-[#0d5c4f]">ConXport credentials</p><h2 className="mt-2 text-3xl font-extrabold text-slate-900">Certificates & documentation</h2><p className="mt-3 max-w-2xl text-slate-600">Browse documents published by our team. Confirm applicable product requirements with us before ordering.</p><div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">{items.map(x=><article key={x.id} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">{safeImage(x.media_url) && !/\.pdf(?:[?#]|$)/i.test(x.media_url||'')?<img src={safeImage(x.media_url)} alt={x.title} className="aspect-[4/3] w-full object-contain bg-slate-50 p-3" loading="lazy"/>:<div className="grid aspect-[4/3] place-items-center bg-teal-50"><ShieldCheck size={48} className="text-teal-700"/></div>}<div className="p-5"><h3 className="font-bold text-slate-900">{x.title}</h3><p className="mt-2 text-sm text-slate-600">{x.body}</p>{safeImage(x.media_url)&&<a href={safeImage(x.media_url)} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[#0d5c4f]">View / download <Download size={15}/></a>}</div></article>)}</div>{!items.length&&<p className="mt-8 text-slate-500">No certificates are published yet.</p>}</div></section>}
-export function ManagedExpo(){const photos=useShowcase('expo_photo').slice(0,10);const videos=useShowcase('expo_video');return <main className="bg-white"><section className="bg-[#eff7f6] py-20"><div className="container"><p className="text-xs font-extrabold uppercase tracking-widest text-[#0d5c4f]">ConXport events</p><h1 className="mt-3 text-5xl font-black tracking-tight text-slate-900">Our Expo</h1><p className="mt-4 max-w-xl text-slate-600">Highlights from our exhibitions and industry events.</p></div></section><section className="container py-20"><h2 className="text-3xl font-extrabold text-slate-900">Our Expo Gallery</h2><div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">{photos.map(x=><figure key={x.id} className="group overflow-hidden rounded-2xl border border-slate-100 bg-slate-50">{safeImage(x.media_url)?<img src={safeImage(x.media_url)} alt={x.title} loading="lazy" className="aspect-square w-full object-cover transition duration-500 group-hover:scale-105"/>:<div className="aspect-square"/>}<figcaption className="p-3 text-sm font-semibold text-slate-700">{x.title}</figcaption></figure>)}</div>{!photos.length&&<p className="mt-6 text-slate-500">Expo photos will appear here when added by the admin.</p>}</section><section className="bg-[#f5f8fb] py-20"><div className="container"><h2 className="text-3xl font-extrabold text-slate-900">Our Reviews</h2><div className="mt-8 grid gap-6 md:grid-cols-2">{videos.map(x=>{const src=youtubeEmbed(x.media_url||'');return src?<article key={x.id} className="overflow-hidden rounded-2xl bg-white shadow-sm"><iframe className="aspect-video w-full" src={src} title={x.title} loading="lazy" referrerPolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen/><h3 className="p-5 font-semibold text-slate-900">{x.title}</h3></article>:null})}</div>{!videos.length&&<p className="mt-6 text-slate-500">YouTube reviews will appear here when published.</p>}</div></section></main>}
+/** Public certificates gallery: image-focused cards, readable titles and scrollable lightbox. */
+export function ManagedCertificates() {
+  const items = useShowcase('certificate');
+  const [preview, setPreview] = useState<ShowcaseItem | null>(null);
+  const [zoom, setZoom] = useState(1);
+  const previewScrollRef = useRef<HTMLDivElement>(null);
+
+  const openPreview = (item: ShowcaseItem) => {
+    setZoom(1);
+    setPreview(item);
+  };
+
+  useEffect(() => {
+    if (!preview) return;
+    // Lock the underlying page, not the scrollable certificate viewer.
+    const oldOverflow = document.body.style.overflow;
+    const oldHtmlOverflow = document.documentElement.style.overflow;
+    const oldPadding = document.body.style.paddingRight;
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+    if (scrollbarWidth > 0) document.body.style.paddingRight = `${scrollbarWidth}px`;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setPreview(null);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.body.style.overflow = oldOverflow;
+      document.documentElement.style.overflow = oldHtmlOverflow;
+      document.body.style.paddingRight = oldPadding;
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, [preview]);
+
+  const changeZoom = (direction: -1 | 1) => {
+    setZoom(current => Math.max(1, Math.min(3, Math.round((current + direction * 0.25) * 100) / 100)));
+  };
+
+  const scrollCertificate = (direction: -1 | 1) => {
+    previewScrollRef.current?.scrollBy({ top: direction * 420, behavior: 'smooth' });
+  };
+
+  const downloadCertificate = async (item: ShowcaseItem) => {
+    const url = safeImage(item.media_url);
+    if (!url) return;
+    try {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error('Certificate download unavailable');
+      const blob = await response.blob();
+      const blobUrl = URL.createObjectURL(blob);
+      const fileUrl = new URL(url, window.location.href);
+      const extension = fileUrl.pathname.split('.').pop()?.toLowerCase();
+      const ext = ['pdf', 'png', 'jpg', 'jpeg', 'webp'].includes(extension || '') ? extension : (blob.type.includes('pdf') ? 'pdf' : 'png');
+      const baseName = item.title.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'certificate';
+      const anchor = document.createElement('a');
+      anchor.href = blobUrl;
+      anchor.download = `${baseName}.${ext}`;
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      window.setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
+    } catch {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+  };
+
+  const previewUrl = preview ? safeImage(preview.media_url) : '';
+  const previewIsPdf = /\.pdf(?:[?#]|$)/i.test(previewUrl);
+
+  return (
+    <section className="bg-white py-14 sm:py-20">
+      <style>{`
+        @keyframes cxCertificateEnter { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes cxCertificateModal { from { opacity: 0; transform: translateY(26px) scale(.965); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        @keyframes cxCertificateBackdrop { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes cxCertificateImageReveal { from { opacity: 0; transform: translateY(12px) scale(.975); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        .cx-certificate-backdrop { animation: cxCertificateBackdrop .24s ease-out both; }
+        .cx-certificate-image { animation: cxCertificateImageReveal .42s cubic-bezier(.2,.7,.1,1) both; }
+        .cx-certificate-card { animation: cxCertificateEnter .6s ease-out both; }
+        .cx-certificate-modal { animation: cxCertificateModal .22s ease-out both; }
+        @media (prefers-reduced-motion: reduce) { .cx-certificate-card, .cx-certificate-modal, .cx-certificate-backdrop, .cx-certificate-image { animation: none !important; } }
+      `}</style>
+      <div className="container">
+        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#0d5c4f]">ConXport credentials</p>
+        <h1 className="mt-2 font-serif text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Certificates &amp; documentation</h1>
+        <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-500 sm:text-base">Browse documents published by our team. Confirm applicable product requirements with us before ordering.</p>
+
+        <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {items.map((item, index) => {
+            const url = safeImage(item.media_url);
+            const isPdf = /\.pdf(?:[?#]|$)/i.test(url);
+            return (
+              <article
+                key={item.id}
+                style={{ animationDelay: `${Math.min(index, 9) * 75}ms` }}
+                className="cx-certificate-card group min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_4px_20px_rgba(15,23,42,.04)] transition-all duration-300 hover:-translate-y-1 hover:border-teal-200 hover:shadow-[0_20px_45px_rgba(15,23,42,.12)]"
+              >
+                <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#f7f9fa]">
+                  {url ? (
+                    <button
+                      type="button"
+                      onClick={() => openPreview(item)}
+                      className="absolute inset-0 flex h-full w-full items-center justify-center p-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-teal-600"
+                      aria-label={`Open full certificate: ${item.title}`}
+                    >
+                      {isPdf ? (
+                        <span className="flex flex-col items-center gap-2 text-[#0d5c4f]"><FileText size={66} strokeWidth={1.5} /><span className="text-xs font-semibold">View PDF certificate</span></span>
+                      ) : (
+                        <img src={url} alt={item.title} loading="lazy" decoding="async" className="block h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.025]" />
+                      )}
+                    </button>
+                  ) : (
+                    <div className="flex h-full flex-col items-center justify-center gap-2 text-[#0d5c4f]"><ShieldCheck size={65} strokeWidth={1.5} /><span className="text-xs font-semibold">Certificate document</span></div>
+                  )}
+                  {url && (
+                    <button
+                      type="button"
+                      onClick={() => void downloadCertificate(item)}
+                      aria-label={`Download ${item.title}`}
+                      title={`Download ${item.title}`}
+                      className="absolute right-3 top-3 z-10 grid h-10 w-10 place-items-center rounded-full border border-white/90 bg-white/95 text-[#0d5c4f] shadow-[0_4px_14px_rgba(0,0,0,.12)] transition-transform duration-200 hover:scale-110 hover:bg-[#0d5c4f] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
+                    ><Download size={19} strokeWidth={2.2} /></button>
+                  )}
+                </div>
+                {/* Name is OUTSIDE the certificate image so it stays readable and never overlaps the document. */}
+                <div className="flex min-h-[58px] items-center border-t border-slate-100 bg-white px-4 py-3">
+                  <p
+                    title={item.title}
+                    className="!m-0 w-full min-w-0 !font-sans !text-[14px] !font-semibold !leading-[20px] !tracking-normal !text-slate-800"
+                    style={{ display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 2, overflow: 'hidden', overflowWrap: 'anywhere' }}
+                  >
+                    {item.title}
+                  </p>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+        {!items.length && <p className="mt-8 text-sm text-slate-500">No certificates are published yet.</p>}
+      </div>
+
+      {preview && previewUrl && createPortal(
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Certificate preview: ${preview.title}`}
+          className="cx-certificate-backdrop fixed inset-0 z-[99999] flex items-center justify-center bg-slate-950/85 p-2 backdrop-blur-sm sm:p-5"
+          onMouseDown={event => { if (event.target === event.currentTarget) setPreview(null); }}
+        >
+          <div className="cx-certificate-modal flex h-[96dvh] max-h-[96dvh] w-full max-w-4xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl sm:h-[94dvh] sm:max-h-[94dvh]">
+            <div className="flex shrink-0 flex-wrap items-center justify-between gap-2 border-b border-slate-200 px-3 py-3 sm:px-5">
+              <p className="!m-0 min-w-0 flex-1 !font-sans !text-[14px] !font-semibold !leading-5 !text-slate-900 sm:!text-[15px]">{preview.title}</p>
+              <div className="flex shrink-0 items-center gap-1 sm:gap-2">
+                {!previewIsPdf && (
+                  <>
+                    <button type="button" onClick={() => changeZoom(-1)} disabled={zoom <= 1} aria-label="Zoom out" title="Zoom out" className="grid h-9 w-9 place-items-center rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-100 disabled:opacity-40"><ZoomOut size={17} /></button>
+                    <span className="w-10 text-center text-xs font-semibold tabular-nums text-slate-600">{Math.round(zoom * 100)}%</span>
+                    <button type="button" onClick={() => changeZoom(1)} disabled={zoom >= 3} aria-label="Zoom in" title="Zoom in" className="grid h-9 w-9 place-items-center rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-100 disabled:opacity-40"><ZoomIn size={17} /></button>
+                    <button type="button" onClick={() => scrollCertificate(-1)} aria-label="Scroll certificate up" title="Scroll up" className="hidden h-9 w-9 place-items-center rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-100 sm:grid"><ChevronUp size={18} /></button>
+                    <button type="button" onClick={() => scrollCertificate(1)} aria-label="Scroll certificate down" title="Scroll down" className="hidden h-9 w-9 place-items-center rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-100 sm:grid"><ChevronDown size={18} /></button>
+                  </>
+                )}
+                <button type="button" onClick={() => void downloadCertificate(preview)} title="Download certificate" aria-label={`Download ${preview.title}`} className="grid h-9 w-9 place-items-center rounded-lg bg-[#0d5c4f] text-white hover:bg-[#09493f]"><Download size={17} /></button>
+                <button type="button" onClick={() => setPreview(null)} title="Close preview" aria-label="Close certificate preview" className="grid h-9 w-9 place-items-center rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200"><X size={19} /></button>
+              </div>
+            </div>
+            <div
+              key={preview.id}
+              ref={previewScrollRef}
+              className="min-h-0 flex-1 overflow-auto overscroll-contain bg-[#edf2f4] p-3 sm:p-6"
+              style={{ WebkitOverflowScrolling: 'touch' }}
+              tabIndex={0}
+              aria-label="Scrollable full certificate"
+            >
+              {previewIsPdf ? (
+                <iframe title={preview.title} src={previewUrl} className="h-full min-h-[65vh] w-full rounded-lg border-0 bg-white shadow-sm" />
+              ) : (
+                <div
+                  className={zoom === 1 ? 'flex h-full min-h-[300px] w-full items-center justify-center' : 'flex min-h-full min-w-full items-start justify-center'}
+                >
+                  <img
+                    src={previewUrl}
+                    alt={preview.title}
+                    draggable={false}
+                    className="cx-certificate-image block shrink-0 rounded-md bg-white object-contain shadow-[0_12px_45px_rgba(15,23,42,.16)]"
+                    style={zoom === 1
+                      ? { width: 'auto', height: 'auto', maxWidth: '100%', maxHeight: '100%' }
+                      : { width: `${Math.round(zoom * 100)}%`, height: 'auto', maxWidth: 'none', maxHeight: 'none' }}
+                  />
+                </div>
+              )}
+            </div>
+            <div className="shrink-0 border-t border-slate-200 bg-white px-4 py-2 text-center text-xs text-slate-500">
+              {previewIsPdf ? 'Scroll inside the document to view all pages.' : 'Full certificate fits in the preview. Zoom in for details, then scroll to explore. Press Esc to close.'}
+            </div>
+          </div>
+        </div>,
+        document.body
+      )}
+    </section>
+  );
+}
+
+
+// Expo photos & product demonstrations share the same existing Supabase showcase records.
+// All styling is local to this file; no new routes, tables or CSS files are required.
+type ExpoPlayer = {
+  playVideo: () => void;
+  pauseVideo: () => void;
+  seekTo: (seconds: number, allowSeekAhead?: boolean) => void;
+  mute: () => void;
+  unMute: () => void;
+  setVolume: (volume: number) => void;
+  getVolume: () => number;
+  getCurrentTime: () => number;
+  getDuration: () => number;
+  getPlayerState: () => number;
+  destroy: () => void;
+};
+type ExpoYT = { Player: new (element: HTMLElement, config: {
+  videoId: string;
+  playerVars: Record<string, number | string>;
+  events: {
+    onReady: (event: { target: ExpoPlayer }) => void;
+    onStateChange: (event: { data: number }) => void;
+  };
+}) => ExpoPlayer };
+type ExpoYTWindow = Window & { YT?: ExpoYT; onYouTubeIframeAPIReady?: () => void };
+let expoYTLoading: Promise<ExpoYT> | undefined;
+function loadExpoYoutube(): Promise<ExpoYT> {
+  if (expoYTLoading) return expoYTLoading;
+  expoYTLoading = new Promise<ExpoYT>((resolve, reject) => {
+    const w = window as ExpoYTWindow;
+    if (w.YT?.Player) { resolve(w.YT); return; }
+    const previousReady = w.onYouTubeIframeAPIReady;
+    w.onYouTubeIframeAPIReady = () => {
+      previousReady?.();
+      if (w.YT?.Player) resolve(w.YT);
+      else reject(new Error('YouTube player is unavailable'));
+    };
+    const existing = document.querySelector('script[src="https://www.youtube.com/iframe_api"]');
+    if (!existing) {
+      const script = document.createElement('script');
+      script.src = 'https://www.youtube.com/iframe_api';
+      script.async = true;
+      script.onerror = () => reject(new Error('Unable to load YouTube player'));
+      document.head.appendChild(script);
+    }
+  }).catch(error => { expoYTLoading = undefined; throw error; });
+  return expoYTLoading;
+}
+function expoYoutubeId(url: string | null): string | null {
+  if (!url) return null;
+  const embed = youtubeEmbed(url);
+  if (!embed) return null;
+  const match = embed.match(/\/embed\/([a-zA-Z0-9_-]{11})/);
+  return match?.[1] || null;
+}
+function expoTimestamp(seconds: number): string {
+  const total = Math.max(0, Math.floor(Number.isFinite(seconds) ? seconds : 0));
+  const minutes = Math.floor(total / 60);
+  return `${minutes}:${String(total % 60).padStart(2, '0')}`;
+}
+function lockExpoBackground(onClose: () => void) {
+  const previous = document.body.style.overflow;
+  document.body.style.overflow = 'hidden';
+  const handleKey = (event: KeyboardEvent) => { if (event.key === 'Escape') onClose(); };
+  window.addEventListener('keydown', handleKey);
+  return () => { document.body.style.overflow = previous; window.removeEventListener('keydown', handleKey); };
+}
+
+function ExpoVideoViewer({ item, onClose }: { item: ShowcaseItem; onClose: () => void }) {
+  const playerNode = useRef<HTMLDivElement>(null);
+  const screenNode = useRef<HTMLDivElement>(null);
+  const player = useRef<ExpoPlayer | null>(null);
+  const [playing, setPlaying] = useState(false);
+  const [muted, setMuted] = useState(false);
+  const [volume, setVolume] = useState(75);
+  const [duration, setDuration] = useState(0);
+  const [elapsed, setElapsed] = useState(0);
+  const [error, setError] = useState('');
+  const id = expoYoutubeId(item.media_url);
+  useEffect(() => lockExpoBackground(onClose), [onClose]);
+  useEffect(() => {
+    let alive = true;
+    const createdRef: { current: ExpoPlayer | null } = { current: null };
+    if (!id || !playerNode.current) return;
+    const node = playerNode.current;
+    loadExpoYoutube().then(YT => {
+      if (!alive) return;
+      const target = document.createElement('div');
+      node.replaceChildren(target);
+      createdRef.current = new YT.Player(target, {
+        videoId: id,
+        playerVars: { autoplay: 1, controls: 0, rel: 0, playsinline: 1, origin: window.location.origin },
+        events: {
+          onReady: event => {
+            if (!alive) return;
+            player.current = event.target;
+            event.target.setVolume(75);
+            setDuration(event.target.getDuration() || 0);
+            event.target.playVideo();
+          },
+          onStateChange: event => { if (alive) setPlaying(event.data === 1); },
+        },
+      });
+    }).catch(() => { if (alive) setError('Video could not be loaded.'); });
+    return () => { alive = false; player.current = null; try { createdRef.current?.destroy(); } catch { /* player may be uninitialized */ } node.replaceChildren(); };
+  }, [id]);
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      if (!player.current) return;
+      try { setElapsed(player.current.getCurrentTime() || 0); setDuration(player.current.getDuration() || 0); } catch { /* unloaded player */ }
+    }, 400);
+    return () => window.clearInterval(interval);
+  }, []);
+  const togglePlay = () => { if (!player.current) return; if (playing) player.current.pauseVideo(); else player.current.playVideo(); };
+  const toggleMute = () => { if (!player.current) return; if (muted) player.current.unMute(); else player.current.mute(); setMuted(!muted); };
+  const adjustVolume = (next: number) => { setVolume(next); player.current?.setVolume(next); if (next > 0 && muted) { player.current?.unMute(); setMuted(false); } };
+  return createPortal(
+    <div role="dialog" aria-modal="true" aria-label={`Product demonstration: ${item.title}`} className="cx-expo-overlay fixed inset-0 z-[100000] flex items-center justify-center bg-[#03151e]/90 p-3 backdrop-blur-md sm:p-6" onMouseDown={event => { if (event.target === event.currentTarget) onClose(); }}>
+      <div className="cx-expo-reveal flex max-h-[94dvh] w-full max-w-5xl flex-col overflow-hidden rounded-[24px] border border-white/15 bg-[#081f29] text-white shadow-2xl">
+        <div className="flex items-center justify-between gap-4 border-b border-white/10 px-4 py-3 sm:px-6">
+          <span className="text-xs font-bold uppercase tracking-[0.16em] text-teal-200">Product demonstration</span>
+          <button type="button" onClick={onClose} aria-label="Close video" className="grid h-9 w-9 place-items-center rounded-full bg-white/10 hover:bg-white/20"><X size={19}/></button>
+        </div>
+        <div className="min-h-0 overflow-y-auto overscroll-contain">
+          <div ref={screenNode} className="relative aspect-video bg-black">
+            <div ref={playerNode} className="absolute inset-0 [&>iframe]:!h-full [&>iframe]:!w-full"/>
+            {error && <div className="absolute inset-0 grid place-items-center p-6 text-center text-sm text-white">{error}</div>}
+          </div>
+          <div className="border-b border-white/10 bg-[#0a2731] px-4 py-3 sm:px-5">
+            <input type="range" aria-label="Seek video" min={0} max={Math.max(duration, 1)} step={0.5} value={Math.min(elapsed, Math.max(duration, 1))} onChange={e => { const next = Number(e.target.value); player.current?.seekTo(next, true); setElapsed(next); }} className="block w-full accent-teal-400"/>
+            <div className="mt-2 flex flex-wrap items-center gap-3">
+              <button type="button" onClick={togglePlay} aria-label={playing ? 'Pause video' : 'Play video'} className="grid h-9 w-9 place-items-center rounded-lg bg-teal-600 hover:bg-teal-500">{playing ? <Pause size={18}/> : <Play size={18}/>}</button>
+              <button type="button" onClick={toggleMute} aria-label={muted ? 'Unmute' : 'Mute'} className="grid h-9 w-9 place-items-center rounded-lg bg-white/10 hover:bg-white/20">{muted || volume === 0 ? <VolumeX size={18}/> : <Volume2 size={18}/>}</button>
+              <button type="button" onClick={() => adjustVolume(Math.max(0, volume - 10))} aria-label="Volume down" className="grid h-8 w-8 place-items-center rounded-lg bg-white/10 hover:bg-white/20"><Minus size={16}/></button>
+              <input aria-label="Volume" type="range" min={0} max={100} step={1} value={volume} onChange={e => adjustVolume(Number(e.target.value))} className="w-16 accent-teal-400 sm:w-24"/>
+              <button type="button" onClick={() => adjustVolume(Math.min(100, volume + 10))} aria-label="Volume up" className="grid h-8 w-8 place-items-center rounded-lg bg-white/10 hover:bg-white/20"><Plus size={16}/></button>
+              <span className="text-xs tabular-nums text-white/70">{expoTimestamp(elapsed)} / {expoTimestamp(duration)}</span>
+              <div className="flex-1"/>
+              <button type="button" onClick={() => { void screenNode.current?.requestFullscreen?.(); }} aria-label="Fullscreen video" title="Fullscreen" className="grid h-9 w-9 place-items-center rounded-lg bg-white/10 hover:bg-white/20"><Maximize size={18}/></button>
+            </div>
+          </div>
+          <div className="space-y-3 p-5 sm:p-7">
+            <h3 className="!m-0 !font-sans !text-xl !font-bold !leading-snug !text-white sm:!text-2xl">{item.title}</h3>
+            {item.body && <p className="!m-0 whitespace-pre-wrap text-sm leading-7 !text-slate-300">{item.body}</p>}
+          </div>
+        </div>
+      </div>
+    </div>, document.body
+  );
+}
+
+export function ManagedExpo() {
+  const photos = useShowcase('expo_photo');
+  const videos = useShowcase('expo_video');
+  const [photoIndex, setPhotoIndex] = useState<number | null>(null);
+  const [activeVideo, setActiveVideo] = useState<ShowcaseItem | null>(null);
+  const closePhoto = () => setPhotoIndex(null);
+  const closeVideo = () => setActiveVideo(null);
+  useEffect(() => {
+    if (photoIndex === null) return;
+    return lockExpoBackground(closePhoto);
+  }, [photoIndex]);
+  useEffect(() => {
+    if (photoIndex === null) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'ArrowRight') setPhotoIndex(index => index === null ? null : (index + 1) % photos.length);
+      if (event.key === 'ArrowLeft') setPhotoIndex(index => index === null ? null : (index - 1 + photos.length) % photos.length);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [photoIndex, photos.length]);
+  const photo = photoIndex === null ? null : photos[photoIndex];
+  return <main className="bg-white">
+    <style>{`
+      @keyframes cxExpoRise {from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+      @keyframes cxExpoOverlay {from{opacity:0}to{opacity:1}}
+      @keyframes cxExpoReveal {from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+      .cx-expo-card{animation:cxExpoRise .65s cubic-bezier(.2,.7,.2,1) both}
+      .cx-expo-overlay{animation:cxExpoOverlay .22s ease both}
+      .cx-expo-reveal{animation:cxExpoReveal .35s cubic-bezier(.18,.8,.2,1) both}
+      @media(prefers-reduced-motion:reduce){.cx-expo-card,.cx-expo-overlay,.cx-expo-reveal{animation:none!important;transition:none!important}}
+    `}</style>
+    <section className="relative overflow-hidden bg-[#f0f8f6] py-16 sm:py-20">
+      <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-36 h-96 w-96 rounded-full bg-[#ccebe5]/60 blur-3xl"/>
+      <div className="container relative">
+        <p className="!mb-0 text-[11px] font-extrabold uppercase tracking-[.22em] !text-[#0c705e]">ConXport events</p>
+        <h1 className="!mb-0 mt-3 font-serif text-[clamp(2.5rem,5vw,4.5rem)] font-bold tracking-[-.045em] !text-[#101d30]">Our Expo</h1>
+        <p className="!mb-0 mt-4 max-w-2xl text-sm leading-7 !text-slate-600 sm:text-base">Explore moments from our exhibitions, product showcases and live equipment demonstrations.</p>
+      </div>
+    </section>
+    <section className="container py-14 sm:py-20" aria-labelledby="expo-gallery-heading">
+      <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+        <div><p className="!mb-0 text-[11px] font-bold uppercase tracking-[.2em] !text-[#0d7664]">Moments from our events</p><h2 id="expo-gallery-heading" className="!mb-0 mt-2 font-serif text-[clamp(1.9rem,3vw,2.8rem)] !font-bold !text-[#102536]">Our Expo Gallery</h2></div>
+        <p className="!mb-0 text-sm !text-slate-500">Select any image to explore</p>
+      </div>
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4 xl:grid-cols-4">
+        {photos.map((item, i) => {
+          const url = safeImage(item.media_url);
+          if (!url) return null;
+          return <button key={item.id} type="button" style={{animationDelay:`${Math.min(i, 10)*55}ms`}} onClick={() => setPhotoIndex(i)} aria-label={`View exhibition image ${i+1} of ${photos.length}`} className="cx-expo-card group relative block aspect-[4/3] w-full min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-[#f1f6f7] shadow-[0_8px_28px_-20px_rgba(15,45,55,.3)] transition-all duration-500 hover:-translate-y-1 hover:border-teal-200 hover:shadow-[0_18px_35px_-18px_rgba(15,45,55,.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700">
+            <img src={url} alt={`ConXport exhibition photo ${i+1}`} loading={i<4?'eager':'lazy'} decoding="async" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"/>
+            <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#062827]/30 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"/>
+            <span className="pointer-events-none absolute bottom-3 right-3 grid h-9 w-9 translate-y-2 place-items-center rounded-full bg-white/95 text-[#0d5c4f] opacity-0 shadow-lg transition duration-300 group-hover:translate-y-0 group-hover:opacity-100"><ZoomIn size={17}/></span>
+          </button>;
+        })}
+      </div>
+      {!photos.length && <p className="mt-6 text-sm text-slate-500">Expo photos will appear here when published.</p>}
+    </section>
+    <section className="bg-[#f3f8fa] py-16 sm:py-20" aria-labelledby="expo-videos-heading">
+      <div className="container">
+        <div className="mb-9 max-w-3xl"><p className="!mb-0 text-[11px] font-bold uppercase tracking-[.2em] !text-[#0d7664]">See our products in action</p><h2 id="expo-videos-heading" className="!mb-0 mt-2 font-serif text-[clamp(1.9rem,3vw,2.8rem)] !font-bold !text-[#102536]">Product Demonstrations &amp; Tutorials</h2><p className="!mb-0 mt-3 text-sm leading-7 !text-slate-600">Watch product demonstrations, explore features and learn how ConXport equipment works.</p></div>
+        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+          {videos.map((item, i) => {
+            const id = expoYoutubeId(item.media_url);
+            if (!id) return null;
+            return <article key={item.id} style={{animationDelay:`${Math.min(i,10)*50}ms`}} className="cx-expo-card group min-w-0 overflow-hidden rounded-[22px] border border-[#dce6e8] bg-white shadow-[0_12px_35px_-30px_rgba(15,45,60,.5)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_25px_55px_-30px_rgba(15,45,60,.5)]">
+              <button type="button" onClick={() => setActiveVideo(item)} className="relative block aspect-video w-full overflow-hidden bg-[#0c2838] text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal-600" aria-label={`Play product video: ${item.title}`}>
+                <img src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`} alt="" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"/>
+                <span className="absolute inset-0 bg-[#031924]/25 transition group-hover:bg-[#031924]/35"/>
+                <span className="absolute left-1/2 top-1/2 grid h-14 w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-white/60 bg-white/90 text-[#0b6355] shadow-xl transition duration-300 group-hover:scale-110 group-hover:bg-white"><Play size={24} fill="currentColor" className="ml-1"/></span>
+                <span className="absolute bottom-3 left-3 rounded-full border border-white/30 bg-black/45 px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest text-white backdrop-blur">Watch demonstration</span>
+              </button>
+              <div className="p-5"><h3 className="!m-0 !font-sans !text-base !font-bold !leading-6 !tracking-normal !text-[#142c36]" style={{display:'-webkit-box',WebkitBoxOrient:'vertical',WebkitLineClamp:2,overflow:'hidden'}}>{item.title}</h3><p className="!mb-0 mt-2 text-sm leading-6 !text-slate-500" style={{display:'-webkit-box',WebkitBoxOrient:'vertical',WebkitLineClamp:2,overflow:'hidden'}}>{item.body || 'Watch the full equipment demonstration and learn more about this product.'}</p><button type="button" onClick={() => setActiveVideo(item)} className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[#0d5c4f] hover:text-[#083c34]">Watch video <ArrowUpRight size={16}/></button></div>
+            </article>;
+          })}
+        </div>
+        {!videos.length && <p className="mt-6 text-sm text-slate-500">Product demonstrations will appear here when published.</p>}
+      </div>
+    </section>
+    {photo && photoIndex !== null && createPortal(
+      <div role="dialog" aria-modal="true" aria-label={`Expo image ${photoIndex+1} of ${photos.length}`} className="cx-expo-overlay fixed inset-0 z-[100000] flex items-center justify-center bg-[#04141d]/95 p-3 backdrop-blur-lg sm:p-6" onMouseDown={event => {if(event.target===event.currentTarget) closePhoto();}}>
+        <div className="cx-expo-reveal relative flex h-[94dvh] w-full max-w-6xl flex-col overflow-hidden rounded-[20px] border border-white/10 bg-[#081a24] shadow-2xl">
+          <div className="flex shrink-0 items-center justify-between gap-3 border-b border-white/10 px-4 py-3 text-white"><span className="text-xs font-semibold tracking-widest text-white/75">{photoIndex+1} / {photos.length}</span><button type="button" onClick={closePhoto} aria-label="Close photo" className="grid h-9 w-9 place-items-center rounded-full bg-white/10 hover:bg-white/20"><X size={19}/></button></div>
+          <div className="relative flex min-h-0 flex-1 items-center justify-center overflow-auto p-2 sm:p-5">
+            <img key={photo.id} src={safeImage(photo.media_url)} alt={`ConXport exhibition photograph ${photoIndex+1}`} className="cx-expo-reveal block max-h-full max-w-full object-contain"/>
+            {photos.length>1 && <><button type="button" onClick={() => setPhotoIndex((photoIndex-1+photos.length)%photos.length)} aria-label="Previous photo" className="absolute left-2 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-black/60 text-white backdrop-blur hover:bg-black/80 sm:left-5"><ArrowLeft size={20}/></button><button type="button" onClick={() => setPhotoIndex((photoIndex+1)%photos.length)} aria-label="Next photo" className="absolute right-2 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-black/60 text-white backdrop-blur hover:bg-black/80 sm:right-5"><ArrowRight size={20}/></button></>}
+          </div>
+          <p className="!m-0 shrink-0 border-t border-white/10 px-4 py-3 text-center text-xs !text-white/60">Use ← → keys to browse • Esc to close</p>
+        </div>
+      </div>, document.body
+    )}
+    {activeVideo && <ExpoVideoViewer key={activeVideo.id} item={activeVideo} onClose={closeVideo}/>}
+  </main>;
+}

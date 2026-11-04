@@ -1,4 +1,5 @@
 import ExpoPage from '../pages/public/ExpoPage';
+import TurnkeyProjectsPage from '../pages/public/TurnkeyProjectsPage';
 import ShowcaseAdminPage from '../pages/admin/ShowcaseAdminPage';
 import ContactInboxPage from '../pages/admin/ContactInboxPage';
 import { createBrowserRouter, Navigate } from 'react-router';
@@ -95,8 +96,9 @@ export const router = createBrowserRouter([
     { path: 'admin/login', element: <AdminLoginPage /> },
     { path: 'blog', element: <CmsIndexPage kind="blog" title="Insights & Blog" /> },
     { path: 'blog/:slug', element: <CmsDetailPage kind="blog" /> },
-    { path: 'case-studies', element: <CmsIndexPage kind="case_study" title="Case Studies" /> },
-    { path: 'case-studies/:slug', element: <CmsDetailPage kind="case_study" /> },
+    { path: 'turnkey-projects', element: <TurnkeyProjectsPage /> },
+    { path: 'case-studies', element: <Navigate to="/turnkey-projects" replace /> },
+    { path: 'case-studies/:slug', element: <Navigate to="/turnkey-projects" replace /> },
     { path: 'resources', element: <CmsIndexPage kind="resource" title="Resources" /> },
     { path: 'resources/:slug', element: <CmsDetailPage kind="resource" /> },
     { path: 'about', element: <AboutPage /> },
@@ -147,7 +149,8 @@ export const router = createBrowserRouter([
       { path: 'showcase/:kind', element: <ShowcaseAdminPage /> },
       { path: 'contact-messages', element: <ContactInboxPage /> },
       { path: 'blog', element: <BlogPage /> },
-      { path: 'case-studies', element: <CaseStudiesPage /> },
+      { path: 'turnkey-projects', element: <CaseStudiesPage /> },
+      { path: 'case-studies', element: <Navigate to="/admin/turnkey-projects" replace /> },
       { path: 'resources', element: <ResourcesPage /> },
       { path: 'seo', element: <SeoPage /> },
       { path: 'settings', element: <SettingsPage /> },
