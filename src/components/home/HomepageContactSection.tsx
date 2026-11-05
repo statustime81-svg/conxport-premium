@@ -7,8 +7,13 @@ export default function HomepageContactSection() {
   return (
     <section id="home-contact" className="bg-white pb-14 pt-8 sm:pb-20 sm:pt-12">
       <div className="mx-auto w-[min(1440px,calc(100%-40px))]">
+<<<<<<< HEAD
         <div className="grid items-start gap-8 lg:items-stretch lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-14">
           <div className="flex min-w-0 flex-col pt-1 lg:h-full lg:pt-8">
+=======
+        <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-14">
+          <div className="pt-1 lg:pt-8">
+>>>>>>> origin/main
             <p className="mb-4 flex items-center gap-2 !text-xs font-extrabold uppercase tracking-[.16em] !text-[#07546B]">
               <MessageSquareText size={17} /> Contact us
             </p>
@@ -58,8 +63,13 @@ export default function HomepageContactSection() {
               <h2 className="!mb-3 !font-sans !text-[clamp(1.9rem,3.5vw,3.1rem)] !font-extrabold !leading-tight !tracking-[-.045em] !text-white">Tell us what you need.</h2>
               <p className="!mb-0 !text-sm !leading-7 !text-[#D5E4EC]">Planning a hospital upgrade or sourcing medical equipment? Share your requirements with our team.</p>
             </div>
+<<<<<<< HEAD
             <Link to="/contact" className="group inline-flex shrink-0 items-center justify-center gap-2 self-start rounded-full bg-white px-6 py-3 text-sm font-extrabold !text-[#043C50] transition-transform duration-200 hover:-translate-y-1 hover:bg-[#FFF1EB] md:self-auto">
               Contact ConXport <ArrowUpRight size={18} color="#F93E02" className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+=======
+            <Link to="/contact" className="group inline-flex shrink-0 items-center justify-center gap-2 self-start rounded-full bg-white px-6 py-3 text-sm font-extrabold !text-[#07546B] transition-transform duration-200 hover:-translate-y-1 md:self-auto">
+              Contact ConXport <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+>>>>>>> origin/main
             </Link>
           </div>
         </div>

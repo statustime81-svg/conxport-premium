@@ -401,7 +401,10 @@ export const router = createBrowserRouter([
             path: 'homepage',
             element: <HomepagePage />,
           },
+<<<<<<< HEAD
           { path: 'home-services', element: <HomeServicesAdminPage /> },
+=======
+>>>>>>> origin/main
           {
             path: 'showcase/:kind',
             element: <ShowcaseAdminPage />,

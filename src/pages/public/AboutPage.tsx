@@ -55,6 +55,7 @@ export default function AboutPage() {
                 Medical equipment.
                 <span className="mt-1 block !text-[#07546B]">Built around healthcare.</span>
               </h1>
+<<<<<<< HEAD
               <div className="mt-8 max-w-[730px] border-l-[3px] border-[#FF4F18] pl-5 sm:pl-7">
                 <p className={`!m-0 ${bodyText}`}>
                   ConXport is a leading supplier and manufacturer of laboratory and medical equipment. With a commitment to innovation, quality, and customer satisfaction, we specialize in providing a comprehensive range of cutting-edge equipment and solutions to healthcare institutions, research laboratories, and educational facilities.
@@ -82,6 +83,24 @@ export default function AboutPage() {
                 </div>
               </div>
               <div aria-hidden="true" className="absolute -bottom-5 -right-4 h-24 w-24 rounded-[24px] border border-[#f9c8b7] bg-[#fff0e9] sm:-bottom-7 sm:-right-7" />
+=======
+              <p className={`mt-7 max-w-[720px] ${bodyText}`}>
+                ConXport is a leading supplier and manufacturer of laboratory and medical equipment. With a commitment to innovation, quality, and customer satisfaction, we specialize in providing a comprehensive range of cutting-edge equipment and solutions to healthcare institutions, research laboratories, and educational facilities.
+              </p>
+              <p className={`mt-4 max-w-[720px] ${bodyText}`}>
+                With a deep understanding of the unique needs and challenges of the healthcare industry, we strive to deliver products that enhance patient comfort, support healthcare professionals, and contribute to the overall efficiency of healthcare environments.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link to="/products" className="group inline-flex items-center gap-2 rounded-full bg-[#07546B] px-6 py-3.5 text-sm font-bold !text-white transition hover:-translate-y-0.5 hover:bg-[#053F52]">Explore Products <ArrowUpRight size={17} className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" /></Link>
+                <Link to="/contact" className="inline-flex items-center gap-2 rounded-full border border-[#cbded8] bg-white px-6 py-3.5 text-sm font-bold !text-[#07546B] transition hover:bg-[#E7F5F7]">Contact Us <ArrowRight size={16} /></Link>
+              </div>
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="overflow-hidden rounded-[24px] bg-[#e9f3f0] shadow-[0_18px_50px_rgba(6,52,46,.09)]">
+              <img src="/images/why-conxport/healthcare.png" alt="Hospital healthcare equipment and facility" className="h-[270px] w-full object-cover sm:h-[380px] lg:h-[440px]" />
+              <div className="flex items-center gap-3 border-t border-[#d6e8e1] bg-white px-6 py-4 text-[13px] font-bold text-[#07546B]"><HeartPulse size={19} /> Contemporary Export Industries · Medical & Laboratory Equipment</div>
+>>>>>>> origin/main
             </div>
           </Reveal>
         </div>
@@ -99,12 +118,21 @@ export default function AboutPage() {
           </Reveal>
           <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {strengths.map(({ number, icon: Icon, title, description }, index) => (
+<<<<<<< HEAD
               <Reveal key={number} delay={(index % 4) * 0.065} className="h-full">
                 <article className="group relative flex h-full min-h-[335px] flex-col overflow-hidden rounded-[26px] border border-[#e0e9ed] bg-[#f8fbfc] p-6 shadow-[0_10px_35px_-28px_rgba(7,84,107,.25)] transition-all duration-500 hover:-translate-y-2 hover:border-[#b4d4dd] hover:bg-white hover:shadow-[0_28px_60px_-32px_rgba(7,84,107,.36)] sm:p-7">
                   <div aria-hidden="true" className="pointer-events-none absolute right-[-34px] top-[-44px] h-36 w-36 rounded-full border border-[#dcecef] transition-transform duration-500 group-hover:scale-[1.25]" />
                   <div className="relative flex items-center justify-between">
                     <div className="flex h-14 w-14 items-center justify-center rounded-[17px] bg-[#e6f3f6] text-[#07546B] transition-all duration-300 group-hover:bg-[#07546B] group-hover:text-white"><Icon size={25} strokeWidth={1.7} /></div>
                     <span className="font-['DM_Serif_Display',Georgia,serif] text-[29px] text-[#aac1c9]">{number}</span>
+=======
+              <Reveal key={number} delay={(index % 2) * 0.05}>
+                <article className="group flex h-full gap-4 border-t border-[#dbe6e3] py-6 sm:gap-5 sm:py-7">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#E7F5F7] text-[#07546B] transition duration-300 group-hover:bg-[#07546B] group-hover:text-white"><Icon size={21} strokeWidth={1.8} /></div>
+                  <div className="min-w-0">
+                    <div className="mb-2 flex items-center gap-2"><span className="text-[11px] font-bold tracking-wider text-[#839ca1]">{number}</span><h3 className="!m-0 !font-sans text-[17px] font-extrabold leading-snug !text-[#142e35] sm:text-[19px]">{title}</h3></div>
+                    <p className="!m-0 text-[14px] leading-[1.85] text-[#5b6f76]">{description}</p>
+>>>>>>> origin/main
                   </div>
                   <h3 className="relative !mb-0 mt-7 !font-sans text-[17px] font-extrabold leading-[1.45] tracking-[-.035em] !text-[#102D3C] sm:text-[18px]">{title}</h3>
                   <p className="relative !mb-0 mt-3 flex-1 text-[13px] leading-[1.85] !text-[#61747c]">{description}</p>
@@ -116,7 +144,28 @@ export default function AboutPage() {
         </div>
       </section>
 
+<<<<<<< HEAD
       {/* The product portfolio tag-grid section was intentionally removed per reference. */}
+=======
+      {/* FULL PRODUCT RANGE, all user-provided groups */}
+      <section className="bg-[#f5f9f8] py-14 sm:py-[76px]" aria-labelledby="about-range-title">
+        <div className="container mx-auto max-w-[1300px]">
+          <Reveal>
+            <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
+              <div>
+                <p className={sectionLabel}>OUR PRODUCT PORTFOLIO</p>
+                <h2 id="about-range-title" className="mt-4 max-w-[820px] !font-sans text-[clamp(2rem,4vw,3.35rem)] font-extrabold leading-tight tracking-[-.045em] !text-[#102b33]">A wide range of equipment for healthcare and laboratories.</h2>
+                <p className={`mt-4 max-w-[860px] ${bodyText}`}>From hospital furniture and ICU equipment to diagnostic instruments, medical disposables, surgical supplies and rehabilitation products.</p>
+              </div>
+              <Link to="/categories" className="inline-flex shrink-0 items-center gap-2 self-start rounded-full border border-[#07546B] px-5 py-3 text-sm font-bold !text-[#07546B] transition hover:bg-[#e1f1ec]">Explore Categories <ArrowUpRight size={17}/></Link>
+            </div>
+          </Reveal>
+          <div className="mt-8 flex flex-wrap gap-2.5">
+            {productGroups.map(group => <span key={group} className="rounded-lg border border-[#DCECF0] bg-white px-3.5 py-2.5 text-[13px] font-semibold text-[#284a4d]">{group}</span>)}
+          </div>
+        </div>
+      </section>
+>>>>>>> origin/main
 
       {/* DISTRIBUTION AND VISION - ORIGINAL FACTS AND COPY */}
       <section className="bg-[#f5f9fa] py-20 sm:py-24 lg:py-28">
@@ -135,6 +184,7 @@ export default function AboutPage() {
           <Reveal delay={0.1}>
             <div className="lg:py-4">
               <p className={sectionLabel}>CONXPORT NETWORK</p>
+<<<<<<< HEAD
               <h2 className="mt-4 max-w-[710px] font-['DM_Serif_Display',Georgia,serif] text-[clamp(2.7rem,4.3vw,4.8rem)] font-normal leading-[1.06] tracking-[-.04em] !text-[#102D3C]">Supporting healthcare across borders.</h2>
               <p className={`mt-6 ${bodyText}`}>ConXport is currently exporting medical equipment and hospital furniture around the world with a long list of satisfied clients. We export medical equipment and hospital furniture on an OEM brands basis. ConXport has a worldwide network for distribution of medical scientific and hospital furniture.</p>
               <Link to="/distributor-network" className="group mt-6 inline-flex items-center gap-2 border-b-2 border-[#FF4F18] pb-2 text-sm font-bold !text-[#07546B]">View Distributor Network <ArrowUpRight size={17} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" /></Link>
@@ -142,6 +192,15 @@ export default function AboutPage() {
                 <div className="flex items-center gap-3"><span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#e6f3f6] text-[#07546B]"><Sparkles size={20} /></span><p className={`!m-0 ${sectionLabel}`}>OUR VISION</p></div>
                 <h3 className="mt-5 !font-sans text-[23px] font-extrabold leading-[1.4] tracking-[-.035em] !text-[#102D3C]">Empowering laboratories and healthcare facilities</h3>
                 <p className={`!mb-0 mt-3 ${bodyText}`}>At Contemporary Export Industries our mission is to empower laboratories and healthcare facilities with reliable, technologically advanced equipment that enables accurate diagnoses, research advancements, and improved patient outcomes. We are dedicated to being a trusted partner, delivering high-quality products, personalized service, and innovative solutions that contribute to the advancement of science and healthcare.</p>
+=======
+              <h2 className="mt-4 !font-sans text-[clamp(2rem,3.6vw,3.3rem)] font-extrabold leading-tight tracking-[-.045em] !text-[#102b33]">Supporting healthcare across borders.</h2>
+              <p className={`mt-5 ${bodyText}`}>ConXport is currently exporting medical equipment and hospital furniture around the world with a long list of satisfied clients. We export medical equipment and hospital furniture on an OEM brands basis. ConXport has a worldwide network for distribution of medical scientific and hospital furniture.</p>
+              <Link to="/distributor-network" className="mt-5 inline-flex items-center gap-2 text-sm font-bold !text-[#07546B] hover:underline">View Distributor Network <ArrowUpRight size={17}/></Link>
+              <div className="mt-8 border-t border-[#dbe6e3] pt-7">
+                <p className={sectionLabel}>OUR VISION</p>
+                <h3 className="mt-3 !font-sans text-[23px] font-extrabold !text-[#102b33]">Empowering laboratories and healthcare facilities</h3>
+                <p className={`mt-3 ${bodyText}`}>At Contemporary Export Industries our mission is to empower laboratories and healthcare facilities with reliable, technologically advanced equipment that enables accurate diagnoses, research advancements, and improved patient outcomes. We are dedicated to being a trusted partner, delivering high-quality products, personalized service, and innovative solutions that contribute to the advancement of science and healthcare.</p>
+>>>>>>> origin/main
               </div>
             </div>
           </Reveal>
@@ -152,11 +211,20 @@ export default function AboutPage() {
       <section className="bg-white py-20 sm:py-24">
         <div className="container mx-auto max-w-[1330px]">
           <Reveal>
+<<<<<<< HEAD
             <div className="mb-9 text-center"><p className={sectionLabel}>GET IN TOUCH</p><h2 className="mt-4 font-['DM_Serif_Display',Georgia,serif] text-[clamp(2.5rem,4vw,4.2rem)] font-normal tracking-[-.04em] !text-[#102D3C]">Contemporary Export Industries</h2></div>
             <div className="grid gap-5 md:grid-cols-3">
               <div className="rounded-[24px] border border-[#dde8ec] bg-[#f8fbfc] p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_48px_-30px_rgba(7,84,107,.22)] sm:p-7"><div className="mb-5 flex h-12 w-12 items-center justify-center rounded-[15px] bg-[#e8f3f7] text-[#07546B]"><MapPin size={22}/></div><p className="!m-0 text-xs font-extrabold uppercase tracking-wider !text-[#07546B]">Address</p><p className="mt-3 text-sm leading-7 text-[#4e666e]">6342, Nicholson Road, Ambala Cantt, Haryana 133001, India</p></div>
               <div className="rounded-[24px] border border-[#dde8ec] bg-[#f8fbfc] p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_48px_-30px_rgba(7,84,107,.22)] sm:p-7"><div className="mb-5 flex h-12 w-12 items-center justify-center rounded-[15px] bg-[#e8f3f7] text-[#07546B]"><Phone size={22}/></div><p className="!m-0 text-xs font-extrabold uppercase tracking-wider !text-[#07546B]">Phone</p><a href="tel:+919896711929" className="mt-3 block text-sm !text-[#304b52] hover:underline">+91 98967 11929</a><a href="tel:+919729999965" className="mt-2 block text-sm !text-[#304b52] hover:underline">+91 97299 99965</a></div>
               <div className="rounded-[24px] border border-[#dde8ec] bg-[#f8fbfc] p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_48px_-30px_rgba(7,84,107,.22)] sm:p-7"><div className="mb-5 flex h-12 w-12 items-center justify-center rounded-[15px] bg-[#e8f3f7] text-[#07546B]"><Mail size={22}/></div><p className="!m-0 text-xs font-extrabold uppercase tracking-wider !text-[#07546B]">Email</p><a href="mailto:trehan.akhil@yahoo.com" className="mt-3 block break-all text-sm !text-[#304b52] hover:underline">trehan.akhil@yahoo.com</a><p className="mt-2 text-xs leading-5 text-[#74888b]">Contact details sourced from the supplied distributor document.</p></div>
+=======
+            <p className={sectionLabel}>GET IN TOUCH</p>
+            <h2 className="mt-3 !font-sans text-[clamp(1.8rem,3vw,2.8rem)] font-extrabold tracking-[-.045em] !text-[#102b33]">Contemporary Export Industries</h2>
+            <div className="mt-7 grid gap-5 border-t border-[#d7e6e1] pt-7 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="flex items-start gap-3"><MapPin size={20} className="mt-1 shrink-0 text-[#07546B]" /><div><p className="!m-0 text-xs font-bold uppercase tracking-wider text-[#07546B]">Address</p><p className="mt-2 text-sm leading-7 text-[#4e666e]">6342, Nicholson Road, Ambala Cantt, Haryana 133001, India</p></div></div>
+              <div className="flex items-start gap-3"><Phone size={20} className="mt-1 shrink-0 text-[#07546B]" /><div><p className="!m-0 text-xs font-bold uppercase tracking-wider text-[#07546B]">Phone</p><a href="tel:+919896711929" className="mt-2 block text-sm !text-[#304b52] hover:underline">+91 98967 11929</a><a href="tel:+919729999965" className="mt-1 block text-sm !text-[#304b52] hover:underline">+91 97299 99965</a></div></div>
+              <div className="flex items-start gap-3"><Mail size={20} className="mt-1 shrink-0 text-[#07546B]" /><div><p className="!m-0 text-xs font-bold uppercase tracking-wider text-[#07546B]">Email</p><a href="mailto:trehan.akhil@yahoo.com" className="mt-2 block break-all text-sm !text-[#304b52] hover:underline">trehan.akhil@yahoo.com</a><p className="mt-2 text-xs leading-5 text-[#74888b]">Contact details sourced from the supplied distributor document.</p></div></div>
+>>>>>>> origin/main
             </div>
           </Reveal>
         </div>
@@ -166,6 +234,7 @@ export default function AboutPage() {
       <section className="bg-[#f7fafb] py-14 sm:py-20">
         <div className="container mx-auto max-w-[1330px]">
           <Reveal>
+<<<<<<< HEAD
             <div className="relative overflow-hidden rounded-[28px] bg-[linear-gradient(115deg,#073044,#07546B)] px-6 py-9 sm:px-10 sm:py-11 lg:px-14">
               <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-40 h-[390px] w-[390px] rounded-full border border-white/15" />
               <div aria-hidden="true" className="pointer-events-none absolute -right-10 -top-28 h-[310px] w-[310px] rounded-full border border-white/10" />
@@ -173,6 +242,11 @@ export default function AboutPage() {
                 <div className="max-w-[590px]"><p className="!m-0 text-[11px] font-bold uppercase tracking-[.18em] !text-[#b5e6ed]">STAY CONNECTED</p><h2 className="mt-3 font-['DM_Serif_Display',Georgia,serif] text-[clamp(2rem,3.2vw,3.4rem)] font-normal leading-[1.12] !text-white">Get our best deals straight to your inbox!</h2><p className="mt-3 text-sm leading-6 !text-[#c9dfed]">Send us a request to receive company updates and equipment information.</p></div>
                 <form onSubmit={subscribe} aria-label="Newsletter enquiry" className="flex w-full max-w-[480px] flex-col gap-2 rounded-2xl border border-white/15 bg-white p-2 shadow-[0_20px_50px_-26px_rgba(0,0,0,.4)] sm:flex-row"><label className="sr-only" htmlFor="conx-about-newsletter">Email address</label><input id="conx-about-newsletter" type="email" required placeholder="Your email address" value={email} onChange={e=>setEmail(e.target.value)} className="min-h-12 min-w-0 flex-1 rounded-xl border-0 bg-white px-4 py-2 text-sm text-[#102b33] outline-none" /><button type="submit" className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-xl !bg-[#FF4F18] px-5 py-3 text-sm font-bold !text-white transition hover:!bg-[#E44310]">Subscribe <ArrowUpRight size={15}/></button></form>
               </div>
+=======
+            <div className="flex flex-col justify-between gap-7 rounded-[22px] bg-[linear-gradient(112deg,#09252c,#0e5248)] px-6 py-8 sm:px-10 lg:flex-row lg:items-center lg:px-12 lg:py-10">
+              <div className="max-w-[590px]"><p className="!m-0 text-[11px] font-bold uppercase tracking-[.18em] !text-[#8ed8c7]">STAY CONNECTED</p><h2 className="mt-3 !font-sans text-[clamp(1.6rem,2.6vw,2.45rem)] font-extrabold leading-tight !text-white">Get our best deals straight to your inbox!</h2><p className="mt-2 text-sm leading-6 !text-[#c9dfdb]">Send us a request to receive company updates and equipment information.</p></div>
+              <form onSubmit={subscribe} aria-label="Newsletter enquiry" className="flex w-full max-w-[480px] gap-2 rounded-xl bg-white p-2"><label className="sr-only" htmlFor="conx-about-newsletter">Email address</label><input id="conx-about-newsletter" type="email" required placeholder="Your email address" value={email} onChange={e=>setEmail(e.target.value)} className="min-w-0 flex-1 rounded-lg border-0 bg-white px-3 py-2 text-sm text-[#102b33] outline-none" /><button type="submit" className="inline-flex shrink-0 items-center gap-2 rounded-lg !bg-[#07546B] px-4 py-2.5 text-sm font-bold !text-white hover:!bg-[#0a493f]">Subscribe <ArrowUpRight size={15}/></button></form>
+>>>>>>> origin/main
             </div>
             <p className="mt-3 !text-xs !text-[#71858a]">Subscription opens an email request; no automated mailing list is connected.</p>
           </Reveal>
@@ -183,9 +257,15 @@ export default function AboutPage() {
       <section className="bg-white pb-16 pt-12 sm:pb-20 sm:pt-14">
         <div className="container mx-auto max-w-[1330px]">
           <Reveal>
+<<<<<<< HEAD
             <div className="flex flex-col items-start justify-between gap-7 rounded-[25px] border border-[#e0eaed] bg-[#fafcfd] p-7 sm:p-9 lg:flex-row lg:items-center lg:p-11">
               <div><p className={sectionLabel}>NEED ASSISTANCE?</p><h2 className="mt-3 font-['DM_Serif_Display',Georgia,serif] text-[clamp(2.1rem,3.3vw,3.4rem)] font-normal tracking-[-.04em] !text-[#102D3C]">Have a medical equipment requirement?</h2><p className={`!mb-0 mt-3 ${bodyText}`}>Share your requirements and our team can discuss the next steps.</p></div>
               <Link to="/contact" className="group inline-flex shrink-0 items-center gap-2.5 rounded-full bg-[#07546B] px-7 py-4 text-sm font-extrabold !text-white transition duration-300 hover:-translate-y-1 hover:bg-[#053F52]">Contact ConXport <ArrowUpRight size={17} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"/></Link>
+=======
+            <div className="flex flex-col items-start justify-between gap-6 border-t border-[#d9e7e2] pt-8 sm:flex-row sm:items-center">
+              <div><p className={sectionLabel}>NEED ASSISTANCE?</p><h2 className="mt-2 !font-sans text-[clamp(1.7rem,3vw,2.7rem)] font-extrabold tracking-[-.045em] !text-[#102b33]">Have a medical equipment requirement?</h2><p className={`mt-2 ${bodyText}`}>Share your requirements and our team can discuss the next steps.</p></div>
+              <Link to="/contact" className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#07546B] px-6 py-3.5 text-sm font-bold !text-white transition hover:bg-[#053F52]">Contact ConXport <ArrowUpRight size={17}/></Link>
+>>>>>>> origin/main
             </div>
           </Reveal>
         </div>

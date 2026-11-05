@@ -436,6 +436,14 @@ export default function Header() {
             Turnkey Projects
           </NavLink>
 
+          {/* DISTRIBUTOR NETWORK */}
+          <NavLink
+            to="/distributor"
+            className={navLinkClass}
+          >
+            Distributor
+          </NavLink>
+
           {/* CONTACT */}
           <NavLink
             to="/contact"
