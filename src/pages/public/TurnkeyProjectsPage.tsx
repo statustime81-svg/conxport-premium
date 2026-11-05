@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { Link } from 'react-router';
-import { ArrowUpRight, ClipboardList, DraftingCompass, PackageCheck, ShieldCheck, CheckCircle2, BadgeCheck, Handshake, Headset, TrendingUp, Layers3, ClipboardCheck, ArrowRight, Building2 } from 'lucide-react';
+import { ArrowUpRight, ClipboardList, DraftingCompass, PackageCheck, ShieldCheck, CheckCircle2, BadgeCheck, Handshake, Headset, TrendingUp, Layers3, ClipboardCheck, ArrowRight } from 'lucide-react';
 import { getCmsPublic } from '../../services/cmsPublic';
 
 export type TurnkeyInfo = {
@@ -46,24 +46,201 @@ export function parseTurnkeyInfo(body:string):TurnkeyInfo {
     return {eyebrow:typeof x.eyebrow==='string'?x.eyebrow:defaultTurnkeyInfo.eyebrow,heading:typeof x.heading==='string'?x.heading:defaultTurnkeyInfo.heading,intro:typeof x.intro==='string'?x.intro:defaultTurnkeyInfo.intro,steps:mergeList(x.steps,defaultTurnkeyInfo.steps),benefits:mergeList(x.benefits,defaultTurnkeyInfo.benefits),conclusion:typeof x.conclusion==='string'?x.conclusion:defaultTurnkeyInfo.conclusion,reasons:mergeList(x.reasons,defaultTurnkeyInfo.reasons)};
   } catch {return defaultTurnkeyInfo;}
 }
-const processIcons=[ClipboardList,DraftingCompass,PackageCheck,ShieldCheck];
-const benefitIcons=[Layers3,TrendingUp,ClipboardCheck,BadgeCheck];
-const reasonIcons=[BadgeCheck,Layers3,ShieldCheck,Handshake,Headset];
-export default function TurnkeyProjectsPage(){
-  const [info,setInfo]=useState<TurnkeyInfo>(defaultTurnkeyInfo);
-  useEffect(()=>{let alive=true;void getCmsPublic('case_study','turnkey-projects').then(entry=>{if(alive&&entry)setInfo(parseTurnkeyInfo(entry.body));}).catch(()=>{});return()=>{alive=false};},[]);
-  return <main className="bg-white text-[#102a32]">
-    <style>{`@keyframes turnkeyReveal{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}.tk-reveal{animation:turnkeyReveal .65s both}.tk-card{transition:transform .35s,box-shadow .35s,border-color .35s}.tk-card:hover{transform:translateY(-5px);box-shadow:0 24px 50px -32px rgba(13,92,79,.4);border-color:#a6d4ca}@media(prefers-reduced-motion:reduce){.tk-reveal{animation:none}.tk-card{transition:none}}`}</style>
-    <section className="relative isolate overflow-hidden bg-[#eef7f5] py-20 sm:py-28">
-      <div className="pointer-events-none absolute -right-40 -top-44 h-[520px] w-[520px] rounded-full bg-[#c2e5db]/60 blur-3xl"/>
-      <div className="container relative grid items-center gap-10 lg:grid-cols-[1.2fr_.8fr]">
-        <div className="tk-reveal max-w-3xl"><p className="!m-0 text-[11px] font-bold uppercase tracking-[.22em] !text-[#087968]">{info.eyebrow}</p><h1 className="!m-0 mt-5 font-serif text-[clamp(2.6rem,5vw,5.2rem)] font-bold leading-[1.08] tracking-[-.055em] !text-[#102632]">{info.heading}</h1><p className="!mb-0 mt-6 max-w-2xl text-[15px] leading-8 !text-slate-600">{info.intro}</p><div className="mt-8 flex flex-wrap gap-3"><Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-[#0d5c4f] px-6 py-3 text-sm font-semibold !text-white shadow-lg shadow-teal-900/10 transition hover:-translate-y-1 hover:bg-[#084a40]">Discuss Your Project <ArrowUpRight size={17}/></Link><a href="#our-process" className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold !text-[#143b37] transition hover:border-teal-500">Explore Our Process <ArrowRight size={16}/></a></div></div>
-        <div className="tk-reveal relative mx-auto grid aspect-square w-full max-w-[420px] place-items-center rounded-[40px] border border-white bg-gradient-to-br from-white to-[#dcf1ea] shadow-[0_35px_70px_-35px_rgba(2,62,54,.32)]" style={{animationDelay:'120ms'}}><div className="absolute inset-8 rounded-full border border-dashed border-[#acd8cc]"/><div className="relative grid h-40 w-40 place-items-center rounded-[38px] bg-[#0d5c4f] text-white shadow-2xl"><Building2 size={78} strokeWidth={1.25}/></div><span className="absolute left-7 top-10 rounded-2xl bg-white p-3 text-[#0d5c4f] shadow-lg"><ClipboardCheck size={26}/></span><span className="absolute bottom-12 right-8 rounded-2xl bg-white p-3 text-[#0d5c4f] shadow-lg"><PackageCheck size={26}/></span><span className="absolute bottom-10 left-9 rounded-full bg-white px-4 py-2 text-xs font-bold text-[#0d5c4f] shadow-lg">End-to-end setup</span></div>
-      </div>
-    </section>
-    <section id="our-process" className="container py-20 sm:py-24"><div className="max-w-3xl"><p className="!m-0 text-xs font-bold uppercase tracking-[.2em] !text-[#0d7363]">How it works</p><h2 className="!m-0 mt-3 font-serif text-[clamp(2rem,4vw,3.5rem)] font-bold tracking-tight !text-[#132a35]">Key Components of Turnkey Projects</h2><p className="!m-0 mt-4 leading-7 !text-slate-500">A coordinated approach from needs assessment through equipment installation and compliance.</p></div><div className="mt-12 grid gap-5 md:grid-cols-2">{info.steps.map((step,i)=>{const Icon=processIcons[i];return <article key={i} className="tk-card tk-reveal group relative overflow-hidden rounded-[25px] border border-[#e0eae7] bg-white p-7 shadow-[0_12px_38px_-30px_rgba(18,46,48,.3)] sm:p-9" style={{animationDelay:`${i*85}ms`}}><div className="flex items-start justify-between"><span className="grid h-14 w-14 place-items-center rounded-2xl bg-[#e8f6f0] text-[#0e7363]"><Icon size={26}/></span><span className="font-serif text-4xl text-[#d7e8e3]">0{i+1}</span></div><h3 className="!mb-0 mt-6 !font-sans !text-xl !font-bold !text-[#102a32]">{step.title}</h3><p className="!mb-0 mt-3 whitespace-pre-wrap text-sm leading-7 !text-slate-600">{step.description}</p></article>})}</div></section>
-    <section className="bg-[#f2f7f8] py-20 sm:py-24"><div className="container"><div className="mx-auto max-w-3xl text-center"><p className="!m-0 text-xs font-bold uppercase tracking-[.2em] !text-[#0d7363]">The advantages</p><h2 className="!m-0 mt-3 font-serif text-[clamp(2rem,4vw,3.5rem)] font-bold tracking-tight !text-[#122e38]">Benefits of Hospital Setup Turnkey Projects</h2></div><div className="mt-12 grid gap-5 md:grid-cols-2">{info.benefits.map((benefit,i)=>{const Icon=benefitIcons[i];return <article className="tk-card tk-reveal rounded-[24px] border border-slate-200 bg-white p-7 sm:p-8" style={{animationDelay:`${i*85}ms`}} key={i}><span className="grid h-12 w-12 place-items-center rounded-xl bg-[#e7f4f0] text-[#0e7363]"><Icon size={23}/></span><h3 className="!mb-0 mt-5 !font-sans !text-lg !font-bold !text-[#122c35]">{benefit.title}</h3><p className="!mb-0 mt-3 text-sm leading-7 !text-slate-600">{benefit.description}</p><div className="mt-7 h-1 w-14 rounded-full bg-[#0d7363]"/></article>})}</div></div></section>
-    <section className="container py-20 sm:py-24"><div className="grid gap-12 lg:grid-cols-[.8fr_1.2fr]"><div><p className="!m-0 text-xs font-bold uppercase tracking-[.2em] !text-[#0d7363]">Why choose us</p><h2 className="!m-0 mt-3 font-serif text-[clamp(2rem,4vw,3.4rem)] font-bold tracking-tight !text-[#132a35]">A dependable partner for your healthcare project</h2><div className="mt-8 rounded-[25px] bg-[#0d5c4f] p-7 text-white"><CheckCircle2 size={31}/><p className="!mb-0 mt-4 !text-base !font-semibold !text-white">Planning, procurement, execution and ongoing support.</p></div></div><div className="space-y-4">{info.reasons.map((reason,i)=>{const Icon=reasonIcons[i];return <article key={i} className="tk-card flex gap-4 rounded-2xl border border-[#e0eae7] bg-white p-5 sm:p-6"><span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-[#e6f4ef] text-[#0d7363]"><Icon size={21}/></span><div><h3 className="!m-0 !font-sans !text-[16px] !font-bold !text-[#132c33]">{reason.title}</h3><p className="!mb-0 mt-2 text-sm leading-7 !text-slate-600">{reason.description}</p></div></article>})}</div></div><div className="mt-16 rounded-[28px] border border-[#dae8e3] bg-[#f3f9f6] p-7 sm:p-10"><p className="!m-0 text-xs font-bold uppercase tracking-[.2em] !text-[#0d7363]">Conclusion</p><p className="!mb-0 mt-4 text-[15px] leading-8 !text-[#385354]">{info.conclusion}</p></div></section>
-    <section className="bg-[#082a2d] py-14 sm:py-20"><div className="container flex flex-col items-start justify-between gap-7 sm:flex-row sm:items-center"><div><p className="!m-0 text-[11px] font-bold uppercase tracking-[.2em] !text-teal-300">Start your project</p><h2 className="!mb-0 mt-2 font-serif text-3xl font-bold !text-white sm:text-4xl">Planning a hospital or medical college setup?</h2><p className="!mb-0 mt-3 text-sm !text-slate-300">Tell our team about your infrastructure and equipment requirements.</p></div><Link to="/contact" className="inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-bold !text-[#0d5c4f] transition hover:-translate-y-1">Contact Our Team <ArrowUpRight size={17}/></Link></div></section>
-  </main>;
+const processIcons = [ClipboardList, DraftingCompass, PackageCheck, ShieldCheck];
+const benefitIcons = [Layers3, TrendingUp, ClipboardCheck, BadgeCheck];
+const reasonIcons = [BadgeCheck, Layers3, ShieldCheck, Handshake, Headset];
+
+function SectionEyebrow({ children }: { children: ReactNode }) {
+  return (
+    <p className="!mb-0 inline-flex items-center gap-3 text-[11px] font-extrabold uppercase tracking-[0.22em] !text-[#F93E02]">
+      <span className="h-[2px] w-7 rounded-full bg-[#F93E02]" />
+      {children}
+    </p>
+  );
+}
+
+export default function TurnkeyProjectsPage() {
+  const [info, setInfo] = useState<TurnkeyInfo>(defaultTurnkeyInfo);
+
+  useEffect(() => {
+    let alive = true;
+    void getCmsPublic('case_study', 'turnkey-projects')
+      .then(entry => {
+        if (alive && entry) setInfo(parseTurnkeyInfo(entry.body));
+      })
+      .catch(() => {});
+    return () => { alive = false; };
+  }, []);
+
+  return (
+    <main className="bg-white font-['Manrope',system-ui,sans-serif] text-[#102D3C]">
+      <style>{`
+        @keyframes tkFadeUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+        .tk-enter { animation:tkFadeUp .75s cubic-bezier(.19,1,.22,1) both; }
+        .tk-elevate { transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease,border-color .35s ease; }
+        .tk-elevate:hover { transform:translateY(-6px); box-shadow:0 30px 70px -38px rgba(4,60,80,.35); border-color:rgba(249,62,2,.32); }
+        @media (prefers-reduced-motion:reduce) { .tk-enter { animation:none!important; } .tk-elevate,.tk-elevate:hover { transition:none!important; transform:none!important; } }
+      `}</style>
+
+      {/* HERO: same CMS heading and introduction */}
+      <section className="relative isolate overflow-hidden bg-[linear-gradient(120deg,#f7fafb_0%,#e9f2f5_58%,#fdf4f0_100%)] py-16 sm:py-20 lg:py-24">
+        <div aria-hidden="true" className="pointer-events-none absolute -right-20 -top-20 h-[440px] w-[440px] rounded-full bg-[#F93E02]/[.055] blur-3xl" />
+        <div className="container relative grid min-w-0 items-center gap-12 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,.88fr)] lg:gap-16">
+          <div className="tk-enter max-w-[790px]">
+            <SectionEyebrow>{info.eyebrow}</SectionEyebrow>
+            <h1 className="!mb-0 mt-6 max-w-[850px] font-['DM_Serif_Display',Georgia,serif] text-[clamp(3rem,5.3vw,5.65rem)] font-normal leading-[1.06] tracking-[-0.045em] !text-[#102D3C]">
+              {info.heading}
+            </h1>
+            <p className="!mb-0 mt-6 max-w-[720px] text-[15px] leading-[1.95] !text-[#5F7280] sm:text-[17px]">
+              {info.intro}
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <Link to="/contact" className="group inline-flex min-h-[52px] items-center justify-center gap-2.5 rounded-full bg-[#F93E02] px-7 py-3 text-[13px] font-extrabold !text-white shadow-[0_14px_38px_-16px_rgba(249,62,2,.55)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#de3905]">
+                Discuss Your Project <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+              </Link>
+              <a href="#our-process" className="group inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full border border-[#cddce2] bg-white px-7 py-3 text-[13px] font-extrabold !text-[#043C50] transition-all duration-300 hover:-translate-y-1 hover:border-[#F93E02]/50">
+                Explore Our Process <ArrowRight size={17} className="transition-transform group-hover:translate-x-1" />
+              </a>
+            </div>
+            <div className="mt-9 flex flex-wrap gap-x-7 gap-y-3 border-t border-[#d7e4e9] pt-6">
+              {['Planning', 'Procurement', 'Execution', 'Support'].map(label => (
+                <span key={label} className="inline-flex items-center gap-2 text-[12px] font-semibold text-[#48616b]">
+                  <CheckCircle2 size={15} className="text-[#F93E02]" />{label}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Premium photographic hero: the old circular illustration is removed. */}
+          <div
+            className="tk-enter relative mx-auto w-full max-w-[560px]"
+            style={{ animationDelay: '120ms' }}
+          >
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -bottom-4 -right-4 left-5 top-5 rounded-[34px] bg-[#F93E02]/10"
+            />
+            <figure className="relative m-0 overflow-hidden rounded-[30px] border-[6px] border-white bg-[#e7f1f3] shadow-[0_30px_85px_-32px_rgba(4,60,80,.35)]">
+              <img
+                src="/images/why-conxport/healthcare.png"
+                alt="Modern hospital room equipped with patient bed and medical equipment"
+                loading="eager"
+                decoding="async"
+                className="block h-[340px] w-full object-cover object-center sm:h-[450px] lg:h-[525px]"
+              />
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#032B3D]/80 via-[#032B3D]/5 to-transparent"
+              />
+              <figcaption className="absolute bottom-0 left-0 right-0 p-5 sm:p-8">
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/15 px-3 py-2 text-[10px] font-bold uppercase tracking-[.14em] text-white backdrop-blur-md">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#F93E02]" />
+                  CONXPORT / TURNKEY PROJECTS
+                </span>
+                <p className="!mb-0 mt-4 max-w-[380px] font-['Manrope',system-ui,sans-serif] text-[clamp(1.3rem,2.1vw,1.9rem)] font-extrabold leading-[1.3] !text-white">
+                  Hospital infrastructure, thoughtfully equipped.
+                </p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      {/* PROCESS */}
+      <section id="our-process" className="scroll-mt-20 py-20 sm:py-24 lg:py-28">
+        <div className="container">
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div className="max-w-[860px]">
+              <SectionEyebrow>How it works</SectionEyebrow>
+              <h2 className="!mb-0 mt-5 font-['DM_Serif_Display',Georgia,serif] text-[clamp(2.5rem,4.6vw,4.3rem)] font-normal leading-[1.1] tracking-[-.045em] !text-[#102D3C]">Key Components of Turnkey Projects</h2>
+              <p className="!mb-0 mt-5 max-w-[680px] text-[15px] leading-8 !text-[#5F7280]">A coordinated approach from needs assessment through equipment installation and compliance.</p>
+            </div>
+            <span className="w-fit rounded-full border border-[#d8e7eb] px-5 py-2.5 text-[11px] font-extrabold uppercase tracking-[.14em] text-[#5f7280]">Four key stages</span>
+          </div>
+          <div className="mt-11 grid gap-5 md:grid-cols-2 xl:gap-6">
+            {info.steps.map((step, i) => {
+              const Icon = processIcons[i] ?? ClipboardList;
+              return (
+                <article key={i} className="tk-elevate tk-enter group relative min-w-0 overflow-hidden rounded-[28px] border border-[#deeaee] bg-white p-6 shadow-[0_14px_45px_-35px_rgba(4,60,80,.22)] sm:p-8 lg:p-9" style={{animationDelay:`${i*75}ms`}}>
+                  <div aria-hidden="true" className="pointer-events-none absolute -right-14 -top-14 h-40 w-40 rounded-full bg-[#F93E02]/[.035] transition-transform duration-500 group-hover:scale-125" />
+                  <div className="relative flex items-start justify-between gap-4">
+                    <span className="grid h-[60px] w-[60px] place-items-center rounded-[18px] border border-[#dce9ef] bg-[#eef6f8] text-[#043C50] transition-colors duration-300 group-hover:border-[#F93E02]/25 group-hover:bg-[#fff0eb] group-hover:text-[#F93E02]"><Icon size={27} strokeWidth={1.7}/></span>
+                    <span className="font-['DM_Serif_Display',Georgia,serif] text-[52px] leading-none text-[#dce9ef]">0{i+1}</span>
+                  </div>
+                  <h3 className="relative !mb-0 mt-8 !font-sans text-[20px] font-extrabold tracking-[-.03em] !text-[#102D3C] sm:text-[23px]">{step.title}</h3>
+                  <p className="relative !mb-0 mt-4 whitespace-pre-wrap text-[14px] leading-[1.9] !text-[#607580] sm:text-[15px]">{step.description}</p>
+                  <div className="relative mt-8 h-[3px] w-12 rounded-full bg-[#F93E02] transition-all duration-500 group-hover:w-24" />
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* BENEFITS */}
+      <section className="bg-[#f2f7f9] py-20 sm:py-24 lg:py-28">
+        <div className="container">
+          <div className="mx-auto max-w-[900px] text-center">
+            <p className="!mb-0 text-[11px] font-extrabold uppercase tracking-[.2em] !text-[#F93E02]">The Advantages</p>
+            <h2 className="!mb-0 mt-5 font-['DM_Serif_Display',Georgia,serif] text-[clamp(2.5rem,4.6vw,4.3rem)] font-normal leading-[1.08] tracking-[-.045em] !text-[#102D3C]">Benefits of Hospital Setup Turnkey Projects</h2>
+          </div>
+          <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {info.benefits.map((benefit, i) => {
+              const Icon = benefitIcons[i] ?? BadgeCheck;
+              return (
+                <article key={i} className="tk-elevate tk-enter group flex min-w-0 flex-col rounded-[26px] border border-[#dfebf0] bg-white p-6 shadow-[0_14px_50px_-35px_rgba(4,60,80,.22)] lg:p-7" style={{animationDelay:`${i*75}ms`}}>
+                  <div className="flex items-start justify-between gap-3"><span className="grid h-14 w-14 place-items-center rounded-2xl bg-[#eaf3f6] text-[#043C50] transition-colors duration-300 group-hover:bg-[#ffede6] group-hover:text-[#F93E02]"><Icon size={24} strokeWidth={1.8}/></span><span className="text-xs font-extrabold text-[#c4d6df]">0{i+1}</span></div>
+                  <h3 className="!mb-0 mt-7 !font-sans text-[18px] font-extrabold leading-snug !text-[#102D3C]">{benefit.title}</h3>
+                  <p className="!mb-0 mt-4 flex-1 text-[13px] leading-[1.9] !text-[#5f7280] sm:text-[14px]">{benefit.description}</p>
+                  <div className="mt-7 h-[3px] w-12 rounded-full bg-[#F93E02] transition-all duration-500 group-hover:w-20"/>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* WHY CONXPORT */}
+      <section className="py-20 sm:py-24 lg:py-28">
+        <div className="container grid items-start gap-12 lg:grid-cols-[minmax(0,.82fr)_minmax(0,1.18fr)] lg:gap-14">
+          <div className="lg:sticky lg:top-28">
+            <SectionEyebrow>Why choose us</SectionEyebrow>
+            <h2 className="!mb-0 mt-5 max-w-[550px] font-['DM_Serif_Display',Georgia,serif] text-[clamp(2.4rem,4.1vw,4.1rem)] font-normal leading-[1.1] tracking-[-.04em] !text-[#102D3C]">A dependable partner for your healthcare project</h2>
+            <div className="relative mt-8 overflow-hidden rounded-[26px] bg-[linear-gradient(125deg,#043C50_0%,#07546B_100%)] p-7 shadow-[0_26px_65px_-35px_rgba(4,60,80,.46)] sm:p-9">
+              <div aria-hidden="true" className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full border border-white/15" />
+              <CheckCircle2 size={31} className="text-[#ff9a79]" />
+              <p className="relative !mb-0 mt-6 max-w-sm text-[17px] font-extrabold leading-[1.65] !text-white">Planning, procurement, execution and ongoing support.</p>
+              <div className="mt-7 h-[3px] w-16 rounded-full bg-[#F93E02]" />
+            </div>
+          </div>
+          <div className="grid gap-4">
+            {info.reasons.map((reason, i) => {
+              const Icon = reasonIcons[i] ?? BadgeCheck;
+              return (
+                <article key={i} className="tk-elevate group flex min-w-0 gap-5 rounded-[22px] border border-[#deebef] bg-white p-5 shadow-[0_8px_35px_-30px_rgba(4,60,80,.2)] sm:p-7">
+                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-[15px] bg-[#ecf5f7] text-[#043C50] transition-colors duration-300 group-hover:bg-[#fff0eb] group-hover:text-[#F93E02]"><Icon size={22} strokeWidth={1.8}/></span>
+                  <div className="min-w-0 flex-1"><div className="flex items-center justify-between gap-4"><h3 className="!m-0 !font-sans text-[16px] font-extrabold !text-[#102D3C] sm:text-[18px]">{reason.title}</h3><span className="text-[11px] font-extrabold text-[#b0c8d1]">0{i+1}</span></div><p className="!mb-0 mt-2 text-[14px] leading-[1.85] !text-[#5f7280]">{reason.description}</p></div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+        <div className="container mt-14"><div className="rounded-[26px] border border-[#d9e8ed] bg-[#f4f8fa] p-7 sm:p-10 lg:p-12"><SectionEyebrow>Conclusion</SectionEyebrow><p className="!mb-0 mt-5 text-[15px] leading-[1.95] !text-[#4d6976] sm:text-[16px]">{info.conclusion}</p></div></div>
+      </section>
+
+      {/* CONTACT CTA: original contact route preserved, no invented form */}
+      <section className="relative isolate overflow-hidden bg-[#043C50] py-14 sm:py-17">
+        <div aria-hidden="true" className="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-full border border-[#F93E02]/30" />
+        <div aria-hidden="true" className="pointer-events-none absolute -right-8 -top-16 h-48 w-48 rounded-full border border-white/10" />
+        <div className="container relative flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+          <div className="max-w-[830px]">
+            <p className="!mb-0 text-[11px] font-extrabold uppercase tracking-[.2em] !text-[#ff9e7b]">Start your project</p>
+            <h2 className="!mb-0 mt-3 font-['DM_Serif_Display',Georgia,serif] text-[clamp(2.1rem,3.4vw,3.5rem)] font-normal leading-tight !text-white">Planning a hospital or medical college setup?</h2>
+            <p className="!mb-0 mt-3 text-[15px] leading-7 !text-[#d7e7ec]">Tell our team about your infrastructure and equipment requirements.</p>
+          </div>
+          <Link to="/contact" className="group inline-flex min-h-[52px] shrink-0 items-center justify-center gap-2 rounded-full bg-[#F93E02] px-7 py-3 text-[13px] font-extrabold !text-white shadow-[0_15px_35px_-15px_rgba(249,62,2,.5)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#dc3907]">Contact Our Team <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" /></Link>
+        </div>
+      </section>
+    </main>
+  );
 }

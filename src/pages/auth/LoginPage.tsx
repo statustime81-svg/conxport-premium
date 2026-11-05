@@ -25,7 +25,7 @@ export default function LoginPage() {
       {error && <p role="alert" style={{ color: '#ffc0b9' }}>{error}</p>}
       <button type="submit" style={buttonStyle} disabled={busy}>{busy ? 'Signing in…' : 'Sign in'}</button>
     </form>
-    <p style={{ marginTop: 22 }}><Link to="/forgot-password" style={{ color: '#47d8c2' }}>Forgot password?</Link></p>
-    <p>New customer? <Link to="/register" style={{ color: '#47d8c2' }}>Create an account</Link></p>
+    <p style={{ marginTop: 22 }}><Link to="/forgot-password" style={{ color: '#FF6A35' }}>Forgot password?</Link></p>
+    <p>New customer? <Link to="/register" style={{ color: '#FF6A35' }}>Create an account</Link></p>
   </AuthFormShell>;
 }

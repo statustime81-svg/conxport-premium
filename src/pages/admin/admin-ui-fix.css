@@ -1,5 +1,5 @@
 /* ConXport admin pages, scoped to admin page containers. */
-:root { --cx-ad-green:#0d5c4f;--cx-ad-ink:#18302a;--cx-ad-muted:#647b74;--cx-ad-border:#dce9e4; }
+:root { --cx-ad-green:#07546B;--cx-ad-ink:#18302a;--cx-ad-muted:#647b74;--cx-ad-border:#DCECF0; }
 /* Fix narrow admin content caused by inherited layout/grid rules. */
 main:has(> .cx-portal),main:has(> .cx-dashboard-repair),main:has(> .cx-admin-page),
 .cx-admin-content:has(.cx-portal),.cx-admin-content:has(.cx-dashboard-repair),.cx-admin-content:has(.cx-admin-page){min-width:0!important;width:100%!important;max-width:none!important;display:block!important;grid-template-columns:none!important;}
@@ -14,7 +14,7 @@ main:has(> .cx-portal),main:has(> .cx-dashboard-repair),main:has(> .cx-admin-pag
 .cx-panel,.cx-admin-form-shell,.cx-form-card{border:1px solid var(--cx-ad-border)!important;border-radius:16px!important;background:#fff!important;padding:20px!important;box-shadow:0 5px 24px rgba(20,67,55,.035)!important;min-width:0!important;}
 .cx-admin-heading{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:16px!important;flex-wrap:wrap!important;margin:0 0 20px!important;}
 .cx-primary,.cx-admin-page .cx-primary{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;border:0!important;border-radius:11px!important;background:var(--cx-ad-green)!important;color:white!important;padding:11px 17px!important;font-size:12px!important;font-weight:750!important;text-decoration:none!important;cursor:pointer!important;white-space:nowrap!important;}
-.cx-primary:hover{background:#09493f!important;}
+.cx-primary:hover{background:#053F52!important;}
 .cx-portal button,.cx-admin-page button{font-family:inherit;font-size:12px;cursor:pointer;}
 .cx-portal input,.cx-portal select,.cx-portal textarea,.cx-admin-page input,.cx-admin-page select,.cx-admin-page textarea{max-width:100%;border:1px solid #d7e4df;border-radius:10px;padding:11px 12px;background:#fff;color:#1a342d;font-family:inherit;font-size:13px;}
 .cx-portal input:focus,.cx-admin-page input:focus,.cx-portal textarea:focus,.cx-admin-page textarea:focus{outline:2px solid #b7d9cd;outline-offset:1px;}
@@ -38,7 +38,7 @@ main:has(> .cx-portal),main:has(> .cx-dashboard-repair),main:has(> .cx-admin-pag
 .cx-admin-page__search button,.cx-admin-page__soft{border:1px solid #d7e4df!important;border-radius:10px!important;background:white!important;color:#174b40!important;padding:10px 14px!important;font-weight:700!important;}
 .cx-admin-page__table-wrap{overflow-x:auto;border:1px solid var(--cx-ad-border);border-radius:16px;background:white;}
 .cx-admin-page__table{width:100%;border-collapse:collapse;min-width:650px;text-align:left;}
-.cx-admin-page__table th{padding:14px 17px;background:#f4f9f7;color:#607a71;font-size:10px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;}
+.cx-admin-page__table th{padding:14px 17px;background:#F1F7FA;color:#607a71;font-size:10px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;}
 .cx-admin-page__table td{padding:15px 17px;border-top:1px solid #edf2ef;font-size:13px;color:#263d35;vertical-align:middle;}
 .cx-admin-page__table a{color:var(--cx-ad-green)!important;font-weight:750;text-decoration:none;}
 .cx-admin-page__table button{border:0;background:transparent;color:#a43e3e;font-weight:700;}

@@ -8,7 +8,7 @@ import { findProduct } from '../../data/productDetails';
 import { supabase } from '../../lib/supabase/client';
 import { submitEnquiry } from '../../services/enquiries';
 
-const fieldStyle = 'block w-full min-h-[52px] rounded-[14px] border border-[#d6e5df] bg-[#fbfdfc] px-4 py-3 text-[15px] !text-[#142925] placeholder:!text-[#82948c] outline-none transition focus:border-[#0d5c4f] focus:bg-white focus:ring-[3px] focus:ring-[#0d5c4f]/10';
+const fieldStyle = 'block w-full min-h-[52px] rounded-[14px] border border-[#d6e5df] bg-[#fbfdfc] px-4 py-3 text-[15px] !text-[#102D3C] placeholder:!text-[#82948c] outline-none transition focus:border-[#07546B] focus:bg-white focus:ring-[3px] focus:ring-[#07546B]/10';
 const labelStyle = 'mb-2 block text-[13px] font-bold !text-[#243e35]';
 const errorStyle = 'mt-1.5 text-xs !text-[#b42318]';
 
@@ -55,9 +55,9 @@ export default function EnquiryForm() {
 
   if (reference) {
     return <div role="status" className="rounded-[24px] border border-[#bde2d1] bg-white p-8 shadow-sm">
-      <CheckCircle2 size={38} className="text-[#0d5c4f]" />
-      <h2 className="mt-4 text-[26px] font-extrabold !text-[#142925]">Enquiry received</h2>
-      <p className="mt-2 !text-[#587169]">Your enquiry reference: <strong className="text-[#0d5c4f]">{reference}</strong></p>
+      <CheckCircle2 size={38} className="text-[#07546B]" />
+      <h2 className="mt-4 text-[26px] font-extrabold !text-[#102D3C]">Enquiry received</h2>
+      <p className="mt-2 !text-[#587169]">Your enquiry reference: <strong className="text-[#07546B]">{reference}</strong></p>
     </div>;
   }
 
@@ -77,7 +77,7 @@ export default function EnquiryForm() {
       </div>
 
       <div className="rounded-[16px] border border-[#dcece5] bg-[#f3faf6] px-5 py-4">
-        <span className="text-[11px] font-extrabold uppercase tracking-[.14em] text-[#0d5c4f]">Requested equipment</span>
+        <span className="text-[11px] font-extrabold uppercase tracking-[.14em] text-[#07546B]">Requested equipment</span>
         <p className="mt-1 text-[14px] font-semibold leading-6 !text-[#25453b]">
           {items.length ? items.map((s) => findProduct(s)?.name ?? s).join(', ') : 'General equipment enquiry'}
         </p>
@@ -119,8 +119,8 @@ export default function EnquiryForm() {
 
       <div>
         <label htmlFor="attachment" className={labelStyle}>Optional document (PDF/JPG/PNG, up to 5 MB)</label>
-        <label htmlFor="attachment" className="flex cursor-pointer flex-col items-center justify-center gap-2 rounded-[16px] border border-dashed border-[#bfd7cd] bg-[#f9fcfa] p-6 text-center hover:border-[#0d5c4f] hover:bg-[#f0f8f3]">
-          <FileUp size={26} className="text-[#0d5c4f]" />
+        <label htmlFor="attachment" className="flex cursor-pointer flex-col items-center justify-center gap-2 rounded-[16px] border border-dashed border-[#bfd7cd] bg-[#f9fcfa] p-6 text-center hover:border-[#07546B] hover:bg-[#f0f8f3]">
+          <FileUp size={26} className="text-[#07546B]" />
           <span className="text-sm font-bold text-[#29483e]">{attachment ? attachment.name : 'Choose a document'}</span>
           <span className="text-xs text-[#70847b]">Attachments are not yet enabled for submission</span>
         </label>
@@ -130,14 +130,14 @@ export default function EnquiryForm() {
 
       <div>
         <label className="flex items-start gap-3 text-[14px] leading-6 !text-[#526c60]">
-          <input type="checkbox" className="mt-1 h-4 w-4 shrink-0 accent-[#0d5c4f]" {...register('consent')} />
+          <input type="checkbox" className="mt-1 h-4 w-4 shrink-0 accent-[#07546B]" {...register('consent')} />
           I agree to be contacted by ConXport regarding this request.
         </label>
         {errors.consent?.message && <p role="alert" className={errorStyle}>{errors.consent.message}</p>}
       </div>
       <input aria-hidden="true" tabIndex={-1} autoComplete="off" className="hidden" {...register('website')} />
       {submitError && <p role="alert" className="rounded-[14px] border border-[#f3c2c2] bg-[#fff4f4] p-4 text-sm !text-[#b42318]">{submitError}</p>}
-      <button type="submit" disabled={isSubmitting || Boolean(attachmentError) || !supabase} className="inline-flex min-h-[56px] w-full items-center justify-center gap-3 rounded-[15px] !bg-[#0d5c4f] px-6 py-4 text-[15px] font-extrabold !text-white shadow-[0_12px_30px_rgba(13,92,79,.16)] transition hover:!bg-[#09473d] disabled:cursor-not-allowed disabled:opacity-50">
+      <button type="submit" disabled={isSubmitting || Boolean(attachmentError) || !supabase} className="inline-flex min-h-[56px] w-full items-center justify-center gap-3 rounded-[15px] !bg-[#07546B] px-6 py-4 text-[15px] font-extrabold !text-white shadow-[0_12px_30px_rgba(13,92,79,.16)] transition hover:!bg-[#09473d] disabled:cursor-not-allowed disabled:opacity-50">
         {isSubmitting ? 'Submitting...' : 'Submit enquiry'} <Send size={18} />
       </button>
       {!supabase && <p className="text-center text-xs !text-[#72877b]">Submission is unavailable until the backend is configured.</p>}

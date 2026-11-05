@@ -11,6 +11,8 @@ import { useDocumentMeta } from './seo/useDocumentMeta';
 import { websiteSchema } from './seo/structuredData';
 
 import HeroSection from './components/home/HeroSection';
+import HomeAboutSection from './components/home/HomeAboutSection';
+import HomeServicesSection from './components/home/HomeServicesSection';
 import CategoryShowcase from './components/home/CategoryShowcase';
 
 import HomepageCmsSection from './components/public/cms/HomepageCmsSection';
@@ -90,20 +92,20 @@ function WhyConXportSection() {
                 className="
                   mb-7 inline-flex items-center gap-3
                   rounded-full
-                  border border-[#0d5c4f]/15
+                  border border-[#07546B]/15
                   bg-[#edf6f3] px-5 py-2.5
                 "
               >
                 <CheckCircle2
                   size={16}
                   strokeWidth={2}
-                  className="text-[#0d5c4f]"
+                  className="text-[#07546B]"
                 />
 
                 <span
                   className="
                     text-[11px] font-extrabold uppercase
-                    tracking-[0.18em] text-[#0d5c4f]
+                    tracking-[0.18em] text-[#07546B]
                   "
                 >
                   WHY CONXPORT
@@ -122,7 +124,7 @@ function WhyConXportSection() {
               >
                 Healthcare procurement
                 <br className="hidden sm:block" />
-                <span className="text-[#0d5c4f]">
+                <span className="text-[#07546B]">
                   {' '}deserves clarity.
                 </span>
               </h2>
@@ -134,7 +136,7 @@ function WhyConXportSection() {
               <div
                 className="
                   mb-5 h-[3px] w-14
-                  rounded-full bg-[#0d5c4f]
+                  rounded-full bg-[#07546B]
                 "
               />
 
@@ -173,7 +175,7 @@ function WhyConXportSection() {
                     bg-white
                     transition-all duration-500
                     hover:-translate-y-2
-                    hover:border-[#0d5c4f]/30
+                    hover:border-[#07546B]/30
                     hover:shadow-[0_30px_75px_-30px_rgba(13,92,79,0.28)]
                   "
                 >
@@ -203,7 +205,7 @@ function WhyConXportSection() {
                         justify-center rounded-full
                         border border-white/70
                         bg-white/95 text-sm
-                        font-extrabold text-[#0d5c4f]
+                        font-extrabold text-[#07546B]
                         shadow-md backdrop-blur-md
                       "
                     >
@@ -255,7 +257,7 @@ function WhyConXportSection() {
                       <div
                         className="
                           h-[3px] w-14 rounded-full
-                          bg-[#0d5c4f]
+                          bg-[#07546B]
                           transition-all duration-500
                           group-hover:w-full
                         "
@@ -274,7 +276,7 @@ function WhyConXportSection() {
             to="/products"
             className="
               group inline-flex items-center gap-3
-              text-sm font-extrabold text-[#0d5c4f]
+              text-sm font-extrabold text-[#07546B]
               transition-colors duration-300
               hover:text-[#083c35]
             "
@@ -313,6 +315,8 @@ export default function App() {
         <div className="home-content">
           <HeroSection />
           <ManagedClients />
+          <HomeAboutSection />
+          <HomeServicesSection />
           <CategoryShowcase />
        
           <HomepageCmsSection slug="main" />
@@ -320,8 +324,8 @@ export default function App() {
           <section className="bg-[#f3f8fb] py-20 sm:py-24" id="latest-products">
             <div className="container">
               <div className="mb-10 flex flex-wrap items-end justify-between gap-6">
-                <div><p className="text-xs font-extrabold uppercase tracking-[.18em] !text-[#0d5c4f]">From our catalogue</p><h2 className="mt-3 text-3xl font-extrabold !text-[#101b22] sm:text-4xl">Our Latest Products</h2><p className="mt-3 !text-slate-600">Recently published hospital and laboratory equipment.</p></div>
-                <Link to="/products" className="inline-flex items-center gap-2 rounded-full bg-[#0d5c4f] px-6 py-3 font-bold !text-white transition hover:-translate-y-1 hover:bg-[#08483e]">All products <ArrowUpRight size={17}/></Link>
+                <div><p className="text-xs font-extrabold uppercase tracking-[.18em] !text-[#07546B]">From our catalogue</p><h2 className="mt-3 text-3xl font-extrabold !text-[#101b22] sm:text-4xl">Our Latest Products</h2><p className="mt-3 !text-slate-600">Recently published hospital and laboratory equipment.</p></div>
+                <Link to="/products" className="inline-flex items-center gap-2 rounded-full bg-[#07546B] px-6 py-3 font-bold !text-white transition hover:-translate-y-1 hover:bg-[#053F52]">All products <ArrowUpRight size={17}/></Link>
               </div>
               <LatestProducts />
             </div>

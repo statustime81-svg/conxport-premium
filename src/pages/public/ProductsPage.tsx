@@ -67,11 +67,11 @@ export default function ProductsPage() {
       <section className="border-b border-[#e5ecec] bg-white py-10 sm:py-14 lg:py-16">
         <div className="mx-auto w-[min(1280px,calc(100%-40px))]">
           <nav aria-label="Breadcrumb" className="mb-5 flex items-center gap-2 text-[12px] text-slate-500">
-            <Link to="/" className="transition-colors hover:text-[#0d5c4f]">Home</Link>
+            <Link to="/" className="transition-colors hover:text-[#07546B]">Home</Link>
             <ChevronRight size={14} aria-hidden="true" />
-            <span className="font-semibold text-[#0d5c4f]">Products</span>
+            <span className="font-semibold text-[#07546B]">Products</span>
           </nav>
-          <p className="!mb-2 text-[11px] font-extrabold uppercase tracking-[.16em] !text-[#0d7363]">ConXport Catalogue</p>
+          <p className="!mb-2 text-[11px] font-extrabold uppercase tracking-[.16em] !text-[#07546B]">ConXport Catalogue</p>
           <h1 className="!mb-3 !font-sans !text-[clamp(2rem,4vw,3.5rem)] !font-extrabold !leading-[1.15] !tracking-[-.04em] !text-[#122c35]">
             Medical equipment
           </h1>
@@ -91,16 +91,16 @@ export default function ProductsPage() {
               value={query}
               onChange={(event) => changeParam('q', event.target.value)}
               placeholder="Search product name or SKU..."
-              className="h-12 w-full rounded-xl border border-[#dce6e5] bg-white pl-11 pr-10 text-[14px] text-[#16323a] outline-none transition focus:border-[#0d7363] focus:ring-2 focus:ring-[#0d7363]/10"
+              className="h-12 w-full rounded-xl border border-[#dce6e5] bg-white pl-11 pr-10 text-[14px] text-[#16323a] outline-none transition focus:border-[#07546B] focus:ring-2 focus:ring-[#07546B]/10"
             />
-            {query && <button type="button" onClick={() => changeParam('q', '')} aria-label="Clear search" className="absolute right-3 top-1/2 -translate-y-1/2 rounded p-1 text-slate-400 hover:text-[#0d5c4f]"><X size={16}/></button>}
+            {query && <button type="button" onClick={() => changeParam('q', '')} aria-label="Clear search" className="absolute right-3 top-1/2 -translate-y-1/2 rounded p-1 text-slate-400 hover:text-[#07546B]"><X size={16}/></button>}
           </label>
           <label className="w-full shrink-0 sm:w-[240px]">
             <span className="sr-only">Filter by category</span>
             <select
               value={categorySlug}
               onChange={(event) => changeParam('category', event.target.value)}
-              className="h-12 w-full rounded-xl border border-[#dce6e5] bg-white px-4 text-[14px] text-[#16323a] outline-none transition focus:border-[#0d7363] focus:ring-2 focus:ring-[#0d7363]/10"
+              className="h-12 w-full rounded-xl border border-[#dce6e5] bg-white px-4 text-[14px] text-[#16323a] outline-none transition focus:border-[#07546B] focus:ring-2 focus:ring-[#07546B]/10"
             >
               <option value="">All categories</option>
               {categories.map((category) => <option key={category.id} value={category.slug}>{category.name}</option>)}
@@ -122,13 +122,13 @@ export default function ProductsPage() {
             <Package size={34} className="mx-auto mb-4 text-[#8aa9a2]" />
             <h3 className="!mb-2 !font-sans !text-[20px] !font-bold !text-[#17323a]">No matching products</h3>
             <p className="!mb-5 !text-[14px] !text-slate-500">Try another product name or choose a different category.</p>
-            <button type="button" onClick={() => setParams(new URLSearchParams(), { replace: true })} className="rounded-full bg-[#0d5c4f] px-5 py-2.5 text-[13px] font-semibold text-white hover:bg-[#09483e]">Clear filters</button>
+            <button type="button" onClick={() => setParams(new URLSearchParams(), { replace: true })} className="rounded-full bg-[#07546B] px-5 py-2.5 text-[13px] font-semibold text-white hover:bg-[#053F52]">Clear filters</button>
           </div>
         ) : (
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {filtered.map((product) => (
               <article key={product.id} className="group flex min-w-0 flex-col overflow-hidden rounded-2xl border border-[#e3ebea] bg-white transition duration-300 hover:-translate-y-1 hover:border-[#bbd7ce] hover:shadow-[0_15px_35px_rgba(10,58,52,.08)]">
-                <Link to={`/products/${product.slug}`} aria-label={`View ${product.name}`} className="flex aspect-[4/3] items-center justify-center overflow-hidden bg-[#f5f8f7] p-4">
+                <Link to={`/products/${product.slug}`} aria-label={`View ${product.name}`} className="flex aspect-[4/3] items-center justify-center overflow-hidden bg-[#F1F7FA] p-4">
                   {product.image_url ? (
                     <img src={product.image_url} alt={product.name} loading="lazy" className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105" />
                   ) : (
@@ -139,7 +139,7 @@ export default function ProductsPage() {
                   <p className="!mb-2 truncate text-[11px] font-semibold uppercase tracking-[.07em] !text-[#66837e]">SKU: {product.sku}</p>
                   <h3 className="!mb-2 !font-sans !text-[18px] !font-bold !leading-snug !tracking-[-.02em] !text-[#17323a]">{product.name}</h3>
                   <p className="!mb-5 line-clamp-3 !text-[13px] !leading-6 !text-[#687a82]">{product.summary || 'Product information is available on request.'}</p>
-                  <Link to={`/products/${product.slug}`} className="mt-auto inline-flex items-center gap-2 text-[13px] font-bold text-[#0d5c4f] transition hover:gap-3 hover:text-[#087968]">View product <ArrowRight size={16}/></Link>
+                  <Link to={`/products/${product.slug}`} className="mt-auto inline-flex items-center gap-2 text-[13px] font-bold text-[#07546B] transition hover:gap-3 hover:text-[#087968]">View product <ArrowRight size={16}/></Link>
                 </div>
               </article>
             ))}

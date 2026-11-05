@@ -27,7 +27,7 @@
 .cx-dashboard-v2__eyebrow{display:inline-flex;gap:8px;align-items:center;font-size:11px;letter-spacing:.15em;font-weight:800;color:#a7f0d8}
 .cx-dashboard-v2__hero h2{font:800 clamp(26px,3vw,42px)/1.2 Manrope,system-ui,sans-serif;letter-spacing:-.05em;color:white;margin:15px 0 10px}
 .cx-dashboard-v2__hero p{color:#d1e7e6!important;font-size:14px;max-width:540px;line-height:1.8;margin:0}
-.cx-dashboard-v2__hero-link{white-space:nowrap;display:inline-flex;align-items:center;gap:8px;border-radius:12px;background:#fff;color:#0d5c4f!important;padding:13px 17px;font-weight:800;font-size:13px;text-decoration:none;transition:transform .2s ease}
+.cx-dashboard-v2__hero-link{white-space:nowrap;display:inline-flex;align-items:center;gap:8px;border-radius:12px;background:#fff;color:#07546B!important;padding:13px 17px;font-weight:800;font-size:13px;text-decoration:none;transition:transform .2s ease}
 .cx-dashboard-v2__hero-link:hover{transform:translateY(-3px)}
 .cx-dashboard-v2__stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:22px 0 40px}
 .cx-dashboard-v2__stat{display:flex;gap:15px;align-items:center;padding:23px;border:1px solid #e2ebef;border-radius:20px;background:white;box-shadow:0 8px 24px #102f4409;min-width:0}

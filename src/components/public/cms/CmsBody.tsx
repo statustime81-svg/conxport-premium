@@ -21,14 +21,14 @@ export default function CmsBody({ entry }: { entry: CmsEntry }) {
         {collection && (
           <Link
             to={collection.href}
-            className="mb-7 inline-flex items-center gap-2 text-sm font-semibold !text-[#0d6659] transition hover:gap-3 hover:!text-[#09483f]"
+            className="mb-7 inline-flex items-center gap-2 text-sm font-semibold !text-[#07546B] transition hover:gap-3 hover:!text-[#09483f]"
           >
             <ArrowLeft size={16} aria-hidden="true" />
             {collection.label}
           </Link>
         )}
 
-        <div className="mb-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#0d7363]">
+        <div className="mb-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#07546B]">
           <span>ConXport / {entry.kind.replace(/_/g, ' ')}</span>
           {validDate && (
             <span className="inline-flex items-center gap-1.5 normal-case tracking-normal text-slate-500">
@@ -70,7 +70,7 @@ export default function CmsBody({ entry }: { entry: CmsEntry }) {
           <div className="mt-12 border-t border-[#e6eceb] pt-6">
             <Link
               to={collection.href}
-              className="group inline-flex items-center gap-2 text-sm font-bold !text-[#0d6659] hover:!text-[#09483f]"
+              className="group inline-flex items-center gap-2 text-sm font-bold !text-[#07546B] hover:!text-[#09483f]"
             >
               Back to {collection.label.toLowerCase()}
               <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />

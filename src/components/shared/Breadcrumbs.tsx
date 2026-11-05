@@ -31,7 +31,7 @@ export default function Breadcrumbs({ items, className = '' }: Props) {
         .cx-breadcrumbs ol{display:flex;align-items:center;flex-wrap:wrap;gap:10px;list-style:none;margin:0;padding:0}
         .cx-breadcrumbs li{display:flex;align-items:center;min-height:20px}
         .cx-breadcrumbs a{color:inherit;transition:color .2s}
-        .cx-breadcrumbs a:hover{color:#47d8c2}
+        .cx-breadcrumbs a:hover{color:#FF6A35}
         .cx-breadcrumbs [aria-current=page]{color:inherit;font-weight:700}
         .cx-breadcrumb-separator{opacity:.55}
       `}</style>

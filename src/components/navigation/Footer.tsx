@@ -113,19 +113,19 @@ export default function Footer() {
 
             <div className="mt-7 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
               <a href="tel:+919996510929" className="group flex min-w-0 items-start gap-3 !text-[#d9e6e9] transition-colors hover:!text-white">
-                <Phone size={18} className="mt-0.5 shrink-0 text-[#72dac5]" />
+                <Phone size={18} className="mt-0.5 shrink-0 text-[#FF8A59]" />
                 <span className="min-w-0"><span className="block text-[11px] font-semibold uppercase tracking-[.09em] text-[#90aeb8]">Phone</span><span className="mt-0.5 block text-[13px] font-medium">+91 9996510929</span></span>
               </a>
               <div className="flex min-w-0 items-start gap-3">
-                <Clock3 size={18} className="mt-0.5 shrink-0 text-[#72dac5]" />
+                <Clock3 size={18} className="mt-0.5 shrink-0 text-[#FF8A59]" />
                 <span><span className="block text-[11px] font-semibold uppercase tracking-[.09em] text-[#90aeb8]">Working hours</span><span className="mt-0.5 block text-[13px] leading-5 text-[#d9e6e9]">Mon–Fri · 10:00 to 8:00</span></span>
               </div>
               <div className="flex min-w-0 items-start gap-3">
-                <MapPin size={18} className="mt-0.5 shrink-0 text-[#72dac5]" />
+                <MapPin size={18} className="mt-0.5 shrink-0 text-[#FF8A59]" />
                 <span><span className="block text-[11px] font-semibold uppercase tracking-[.09em] text-[#90aeb8]">Location</span><span className="mt-0.5 block text-[13px] leading-5 text-[#d9e6e9]">Ambala Cantt, 133001<br />Haryana, India</span></span>
               </div>
               <Link to="/contact" className="group flex min-w-0 items-start gap-3 !text-[#d9e6e9] transition-colors hover:!text-white">
-                <Mail size={18} className="mt-0.5 shrink-0 text-[#72dac5]" />
+                <Mail size={18} className="mt-0.5 shrink-0 text-[#FF8A59]" />
                 <span><span className="block text-[11px] font-semibold uppercase tracking-[.09em] text-[#90aeb8]">Email</span><span className="mt-0.5 inline-flex items-center gap-1 text-[13px] font-medium">Contact enquiry <ArrowUpRight size={13} /></span></span>
               </Link>
             </div>

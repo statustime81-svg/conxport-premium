@@ -63,6 +63,11 @@ export default function SettingsPage() {
               </label>
             ))}
 
+            <label className="cx-label" style={{ gridColumn: '1 / -1', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+              <input type="checkbox" checked={form.whatsappWidgetEnabled === true} onChange={e => change('whatsappWidgetEnabled', e.target.checked)} />
+              <span>Enable WhatsApp floating enquiry widget on public website</span>
+            </label>
+            <p style={{ gridColumn: '1 / -1', fontSize: 12, margin: 0 }}>Enter your real WhatsApp Business number above, including country code (example: +91XXXXXXXXXX). The widget stays hidden until you enable it and provide a valid number.</p>
             {error && <p role="alert" className="cx-error">{error}</p>}
             {message && <p className="cx-success">{message}</p>}
 

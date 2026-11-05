@@ -63,16 +63,16 @@ export default function SearchPage() {
         ) : error ? (
           <div role="alert" className="rounded-2xl border border-red-200 bg-white p-6 text-red-700">Unable to load products: {error}</div>
         ) : !query ? (
-          <div className="rounded-2xl border border-[#dce9e8] bg-white p-10 text-center"><PackageSearch className="mx-auto mb-3 text-[#0d5c4f]" size={34}/><h2 className="font-['Manrope',system-ui,sans-serif] text-xl font-bold">Enter a product name to search</h2></div>
+          <div className="rounded-2xl border border-[#dce9e8] bg-white p-10 text-center"><PackageSearch className="mx-auto mb-3 text-[#07546B]" size={34}/><h2 className="font-['Manrope',system-ui,sans-serif] text-xl font-bold">Enter a product name to search</h2></div>
         ) : (
           <>
             <div className="mb-7 flex flex-wrap items-center justify-between gap-3">
               <h2 className="m-0 font-['Manrope',system-ui,sans-serif] text-xl font-extrabold text-[#15333b] sm:text-2xl">{matches.length} result{matches.length === 1 ? '' : 's'} for “{query}”</h2>
-              <Link to="/products" className="text-sm font-bold text-[#0d5c4f] hover:underline">Browse all products</Link>
+              <Link to="/products" className="text-sm font-bold text-[#07546B] hover:underline">Browse all products</Link>
             </div>
             {matches.length === 0 ? (
               <div className="rounded-2xl border border-[#dce9e8] bg-white px-6 py-12 text-center">
-                <PackageSearch size={40} className="mx-auto mb-4 text-[#0d5c4f]"/>
+                <PackageSearch size={40} className="mx-auto mb-4 text-[#07546B]"/>
                 <h3 className="font-['Manrope',system-ui,sans-serif] text-xl font-bold">No matching products found</h3>
                 <p className="mt-2 !text-[#647982]">Try another product name or catalogue number.</p>
               </div>
@@ -82,11 +82,11 @@ export default function SearchPage() {
                   const category = categories.find((c) => c.id === product.primary_category_id);
                   return (
                     <article key={product.id} className="group flex min-w-0 flex-col rounded-[20px] border border-[#dfebea] bg-white p-6 shadow-[0_8px_25px_rgba(13,60,65,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-[#84bdb4] hover:shadow-[0_18px_36px_rgba(13,60,65,0.12)]">
-                      <span className="mb-3 text-xs font-extrabold uppercase tracking-wider !text-[#0d7363]">{category?.name ?? 'Medical equipment'}</span>
+                      <span className="mb-3 text-xs font-extrabold uppercase tracking-wider !text-[#07546B]">{category?.name ?? 'Medical equipment'}</span>
                       <h3 className="mb-2 font-['Manrope',system-ui,sans-serif] text-lg font-extrabold leading-snug text-[#142b35]">{product.name}</h3>
                       <p className="mb-2 text-xs !text-[#71858b]">Cat. no: {product.sku || 'On request'}</p>
                       <p className="mb-5 line-clamp-3 flex-1 text-sm !text-[#5b747d]">{product.summary || 'Product specifications available on request.'}</p>
-                      <Link to={`/products/${product.slug}`} className="inline-flex items-center gap-2 border-t border-[#e6eeee] pt-4 text-sm font-extrabold !text-[#0d5c4f]">View product <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-1" /></Link>
+                      <Link to={`/products/${product.slug}`} className="inline-flex items-center gap-2 border-t border-[#e6eeee] pt-4 text-sm font-extrabold !text-[#07546B]">View product <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-1" /></Link>
                     </article>
                   );
                 })}

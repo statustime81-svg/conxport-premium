@@ -25,7 +25,7 @@ function EquipmentSculpture() {
         </mesh>
         <mesh position={[0, -0.63, 0.2]}>
           <boxGeometry args={[1.53, 0.3, 0.04]} />
-          <meshStandardMaterial color="#47d8c2" metalness={0.5} roughness={0.3} />
+          <meshStandardMaterial color="#FF6A35" metalness={0.5} roughness={0.3} />
         </mesh>
         <mesh position={[0, -1.59, 0]}>
           <cylinderGeometry args={[0.10, 0.10, 0.58, 16]} />
@@ -47,7 +47,7 @@ export default function HeroScene() {
         <Canvas dpr={[1, 1.75]} camera={{ position: [0, 0, 6.5], fov: 39 }} gl={{ antialias: true, alpha: true }}>
           <ambientLight intensity={1.8} />
           <directionalLight position={[3, 6, 5]} intensity={3} color="#d7f6f2" />
-          <pointLight position={[-4, -2, 2]} intensity={15} color="#47d8c2" />
+          <pointLight position={[-4, -2, 2]} intensity={15} color="#FF6A35" />
           <EquipmentSculpture />
           <OrbitControls enableZoom={false} enablePan={false} minPolarAngle={Math.PI / 2.8} maxPolarAngle={Math.PI / 1.8} />
         </Canvas>

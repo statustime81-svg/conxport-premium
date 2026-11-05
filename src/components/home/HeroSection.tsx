@@ -14,7 +14,7 @@ export default function HeroSection() {
       className="
         relative isolate overflow-hidden
         min-h-[min(880px,100svh)]
-        text-[#0f1419]
+        text-[#102D3C]
         bg-white
       "
     >
@@ -22,7 +22,7 @@ export default function HeroSection() {
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-[3px]
-                   bg-[linear-gradient(90deg,#0d5c4f_0%,#1a8a76_50%,#0d5c4f_100%)]"
+                   bg-[linear-gradient(90deg,#07546B_0%,#1a8a76_50%,#07546B_100%)]"
       />
 
       {/* Soft teal wash */}
@@ -37,7 +37,7 @@ export default function HeroSection() {
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 z-0 opacity-[0.30]
-                   bg-[linear-gradient(#0f1419_1px,transparent_1px),linear-gradient(90deg,#0f1419_1px,transparent_1px)]
+                   bg-[linear-gradient(#102D3C_1px,transparent_1px),linear-gradient(90deg,#102D3C_1px,transparent_1px)]
                    bg-[size:56px_56px]
                    [mask-image:radial-gradient(ellipse_60%_50%_at_80%_30%,#000_20%,transparent_75%)]"
       />
@@ -59,18 +59,18 @@ export default function HeroSection() {
             <div
               className="
                 mb-6 inline-flex items-center gap-2.5 rounded-full
-                border border-[#0d5c4f]/20 bg-[#0d5c4f]/[0.04]
+                border border-[#07546B]/20 bg-[#07546B]/[0.04]
                 px-4 py-2
               "
             >
               <ShieldCheck
                 size={14}
-                className="text-[#0d5c4f]"
+                className="text-[#07546B]"
                 strokeWidth={2.4}
               />
               <span
                 className="text-[11px] font-bold uppercase
-                           tracking-[0.20em] text-[#0d5c4f]"
+                           tracking-[0.20em] text-[#07546B]"
               >
                 Trusted by 200+ hospitals
               </span>
@@ -84,14 +84,14 @@ export default function HeroSection() {
               className="
                 m-0 text-[clamp(3.75rem,9.5vw,10.5rem)]
                 font-extrabold leading-[0.9] tracking-[-0.055em]
-                text-[#0f1419] font-['Manrope',system-ui,sans-serif]
+                text-[#102D3C] font-['Manrope',system-ui,sans-serif]
               "
             >
               Medical
               <br />
               equipment,
               <br />
-              <span className="text-[#0d5c4f]">
+              <span className="text-[#07546B]">
                 delivered.
               </span>
             </h1>
@@ -119,7 +119,7 @@ export default function HeroSection() {
                 to="/products"
                 className="
                   group inline-flex items-center gap-3
-                  rounded-full bg-[#0d5c4f] px-9 py-5
+                  rounded-full bg-[#D84312] px-9 py-5
                   text-base font-bold tracking-[-0.01em] text-white
                   shadow-[0_20px_50px_-15px_rgba(13,92,79,0.55)]
                   transition-all duration-300
@@ -139,11 +139,11 @@ export default function HeroSection() {
                 to="/contact"
                 className="
                   group inline-flex items-center gap-3
-                  rounded-full border-2 border-[#0f1419]/15
+                  rounded-full border-2 border-[#102D3C]/15
                   bg-white px-9 py-5
-                  text-base font-bold tracking-[-0.01em] text-[#0f1419]
+                  text-base font-bold tracking-[-0.01em] text-[#102D3C]
                   transition-colors duration-300
-                  hover:border-[#0f1419]/40 hover:bg-[#f7f8f9]
+                  hover:border-[#102D3C]/40 hover:bg-[#f7f8f9]
                 "
               >
                 Get a Quote
@@ -161,7 +161,7 @@ export default function HeroSection() {
             <div
               className="
                 mt-10 grid grid-cols-2 gap-x-8 gap-y-5
-                border-t border-[#0f1419]/10 pt-7
+                border-t border-[#102D3C]/10 pt-7
                 sm:grid-cols-4
               "
             >
@@ -172,7 +172,7 @@ export default function HeroSection() {
                 ['24h', 'Quote turnaround'],
               ].map(([value, label]) => (
                 <div key={label}>
-                  <div className="text-lg font-extrabold tracking-[-0.02em] text-[#0f1419]">
+                  <div className="text-lg font-extrabold tracking-[-0.02em] text-[#102D3C]">
                     {value}
                   </div>
                   <div className="mt-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-[#7a8590]">
@@ -190,7 +190,7 @@ export default function HeroSection() {
             className="
               relative overflow-hidden rounded-[28px]
               h-[min(62vw,620px)] min-h-[420px] max-h-[680px]
-              border border-[#0f1419]/[0.06]
+              border border-[#102D3C]/[0.06]
               bg-[radial-gradient(circle_at_50%_55%,rgba(13,92,79,0.10),rgba(247,248,249,0.9)_70%)]
               shadow-[0_40px_100px_-40px_rgba(15,20,25,0.18)]
             "
@@ -216,18 +216,18 @@ export default function HeroSection() {
             <div
               className="
                 absolute left-6 top-6 inline-flex items-center gap-2
-                rounded-full border border-[#0d5c4f]/20 bg-white/90
+                rounded-full border border-[#07546B]/20 bg-white/90
                 px-4 py-2 backdrop-blur-md
                 shadow-[0_8px_24px_-8px_rgba(15,20,25,0.12)]
               "
             >
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#0d5c4f] opacity-60" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#0d5c4f]" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#07546B] opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#07546B]" />
               </span>
 
               <span
-                className="text-[10.5px] font-bold uppercase tracking-[0.16em] text-[#0d5c4f]"
+                className="text-[10.5px] font-bold uppercase tracking-[0.16em] text-[#07546B]"
               >
                 Live catalogue
               </span>

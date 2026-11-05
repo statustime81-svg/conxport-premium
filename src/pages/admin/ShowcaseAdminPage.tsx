@@ -190,7 +190,7 @@ export default function ShowcaseAdminPage() {
 
   return (
     <div className="w-full min-w-0 space-y-7 pb-12">
-      <header className="overflow-hidden rounded-[28px] border border-[#dce9e5] bg-gradient-to-br from-white via-white to-[#eaf5f1] p-6 shadow-sm sm:p-8">
+      <header className="overflow-hidden rounded-[28px] border border-[#DCECF0] bg-gradient-to-br from-white via-white to-[#eaf5f1] p-6 shadow-sm sm:p-8">
         <p className="!m-0 text-[11px] font-bold uppercase tracking-[0.22em] text-[#0d6b5b]">CONXPORT / CONTENT MANAGER</p>
         <h1 className="!mb-0 mt-3 !font-sans !text-[clamp(1.65rem,3vw,2.45rem)] !font-bold !leading-tight !tracking-tight !text-[#112c34]">{names[kind]}</h1>
         <p className="!mb-0 mt-2 max-w-2xl text-sm leading-6 !text-slate-500">
@@ -238,13 +238,13 @@ export default function ShowcaseAdminPage() {
                   <input type="url" value={form.media_url} onChange={event => setForm(current => ({ ...current, media_url: event.target.value }))} className={inputClass} placeholder="https://..." />
                 </label>
               )}
-              <label className="flex cursor-pointer flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed border-teal-200 bg-[#f0f9f5] p-7 text-center transition hover:border-teal-500 hover:bg-[#e6f5ef]">
-                {busy ? <LoaderCircle className="animate-spin text-[#0d6659]" size={30} /> : <UploadCloud className="text-[#0d6659]" size={30} />}
+              <label className="flex cursor-pointer flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed border-teal-200 bg-[#F1F7FA] p-7 text-center transition hover:border-teal-500 hover:bg-[#e6f5ef]">
+                {busy ? <LoaderCircle className="animate-spin text-[#07546B]" size={30} /> : <UploadCloud className="text-[#07546B]" size={30} />}
                 <span className="text-sm font-bold text-[#164d44]">{busy ? 'Uploading...' : isPhoto ? 'Upload expo gallery image' : 'Upload image / certificate'}</span>
                 <span className="text-xs text-slate-500">JPG, PNG, WebP {kind === 'certificate' ? 'or PDF' : ''} · Max 8 MB</span>
                 <input type="file" className="sr-only" accept={kind === 'certificate' ? 'image/png,image/jpeg,image/webp,application/pdf' : 'image/png,image/jpeg,image/webp'} disabled={busy} onChange={handleFile} />
               </label>
-              {selectedName && <p className="!m-0 break-all text-xs text-[#0d6659]">Selected: {selectedName}</p>}
+              {selectedName && <p className="!m-0 break-all text-xs text-[#07546B]">Selected: {selectedName}</p>}
               {photoPreview && <div className="overflow-hidden rounded-xl border border-slate-200 bg-slate-50 p-2"><img src={photoPreview} alt="New expo gallery preview" className="max-h-72 w-full rounded-lg object-contain" /></div>}
             </>
           )}
@@ -254,11 +254,11 @@ export default function ShowcaseAdminPage() {
             <input type="number" value={form.sort_order} onChange={event => setForm(current => ({ ...current, sort_order: Number(event.target.value) }))} className={inputClass} />
           </label>
           <label className="flex cursor-pointer items-center gap-3 text-sm font-semibold text-slate-700">
-            <input type="checkbox" checked={form.is_published} onChange={event => setForm(current => ({ ...current, is_published: event.target.checked }))} className="h-4 w-4 accent-[#0d6659]" />
+            <input type="checkbox" checked={form.is_published} onChange={event => setForm(current => ({ ...current, is_published: event.target.checked }))} className="h-4 w-4 accent-[#07546B]" />
             Published on website
           </label>
           <div className="flex flex-wrap items-center gap-3">
-            <button type="submit" disabled={busy} className="inline-flex items-center gap-2 rounded-xl bg-[#0d5c4f] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#09483e] disabled:opacity-50">
+            <button type="submit" disabled={busy} className="inline-flex items-center gap-2 rounded-xl bg-[#07546B] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#053F52] disabled:opacity-50">
               {busy ? <LoaderCircle className="animate-spin" size={17} /> : <Save size={17} />}{editing ? 'Save changes' : 'Publish'}
             </button>
             <button type="button" onClick={reset} disabled={busy} className="inline-flex items-center gap-2 rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-600 hover:bg-slate-50"><RotateCcw size={15} /> Clear</button>
@@ -268,7 +268,7 @@ export default function ShowcaseAdminPage() {
 
         <section className="min-w-0 rounded-[26px] border border-slate-200 bg-white p-5 shadow-[0_18px_44px_-35px_rgba(15,23,42,.3)] sm:p-6">
           <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
-            <h2 className="!m-0 flex items-center gap-2 !font-sans !text-lg !font-bold !text-slate-900"><Plus size={19} /> Existing items <span className="rounded-full bg-[#eaf6f1] px-2.5 py-1 text-xs text-[#0d5c4f]">{items.length}</span></h2>
+            <h2 className="!m-0 flex items-center gap-2 !font-sans !text-lg !font-bold !text-slate-900"><Plus size={19} /> Existing items <span className="rounded-full bg-[#E7F5F7] px-2.5 py-1 text-xs text-[#07546B]">{items.length}</span></h2>
             <span className="text-xs text-slate-500">Sorted by display order</span>
           </div>
           <div className={isPhoto ? 'grid grid-cols-1 gap-4 sm:grid-cols-2 2xl:grid-cols-3' : 'space-y-3'}>
@@ -286,7 +286,7 @@ export default function ShowcaseAdminPage() {
                     {!isPhoto && <h3 className="!m-0 break-words !font-sans !text-sm !font-bold !leading-6 !text-[#132f36]">{item.title}</h3>}
                     {!isPhoto && item.body && <p className="!mb-0 mt-1 line-clamp-2 break-words text-xs leading-5 !text-slate-500">{item.body}</p>}
                     <p className="!mb-0 mt-2 flex flex-wrap items-center gap-2 text-xs font-semibold text-slate-500">
-                      <span className={item.is_published ? 'text-[#0d6659]' : 'text-amber-600'}>{item.is_published ? <Check size={13} className="mr-1 inline" /> : null}{item.is_published ? 'Published' : 'Draft'}</span>
+                      <span className={item.is_published ? 'text-[#07546B]' : 'text-amber-600'}>{item.is_published ? <Check size={13} className="mr-1 inline" /> : null}{item.is_published ? 'Published' : 'Draft'}</span>
                       <span>· Order {item.sort_order}</span>
                     </p>
                     <div className={`flex items-center gap-2 ${isPhoto ? 'mt-3' : 'mt-3'}`}>

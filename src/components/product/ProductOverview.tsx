@@ -2,7 +2,7 @@ import { CheckCircle2 } from 'lucide-react';
 import type { ProductDetail } from '../../data/productDetails';
 export default function ProductOverview({ product }: { product: ProductDetail }) {
   return <section aria-labelledby="overview-title" style={{ paddingBlock: 'clamp(45px,7vw,100px)', borderBottom: '1px solid #d7e3e5' }}>
-    <p style={{ color: '#147a75', fontWeight: 800, letterSpacing: '.16em', fontSize: 12 }}>EQUIPMENT OVERVIEW</p>
+    <p style={{ color: '#07546B', fontWeight: 800, letterSpacing: '.16em', fontSize: 12 }}>EQUIPMENT OVERVIEW</p>
     <h2 id="overview-title" style={{ fontSize: 'clamp(2.2rem,5vw,4.8rem)', letterSpacing: '-.06em', lineHeight: 1.1, margin: '18px 0 24px' }}>Designed for clarity.</h2>
     <p style={{ maxWidth: 820, lineHeight: 1.9, fontSize: 'clamp(1rem,2vw,1.3rem)', color: '#425d64' }}>{product.description}</p>
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,280px),1fr))', gap: 50, marginTop: 45 }}>

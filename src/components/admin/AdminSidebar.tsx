@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router';
-import { Boxes, FileSearch, FileText, FolderOpen, House, LayoutDashboard, Mail, Package, PackageCheck, Settings, TrendingUp, Truck, Users, Warehouse, BookOpen, Download } from 'lucide-react';
+import { Boxes, FileSearch, FileText, FolderOpen, House, LayoutDashboard, Mail, Package, PackageCheck, Settings, TrendingUp, Truck, Users, Warehouse, BookOpen, Download, ImagePlus } from 'lucide-react';
 
 const groups = [
   { title: 'WORKSPACE', items: [
@@ -14,6 +14,7 @@ const groups = [
   ]},
   { title: 'CONTENT', items: [
     {label:'Homepage', to:'/admin/homepage', icon:House},
+    {label:'Our Services', to:'/admin/home-services', icon:ImagePlus},
     {label:'Testimonials', to:'/admin/showcase/testimonial', icon:Users},
     {label:'Client logos', to:'/admin/showcase/client', icon:House},
     {label:'Latest products', to:'/admin/products', icon:Package},

@@ -1,0 +1,46 @@
+/* Scoped to the ConXport WhatsApp widget. No existing site styles are changed. */
+.cx-wa-root { position:fixed; right:22px; bottom:22px; z-index:1100; display:flex; flex-direction:column; align-items:flex-end; gap:14px; font-family:Manrope,system-ui,sans-serif; }
+.cx-wa-root * { box-sizing:border-box; }
+.cx-wa-launch-wrap { position:relative; display:flex; align-items:center; }
+.cx-wa-launch { display:inline-flex; min-height:58px; align-items:center; justify-content:center; gap:10px; padding:0 20px 0 16px; border:2px solid #fff; border-radius:999px; background:linear-gradient(125deg,#07546b,#063c50); color:#fff; font-size:13px; font-weight:800; box-shadow:0 12px 35px rgba(5,66,83,.28); cursor:pointer; transition:transform .22s,box-shadow .22s; }
+.cx-wa-launch:hover {transform:translateY(-3px);box-shadow:0 17px 40px rgba(5,66,83,.38)}
+.cx-wa-launch-indicator { width:8px;height:8px;border-radius:50%;background:#49ec98; box-shadow:0 0 0 4px rgba(73,236,152,.15);}
+.cx-wa-panel { width:min(370px,calc(100vw - 28px));max-height:min(620px,calc(100dvh - 106px));overflow:auto;border:1px solid #dce8ee;border-radius:24px;background:#fff;box-shadow:0 24px 70px rgba(8,38,53,.21);animation:cxWaAppear .25s ease both; }
+@keyframes cxWaAppear { from {opacity:0;transform:translateY(12px) scale(.97)} to {opacity:1;transform:none} }
+.cx-wa-panel-header { display:flex;align-items:center;gap:10px;padding:18px 16px;background:linear-gradient(120deg,#07546b,#083a51);color:#fff; }
+.cx-wa-avatar { width:44px;height:44px;flex:0 0 auto;display:grid;place-items:center;position:relative;border-radius:15px;background:rgba(255,255,255,.18);color:#fff; }
+.cx-wa-presence {position:absolute;right:-2px;bottom:-2px;width:12px;height:12px;background:#4de2a2;border:2px solid #07546b;border-radius:50%;}
+.cx-wa-heading { flex:1;min-width:0;display:flex;flex-direction:column;gap:5px;}
+.cx-wa-heading strong {color:#fff;font-size:14px;line-height:1.2;white-space:nowrap;}
+.cx-wa-heading small {display:flex;gap:6px;align-items:center;color:#ddf3f4;font-size:10px;}
+.cx-wa-online-dot {width:6px;height:6px;border-radius:50%;background:#4de2a2;}
+.cx-wa-control {width:29px;height:30px;border:0;border-radius:8px;background:rgba(255,255,255,.12);color:#fff;display:grid;place-items:center;cursor:pointer;flex:0 0 auto;}
+.cx-wa-control:hover {background:rgba(255,255,255,.25)}
+.cx-wa-panel-body {padding:18px 17px 14px;background:linear-gradient(#f5fafb,#fff 65%)}
+.cx-wa-note {border:1px solid #dfecef;border-radius:17px 17px 17px 5px;padding:14px;background:#fff;box-shadow:0 5px 15px rgba(10,55,70,.04)}
+.cx-wa-hello {font-size:14px;font-weight:800;color:#173743;}
+.cx-wa-note p {margin:7px 0 0 !important;font-size:12px!important;color:#5c7480!important;line-height:1.7!important;}
+.cx-wa-choose {display:block;margin:18px 0 10px;color:#73909d;font-size:10px;font-weight:800;letter-spacing:.11em}
+.cx-wa-option {width:100%;display:flex;align-items:center;gap:11px;margin:8px 0;padding:11px;border:1px solid #e0e9ec;border-radius:14px;background:#fff;text-align:left;cursor:pointer;transition:transform .2s,border .2s,box-shadow .2s;}
+.cx-wa-option:hover {transform:translateX(-2px);border-color:#abd3db;box-shadow:0 8px 22px rgba(9,62,78,.08)}
+.cx-wa-option-icon {width:42px;height:42px;border-radius:12px;display:grid;place-items:center;flex:0 0 auto;}
+.cx-wa-option-blue {color:#07546b;background:#e9f5f9}.cx-wa-option-orange {color:#f04b19;background:#fff0e8}.cx-wa-option-green {color:#1c9a63;background:#e7f9ed}
+.cx-wa-option-copy {min-width:0;flex:1;display:flex;flex-direction:column;gap:3px;}
+.cx-wa-option-copy strong {font-size:12px;line-height:1.4;color:#173543;}
+.cx-wa-option-copy small {font-size:10px;line-height:1.4;color:#708792;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.cx-wa-arrow {flex:0 0 auto;color:#658a99}
+.cx-wa-trust {display:flex;align-items:center;justify-content:center;gap:6px;color:#75909b;font-size:10px;margin-top:15px;}
+.cx-wa-panel-footer {padding:12px;display:flex;align-items:center;justify-content:center;gap:5px;background:#f4f8fa;border-top:1px solid #e6eef1;color:#8298a1;font-size:10px;}
+.cx-wa-panel-footer span {color:#ff4f18}
+.cx-wa-restore {position:fixed;right:15px;bottom:15px;z-index:1100;display:flex;align-items:center;gap:5px;border:1px solid #cbdfe6;border-radius:999px;padding:8px 12px;background:#fff;color:#07546b;box-shadow:0 5px 20px rgba(10,55,70,.13);font-size:11px;font-weight:800;cursor:pointer}
+@media(max-width:640px){.cx-wa-root{right:12px;bottom:calc(12px + env(safe-area-inset-bottom));gap:9px}.cx-wa-panel{max-height:calc(100dvh - 104px);border-radius:20px}.cx-wa-launch{min-height:52px;padding:0 14px;font-size:12px}.cx-wa-restore{bottom:calc(12px + env(safe-area-inset-bottom));}}
+@media(prefers-reduced-motion:reduce){.cx-wa-panel{animation:none}.cx-wa-launch,.cx-wa-option{transition:none}}
+
+/* ConXport logo-color accents and a true one-click dismiss control. */
+.cx-wa-launch { border-color:#fff; box-shadow:0 12px 35px rgba(5,66,83,.28), inset 0 -3px 0 rgba(255,79,24,.55); }
+.cx-wa-launch-indicator { background:#ff4f18; box-shadow:0 0 0 4px rgba(255,79,24,.2); }
+.cx-wa-panel-header { border-bottom:3px solid #ff4f18; }
+.cx-wa-choose { color:#07546b; }
+.cx-wa-option:focus-visible,.cx-wa-launch:focus-visible,.cx-wa-control:focus-visible,.cx-wa-dismiss-float:focus-visible { outline:3px solid #ff4f18; outline-offset:3px; }
+.cx-wa-dismiss-float { position:absolute;right:-5px;top:-10px;display:grid;place-items:center;width:25px;height:25px;border-radius:50%;border:2px solid white;background:#ff4f18;color:white;cursor:pointer;box-shadow:0 3px 12px rgba(21,45,60,.24);transition:transform .2s ease,background .2s ease;z-index:1; }
+.cx-wa-dismiss-float:hover { transform:scale(1.1);background:#da3c10; }

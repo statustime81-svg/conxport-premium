@@ -85,7 +85,7 @@ export default function Header() {
     after:absolute after:bottom-[3px]
     after:left-1/2 after:h-[2px]
     after:w-0 after:-translate-x-1/2
-    after:rounded-full after:bg-[#0d8774]
+    after:rounded-full after:bg-[#FF4F18]
     after:transition-all after:duration-300
     hover:after:w-full
   `;
@@ -97,8 +97,8 @@ export default function Header() {
   }) =>
     `${navBase} ${
       isActive
-        ? '!text-[#0d7363] after:w-full'
-        : '!text-[#18323d] hover:!text-[#0d7363]'
+        ? '!text-[#07546B] after:w-full'
+        : '!text-[#18323d] hover:!text-[#07546B]'
     }`;
 
   return (
@@ -193,13 +193,13 @@ export default function Header() {
                 whitespace-nowrap
                 rounded-full
                 border border-[#dfeae8]
-                bg-[#f7fbfa]
+                bg-[#F1F7FA]
                 px-3 sm:px-5
                 !text-[#153c37]
                 transition-all duration-300
                 hover:-translate-y-0.5
                 hover:border-[#a0d2c5]
-                hover:bg-[#eaf7f2]
+                hover:bg-[#E7F5F7]
               "
             >
               <Download
@@ -230,7 +230,7 @@ export default function Header() {
                 justify-center gap-2
                 whitespace-nowrap
                 rounded-full
-                !bg-[#0d5c4f]
+                !bg-[#D84312]
                 px-3 sm:px-5 lg:px-6
                 text-[11px] sm:text-[12px]
                 xl:text-[13px]
@@ -238,7 +238,7 @@ export default function Header() {
                 shadow-[0_6px_18px_rgba(13,92,79,0.15)]
                 transition-all duration-300
                 hover:-translate-y-0.5
-                hover:!bg-[#09483e]
+                hover:!bg-[#B9320A]
                 hover:shadow-[0_12px_25px_rgba(13,92,79,0.22)]
               "
             >
@@ -275,7 +275,7 @@ export default function Header() {
                 border border-[#dfeae8]
                 bg-white !text-[#153c37]
                 transition-colors duration-300
-                hover:bg-[#eef8f5]
+                hover:bg-[#E7F5F7]
                 lg:hidden
               "
             >
@@ -331,6 +331,14 @@ export default function Header() {
             Home
           </NavLink>
 
+          {/* ABOUT */}
+          <NavLink
+            to="/about"
+            className={navLinkClass}
+          >
+            About
+          </NavLink>
+
           {/* CATEGORIES MEGA MENU */}
           <div
             ref={categoriesRef}
@@ -361,8 +369,8 @@ export default function Header() {
                 !p-0 !py-0
                 ${
                   categoriesOpen
-                    ? '!text-[#0d7363] after:w-full'
-                    : '!text-[#18323d] hover:!text-[#0d7363]'
+                    ? '!text-[#07546B] after:w-full'
+                    : '!text-[#18323d] hover:!text-[#07546B]'
                 }
               `}
             >
@@ -396,20 +404,12 @@ export default function Header() {
             Insights
           </NavLink>
 
-          {/* CASE STUDIES */}
+          {/* OUR EXPO */}
           <NavLink
-            to="/turnkey-projects"
+            to="/our-expo"
             className={navLinkClass}
           >
-            Turnkey Projects
-          </NavLink>
-
-          {/* ABOUT */}
-          <NavLink
-            to="/about"
-            className={navLinkClass}
-          >
-            About
+            Our Expo
           </NavLink>
 
           {/* CERTIFICATES */}
@@ -420,12 +420,20 @@ export default function Header() {
             Certificates
           </NavLink>
 
-          {/* OUR EXPO */}
+          {/* DISTRIBUTOR NETWORK */}
           <NavLink
-            to="/our-expo"
+            to="/distributor"
             className={navLinkClass}
           >
-            Our Expo
+            Distributor
+          </NavLink>
+
+          {/* CASE STUDIES */}
+          <NavLink
+            to="/turnkey-projects"
+            className={navLinkClass}
+          >
+            Turnkey Projects
           </NavLink>
 
           {/* CONTACT */}

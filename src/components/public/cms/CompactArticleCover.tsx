@@ -14,7 +14,7 @@ export default function CompactArticleCover({ src, alt, className = '' }: Props)
 
   return (
     <figure className={`my-6 w-full overflow-hidden rounded-2xl border border-slate-200 bg-white sm:my-8 ${className}`}>
-      <div className="flex h-[220px] w-full items-center justify-center bg-[#f7faf9] p-3 sm:h-[280px] sm:p-5 lg:h-[320px]">
+      <div className="flex h-[220px] w-full items-center justify-center bg-[#F1F7FA] p-3 sm:h-[280px] sm:p-5 lg:h-[320px]">
         <img
           src={src}
           alt={alt}

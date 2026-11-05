@@ -2,17 +2,21 @@
 @import "tailwindcss";
 
 :root {
-  --cx-bg: #f4f8fb;
+  --cx-bg: #F1F7FA;
   --cx-surface: #ffffff;
-  --cx-surface-alt: #eef4f7;
-  --cx-text: #0f2230;
+  --cx-surface-alt: #E7F5F7;
+  --cx-text: #102D3C;
   --cx-muted: #5f7280;
   --cx-line: #d9e5ec;
-  --cx-brand: #147d73;
-  --cx-brand-2: #7dc9c4;
-  --cx-brand-deep: #0c4b53;
-  --cx-navy: #091821;
-  --cx-navy-2: #102734;
+  --cx-brand: #07546B;
+  --cx-brand-2: #B7E4EC;
+  --cx-brand-deep: #053F52;
+  --cx-orange: #FF4F18;
+  --cx-orange-hover: #E44310;
+  --cx-light-blue: #F1F7FA;
+  --cx-aqua: #E7F5F7;
+  --cx-navy: #052E40;
+  --cx-navy-2: #07546B;
   --cx-shadow: 0 20px 70px rgba(9, 24, 33, 0.12);
   font-family: 'Manrope', system-ui, sans-serif;
   color: var(--cx-text);
@@ -54,8 +58,8 @@ p { color: var(--cx-muted); line-height: 1.8; }
 
 .cx-primary, .primary-action, .cx-quote-link {
   display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: 0; cursor: pointer;
-  background: linear-gradient(135deg, var(--cx-brand), #1ba194); color: white; padding: 14px 20px; border-radius: 14px; font-weight: 800;
-  box-shadow: 0 18px 36px rgba(20, 125, 115, 0.24); transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+  background: linear-gradient(135deg, var(--cx-orange), #E44310); color: white; padding: 14px 20px; border-radius: 14px; font-weight: 800;
+  box-shadow: 0 18px 36px rgba(255, 79, 24, 0.2); transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
 }
 .cx-primary:hover, .primary-action:hover, .cx-quote-link:hover, .cx-secondary-button:hover { transform: translateY(-2px); filter: saturate(1.05); }
 .cx-secondary-button {
@@ -307,7 +311,7 @@ html {
   to { opacity: 1; transform: translateY(0); }
 }
 .cx-faq-arrow { transition: transform .28s ease, background-color .28s ease; }
-.cx-faq-item[open] .cx-faq-arrow { transform: rotate(90deg); background: #e2f4ed; }
+.cx-faq-item[open] .cx-faq-arrow { transform: rotate(90deg); background: #E7F5F7; }
 .cx-faq-answer { animation: cxFaqAnswer .28s ease both; }
 @keyframes cxFaqAnswer {
   from { opacity: 0; transform: translateY(-6px); }
@@ -374,3 +378,64 @@ html {
   .cx-review-card { width: calc(100vw - 58px); min-height: 240px; padding: 22px; }
 }
 @media(prefers-reduced-motion: reduce) { .cx-review-card, .cx-review-arrow { transition: none; } }
+
+
+/* ConXport wide 4-column Categories dropdown only. Other UI stays unchanged. */
+@media (min-width: 1024px) {
+  #cx-mega-menu.cx-mega-menu-wide {
+    position: fixed !important;
+    top: 136px !important; /* 82px header actions + 54px desktop navigation */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: min(1180px, calc(100vw - 48px)) !important;
+    max-width: none !important;
+    box-sizing: border-box;
+    padding: 18px 24px 15px;
+    border: 1px solid #e4edf1;
+    border-radius: 0 0 16px 16px;
+    background: #fff;
+    box-shadow: 0 20px 45px rgba(16, 45, 60, .13);
+    z-index: 1100;
+  }
+  .cx-mega-wide-header,
+  .cx-mega-wide-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .cx-mega-wide-header { padding-bottom: 13px; border-bottom: 1px solid #eef3f5; }
+  .cx-mega-wide-scroll { max-height: min(58vh, 520px); overflow-y: auto; overscroll-behavior: contain; padding: 14px 0; }
+  .cx-mega-wide-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 30px;
+    row-gap: 2px;
+    align-items: start;
+  }
+  .cx-mega-wide-link {
+    display: block;
+    min-width: 0;
+    padding: 9px 8px;
+    border-radius: 6px;
+    color: #17323a;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+    transition: color .2s ease, background-color .2s ease;
+  }
+  .cx-mega-wide-link:hover,
+  .cx-mega-wide-link:focus-visible { color: #FF4F18; background: #fff5f0; }
+  .cx-mega-wide-footer {
+    padding-top: 13px;
+    border-top: 1px solid #eef3f5;
+    color: #647a83;
+    font-size: 12px;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1150px) {
+  .cx-mega-wide-grid { column-gap: 12px; }
+  .cx-mega-wide-link { font-size: 12px; }
+}

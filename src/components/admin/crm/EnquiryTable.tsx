@@ -10,7 +10,7 @@ export default function EnquiryTable({ records }: { records: CrmEnquiry[] }) {
   return (
     <div className="w-full min-w-0 overflow-x-auto">
       <table className="w-full min-w-[760px] border-collapse text-left font-sans">
-        <thead className="bg-[#f7faf9]">
+        <thead className="bg-[#F1F7FA]">
           <tr className="border-b border-[#e9efed]">
             {['Reference', 'Customer', 'Company', 'Status', 'Created', 'Action'].map((header) => (
               <th key={header} scope="col" className="px-5 py-3.5 !text-[11px] !font-extrabold !uppercase !tracking-[0.09em] !text-[#71858c] first:pl-6 last:pr-6">
@@ -46,7 +46,7 @@ export default function EnquiryTable({ records }: { records: CrmEnquiry[] }) {
                 <Link
                   to={`/admin/enquiries/${entry.id}`}
                   aria-label={`View enquiry ${entry.reference || entry.id}`}
-                  className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-lg border border-[#cfe3db] bg-white px-3 py-2 !text-[12px] !font-bold !text-[#0d6255] transition hover:border-[#0d7363] hover:!bg-[#eaf6f0]"
+                  className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-lg border border-[#cfe3db] bg-white px-3 py-2 !text-[12px] !font-bold !text-[#0d6255] transition hover:border-[#07546B] hover:!bg-[#eaf6f0]"
                 >
                   View details <ArrowUpRight size={14} aria-hidden="true" />
                 </Link>

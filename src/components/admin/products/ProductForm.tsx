@@ -151,7 +151,7 @@ export default function ProductForm({ product, onSaved }: Props) {
         </section>
 
         <div className="flex flex-wrap justify-end gap-3">
-          <button type="submit" disabled={saving} className="inline-flex items-center gap-2 rounded-xl !bg-[#0d5c4f] px-6 py-3.5 text-sm font-extrabold !text-white transition hover:!bg-[#09483e] disabled:cursor-not-allowed disabled:opacity-60">
+          <button type="submit" disabled={saving} className="inline-flex items-center gap-2 rounded-xl !bg-[#07546B] px-6 py-3.5 text-sm font-extrabold !text-white transition hover:!bg-[#053F52] disabled:cursor-not-allowed disabled:opacity-60">
             <Save size={18} />{saving ? 'Saving...' : 'Save product'}
           </button>
         </div>

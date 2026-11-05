@@ -63,7 +63,7 @@ export default function EnquiriesPage() {
     <section className="w-full min-w-0 space-y-6 pb-12 font-sans text-[#16313a]">
       <header className="flex flex-wrap items-start justify-between gap-4">
         <div className="min-w-0">
-          <p className="!m-0 !text-[11px] !font-extrabold !uppercase !tracking-[0.15em] !text-[#0d7363]">
+          <p className="!m-0 !text-[11px] !font-extrabold !uppercase !tracking-[0.15em] !text-[#07546B]">
             CRM / ENQUIRIES
           </p>
           <h1 className="!mb-0 !mt-2 !text-[27px] !font-extrabold !leading-tight !tracking-[-0.035em] !text-[#162f37] sm:!text-[32px]">
@@ -77,7 +77,7 @@ export default function EnquiriesPage() {
           type="button"
           onClick={() => void reload()}
           disabled={loading}
-          className="group inline-flex h-10 shrink-0 items-center justify-center gap-2 rounded-xl border border-[#d8e5e0] !bg-white px-4 !text-[13px] !font-bold !text-[#0d5c4f] transition hover:!border-[#a0cfc1] hover:!bg-[#f0f8f4] disabled:cursor-wait disabled:opacity-60"
+          className="group inline-flex h-10 shrink-0 items-center justify-center gap-2 rounded-xl border border-[#d8e5e0] !bg-white px-4 !text-[13px] !font-bold !text-[#07546B] transition hover:!border-[#a0cfc1] hover:!bg-[#f0f8f4] disabled:cursor-wait disabled:opacity-60"
         >
           <RefreshCw size={16} className={loading ? 'animate-spin' : 'transition-transform duration-300 group-hover:rotate-90'} aria-hidden="true" />
           Refresh enquiries
@@ -85,7 +85,7 @@ export default function EnquiriesPage() {
       </header>
 
       <div className="grid grid-cols-2 gap-3 xl:grid-cols-4">
-        <Metric label="Total enquiries" value={rows.length} icon={Inbox} color="text-[#0d7363]" background="bg-[#e9f5f1]" />
+        <Metric label="Total enquiries" value={rows.length} icon={Inbox} color="text-[#07546B]" background="bg-[#e9f5f1]" />
         <Metric label="New enquiries" value={newCount} icon={Clock3} color="text-[#2563eb]" background="bg-[#eff6ff]" />
         <Metric label="Quotes sent" value={quotedCount} icon={FileCheck2} color="text-[#a16207]" background="bg-[#fffbeb]" />
         <Metric label="Closed won" value={wonCount} icon={CheckCircle2} color="text-[#15803d]" background="bg-[#f0fdf4]" />
@@ -108,7 +108,7 @@ export default function EnquiriesPage() {
                 {loading ? 'Updating enquiries…' : `${records.length} matching ${records.length === 1 ? 'enquiry' : 'enquiries'} from the latest records`}
               </p>
             </div>
-            <span className="inline-flex items-center gap-2 rounded-full bg-[#edf7f3] px-3 py-1.5 !text-[11px] !font-bold !text-[#0d5c4f]">
+            <span className="inline-flex items-center gap-2 rounded-full bg-[#E7F5F7] px-3 py-1.5 !text-[11px] !font-bold !text-[#07546B]">
               <ShieldCheck size={14} aria-hidden="true" /> Admin only
             </span>
           </div>
@@ -137,7 +137,7 @@ export default function EnquiriesPage() {
               {hasFilters ? 'Try another customer name, reference or status.' : 'New customer enquiries will appear here when submitted.'}
             </p>
             {hasFilters && (
-              <button type="button" onClick={() => { setSearch(''); setStatus(''); }} className="mt-5 rounded-lg border border-[#cddfd7] px-4 py-2 !text-[12px] !font-bold !text-[#0d5c4f] hover:!bg-[#edf7f3]">
+              <button type="button" onClick={() => { setSearch(''); setStatus(''); }} className="mt-5 rounded-lg border border-[#cddfd7] px-4 py-2 !text-[12px] !font-bold !text-[#07546B] hover:!bg-[#E7F5F7]">
                 Clear filters
               </button>
             )}
@@ -147,7 +147,7 @@ export default function EnquiriesPage() {
 
       <div className="flex flex-wrap items-center justify-between gap-3 !text-[12px] !text-[#71818a]">
         <p className="!m-0">Enquiry records are visible only to authorized admin users.</p>
-        <Link to="/admin/customers" className="inline-flex items-center gap-1 !font-semibold !text-[#0d7363] hover:underline">
+        <Link to="/admin/customers" className="inline-flex items-center gap-1 !font-semibold !text-[#07546B] hover:underline">
           Manage customers <ArrowRight size={14} aria-hidden="true" />
         </Link>
       </div>

@@ -22,7 +22,7 @@ export default function CrmFilters({ search, onSearch, status, onStatus }: CrmFi
           value={search}
           onChange={(event) => onSearch(event.target.value)}
           placeholder="Search reference, customer, email or company..."
-          className="block h-11 w-full min-w-0 rounded-xl border border-[#dae5e2] !bg-white py-2.5 pl-11 pr-4 !text-[13px] !text-[#17343c] outline-none placeholder:!text-[#98a6ac] transition focus:border-[#0d7363] focus:ring-2 focus:ring-[#0d7363]/10"
+          className="block h-11 w-full min-w-0 rounded-xl border border-[#dae5e2] !bg-white py-2.5 pl-11 pr-4 !text-[13px] !text-[#17343c] outline-none placeholder:!text-[#98a6ac] transition focus:border-[#07546B] focus:ring-2 focus:ring-[#07546B]/10"
         />
       </label>
       <label className="relative block min-w-0">
@@ -32,7 +32,7 @@ export default function CrmFilters({ search, onSearch, status, onStatus }: CrmFi
           aria-label="Filter by status"
           value={status}
           onChange={(event) => onStatus(event.target.value)}
-          className="h-11 w-full appearance-none rounded-xl border border-[#dae5e2] !bg-white py-2.5 pl-10 pr-8 !text-[13px] !font-semibold !text-[#17343c] outline-none transition focus:border-[#0d7363] focus:ring-2 focus:ring-[#0d7363]/10"
+          className="h-11 w-full appearance-none rounded-xl border border-[#dae5e2] !bg-white py-2.5 pl-10 pr-8 !text-[13px] !font-semibold !text-[#17343c] outline-none transition focus:border-[#07546B] focus:ring-2 focus:ring-[#07546B]/10"
         >
           <option value="">All statuses</option>
           {CRM_STATUSES.map((entry: EnquiryStatus) => (
