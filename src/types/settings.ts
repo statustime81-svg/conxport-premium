@@ -4,6 +4,7 @@ export type GeneralSettings = {
   supportEmail: string;
   supportPhone: string;
   whatsapp: string;
+  whatsappWidgetEnabled?: boolean;
   address: string;
   city: string;
   country: string;
@@ -25,6 +26,7 @@ export const defaultGeneralSettings: GeneralSettings = {
   supportEmail: 'info@conxport.com',
   supportPhone: '+91 90000 00000',
   whatsapp: '+91 90000 00000',
+  whatsappWidgetEnabled: false,
   address: 'Add your registered business address here',
   city: 'Patna',
   country: 'India',

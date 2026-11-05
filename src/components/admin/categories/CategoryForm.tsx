@@ -80,14 +80,14 @@ export default function CategoryForm({ categories, editing, onSaved, onCancel }:
           <label className={label}>URL slug<input required maxLength={120} className={field} value={slug} onChange={(e) => setSlug(e.target.value.toLowerCase().replace(/\s+/g, '-'))} placeholder="hospital-furniture" /></label>
           <label className={label}>Description<textarea rows={4} maxLength={1200} className={`${field} resize-y`} value={description} onChange={(e) => setDescription(e.target.value)} placeholder="What products belong in this category?" /></label>
           <label className={label}>Parent category<select className={field} value={parent} onChange={(e) => setParent(e.target.value)}><option value="">Top level (main category)</option>{categories.filter((category) => category.id !== editing?.id && !category.parent_id).map((category) => <option key={category.id} value={category.id}>{category.name}</option>)}</select></label>
-          <label className="flex items-center gap-3 text-sm font-semibold text-[#233b43]"><input type="checkbox" className="h-4 w-4 accent-[#0d5c4f]" checked={published} onChange={(e) => setPublished(e.target.checked)} /> Published on website</label>
+          <label className="flex items-center gap-3 text-sm font-semibold text-[#233b43]"><input type="checkbox" className="h-4 w-4 accent-[#07546B]" checked={published} onChange={(e) => setPublished(e.target.checked)} /> Published on website</label>
         </div>
         <div className="min-w-0">
           <span className={label}>Category image</span>
           <div className="mt-2 flex aspect-[4/3] items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
             {preview || imageUrl ? <img src={preview || imageUrl || ''} alt="Category preview" className="h-full w-full object-cover" /> : <div className="flex flex-col items-center gap-2 text-slate-400"><ImagePlus size={38} /><span className="text-xs">No image uploaded</span></div>}
           </div>
-          <label className="mt-3 inline-flex cursor-pointer items-center gap-2 rounded-xl bg-[#eaf5f1] px-4 py-3 text-sm font-bold text-[#0d5c4f] transition hover:bg-[#daeee7]">
+          <label className="mt-3 inline-flex cursor-pointer items-center gap-2 rounded-xl bg-[#eaf5f1] px-4 py-3 text-sm font-bold text-[#07546B] transition hover:bg-[#daeee7]">
             <ImagePlus size={18} /> {imageUrl || preview ? 'Replace image' : 'Upload image'}
             <input type="file" accept="image/jpeg,image/png,image/webp" className="sr-only" onChange={selectImage} disabled={busy} />
           </label>
@@ -97,7 +97,7 @@ export default function CategoryForm({ categories, editing, onSaved, onCancel }:
       </div>
       {error && <p role="alert" className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 !text-sm !text-red-700">{error}</p>}
       <div className="flex flex-wrap items-center gap-3 border-t border-slate-100 pt-5">
-        <button type="submit" disabled={busy} className="inline-flex items-center gap-2 rounded-xl bg-[#0d5c4f] px-5 py-3 text-sm font-bold !text-white transition hover:bg-[#08483e] disabled:opacity-60">{busy ? <LoaderCircle size={17} className="animate-spin" /> : <Save size={17} />}{busy ? 'Saving category…' : 'Save category'}</button>
+        <button type="submit" disabled={busy} className="inline-flex items-center gap-2 rounded-xl bg-[#07546B] px-5 py-3 text-sm font-bold !text-white transition hover:bg-[#053F52] disabled:opacity-60">{busy ? <LoaderCircle size={17} className="animate-spin" /> : <Save size={17} />}{busy ? 'Saving category…' : 'Save category'}</button>
         <button type="button" disabled={busy} onClick={onCancel} className="rounded-xl border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-600 hover:bg-slate-50">Cancel</button>
       </div>
     </form>

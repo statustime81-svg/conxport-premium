@@ -31,10 +31,10 @@ export default function CategoriesPage() {
       <section className="border-b border-[#e6eded] bg-white py-10 sm:py-14">
         <div className="mx-auto w-[min(1240px,calc(100%-32px))] sm:w-[min(1240px,calc(100%-48px))]">
           <nav aria-label="Breadcrumb" className="mb-5 flex items-center gap-2 text-xs text-[#70818a]">
-            <Link to="/" className="hover:text-[#0d7363]">Home</Link>
-            <span>/</span><span className="font-semibold text-[#0d7363]">Categories</span>
+            <Link to="/" className="hover:text-[#07546B]">Home</Link>
+            <span>/</span><span className="font-semibold text-[#07546B]">Categories</span>
           </nav>
-          <p className="!mb-2 text-xs font-bold uppercase tracking-[0.15em] !text-[#0d7363]">CONXPORT CATEGORIES</p>
+          <p className="!mb-2 text-xs font-bold uppercase tracking-[0.15em] !text-[#07546B]">CONXPORT CATEGORIES</p>
           <h1 className="!mb-3 !font-sans !text-3xl !font-bold !leading-tight !tracking-[-0.045em] !text-[#173139] sm:!text-4xl">
             Explore equipment categories
           </h1>
@@ -57,7 +57,7 @@ export default function CategoriesPage() {
               value={query}
               onChange={event => setQuery(event.target.value)}
               placeholder="Search categories"
-              className="h-11 w-full rounded-xl border border-[#dbe6e6] bg-white pl-11 pr-4 text-sm text-[#173139] outline-none transition focus:border-[#0d7363] focus:ring-2 focus:ring-[#0d7363]/10"
+              className="h-11 w-full rounded-xl border border-[#dbe6e6] bg-white pl-11 pr-4 text-sm text-[#173139] outline-none transition focus:border-[#07546B] focus:ring-2 focus:ring-[#07546B]/10"
             />
           </label>
         </div>

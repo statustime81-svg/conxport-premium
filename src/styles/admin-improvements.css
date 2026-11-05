@@ -1,5 +1,5 @@
 /* Admin-only visual corrections; preserve public theme and layout. */
-.cx-admin-shell{--admin-accent:#0d5c4f;background:#f5f8f7!important;min-width:0}
+.cx-admin-shell{--admin-accent:#07546B;background:#F1F7FA!important;min-width:0}
 .cx-admin-main,.cx-admin-content{min-width:0!important;width:100%;box-sizing:border-box}
 .cx-admin-content{padding:clamp(16px,2.4vw,34px)!important;max-width:none!important;overflow-x:clip}
 .cx-admin-top{min-height:90px;padding:16px clamp(16px,2.4vw,32px)!important}

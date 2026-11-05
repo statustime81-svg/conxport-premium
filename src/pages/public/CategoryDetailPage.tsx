@@ -27,7 +27,7 @@ function ProductRow({ product }: { product: PublicProduct }) {
           {product.summary?.trim() || 'Product specifications and availability are available on request.'}
         </p>
       </div>
-      <Link to={`/products/${product.slug}`} className="inline-flex shrink-0 items-center gap-2 self-start rounded-full border border-[#cbded9] px-4 py-2.5 text-sm font-bold text-[#0d7363] transition hover:bg-[#eef8f4] sm:self-center">
+      <Link to={`/products/${product.slug}`} className="inline-flex shrink-0 items-center gap-2 self-start rounded-full border border-[#cbded9] px-4 py-2.5 text-sm font-bold text-[#07546B] transition hover:bg-[#E7F5F7] sm:self-center">
         View product <ArrowUpRight size={16} />
       </Link>
     </article>
@@ -76,9 +76,9 @@ export default function CategoryDetailPage() {
     <main className="min-h-[65vh] bg-white text-[#173139]">
       <div className="mx-auto w-[min(1240px,calc(100%-32px))] py-9 sm:w-[min(1240px,calc(100%-48px))] sm:py-12">
         <nav aria-label="Breadcrumb" className="mb-8 flex flex-wrap items-center gap-2 text-xs text-[#70818a]">
-          <Link to="/" className="hover:text-[#0d7363]">Home</Link><span>/</span>
-          <Link to="/categories" className="hover:text-[#0d7363]">Categories</Link><span>/</span>
-          <span className="font-semibold text-[#0d7363]">{category?.name ?? 'Category'}</span>
+          <Link to="/" className="hover:text-[#07546B]">Home</Link><span>/</span>
+          <Link to="/categories" className="hover:text-[#07546B]">Categories</Link><span>/</span>
+          <span className="font-semibold text-[#07546B]">{category?.name ?? 'Category'}</span>
         </nav>
 
         {loading ? (
@@ -88,18 +88,18 @@ export default function CategoryDetailPage() {
         ) : !category ? (
           <section className="py-12">
             <h1 className="!font-sans !text-3xl !font-bold !text-[#173139]">Category not found</h1>
-            <Link to="/categories" className="mt-5 inline-flex gap-2 font-semibold text-[#0d7363]"><ArrowLeft size={17} /> Back to categories</Link>
+            <Link to="/categories" className="mt-5 inline-flex gap-2 font-semibold text-[#07546B]"><ArrowLeft size={17} /> Back to categories</Link>
           </section>
         ) : (
           <>
             <section className="grid items-start gap-8 border-b border-[#e2ebeb] pb-10 md:grid-cols-[minmax(0,1fr)_minmax(250px,360px)] md:gap-12">
               <div className="min-w-0">
-                <p className="!mb-3 text-xs font-bold uppercase tracking-[0.15em] !text-[#0d7363]">Equipment category</p>
+                <p className="!mb-3 text-xs font-bold uppercase tracking-[0.15em] !text-[#07546B]">Equipment category</p>
                 <h1 className="!mb-4 !font-sans !text-3xl !font-bold !leading-tight !tracking-[-0.045em] !text-[#173139] sm:!text-4xl lg:!text-[44px]">{category.name}</h1>
                 <p className="!mb-0 max-w-2xl whitespace-pre-line text-base !leading-8 !text-[#5e737d]">
                   {category.description?.trim() || 'Explore the equipment available in this category. Open a product to see more details and request a quotation.'}
                 </p>
-                <p className="!mb-0 !mt-5 text-sm font-semibold !text-[#0d7363]">
+                <p className="!mb-0 !mt-5 text-sm font-semibold !text-[#07546B]">
                   {children.length} {children.length === 1 ? 'subcategory' : 'subcategories'} · {products.length} {products.length === 1 ? 'product' : 'products'}
                 </p>
               </div>
@@ -133,7 +133,7 @@ export default function CategoryDetailPage() {
                   <PackageSearch size={28} className="text-[#87a19b]" />
                   <p className="!m-0 font-semibold !text-[#173139]">No published products assigned to this category yet.</p>
                   <p className="!m-0 text-sm !text-[#667b83]">Products appear here after they are published and assigned to this category in Admin.</p>
-                  <Link to="/products" className="mt-1 inline-flex items-center gap-2 self-start text-sm font-bold text-[#0d7363]">Browse all products <ArrowUpRight size={16} /></Link>
+                  <Link to="/products" className="mt-1 inline-flex items-center gap-2 self-start text-sm font-bold text-[#07546B]">Browse all products <ArrowUpRight size={16} /></Link>
                 </div>
               )}
             </section>

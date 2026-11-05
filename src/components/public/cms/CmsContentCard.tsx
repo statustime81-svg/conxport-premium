@@ -19,7 +19,7 @@ export default function CmsContentCard({ item }: { item: CmsEntry }) {
     : null;
 
   return (
-    <article className="group h-full min-w-0 overflow-hidden rounded-2xl border border-[#e3ecea] bg-white transition-all duration-300 hover:-translate-y-1 hover:border-[#bad7d0] hover:shadow-[0_20px_45px_-25px_rgba(13,92,79,0.24)]">
+    <article className="group h-full min-w-0 overflow-hidden rounded-2xl border border-[#DCECF0] bg-white transition-all duration-300 hover:-translate-y-1 hover:border-[#bad7d0] hover:shadow-[0_20px_45px_-25px_rgba(13,92,79,0.24)]">
       <Link
         to={cmsPublicPath(item.kind, item.slug)}
         className="flex h-full min-w-0 flex-col !text-[#152e35] no-underline"
@@ -38,7 +38,7 @@ export default function CmsContentCard({ item }: { item: CmsEntry }) {
               <ImageIcon size={42} strokeWidth={1.1} className="text-[#93b7ae]" aria-hidden="true" />
             </div>
           )}
-          <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[.08em] !text-[#0d5c4f] shadow-sm backdrop-blur-sm">
+          <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[.08em] !text-[#07546B] shadow-sm backdrop-blur-sm">
             {kindLabels[item.kind]}
           </span>
         </div>
@@ -50,7 +50,7 @@ export default function CmsContentCard({ item }: { item: CmsEntry }) {
               <time dateTime={dateValue}>{date}</time>
             </div>
           )}
-          <h2 className="!m-0 line-clamp-2 !font-sans !text-[19px] !font-bold !leading-[1.35] !tracking-[-.025em] !text-[#152e35] transition-colors duration-200 group-hover:!text-[#0d7363] sm:!text-[21px]">
+          <h2 className="!m-0 line-clamp-2 !font-sans !text-[19px] !font-bold !leading-[1.35] !tracking-[-.025em] !text-[#152e35] transition-colors duration-200 group-hover:!text-[#07546B] sm:!text-[21px]">
             {item.title}
           </h2>
           {item.excerpt && (
@@ -58,7 +58,7 @@ export default function CmsContentCard({ item }: { item: CmsEntry }) {
               {item.excerpt}
             </p>
           )}
-          <span className="mt-auto inline-flex items-center gap-2 pt-5 text-[13px] font-bold !text-[#0d5c4f]">
+          <span className="mt-auto inline-flex items-center gap-2 pt-5 text-[13px] font-bold !text-[#07546B]">
             Read article
             <ArrowUpRight size={17} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
           </span>

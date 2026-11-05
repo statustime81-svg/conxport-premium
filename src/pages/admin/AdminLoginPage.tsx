@@ -22,6 +22,6 @@ export default function AdminLoginPage() {
       {error && <p role="alert" style={{ color: '#ffc0b9' }}>{error}</p>}
       <button type="submit" disabled={busy} style={buttonStyle}>{busy?'Verifying…':'Sign in securely'}</button>
     </form>
-    <p style={{ marginTop: 22 }}><Link to="/forgot-password" style={{ color: '#47d8c2' }}>Reset password</Link></p>
+    <p style={{ marginTop: 22 }}><Link to="/forgot-password" style={{ color: '#FF6A35' }}>Reset password</Link></p>
   </AuthFormShell>;
 }

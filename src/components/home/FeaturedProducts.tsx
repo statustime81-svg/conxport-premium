@@ -116,7 +116,7 @@ export default function FeaturedProducts() {
       aria-labelledby="featured-heading"
       className="
         relative isolate overflow-hidden
-        bg-[#f7f9f9] text-[#0f1419]
+        bg-[#f7f9f9] text-[#102D3C]
         py-[clamp(90px,11vw,165px)]
       "
     >
@@ -146,20 +146,20 @@ export default function FeaturedProducts() {
               <div
                 className="
                   mb-7 inline-flex items-center gap-3
-                  rounded-full border border-[#0d5c4f]/15
-                  bg-[#0d5c4f]/[0.04]
+                  rounded-full border border-[#07546B]/15
+                  bg-[#07546B]/[0.04]
                   px-4 py-2
                 "
               >
                 <PackageSearch
                   size={15}
-                  className="text-[#0d5c4f]"
+                  className="text-[#07546B]"
                 />
 
                 <span
                   className="
                     text-[11px] font-bold uppercase
-                    tracking-[0.20em] text-[#0d5c4f]
+                    tracking-[0.20em] text-[#07546B]
                   "
                 >
                   DISCOVER EQUIPMENT
@@ -173,12 +173,12 @@ export default function FeaturedProducts() {
                   m-0 font-['Manrope',system-ui,sans-serif]
                   text-[clamp(3rem,6.5vw,7rem)]
                   font-extrabold leading-[0.99]
-                  tracking-[-0.065em] text-[#0f1419]
+                  tracking-[-0.065em] text-[#102D3C]
                 "
               >
                 Designed to make
                 <br />
-                <span className="text-[#0d5c4f]">
+                <span className="text-[#07546B]">
                   a difference.
                 </span>
               </h2>
@@ -202,10 +202,10 @@ export default function FeaturedProducts() {
               className="
                 group inline-flex shrink-0 items-center gap-3
                 self-start rounded-full
-                border-2 border-[#0d5c4f]
-                px-7 py-4 font-bold text-[#0d5c4f]
+                border-2 border-[#07546B]
+                px-7 py-4 font-bold text-[#07546B]
                 transition-all duration-300
-                hover:bg-[#0d5c4f] hover:text-white
+                hover:bg-[#07546B] hover:text-white
               "
             >
               Explore Catalogue
@@ -227,7 +227,7 @@ export default function FeaturedProducts() {
             role="status"
             className="
               grid min-h-[300px] place-items-center
-              rounded-[28px] border border-[#0f1419]/10
+              rounded-[28px] border border-[#102D3C]/10
               bg-white
             "
           >
@@ -259,14 +259,14 @@ export default function FeaturedProducts() {
               flex min-h-[300px] flex-col
               items-center justify-center
               rounded-[28px]
-              border border-[#0d5c4f]/10
+              border border-[#07546B]/10
               bg-white px-8 text-center
             "
           >
             <PackageSearch
               size={38}
               strokeWidth={1.2}
-              className="mb-5 text-[#0d5c4f]"
+              className="mb-5 text-[#07546B]"
             />
 
             <h3 className="mb-3 text-2xl font-bold">
@@ -299,11 +299,11 @@ export default function FeaturedProducts() {
                   className="
                     group flex h-full flex-col overflow-hidden
                     rounded-[28px]
-                    border border-[#0f1419]/10
+                    border border-[#102D3C]/10
                     bg-white
                     transition-all duration-500
                     hover:-translate-y-2
-                    hover:border-[#0d5c4f]/25
+                    hover:border-[#07546B]/25
                     hover:shadow-[0_30px_70px_-25px_rgba(13,92,79,0.22)]
                   "
                 >
@@ -341,9 +341,9 @@ export default function FeaturedProducts() {
                       className="
                         absolute right-5 top-5
                         flex h-12 w-12 items-center justify-center
-                        rounded-full bg-white/95 text-[#0d5c4f]
+                        rounded-full bg-white/95 text-[#07546B]
                         shadow-sm transition-all duration-300
-                        group-hover:bg-[#0d5c4f]
+                        group-hover:bg-[#07546B]
                         group-hover:text-white
                       "
                     >
@@ -357,7 +357,7 @@ export default function FeaturedProducts() {
                     <p
                       className="
                         mb-3 text-[11px] font-bold uppercase
-                        tracking-[0.18em] text-[#0d5c4f]
+                        tracking-[0.18em] text-[#07546B]
                       "
                     >
                       MEDICAL EQUIPMENT
@@ -368,7 +368,7 @@ export default function FeaturedProducts() {
                         mb-3 font-['Manrope',system-ui,sans-serif]
                         text-[clamp(1.4rem,2vw,1.85rem)]
                         font-extrabold leading-[1.2]
-                        tracking-[-0.04em] text-[#0f1419]
+                        tracking-[-0.04em] text-[#102D3C]
                       "
                     >
                       {product.name}
@@ -399,7 +399,7 @@ export default function FeaturedProducts() {
                       <span
                         className="
                           inline-flex items-center gap-2
-                          text-sm font-bold text-[#0d5c4f]
+                          text-sm font-bold text-[#07546B]
                         "
                       >
                         View Product

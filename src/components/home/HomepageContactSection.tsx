@@ -9,7 +9,7 @@ export default function HomepageContactSection() {
       <div className="mx-auto w-[min(1440px,calc(100%-40px))]">
         <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-14">
           <div className="pt-1 lg:pt-8">
-            <p className="mb-4 flex items-center gap-2 !text-xs font-extrabold uppercase tracking-[.16em] !text-[#0d5c4f]">
+            <p className="mb-4 flex items-center gap-2 !text-xs font-extrabold uppercase tracking-[.16em] !text-[#07546B]">
               <MessageSquareText size={17} /> Contact us
             </p>
             <h2 className="!mb-5 !font-sans !text-[clamp(2rem,3.6vw,3.4rem)] !font-extrabold !leading-[1.12] !tracking-[-.045em] !text-[#102c35]">
@@ -19,7 +19,7 @@ export default function HomepageContactSection() {
               Tell us what equipment or support you need. Share your requirements and our team will review your message and contact you as soon as possible.
             </p>
             <div className="mt-7 flex items-start gap-3 border-t border-slate-200 pt-6 text-sm text-slate-600">
-              <Mail size={20} className="mt-0.5 shrink-0 text-[#0d5c4f]" />
+              <Mail size={20} className="mt-0.5 shrink-0 text-[#07546B]" />
               <span>Your message will be sent securely to the ConXport contact inbox.</span>
             </div>
           </div>
@@ -41,7 +41,7 @@ export default function HomepageContactSection() {
               <h2 className="!mb-3 !font-sans !text-[clamp(1.9rem,3.5vw,3.1rem)] !font-extrabold !leading-tight !tracking-[-.045em] !text-white">Tell us what you need.</h2>
               <p className="!mb-0 !text-sm !leading-7 !text-[#d4eae4]">Planning a hospital upgrade or sourcing medical equipment? Share your requirements with our team.</p>
             </div>
-            <Link to="/contact" className="group inline-flex shrink-0 items-center justify-center gap-2 self-start rounded-full bg-white px-6 py-3 text-sm font-extrabold !text-[#0d5c4f] transition-transform duration-200 hover:-translate-y-1 md:self-auto">
+            <Link to="/contact" className="group inline-flex shrink-0 items-center justify-center gap-2 self-start rounded-full bg-white px-6 py-3 text-sm font-extrabold !text-[#07546B] transition-transform duration-200 hover:-translate-y-1 md:self-auto">
               Contact ConXport <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </div>

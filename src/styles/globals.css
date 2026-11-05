@@ -2,17 +2,21 @@
 @import "tailwindcss";
 
 :root {
-  --cx-bg: #f4f8fb;
+  --cx-bg: #F1F7FA;
   --cx-surface: #ffffff;
-  --cx-surface-alt: #eef4f7;
-  --cx-text: #0f2230;
+  --cx-surface-alt: #E7F5F7;
+  --cx-text: #102D3C;
   --cx-muted: #5f7280;
   --cx-line: #d9e5ec;
-  --cx-brand: #147d73;
-  --cx-brand-2: #7dc9c4;
-  --cx-brand-deep: #0c4b53;
-  --cx-navy: #091821;
-  --cx-navy-2: #102734;
+  --cx-brand: #07546B;
+  --cx-brand-2: #B7E4EC;
+  --cx-brand-deep: #053F52;
+  --cx-orange: #FF4F18;
+  --cx-orange-hover: #E44310;
+  --cx-light-blue: #F1F7FA;
+  --cx-aqua: #E7F5F7;
+  --cx-navy: #052E40;
+  --cx-navy-2: #07546B;
   --cx-shadow: 0 20px 70px rgba(9, 24, 33, 0.12);
   font-family: 'Manrope', system-ui, sans-serif;
   color: var(--cx-text);
@@ -54,8 +58,8 @@ p { color: var(--cx-muted); line-height: 1.8; }
 
 .cx-primary, .primary-action, .cx-quote-link {
   display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: 0; cursor: pointer;
-  background: linear-gradient(135deg, var(--cx-brand), #1ba194); color: white; padding: 14px 20px; border-radius: 14px; font-weight: 800;
-  box-shadow: 0 18px 36px rgba(20, 125, 115, 0.24); transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+  background: linear-gradient(135deg, var(--cx-orange), #E44310); color: white; padding: 14px 20px; border-radius: 14px; font-weight: 800;
+  box-shadow: 0 18px 36px rgba(255, 79, 24, 0.2); transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
 }
 .cx-primary:hover, .primary-action:hover, .cx-quote-link:hover, .cx-secondary-button:hover { transform: translateY(-2px); filter: saturate(1.05); }
 .cx-secondary-button {
@@ -307,7 +311,7 @@ html {
   to { opacity: 1; transform: translateY(0); }
 }
 .cx-faq-arrow { transition: transform .28s ease, background-color .28s ease; }
-.cx-faq-item[open] .cx-faq-arrow { transform: rotate(90deg); background: #e2f4ed; }
+.cx-faq-item[open] .cx-faq-arrow { transform: rotate(90deg); background: #E7F5F7; }
 .cx-faq-answer { animation: cxFaqAnswer .28s ease both; }
 @keyframes cxFaqAnswer {
   from { opacity: 0; transform: translateY(-6px); }

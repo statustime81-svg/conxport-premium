@@ -124,7 +124,7 @@ export function ManagedTestimonials() {
   return (
     <section className="cx-review-section overflow-hidden bg-white py-14 sm:py-20" id="testimonials">
       <div className="container text-center">
-        <p className="!mb-0 text-xs font-extrabold uppercase tracking-[0.2em] !text-[#0d5c4f]">Customer experiences</p>
+        <p className="!mb-0 text-xs font-extrabold uppercase tracking-[0.2em] !text-[#07546B]">Customer experiences</p>
         <h2 className="!mb-0 mt-3 text-[clamp(2rem,3.4vw,3.5rem)] font-extrabold tracking-[-0.045em] !text-[#152b2b]">What Our Clients Say</h2>
         <p className="!mb-0 mx-auto mt-4 max-w-2xl text-sm leading-7 !text-slate-500">
           Feedback shared by customers and organisations who have worked with ConXport.
@@ -150,13 +150,13 @@ export function ManagedTestimonials() {
                 <div className="cx-review-group" key={copy} aria-hidden={copy !== 1 && moving ? true : undefined}>
                   {displayItems.map((item, index) => (
                     <article key={`${copy}-${index}-${item.id}`} className={`cx-review-card ${index % 3 === 1 ? 'cx-review-card-blue' : 'cx-review-card-grey'}`}>
-                      <Quote size={22} className="mb-4 text-[#0d5c4f]/70" aria-hidden="true" />
+                      <Quote size={22} className="mb-4 text-[#07546B]/70" aria-hidden="true" />
                       <p className="cx-review-text !mb-0 flex-1 whitespace-pre-wrap text-[14px] leading-[1.8] !text-[#31444a]">{item.body}</p>
                       <div className="mt-6 flex items-center gap-3 border-t border-slate-200/70 pt-4">
                         {safeImage(item.media_url) ? (
                           <img src={safeImage(item.media_url)} alt="" loading="lazy" className="h-11 w-11 shrink-0 rounded-full border-2 border-white object-cover shadow-sm" />
                         ) : (
-                          <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#dceee9] text-sm font-extrabold !text-[#0d5c4f]">{item.title.charAt(0) || 'C'}</span>
+                          <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#dceee9] text-sm font-extrabold !text-[#07546B]">{item.title.charAt(0) || 'C'}</span>
                         )}
                         <div className="min-w-0 text-left">
                           <p className="!mb-0 truncate text-sm font-extrabold !text-[#1c3036]">{item.title}</p>
@@ -190,7 +190,7 @@ export function ManagedFaq() {
     : fallbackFaq.map(([title, body], i) => ({ id: String(i), title, body }));
 
   return (
-    <section className="cx-faq-section overflow-hidden bg-[#f8fbfa] py-14 sm:py-20" id="faq">
+    <section className="cx-faq-section overflow-hidden bg-[#F1F7FA] py-14 sm:py-20" id="faq">
       <div className="container">
         <div className="grid min-w-0 items-start gap-8 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:gap-12 xl:gap-16">
           {/* Left: fixed editorial image, never pulled from FAQ records. */}
@@ -220,11 +220,11 @@ export function ManagedFaq() {
 
           {/* Right: all FAQs from existing Supabase showcase records. */}
           <div className="min-w-0">
-            <p className="!mb-0 text-xs font-extrabold uppercase tracking-[0.2em] !text-[#0d5c4f]">
+            <p className="!mb-0 text-xs font-extrabold uppercase tracking-[0.2em] !text-[#07546B]">
               Frequently asked questions
             </p>
             <h2 className="!mb-0 mt-3 text-[clamp(2rem,3.3vw,3.4rem)] font-extrabold leading-[1.13] tracking-[-0.05em] !text-[#102c28]">
-              How can we <span className="!text-[#0d7363]">help you?</span>
+              How can we <span className="!text-[#07546B]">help you?</span>
             </h2>
             <p className="!mb-0 mt-4 max-w-xl text-[15px] leading-7 !text-slate-600">
               Find clear answers about our product catalogue, quotations and documentation.
@@ -238,7 +238,7 @@ export function ManagedFaq() {
                 >
                   <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 font-bold leading-6 !text-[#15352f] marker:hidden sm:px-6 [&::-webkit-details-marker]:hidden">
                     <span>{x.title}</span>
-                    <span className="cx-faq-arrow grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#edf7f3] !text-[#0d5c4f]">
+                    <span className="cx-faq-arrow grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#E7F5F7] !text-[#07546B]">
                       <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
                     </span>
                   </summary>
@@ -251,7 +251,7 @@ export function ManagedFaq() {
             <div className="mt-7">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-[#0d5c4f] px-6 py-3.5 text-sm font-bold !text-white transition hover:-translate-y-0.5 hover:bg-[#08483e]"
+                className="inline-flex items-center gap-2 rounded-full bg-[#07546B] px-6 py-3.5 text-sm font-bold !text-white transition hover:-translate-y-0.5 hover:bg-[#053F52]"
               >
                 Ask another question <ArrowUpRight size={17} />
               </Link>
@@ -346,7 +346,7 @@ export function ManagedCertificates() {
         @media (prefers-reduced-motion: reduce) { .cx-certificate-card, .cx-certificate-modal, .cx-certificate-backdrop, .cx-certificate-image { animation: none !important; } }
       `}</style>
       <div className="container">
-        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#0d5c4f]">ConXport credentials</p>
+        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#07546B]">ConXport credentials</p>
         <h1 className="mt-2 font-serif text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Certificates &amp; documentation</h1>
         <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-500 sm:text-base">Browse documents published by our team. Confirm applicable product requirements with us before ordering.</p>
 
@@ -369,13 +369,13 @@ export function ManagedCertificates() {
                       aria-label={`Open full certificate: ${item.title}`}
                     >
                       {isPdf ? (
-                        <span className="flex flex-col items-center gap-2 text-[#0d5c4f]"><FileText size={66} strokeWidth={1.5} /><span className="text-xs font-semibold">View PDF certificate</span></span>
+                        <span className="flex flex-col items-center gap-2 text-[#07546B]"><FileText size={66} strokeWidth={1.5} /><span className="text-xs font-semibold">View PDF certificate</span></span>
                       ) : (
                         <img src={url} alt={item.title} loading="lazy" decoding="async" className="block h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.025]" />
                       )}
                     </button>
                   ) : (
-                    <div className="flex h-full flex-col items-center justify-center gap-2 text-[#0d5c4f]"><ShieldCheck size={65} strokeWidth={1.5} /><span className="text-xs font-semibold">Certificate document</span></div>
+                    <div className="flex h-full flex-col items-center justify-center gap-2 text-[#07546B]"><ShieldCheck size={65} strokeWidth={1.5} /><span className="text-xs font-semibold">Certificate document</span></div>
                   )}
                   {url && (
                     <button
@@ -383,7 +383,7 @@ export function ManagedCertificates() {
                       onClick={() => void downloadCertificate(item)}
                       aria-label={`Download ${item.title}`}
                       title={`Download ${item.title}`}
-                      className="absolute right-3 top-3 z-10 grid h-10 w-10 place-items-center rounded-full border border-white/90 bg-white/95 text-[#0d5c4f] shadow-[0_4px_14px_rgba(0,0,0,.12)] transition-transform duration-200 hover:scale-110 hover:bg-[#0d5c4f] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
+                      className="absolute right-3 top-3 z-10 grid h-10 w-10 place-items-center rounded-full border border-white/90 bg-white/95 text-[#07546B] shadow-[0_4px_14px_rgba(0,0,0,.12)] transition-transform duration-200 hover:scale-110 hover:bg-[#07546B] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
                     ><Download size={19} strokeWidth={2.2} /></button>
                   )}
                 </div>
@@ -425,7 +425,7 @@ export function ManagedCertificates() {
                     <button type="button" onClick={() => scrollCertificate(1)} aria-label="Scroll certificate down" title="Scroll down" className="hidden h-9 w-9 place-items-center rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-100 sm:grid"><ChevronDown size={18} /></button>
                   </>
                 )}
-                <button type="button" onClick={() => void downloadCertificate(preview)} title="Download certificate" aria-label={`Download ${preview.title}`} className="grid h-9 w-9 place-items-center rounded-lg bg-[#0d5c4f] text-white hover:bg-[#09493f]"><Download size={17} /></button>
+                <button type="button" onClick={() => void downloadCertificate(preview)} title="Download certificate" aria-label={`Download ${preview.title}`} className="grid h-9 w-9 place-items-center rounded-lg bg-[#07546B] text-white hover:bg-[#053F52]"><Download size={17} /></button>
                 <button type="button" onClick={() => setPreview(null)} title="Close preview" aria-label="Close certificate preview" className="grid h-9 w-9 place-items-center rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200"><X size={19} /></button>
               </div>
             </div>
@@ -668,7 +668,7 @@ export function ManagedExpo() {
           return <button key={item.id} type="button" style={{animationDelay:`${Math.min(i, 10)*55}ms`}} onClick={() => setPhotoIndex(i)} aria-label={`View exhibition image ${i+1} of ${photos.length}`} className="cx-expo-card group relative block aspect-[4/3] w-full min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-[#f1f6f7] shadow-[0_8px_28px_-20px_rgba(15,45,55,.3)] transition-all duration-500 hover:-translate-y-1 hover:border-teal-200 hover:shadow-[0_18px_35px_-18px_rgba(15,45,55,.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700">
             <img src={url} alt={`ConXport exhibition photo ${i+1}`} loading={i<4?'eager':'lazy'} decoding="async" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"/>
             <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#062827]/30 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"/>
-            <span className="pointer-events-none absolute bottom-3 right-3 grid h-9 w-9 translate-y-2 place-items-center rounded-full bg-white/95 text-[#0d5c4f] opacity-0 shadow-lg transition duration-300 group-hover:translate-y-0 group-hover:opacity-100"><ZoomIn size={17}/></span>
+            <span className="pointer-events-none absolute bottom-3 right-3 grid h-9 w-9 translate-y-2 place-items-center rounded-full bg-white/95 text-[#07546B] opacity-0 shadow-lg transition duration-300 group-hover:translate-y-0 group-hover:opacity-100"><ZoomIn size={17}/></span>
           </button>;
         })}
       </div>
@@ -688,7 +688,7 @@ export function ManagedExpo() {
                 <span className="absolute left-1/2 top-1/2 grid h-14 w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-white/60 bg-white/90 text-[#0b6355] shadow-xl transition duration-300 group-hover:scale-110 group-hover:bg-white"><Play size={24} fill="currentColor" className="ml-1"/></span>
                 <span className="absolute bottom-3 left-3 rounded-full border border-white/30 bg-black/45 px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest text-white backdrop-blur">Watch demonstration</span>
               </button>
-              <div className="p-5"><h3 className="!m-0 !font-sans !text-base !font-bold !leading-6 !tracking-normal !text-[#142c36]" style={{display:'-webkit-box',WebkitBoxOrient:'vertical',WebkitLineClamp:2,overflow:'hidden'}}>{item.title}</h3><p className="!mb-0 mt-2 text-sm leading-6 !text-slate-500" style={{display:'-webkit-box',WebkitBoxOrient:'vertical',WebkitLineClamp:2,overflow:'hidden'}}>{item.body || 'Watch the full equipment demonstration and learn more about this product.'}</p><button type="button" onClick={() => setActiveVideo(item)} className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[#0d5c4f] hover:text-[#083c34]">Watch video <ArrowUpRight size={16}/></button></div>
+              <div className="p-5"><h3 className="!m-0 !font-sans !text-base !font-bold !leading-6 !tracking-normal !text-[#142c36]" style={{display:'-webkit-box',WebkitBoxOrient:'vertical',WebkitLineClamp:2,overflow:'hidden'}}>{item.title}</h3><p className="!mb-0 mt-2 text-sm leading-6 !text-slate-500" style={{display:'-webkit-box',WebkitBoxOrient:'vertical',WebkitLineClamp:2,overflow:'hidden'}}>{item.body || 'Watch the full equipment demonstration and learn more about this product.'}</p><button type="button" onClick={() => setActiveVideo(item)} className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[#07546B] hover:text-[#083c34]">Watch video <ArrowUpRight size={16}/></button></div>
             </article>;
           })}
         </div>

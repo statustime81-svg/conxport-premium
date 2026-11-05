@@ -60,11 +60,11 @@ export default function AdminCategoriesPage() {
     <section className="w-full min-w-0 pb-12 font-sans text-[#17333b]">
       <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
         <div className="min-w-0">
-          <p className="mb-1 !text-[11px] font-extrabold uppercase tracking-[.16em] !text-[#0d7363]">Catalogue / Categories</p>
+          <p className="mb-1 !text-[11px] font-extrabold uppercase tracking-[.16em] !text-[#07546B]">Catalogue / Categories</p>
           <h1 className="!m-0 !font-sans !text-[26px] !font-extrabold !leading-tight !tracking-[-.03em] !text-[#17333b] sm:!text-[30px]">Category management</h1>
           <p className="!mb-0 !mt-2 !text-[13px] !text-slate-500">Manage categories, subcategories and cover images.</p>
         </div>
-        <button type="button" onClick={() => openEditor(null)} className="inline-flex shrink-0 items-center gap-2 rounded-xl !bg-[#0d5c4f] px-4 py-2.5 text-[13px] font-bold !text-white shadow-sm transition hover:-translate-y-0.5 hover:!bg-[#08483e] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"><Plus size={17} /> Add category</button>
+        <button type="button" onClick={() => openEditor(null)} className="inline-flex shrink-0 items-center gap-2 rounded-xl !bg-[#07546B] px-4 py-2.5 text-[13px] font-bold !text-white shadow-sm transition hover:-translate-y-0.5 hover:!bg-[#053F52] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"><Plus size={17} /> Add category</button>
       </div>
 
       {editing !== undefined && (
@@ -77,7 +77,7 @@ export default function AdminCategoriesPage() {
 
       <div className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-[#e0eae8] bg-white p-3 sm:p-4">
         <div className="flex flex-wrap items-center gap-2 text-[12px] font-semibold text-slate-600">
-          <span className="rounded-lg bg-[#edf7f3] px-3 py-2 !text-[#0d5c4f]">All: {rows.length}</span>
+          <span className="rounded-lg bg-[#E7F5F7] px-3 py-2 !text-[#07546B]">All: {rows.length}</span>
           <span className="rounded-lg bg-slate-50 px-3 py-2">Main: {mainCount}</span>
           <span className="rounded-lg bg-slate-50 px-3 py-2">Subcategories: {subCount}</span>
         </div>
@@ -85,11 +85,11 @@ export default function AdminCategoriesPage() {
           <label className="relative min-w-0 flex-1 sm:w-[240px] sm:flex-none">
             <Search size={16} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
             <span className="sr-only">Search categories</span>
-            <input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Search categories..." className="h-10 w-full rounded-lg border border-slate-200 bg-white pl-9 pr-3 text-[13px] text-[#17333b] outline-none focus:border-[#0d7363] focus:ring-2 focus:ring-[#0d7363]/10" />
+            <input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Search categories..." className="h-10 w-full rounded-lg border border-slate-200 bg-white pl-9 pr-3 text-[13px] text-[#17333b] outline-none focus:border-[#07546B] focus:ring-2 focus:ring-[#07546B]/10" />
           </label>
           <label>
             <span className="sr-only">Filter categories</span>
-            <select value={filter} onChange={(event) => setFilter(event.target.value as 'all' | 'main' | 'sub')} className="h-10 rounded-lg border border-slate-200 bg-white px-3 text-[13px] font-semibold text-[#17333b] outline-none focus:border-[#0d7363]">
+            <select value={filter} onChange={(event) => setFilter(event.target.value as 'all' | 'main' | 'sub')} className="h-10 rounded-lg border border-slate-200 bg-white px-3 text-[13px] font-semibold text-[#17333b] outline-none focus:border-[#07546B]">
               <option value="all">All types</option>
               <option value="main">Main only</option>
               <option value="sub">Subcategories</option>
@@ -113,7 +113,7 @@ export default function AdminCategoriesPage() {
               </div>
               <div className="flex min-w-0 flex-1 flex-col gap-2">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="rounded-md bg-[#ecf5f2] px-2 py-1 text-[10px] font-extrabold uppercase tracking-[.05em] text-[#0d5c4f]">{category.parent_id ? 'Subcategory' : 'Main category'}</span>
+                  <span className="rounded-md bg-[#ecf5f2] px-2 py-1 text-[10px] font-extrabold uppercase tracking-[.05em] text-[#07546B]">{category.parent_id ? 'Subcategory' : 'Main category'}</span>
                   <span className={`rounded-md px-2 py-1 text-[10px] font-bold ${category.is_published ? 'bg-emerald-50 text-emerald-700' : 'bg-slate-100 text-slate-500'}`}>{category.is_published ? 'Published' : 'Draft'}</span>
                 </div>
                 <div className="min-w-0">
@@ -121,7 +121,7 @@ export default function AdminCategoriesPage() {
                   <p className="!m-0 !mt-1 truncate !text-[12px] !text-slate-500" title={`/${category.slug}`}>/{category.slug}</p>
                 </div>
                 <div className="flex flex-wrap items-center gap-2 pt-1">
-                  <button type="button" onClick={() => openEditor(category)} className="inline-flex items-center gap-1.5 rounded-lg border border-[#cfe0db] bg-white px-3 py-1.5 text-[12px] font-bold !text-[#0d5c4f] transition hover:bg-[#eff8f4]"><Pencil size={13} /> Edit</button>
+                  <button type="button" onClick={() => openEditor(category)} className="inline-flex items-center gap-1.5 rounded-lg border border-[#cfe0db] bg-white px-3 py-1.5 text-[12px] font-bold !text-[#07546B] transition hover:bg-[#eff8f4]"><Pencil size={13} /> Edit</button>
                   <button type="button" onClick={() => void remove(category)} className="inline-flex items-center gap-1.5 rounded-lg border border-red-100 bg-white px-3 py-1.5 text-[12px] font-bold !text-red-600 transition hover:bg-red-50"><Trash2 size={13} /> Delete</button>
                 </div>
               </div>

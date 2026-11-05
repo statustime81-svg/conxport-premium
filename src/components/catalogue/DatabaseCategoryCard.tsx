@@ -18,11 +18,11 @@ export default function DatabaseCategoryCard({
       className="
         group block h-full overflow-hidden
         rounded-[28px]
-        border border-[#0f1419]/10
+        border border-[#102D3C]/10
         bg-[#f7f9f9]
         transition-all duration-500
         hover:-translate-y-2
-        hover:border-[#0d5c4f]/25
+        hover:border-[#07546B]/25
         hover:shadow-[0_30px_70px_-25px_rgba(13,92,79,0.22)]
       "
     >
@@ -63,9 +63,9 @@ export default function DatabaseCategoryCard({
           className="
             absolute right-5 top-5
             flex h-12 w-12 items-center justify-center
-            rounded-full bg-white/95 text-[#0d5c4f]
+            rounded-full bg-white/95 text-[#07546B]
             shadow-sm transition-all duration-300
-            group-hover:bg-[#0d5c4f] group-hover:text-white
+            group-hover:bg-[#07546B] group-hover:text-white
           "
         >
           <ArrowUpRight size={21} />
@@ -77,7 +77,7 @@ export default function DatabaseCategoryCard({
         <p
           className="
             mb-3 text-[11px] font-bold uppercase
-            tracking-[0.18em] text-[#0d5c4f]
+            tracking-[0.18em] text-[#07546B]
           "
         >
           Equipment category
@@ -88,7 +88,7 @@ export default function DatabaseCategoryCard({
             mb-3 font-['Manrope',system-ui,sans-serif]
             text-[clamp(1.5rem,2.2vw,2rem)]
             font-extrabold leading-[1.15]
-            tracking-[-0.04em] text-[#0f1419]
+            tracking-[-0.04em] text-[#102D3C]
           "
         >
           {category.name}
@@ -108,7 +108,7 @@ export default function DatabaseCategoryCard({
         <span
           className="
             inline-flex items-center gap-2
-            text-sm font-bold text-[#0d5c4f]
+            text-sm font-bold text-[#07546B]
           "
         >
           Explore category
