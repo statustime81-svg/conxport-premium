@@ -115,7 +115,7 @@ export default function ProductDetailPage() {
         } catch { /* A blocked localStorage must not hide a product. */ }
         try {
           const all = await publishedProducts();
-          if (active) setRelated(all.filter((item) => item.id !== result.product.id && item.primary_category_id === result.product.primary_category_id).slice(0, 4));
+          if (active) setRelated(all.filter((item) => item.id !== result.product.id && item.primary_category_id === result.product.primary_category_id).slice(0, 6));
         } catch { /* Related product errors must not hide the product. */ }
       } catch (err) {
         if (active) setError(err instanceof Error ? err.message : 'Unable to load this product.');
@@ -210,7 +210,42 @@ export default function ProductDetailPage() {
 
         {related.length > 0 && <section aria-labelledby="related-title" className="mt-12 border-t border-slate-200 pt-9">
           <h2 id="related-title" className="!mb-5 !font-sans !text-[24px] !font-bold !text-[#142b34]">Related products</h2>
-          <ul className="grid gap-x-12 sm:grid-cols-2">{related.map((item) => <li key={item.id} className="border-b border-slate-100 py-4"><Link to={`/products/${item.slug}`} className="group flex items-center justify-between gap-3 !text-[#18313b] hover:!text-[#0d5c4f]"><span className="min-w-0"><span className="block break-words text-[15px] font-semibold">{item.name}</span><span className="mt-1 block break-all text-xs !text-slate-500">{item.sku}</span></span><ArrowRight size={17} className="shrink-0 text-[#0d5c4f] transition-transform group-hover:translate-x-1"/></Link></li>)}</ul>
+          <ul className="grid max-w-[920px] grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 lg:gap-4">
+            {related.map((item) => (
+              <li key={item.id} className="min-w-0">
+                <Link
+                  to={`/products/${item.slug}`}
+                  className="group flex h-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-[0_4px_15px_rgba(15,35,45,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#a6d5ca] hover:shadow-[0_10px_24px_rgba(15,67,65,0.10)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0d5c4f]"
+                >
+                  <div className="flex h-36 items-center justify-center overflow-hidden bg-[#f7fafb] p-3 sm:h-40 sm:p-4">
+                    {item.image_url ? (
+                      <img
+                        src={item.image_url}
+                        alt={item.name}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
+                      />
+                    ) : (
+                      <div className="flex flex-col items-center gap-2 text-center !text-slate-400">
+                        <ImageIcon size={32} strokeWidth={1.3} />
+                        <span className="text-xs">Image coming soon</span>
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex flex-1 flex-col gap-1.5 border-t border-slate-100 px-3.5 pb-3.5 pt-3">
+                    <h3 className="!mb-0 line-clamp-2 !font-sans !text-[14px] !font-bold !leading-5 !text-[#18313b] transition-colors group-hover:!text-[#0d5c4f]">
+                      {item.name}
+                    </h3>
+                    <p className="!mb-0 break-all text-[11px] !text-slate-500">Model: {item.sku}</p>
+                    <span className="mt-auto inline-flex items-center gap-1.5 pt-2 text-xs font-bold !text-[#0d5c4f]">
+                      View product <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </section>}
 
         <div className="mt-12 border-t border-slate-200 pt-7"><Link to="/products" className="inline-flex items-center gap-2 text-sm font-semibold !text-[#0d5c4f] hover:underline"><ArrowLeft size={17}/> Back to all products</Link></div>
