@@ -154,113 +154,6 @@ export function ManagedTestimonials() {
 
   return <StackedTestimonials items={items} />;
 
-<<<<<<< HEAD
-=======
-    const alignMiddle = () => {
-      const unit = viewport.scrollWidth / 3;
-      if (unit) viewport.scrollLeft = unit;
-    };
-    const frame = window.requestAnimationFrame(alignMiddle);
-    const onResize = () => alignMiddle();
-    window.addEventListener('resize', onResize);
-
-    const timer = window.setInterval(() => {
-      if (pausedRef.current || !viewport.isConnected) return;
-      const card = viewport.querySelector<HTMLElement>('.cx-review-card');
-      const group = viewport.querySelector<HTMLElement>('.cx-review-group');
-      if (!card || !group) return;
-      const gap = parseFloat(getComputedStyle(group).columnGap) || 18;
-      viewport.scrollBy({ left: card.getBoundingClientRect().width + gap, behavior: 'smooth' });
-    }, 3900);
-
-    return () => {
-      window.cancelAnimationFrame(frame);
-      window.removeEventListener('resize', onResize);
-      window.clearInterval(timer);
-    };
-  }, [moving, items.length]);
-
-  const slide = (direction: -1 | 1) => {
-    const viewport = viewportRef.current;
-    if (!viewport) return;
-    const card = viewport.querySelector<HTMLElement>('.cx-review-card');
-    const group = viewport.querySelector<HTMLElement>('.cx-review-group');
-    if (!card || !group) return;
-    const gap = parseFloat(getComputedStyle(group).columnGap) || 18;
-    viewport.scrollBy({ left: direction * (card.getBoundingClientRect().width + gap), behavior: 'smooth' });
-  };
-
-  const keepInMiddle = () => {
-    const viewport = viewportRef.current;
-    if (!viewport || !moving) return;
-    const unit = viewport.scrollWidth / 3;
-    if (!unit) return;
-    // Reset outside the central copy, preserving the same visual position.
-    if (viewport.scrollLeft >= unit * 2) viewport.scrollLeft -= unit;
-    else if (viewport.scrollLeft <= 0) viewport.scrollLeft += unit;
-  };
-
-  return (
-    <section className="cx-review-section overflow-hidden bg-white py-14 sm:py-20" id="testimonials">
-      <div className="container text-center">
-        <p className="!mb-0 text-xs font-extrabold uppercase tracking-[0.2em] !text-[#07546B]">Customer experiences</p>
-        <h2 className="!mb-0 mt-3 text-[clamp(2rem,3.4vw,3.5rem)] font-extrabold tracking-[-0.045em] !text-[#152b2b]">What Our Clients Say</h2>
-        <p className="!mb-0 mx-auto mt-4 max-w-2xl text-sm leading-7 !text-slate-500">
-          Feedback shared by customers and organisations who have worked with ConXport.
-        </p>
-      </div>
-
-      {items.length ? (
-        <>
-          <div
-            ref={viewportRef}
-            className="cx-review-viewport mx-auto mt-9"
-            aria-label="Customer testimonials carousel"
-            onScroll={keepInMiddle}
-            onMouseEnter={() => { pausedRef.current = true; }}
-            onMouseLeave={() => { pausedRef.current = false; }}
-            onFocusCapture={() => { pausedRef.current = true; }}
-            onBlurCapture={(event) => {
-              if (!event.currentTarget.contains(event.relatedTarget)) pausedRef.current = false;
-            }}
-          >
-            <div className="cx-review-track">
-              {(moving ? [0, 1, 2] : [0]).map(copy => (
-                <div className="cx-review-group" key={copy} aria-hidden={copy !== 1 && moving ? true : undefined}>
-                  {displayItems.map((item, index) => (
-                    <article key={`${copy}-${index}-${item.id}`} className={`cx-review-card ${index % 3 === 1 ? 'cx-review-card-blue' : 'cx-review-card-grey'}`}>
-                      <Quote size={22} className="mb-4 text-[#07546B]/70" aria-hidden="true" />
-                      <p className="cx-review-text !mb-0 flex-1 whitespace-pre-wrap text-[14px] leading-[1.8] !text-[#31444a]">{item.body}</p>
-                      <div className="mt-6 flex items-center gap-3 border-t border-slate-200/70 pt-4">
-                        {safeImage(item.media_url) ? (
-                          <img src={safeImage(item.media_url)} alt="" loading="lazy" className="h-11 w-11 shrink-0 rounded-full border-2 border-white object-cover shadow-sm" />
-                        ) : (
-                          <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#dceee9] text-sm font-extrabold !text-[#07546B]">{item.title.charAt(0) || 'C'}</span>
-                        )}
-                        <div className="min-w-0 text-left">
-                          <p className="!mb-0 truncate text-sm font-extrabold !text-[#1c3036]">{item.title}</p>
-                          <p className="!mb-0 mt-0.5 text-[11px] font-semibold !text-[#76868d]">ConXport customer</p>
-                        </div>
-                      </div>
-                    </article>
-                  ))}
-                </div>
-              ))}
-            </div>
-          </div>
-          {moving && (
-            <div className="mt-7 flex items-center justify-center gap-4">
-              <button type="button" onClick={() => slide(-1)} aria-label="Previous testimonial" className="cx-review-arrow cx-review-arrow-prev"><ArrowLeft size={20} /></button>
-              <button type="button" onClick={() => slide(1)} aria-label="Next testimonial" className="cx-review-arrow cx-review-arrow-next"><ArrowRight size={20} /></button>
-            </div>
-          )}
-        </>
-      ) : (
-        <p className="mt-8 text-center text-slate-500">Client reviews will appear here when published.</p>
-      )}
-    </section>
-  );
->>>>>>> origin/main
 }
 
 
@@ -278,7 +171,6 @@ export function ManagedFaq() {
 
 
   return (
-<<<<<<< HEAD
 
     <section className="cx-faq-section relative isolate overflow-hidden bg-[#F1F7FA] py-[clamp(80px,9vw,130px)]" id="faq" aria-labelledby="cx-faq-heading">
 
@@ -352,30 +244,6 @@ export function ManagedFaq() {
 
               ))}
 
-=======
-    <section className="cx-faq-section overflow-hidden bg-[#F1F7FA] py-14 sm:py-20" id="faq">
-      <div className="container">
-        <div className="grid min-w-0 items-start gap-8 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:gap-12 xl:gap-16">
-          {/* Left: fixed editorial image, never pulled from FAQ records. */}
-          <div className="cx-faq-image-entrance relative min-w-0">
-            <div className="relative isolate overflow-hidden rounded-[28px] border border-[#dbe9e5] bg-[#e9f3f0] shadow-[0_20px_60px_-30px_rgba(13,92,79,0.28)]">
-              <img
-                src="/images/why-conxport/healthcare.png"
-                alt="Hospital and healthcare equipment environment"
-                loading="lazy"
-                decoding="async"
-                className="block h-[270px] w-full object-cover sm:h-[390px] lg:h-[500px] xl:h-[540px]"
-              />
-              <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#082e2b]/80 via-[#082e2b]/5 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
-                <span className="inline-flex rounded-full border border-white/30 bg-white/15 px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.18em] !text-white backdrop-blur-md">
-                  CONXPORT SUPPORT
-                </span>
-                <p className="!mb-0 mt-4 max-w-sm text-[clamp(1.4rem,2.8vw,2.3rem)] font-extrabold leading-[1.18] tracking-[-0.04em] !text-white">
-                  Answers to your equipment questions.
-                </p>
-              </div>
->>>>>>> origin/main
             </div>
 
 
@@ -398,7 +266,6 @@ export function ManagedFaq() {
 
           </div>
 
-<<<<<<< HEAD
 
 
           {/* Same image and copy as before, now large and on the right. */}
@@ -441,45 +308,6 @@ export function ManagedFaq() {
 
               </div>
 
-=======
-          {/* Right: all FAQs from existing Supabase showcase records. */}
-          <div className="min-w-0">
-            <p className="!mb-0 text-xs font-extrabold uppercase tracking-[0.2em] !text-[#07546B]">
-              Frequently asked questions
-            </p>
-            <h2 className="!mb-0 mt-3 text-[clamp(2rem,3.3vw,3.4rem)] font-extrabold leading-[1.13] tracking-[-0.05em] !text-[#102c28]">
-              How can we <span className="!text-[#07546B]">help you?</span>
-            </h2>
-            <p className="!mb-0 mt-4 max-w-xl text-[15px] leading-7 !text-slate-600">
-              Find clear answers about our product catalogue, quotations and documentation.
-            </p>
-            <div className="mt-8 space-y-3">
-              {questions.map((x, index) => (
-                <details
-                  key={x.id}
-                  className="cx-faq-item group overflow-hidden rounded-2xl border border-[#dbe7e4] bg-white shadow-[0_5px_20px_-15px_rgba(13,92,79,0.35)] transition-colors duration-300 hover:border-[#a9d0c5] open:border-[#80b9a9]"
-                  style={{ animationDelay: `${Math.min(index, 9) * 85}ms` }}
-                >
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 font-bold leading-6 !text-[#15352f] marker:hidden sm:px-6 [&::-webkit-details-marker]:hidden">
-                    <span>{x.title}</span>
-                    <span className="cx-faq-arrow grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#E7F5F7] !text-[#07546B]">
-                      <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
-                    </span>
-                  </summary>
-                  <div className="cx-faq-answer border-t border-[#e5efeb] px-5 pb-5 pt-4 sm:px-6">
-                    <p className="!m-0 whitespace-pre-wrap text-sm leading-7 !text-slate-600 sm:text-[15px]">{x.body}</p>
-                  </div>
-                </details>
-              ))}
-            </div>
-            <div className="mt-7">
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-[#07546B] px-6 py-3.5 text-sm font-bold !text-white transition hover:-translate-y-0.5 hover:bg-[#053F52]"
-              >
-                Ask another question <ArrowUpRight size={17} />
-              </Link>
->>>>>>> origin/main
             </div>
 
           </div>
@@ -661,13 +489,9 @@ export function ManagedCertificates() {
       `}</style>
 
       <div className="container">
-<<<<<<< HEAD
 
         <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#07546B]">ConXport credentials</p>
 
-=======
-        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#07546B]">ConXport credentials</p>
->>>>>>> origin/main
         <h1 className="mt-2 font-serif text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Certificates &amp; documentation</h1>
 
         <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-500 sm:text-base">Browse documents published by our team. Confirm applicable product requirements with us before ordering.</p>
@@ -711,13 +535,9 @@ export function ManagedCertificates() {
                     >
 
                       {isPdf ? (
-<<<<<<< HEAD
 
                         <span className="flex flex-col items-center gap-2 text-[#07546B]"><FileText size={66} strokeWidth={1.5} /><span className="text-xs font-semibold">View PDF certificate</span></span>
 
-=======
-                        <span className="flex flex-col items-center gap-2 text-[#07546B]"><FileText size={66} strokeWidth={1.5} /><span className="text-xs font-semibold">View PDF certificate</span></span>
->>>>>>> origin/main
                       ) : (
 
                         <img src={url} alt={item.title} loading="lazy" decoding="async" className="block h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.025]" />
@@ -727,13 +547,9 @@ export function ManagedCertificates() {
                     </button>
 
                   ) : (
-<<<<<<< HEAD
 
                     <div className="flex h-full flex-col items-center justify-center gap-2 text-[#07546B]"><ShieldCheck size={65} strokeWidth={1.5} /><span className="text-xs font-semibold">Certificate document</span></div>
 
-=======
-                    <div className="flex h-full flex-col items-center justify-center gap-2 text-[#07546B]"><ShieldCheck size={65} strokeWidth={1.5} /><span className="text-xs font-semibold">Certificate document</span></div>
->>>>>>> origin/main
                   )}
 
                   {url && (
@@ -747,13 +563,9 @@ export function ManagedCertificates() {
                       aria-label={`Download ${item.title}`}
 
                       title={`Download ${item.title}`}
-<<<<<<< HEAD
 
                       className="absolute right-3 top-3 z-10 grid h-10 w-10 place-items-center rounded-full border border-white/90 bg-white/95 text-[#07546B] shadow-[0_4px_14px_rgba(0,0,0,.12)] transition-transform duration-200 hover:scale-110 hover:bg-[#07546B] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
 
-=======
-                      className="absolute right-3 top-3 z-10 grid h-10 w-10 place-items-center rounded-full border border-white/90 bg-white/95 text-[#07546B] shadow-[0_4px_14px_rgba(0,0,0,.12)] transition-transform duration-200 hover:scale-110 hover:bg-[#07546B] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
->>>>>>> origin/main
                     ><Download size={19} strokeWidth={2.2} /></button>
 
                   )}
@@ -835,13 +647,9 @@ export function ManagedCertificates() {
                   </>
 
                 )}
-<<<<<<< HEAD
 
                 <button type="button" onClick={() => void downloadCertificate(preview)} title="Download certificate" aria-label={`Download ${preview.title}`} className="grid h-9 w-9 place-items-center rounded-lg bg-[#07546B] text-white hover:bg-[#053F52]"><Download size={17} /></button>
 
-=======
-                <button type="button" onClick={() => void downloadCertificate(preview)} title="Download certificate" aria-label={`Download ${preview.title}`} className="grid h-9 w-9 place-items-center rounded-lg bg-[#07546B] text-white hover:bg-[#053F52]"><Download size={17} /></button>
->>>>>>> origin/main
                 <button type="button" onClick={() => setPreview(null)} title="Close preview" aria-label="Close certificate preview" className="grid h-9 w-9 place-items-center rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200"><X size={19} /></button>
 
               </div>
@@ -1325,13 +1133,9 @@ export function ManagedExpo() {
             <img src={url} alt={`ConXport exhibition photo ${i+1}`} loading={i<4?'eager':'lazy'} decoding="async" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"/>
 
             <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#062827]/30 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"/>
-<<<<<<< HEAD
 
             <span className="pointer-events-none absolute bottom-3 right-3 grid h-9 w-9 translate-y-2 place-items-center rounded-full bg-white/95 text-[#07546B] opacity-0 shadow-lg transition duration-300 group-hover:translate-y-0 group-hover:opacity-100"><ZoomIn size={17}/></span>
 
-=======
-            <span className="pointer-events-none absolute bottom-3 right-3 grid h-9 w-9 translate-y-2 place-items-center rounded-full bg-white/95 text-[#07546B] opacity-0 shadow-lg transition duration-300 group-hover:translate-y-0 group-hover:opacity-100"><ZoomIn size={17}/></span>
->>>>>>> origin/main
           </button>;
 
         })}
@@ -1369,13 +1173,9 @@ export function ManagedExpo() {
                 <span className="absolute bottom-3 left-3 rounded-full border border-white/30 bg-black/45 px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest text-white backdrop-blur">Watch demonstration</span>
 
               </button>
-<<<<<<< HEAD
 
               <div className="p-5"><h3 className="!m-0 !font-sans !text-base !font-bold !leading-6 !tracking-normal !text-[#142c36]" style={{display:'-webkit-box',WebkitBoxOrient:'vertical',WebkitLineClamp:2,overflow:'hidden'}}>{item.title}</h3><p className="!mb-0 mt-2 text-sm leading-6 !text-slate-500" style={{display:'-webkit-box',WebkitBoxOrient:'vertical',WebkitLineClamp:2,overflow:'hidden'}}>{item.body || 'Watch the full equipment demonstration and learn more about this product.'}</p><button type="button" onClick={() => setActiveVideo(item)} className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[#07546B] hover:text-[#083c34]">Watch video <ArrowUpRight size={16}/></button></div>
 
-=======
-              <div className="p-5"><h3 className="!m-0 !font-sans !text-base !font-bold !leading-6 !tracking-normal !text-[#142c36]" style={{display:'-webkit-box',WebkitBoxOrient:'vertical',WebkitLineClamp:2,overflow:'hidden'}}>{item.title}</h3><p className="!mb-0 mt-2 text-sm leading-6 !text-slate-500" style={{display:'-webkit-box',WebkitBoxOrient:'vertical',WebkitLineClamp:2,overflow:'hidden'}}>{item.body || 'Watch the full equipment demonstration and learn more about this product.'}</p><button type="button" onClick={() => setActiveVideo(item)} className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[#07546B] hover:text-[#083c34]">Watch video <ArrowUpRight size={16}/></button></div>
->>>>>>> origin/main
             </article>;
 
           })}

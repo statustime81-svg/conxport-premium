@@ -52,7 +52,6 @@ export default function SearchBar({
   }
 
   return (
-<<<<<<< HEAD
     <form
       role="search"
       onSubmit={submit}
@@ -68,11 +67,6 @@ export default function SearchBar({
         className="ml-4 shrink-0 text-[#07546B]"
       />
 
-=======
-    <form role="search" onSubmit={submit} className={`flex h-11 w-full min-w-0 items-center overflow-hidden rounded-full border border-[#cfe1de] bg-white shadow-[0_6px_22px_rgba(15,45,49,0.07)] transition-colors focus-within:border-[#FF4F18] ${className}`}>
-      <label htmlFor={id} className="sr-only">Search hospital equipment</label>
-      <Search size={18} aria-hidden="true" className="ml-4 shrink-0 text-[#66817d]" />
->>>>>>> origin/main
       <input
         id={id}
         ref={inputRef}
@@ -102,7 +96,6 @@ export default function SearchBar({
           <X size={17} strokeWidth={2.2} />
         </button>
       )}
-<<<<<<< HEAD
 
       
 <button
@@ -129,11 +122,6 @@ export default function SearchBar({
   Search
 </button>
 
-=======
-      <button type="submit" disabled={!query.trim()} className="mx-1 inline-flex h-9 shrink-0 items-center gap-2 rounded-full bg-[#07546B] px-4 text-xs font-bold text-white transition hover:bg-[#053F52] disabled:cursor-not-allowed disabled:opacity-50">
-        Search
-      </button>
->>>>>>> origin/main
     </form>
   );
 }
