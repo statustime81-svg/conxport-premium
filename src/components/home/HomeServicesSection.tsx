@@ -58,7 +58,43 @@ export default function HomeServicesSection() {
       className="relative isolate overflow-hidden bg-[#F1F7FA] py-16 text-[#102D3C] sm:py-20 lg:py-24"
     >
       <style>{`
-        .cx-svc-3d-stage { perspective: 1300px; }
+        .cx-svc-3d-stage { perspective: 1300px; position: relative; }
+        /* Hover Reveal: de-emphasize siblings; preserve the card's own 3D tilt. */
+        .cx-svc-reveal-shell {
+          position: relative;
+          height: 100%;
+          transition: transform .46s cubic-bezier(.2,.8,.2,1),
+                      opacity .4s ease, filter .4s ease;
+        }
+        @media (hover: hover) and (pointer: fine) {
+          .cx-svc-reveal-grid:hover .cx-svc-reveal-shell {
+            transform: scale(.97);
+            opacity: .58;
+            filter: blur(2px) saturate(.82);
+          }
+          .cx-svc-reveal-grid:hover .cx-svc-reveal-shell:hover,
+          .cx-svc-reveal-grid:hover .cx-svc-reveal-shell:focus-within {
+            transform: scale(1.045);
+            opacity: 1;
+            filter: none;
+            z-index: 4;
+          }
+          .cx-svc-reveal-grid .cx-svc-3d-stage:hover,
+          .cx-svc-reveal-grid .cx-svc-3d-stage:focus-within {
+            z-index: 5;
+          }
+        }
+        .cx-svc-reveal-shell:focus-within {
+          transform: scale(1.025);
+          opacity: 1;
+          filter: none;
+          z-index: 4;
+        }
+        .cx-svc-3d-card:focus-visible {
+          outline: 3px solid #F93E02;
+          outline-offset: 3px;
+        }
+
         .cx-svc-3d-card {
           --svc-rotate-x: 0deg;
           --svc-rotate-y: 0deg;
@@ -94,11 +130,12 @@ export default function HomeServicesSection() {
         .cx-svc-3d-card:hover .cx-svc-orbit { transform: translate(-50%, -50%) scale(1.12) rotate(10deg); }
         @media (hover: none), (pointer: coarse) {
           .cx-svc-3d-card { transform: none !important; will-change: auto; }
+          .cx-svc-reveal-shell { transform: none !important; opacity: 1 !important; filter: none !important; }
           .cx-svc-3d-card:hover .cx-svc-image { transform: none; }
         }
         @media (prefers-reduced-motion: reduce) {
           .cx-svc-3d-card, .cx-svc-3d-card::before, .cx-svc-image,
-          .cx-svc-orbit { transition: none !important; animation: none !important; transform: none !important; }
+          .cx-svc-orbit, .cx-svc-reveal-shell { transition: none !important; animation: none !important; transform: none !important; filter: none !important; opacity: 1 !important; }
         }
       `}</style>
 
@@ -130,10 +167,13 @@ export default function HomeServicesSection() {
           </div>
         </Reveal>
 
-        <div className="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-7">
+        <div className="cx-svc-reveal-grid grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-7">
           {services.map((service, index) => (
             <Reveal key={service.id} delay={Math.min(index, 5) * 0.07} className="h-full cx-svc-3d-stage">
+              <div className="cx-svc-reveal-shell">
               <article
+                tabIndex={0}
+                aria-label={service.title}
                 onPointerMove={handlePointerMove}
                 onPointerLeave={resetPointer}
                 className="cx-svc-3d-card group relative flex h-full min-w-0 flex-col overflow-hidden rounded-[28px] border border-[#dbe8ef] bg-white shadow-[0_12px_36px_-22px_rgba(5,54,72,.22)] hover:border-[#a7c9d5] hover:shadow-[0_35px_80px_-33px_rgba(4,60,80,.35)]"
@@ -173,6 +213,7 @@ export default function HomeServicesSection() {
                   </div>
                 </div>
               </article>
+              </div>
             </Reveal>
           ))}
         </div>
