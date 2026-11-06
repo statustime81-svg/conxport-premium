@@ -97,8 +97,8 @@ export default function Header() {
   }) =>
     `${navBase} ${
       isActive
-        ? '!text-[#07546B] after:w-full'
-        : '!text-[#18323d] hover:!text-[#07546B]'
+        ? '!text-[#F93E02] after:w-full'
+        : '!text-[#18323d] hover:!text-[#F93E02]'
     }`;
 
   return (
@@ -368,9 +368,9 @@ export default function Header() {
                 !border-0 !bg-transparent
                 !p-0 !py-0
                 ${
-                  categoriesOpen
-                    ? '!text-[#07546B] after:w-full'
-                    : '!text-[#18323d] hover:!text-[#07546B]'
+                  (categoriesOpen || pathname === '/categories' || pathname.startsWith('/categories/'))
+                    ? '!text-[#F93E02] after:w-full'
+                    : '!text-[#18323d] hover:!text-[#F93E02]'
                 }
               `}
             >
@@ -434,14 +434,6 @@ export default function Header() {
             className={navLinkClass}
           >
             Turnkey Projects
-          </NavLink>
-
-          {/* DISTRIBUTOR NETWORK */}
-          <NavLink
-            to="/distributor"
-            className={navLinkClass}
-          >
-            Distributor
           </NavLink>
 
           {/* CONTACT */}
