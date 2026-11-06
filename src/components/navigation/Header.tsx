@@ -81,12 +81,11 @@ export default function Header() {
     whitespace-nowrap !px-0
     text-[15px] xl:text-[16px]
     font-bold tracking-[-0.015em]
-    transition-all duration-300 ease-out
-    hover:-translate-y-[1px]
+    transition-colors duration-300
     after:absolute after:bottom-[3px]
     after:left-1/2 after:h-[2px]
     after:w-0 after:-translate-x-1/2
-    after:rounded-full after:bg-[#F93E02]
+    after:rounded-full after:bg-[#FF4F18]
     after:transition-all after:duration-300
     hover:after:w-full
   `;
@@ -112,7 +111,7 @@ export default function Header() {
         transition-shadow duration-300
         ${
           scrolled
-            ? 'shadow-[0_12px_30px_rgba(4,60,80,0.16)]'
+            ? 'shadow-[0_8px_25px_rgba(8,35,45,0.09)]'
             : 'shadow-none'
         }
       `}
@@ -121,7 +120,7 @@ export default function Header() {
       {/* FIRST ROW: LOGO, SEARCH, DOWNLOAD, QUOTE */}
       {/* ======================================= */}
 
-      <div className="w-full !border-0 !bg-[#043C50]">
+      <div className="w-full !border-0 bg-white">
         <div
           className="
             mx-auto flex h-[82px] w-full
@@ -136,11 +135,9 @@ export default function Header() {
             to="/"
             aria-label="ConXport Homepage"
             className="
-              group flex h-[66px]
+              group flex h-full
               shrink-0 items-center
-              justify-start rounded-xl bg-white px-3 py-2
-              shadow-[0_8px_28px_rgba(0,0,0,0.08)]
-              transition-all duration-300 ease-out hover:-translate-y-0.5
+              justify-start py-2
             "
             onClick={() => {
               setMobileOpen(false);
@@ -157,8 +154,8 @@ export default function Header() {
                 transition-transform duration-300
                 group-hover:scale-[1.035]
                 sm:h-[55px] sm:max-w-[220px]
-                lg:h-[54px] lg:max-w-[220px]
-                xl:h-[58px] xl:max-w-[245px]
+                lg:h-[64px] lg:max-w-[255px]
+                xl:h-[68px] xl:max-w-[270px]
               "
             />
           </Link>
@@ -195,14 +192,14 @@ export default function Header() {
                 justify-center gap-2
                 whitespace-nowrap
                 rounded-full
-                border border-white/20
-                bg-white/10
+                border border-[#dfeae8]
+                bg-[#F1F7FA]
                 px-3 sm:px-5
-                !text-white
-                transition-all duration-300 ease-out
+                !text-[#153c37]
+                transition-all duration-300
                 hover:-translate-y-0.5
-                hover:border-white/60
-                hover:bg-white/20
+                hover:border-[#a0d2c5]
+                hover:bg-[#E7F5F7]
               "
             >
               <Download
@@ -233,7 +230,7 @@ export default function Header() {
                 justify-center gap-2
                 whitespace-nowrap
                 rounded-full
-                !bg-[#F93E02]
+                !bg-[#D84312]
                 px-3 sm:px-5 lg:px-6
                 text-[11px] sm:text-[12px]
                 xl:text-[13px]
@@ -241,7 +238,7 @@ export default function Header() {
                 shadow-[0_6px_18px_rgba(13,92,79,0.15)]
                 transition-all duration-300
                 hover:-translate-y-0.5
-                hover:!bg-[#E33805]
+                hover:!bg-[#B9320A]
                 hover:shadow-[0_12px_25px_rgba(13,92,79,0.22)]
               "
             >
@@ -275,10 +272,10 @@ export default function Header() {
                 grid h-[42px] w-[42px]
                 shrink-0 place-items-center
                 rounded-xl
-                border border-white/25
-                bg-white/10 !text-white
+                border border-[#dfeae8]
+                bg-white !text-[#153c37]
                 transition-colors duration-300
-                hover:bg-white/20
+                hover:bg-[#E7F5F7]
                 lg:hidden
               "
             >
@@ -298,7 +295,7 @@ export default function Header() {
 
       <div
         className="
-          w-full !bg-[#043C50]
+          w-full bg-white
           px-4 pb-3
           sm:px-6
           lg:hidden
@@ -315,12 +312,12 @@ export default function Header() {
       {/* SECOND ROW: NAVIGATION                  */}
       {/* ======================================= */}
 
-      <div className="hidden w-full !border-b-[3px] !border-b-[#F93E02] !bg-white lg:block">
+      <div className="hidden w-full !border-0 bg-white lg:block">
         <nav
           aria-label="Main navigation"
           className="
             mx-auto flex h-[54px] w-full
-            max-w-[1320px]
+            max-w-[1210px]
             items-center justify-between
             gap-2 px-6 xl:px-8
           "
@@ -371,7 +368,7 @@ export default function Header() {
                 !border-0 !bg-transparent
                 !p-0 !py-0
                 ${
-                  (categoriesOpen || pathname.startsWith('/categories'))
+                  (categoriesOpen || pathname === '/categories' || pathname.startsWith('/categories/'))
                     ? '!text-[#F93E02] after:w-full'
                     : '!text-[#18323d] hover:!text-[#F93E02]'
                 }
@@ -438,7 +435,6 @@ export default function Header() {
           >
             Turnkey Projects
           </NavLink>
-
 
           {/* CONTACT */}
           <NavLink

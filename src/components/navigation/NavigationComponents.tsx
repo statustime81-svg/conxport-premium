@@ -121,8 +121,12 @@ export function MobileNavigation({ onNavigate }: { onNavigate: () => void }) {
   ];
 
   return (
-    <nav id="cx-mobile-menu" className="cx-mobile-nav [&_a.active]:!text-[#F93E02] [&_a.active]:!bg-[#FFF0E9] [&_a]:transition-colors [&_a]:duration-300" aria-label="Mobile navigation">
-      <NavLink to="/categories" onClick={onNavigate}>
+    <nav id="cx-mobile-menu" className="cx-mobile-nav" aria-label="Mobile navigation">
+      <NavLink
+        to="/categories"
+        onClick={onNavigate}
+        className={({ isActive }) => isActive ? '!text-[#F93E02]' : 'hover:!text-[#F93E02]'}
+      >
         All Categories <ArrowUpRight size={17} aria-hidden="true" />
       </NavLink>
       <button
@@ -147,7 +151,7 @@ export function MobileNavigation({ onNavigate }: { onNavigate: () => void }) {
               <NavLink
                 to={menuCategoryPath(category, byId)}
                 onClick={onNavigate}
-                className="!flex !items-center !justify-between !py-3 text-sm !font-bold !text-[#18323d]"
+                className={({ isActive }) => `!flex !items-center !justify-between !py-3 text-sm !font-bold ${isActive ? '!text-[#F93E02]' : '!text-[#18323d] hover:!text-[#F93E02]'}`}
               >
                 {category.name} <ArrowUpRight size={15} aria-hidden="true" />
               </NavLink>
@@ -156,7 +160,7 @@ export function MobileNavigation({ onNavigate }: { onNavigate: () => void }) {
                   key={child.id}
                   to={menuCategoryPath(child, byId)}
                   onClick={onNavigate}
-                  className="!flex !items-center !justify-between !py-2 !pl-5 text-[13px] !text-[#526973]"
+                  className={({ isActive }) => `!flex !items-center !justify-between !py-2 !pl-5 text-[13px] ${isActive ? '!text-[#F93E02]' : '!text-[#526973] hover:!text-[#F93E02]'}`}
                 >
                   {child.name} <ArrowUpRight size={13} aria-hidden="true" />
                 </NavLink>
@@ -167,7 +171,12 @@ export function MobileNavigation({ onNavigate }: { onNavigate: () => void }) {
       )}
       {items.map(([label, to]) => to.endsWith('.pdf')
         ? <a href={to} key={to} download onClick={onNavigate}>{label}<ArrowUpRight size={17} /></a>
-        : <NavLink to={to} key={to} onClick={onNavigate}>{label}<ArrowUpRight size={17} aria-hidden="true" /></NavLink>)}
+        : <NavLink
+            to={to}
+            key={to}
+            onClick={onNavigate}
+            className={({ isActive }) => isActive ? '!text-[#F93E02]' : 'hover:!text-[#F93E02]'}
+          >{label}<ArrowUpRight size={17} aria-hidden="true" /></NavLink>)}
     </nav>
   );
 }
