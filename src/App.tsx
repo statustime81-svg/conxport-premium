@@ -1,4 +1,4 @@
-
+﻿
 import { lazy, Suspense } from 'react';
 import { Link } from 'react-router';
 import { ArrowUpRight } from 'lucide-react';
@@ -13,7 +13,7 @@ import WhyConXportSection from './components/home/WhyConXportSection';
 import CategoryShowcase from './components/home/CategoryShowcase';
 
 import HomepageCmsSection from './components/public/cms/HomepageCmsSection';
-import Reveal from './components/animations/Reveal';
+
 import { ManagedClients, ManagedTestimonials, ManagedFaq } from './components/home/ManagedShowcase';
 import LatestProducts from './components/home/LatestProducts';
 import HomepageContactSection from './components/home/HomepageContactSection';
