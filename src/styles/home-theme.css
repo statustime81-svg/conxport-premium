@@ -1,0 +1,28 @@
+/* Homepage only: ConXport Option 4 visual system. Other pages, navbar, footer and admin untouched. */
+.cx-home-option4 {
+  --cx-home-navy:#043C50;
+  --cx-home-orange:#D84312;
+  --cx-home-orange-bright:#F93E02;
+  --cx-home-cream:#FFFCF9;
+  font-family:'Manrope',system-ui,sans-serif;
+  color:var(--cx-home-navy);
+}
+.cx-home-option4 h1,
+.cx-home-option4 h2 { text-wrap:balance; }
+.cx-home-option4 a,
+.cx-home-option4 button { -webkit-tap-highlight-color:transparent; }
+.cx-home-option4 .cx-home-button-primary {
+  background:#D84312; color:#fff;
+  box-shadow:0 16px 36px -18px rgba(216,67,18,.48);
+  transition:transform .35s cubic-bezier(.2,.8,.2,1),background-color .3s ease,box-shadow .3s ease;
+}
+.cx-home-option4 .cx-home-button-primary:hover {
+  background:#B9320A; transform:translateY(-3px);
+  box-shadow:0 22px 40px -16px rgba(216,67,18,.42);
+}
+.cx-home-option4 :where(a,button,[tabindex]):focus-visible {
+  outline:3px solid #F93E02;outline-offset:4px;
+}
+@media (prefers-reduced-motion:reduce) {
+  .cx-home-option4 .cx-home-button-primary { transition:none!important;transform:none!important; }
+}
