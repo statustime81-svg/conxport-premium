@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from 'react';
+﻿import { useEffect, useState, type ReactNode } from 'react';
 import { Link } from 'react-router';
 import { ArrowUpRight, ClipboardList, DraftingCompass, PackageCheck, ShieldCheck, CheckCircle2, BadgeCheck, Handshake, Headset, TrendingUp, Layers3, ClipboardCheck, ArrowRight } from 'lucide-react';
 import { getCmsPublic } from '../../services/cmsPublic';
@@ -15,9 +15,9 @@ export const defaultTurnkeyInfo:TurnkeyInfo = {
   heading:'Turnkey Hospital & Medical College Projects',
   intro:'Establishing a hospital or medical college is a complex endeavor that demands extensive planning, specialized knowledge, and seamless coordination. From designing and constructing facilities to equipping and commissioning them, turnkey projects bring the entire process under one coordinated approach.',
   steps:[
-    {title:'Needs Assessment',description:'The initial stage involves conducting a thorough needs assessment. This includes determining the size and capacity of the hospital, the range of medical services to be offered, the target patient population, and any specialized requirements based on the facility’s focus area.'},
+    {title:'Needs Assessment',description:'The initial stage involves conducting a thorough needs assessment. This includes determining the size and capacity of the hospital, the range of medical services to be offered, the target patient population, and any specialized requirements based on the facilityâ€™s focus area.'},
     {title:'Design & Construction',description:'Once the requirements are established, the turnkey contractor collaborates with architects, engineers, and healthcare professionals to design the hospital infrastructure. This encompasses layout planning, construction, electrical and mechanical installations, plumbing, and ensuring compliance with building codes and regulations.'},
-    {title:'Equipment Procurement & Installation',description:'The turnkey contractor assumes responsibility for procuring and installing all medical equipment required for the hospital. This includes imaging systems, surgical equipment, patient monitoring systems, laboratory equipment, and IT infrastructure. The contractor ensures the seamless integration of these components into the hospital’s infrastructure.'},
+    {title:'Equipment Procurement & Installation',description:'The turnkey contractor assumes responsibility for procuring and installing all medical equipment required for the hospital. This includes imaging systems, surgical equipment, patient monitoring systems, laboratory equipment, and IT infrastructure. The contractor ensures the seamless integration of these components into the hospitalâ€™s infrastructure.'},
     {title:'Regulatory Compliance & Accreditation',description:'Hospital setup turnkey projects necessitate adherence to various regulatory standards and healthcare accreditation requirements. The contractor ensures compliance with local, national, and international regulations, such as licensing, safety, and infection control standards, and facilitates the process of obtaining necessary certifications and accreditation.'}
   ],
   benefits:[
@@ -122,7 +122,7 @@ export default function TurnkeyProjectsPage() {
             />
             <figure className="relative m-0 overflow-hidden rounded-[30px] border-[6px] border-white bg-[#e7f1f3] shadow-[0_30px_85px_-32px_rgba(4,60,80,.35)]">
               <img
-                src="/images/why-conxport/healthcare.png"
+                src="/images/turnkey/turnkey-modern-hospital-infrastructure.webp"
                 alt="Modern hospital room equipped with patient bed and medical equipment"
                 loading="eager"
                 decoding="async"
@@ -244,3 +244,4 @@ export default function TurnkeyProjectsPage() {
     </main>
   );
 }
+
