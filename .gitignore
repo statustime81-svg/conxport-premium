@@ -10,3 +10,5 @@ backup-*/
 .DS_Store
 
 .conxport-performance-backup/
+
+test-results/
