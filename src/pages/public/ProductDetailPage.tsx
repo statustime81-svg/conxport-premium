@@ -38,7 +38,7 @@ function PhotoGallery({ images, name }: { images: string[]; name: string }) {
 
   return (
     <div className="min-w-0">
-      <div className="relative flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-white sm:aspect-[5/4]">
+      <div className="relative flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-[25px] border border-[#e9e1dd] bg-white sm:aspect-[5/4]">
         {current ? (
           <button
             type="button"
@@ -64,7 +64,7 @@ function PhotoGallery({ images, name }: { images: string[]; name: string }) {
               aria-label={`Show image ${index + 1} of ${name}`}
               aria-pressed={selected === index}
               onClick={() => setSelected(index)}
-              className={`h-20 w-20 overflow-hidden rounded-lg border bg-white p-1 transition-colors ${selected === index ? 'border-[#07546B] ring-2 ring-[#07546B]/20' : 'border-slate-200 hover:border-[#07546B]/60'}`}
+              className={`h-20 w-20 overflow-hidden rounded-lg border bg-white p-1 transition-colors ${selected === index ? 'border-[#D84312] ring-2 ring-[#D84312]/20' : 'border-slate-200 hover:border-[#D84312]/60'}`}
             >
               <img src={src} alt="" loading="lazy" className="h-full w-full object-contain" />
             </button>
@@ -166,7 +166,7 @@ export default function ProductDetailPage() {
     <main className="mx-auto min-h-[60vh] max-w-6xl bg-white px-5 py-20">
       <h1 className="!mb-3 !font-sans !text-3xl !font-bold !text-slate-900">{error ? 'Unable to load product' : 'Product not found'}</h1>
       <p role={error ? 'alert' : undefined} className="!text-slate-600">{error || 'This product is unavailable or not published.'}</p>
-      <Link to="/products" className="mt-6 inline-flex items-center gap-2 font-semibold !text-[#07546B] hover:underline"><ArrowLeft size={17}/> Back to catalogue</Link>
+      <Link to="/products" className="mt-6 inline-flex items-center gap-2 font-semibold !text-[#D84312] hover:underline"><ArrowLeft size={17}/> Back to catalogue</Link>
     </main>
   );
 
@@ -174,11 +174,11 @@ export default function ProductDetailPage() {
   const overview = product.description?.trim() || product.summary?.trim() || 'Detailed product information is available on request.';
 
   return (
-    <main className="min-h-screen bg-white font-sans !text-[#172b34]">
+    <main className="min-h-screen bg-[#FFFCF9] font-['Manrope',system-ui,sans-serif] !text-[#043C50]">
       <div className="mx-auto w-full max-w-[1280px] px-4 pb-20 pt-7 sm:px-7 lg:px-10">
         <nav aria-label="Breadcrumb" className="mb-7 flex flex-wrap items-center gap-2 text-[13px] !text-slate-500">
-          <Link to="/" className="hover:!text-[#07546B]">Home</Link><ChevronRight size={14}/>
-          <Link to="/products" className="hover:!text-[#07546B]">Products</Link><ChevronRight size={14}/>
+          <Link to="/" className="hover:!text-[#D84312]">Home</Link><ChevronRight size={14}/>
+          <Link to="/products" className="hover:!text-[#D84312]">Products</Link><ChevronRight size={14}/>
           <span className="break-words font-medium !text-[#203b42]">{product.name}</span>
         </nav>
 
@@ -187,16 +187,16 @@ export default function ProductDetailPage() {
             <PhotoGallery key={product.id} images={images} name={product.name}/>
           </section>
           <section aria-labelledby="product-name" className="min-w-0 lg:pt-2">
-            <p className="!mb-3 !text-sm font-bold uppercase tracking-[0.08em] !text-[#07546B]">{category?.name ?? 'Medical equipment'}</p>
-            <h1 id="product-name" className="!mb-4 !font-sans !text-[clamp(2rem,3.3vw,3rem)] !font-extrabold !leading-[1.17] !tracking-[-0.035em] !text-[#142b34]">{product.name}</h1>
+            <p className="!mb-3 !text-sm font-bold uppercase tracking-[0.08em] !text-[#D84312]">{category?.name ?? 'Medical equipment'}</p>
+            <h1 id="product-name" className="!mb-4 !text-[clamp(2.3rem,4vw,4rem)] !font-normal !leading-[1.1] !tracking-[-.04em] !text-[#043C50]" style={{fontFamily:"'DM Serif Display', Georgia, serif"}}>{product.name}</h1>
             {product.summary && <p className="!mb-5 text-[16px] !leading-8 !text-slate-600">{product.summary}</p>}
             <dl className="mb-7 grid gap-4 border-y border-slate-200 py-5 text-[14px] sm:grid-cols-2">
               <div><dt className="mb-1 font-semibold !text-slate-500">SKU / Model</dt><dd className="m-0 break-words font-semibold !text-[#18313b]">{product.sku}</dd></div>
               <div><dt className="mb-1 font-semibold !text-slate-500">Category</dt><dd className="m-0 font-semibold !text-[#18313b]">{category?.name ?? 'Medical equipment'}</dd></div>
             </dl>
             <div className="flex flex-wrap gap-3">
-              <button type="button" onClick={addToQuote} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg !bg-[#D84312] px-5 text-sm font-bold !text-white transition-colors hover:!bg-[#B9320A]">{added ? <Check size={18}/> : <Plus size={18}/>} {added ? 'Added to quote list' : 'Add to quote list'}</button>
-              <Link to="/request-quote" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-slate-300 px-5 text-sm font-bold !text-[#163740] transition-colors hover:bg-slate-50">Request quotation <ArrowRight size={17}/></Link>
+              <button type="button" onClick={addToQuote} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full !bg-[#D84312] px-5 text-sm font-bold !text-white transition-colors hover:!bg-[#B9320A]">{added ? <Check size={18}/> : <Plus size={18}/>} {added ? 'Added to quote list' : 'Add to quote list'}</button>
+              <Link to="/request-quote" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-slate-300 px-5 text-sm font-bold !text-[#163740] transition-colors hover:bg-slate-50">Request quotation <ArrowRight size={17}/></Link>
             </div>
             {quoteError && <p role="alert" className="!mt-4 !text-sm !text-red-700">{quoteError}</p>}
             <p className="!mt-6 text-[13px] !leading-6 !text-slate-500">Please confirm technical specifications, warranty, certifications, pricing and availability with ConXport before ordering.</p>
@@ -204,12 +204,12 @@ export default function ProductDetailPage() {
         </div>
 
         <section aria-labelledby="overview-title" className="mt-12 border-t border-slate-200 pt-9 sm:mt-14">
-          <h2 id="overview-title" className="!mb-5 !font-sans !text-[26px] !font-bold !tracking-tight !text-[#142b34]">Product overview</h2>
+          <h2 id="overview-title" className="!mb-5 !text-[clamp(2rem,3.2vw,3rem)] !font-normal !tracking-tight !text-[#043C50]" style={{fontFamily:"'DM Serif Display', Georgia, serif"}}>Product <span className="italic !text-[#D84312]">overview.</span></h2>
           <p className="max-w-[1000px] whitespace-pre-line break-words text-[16px] !leading-[1.9] !text-[#4e626c]">{overview}</p>
         </section>
 
         {related.length > 0 && <section aria-labelledby="related-title" className="mt-12 border-t border-slate-200 pt-9">
-          <h2 id="related-title" className="!mb-5 !font-sans !text-[24px] !font-bold !text-[#142b34]">Related products</h2>
+          <h2 id="related-title" className="!mb-5 !text-[clamp(2rem,3vw,2.9rem)] !font-normal !text-[#043C50]" style={{fontFamily:"'DM Serif Display', Georgia, serif"}}>Related <span className="italic !text-[#D84312]">products.</span></h2>
           <ul className="grid max-w-[920px] grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 lg:gap-4">
             {related.map((item) => (
               <li key={item.id} className="min-w-0">
@@ -234,11 +234,11 @@ export default function ProductDetailPage() {
                     )}
                   </div>
                   <div className="flex flex-1 flex-col gap-1.5 border-t border-slate-100 px-3.5 pb-3.5 pt-3">
-                    <h3 className="!mb-0 line-clamp-2 !font-sans !text-[14px] !font-bold !leading-5 !text-[#18313b] transition-colors group-hover:!text-[#07546B]">
+                    <h3 className="!mb-0 line-clamp-2 !font-sans !text-[14px] !font-bold !leading-5 !text-[#18313b] transition-colors group-hover:!text-[#D84312]">
                       {item.name}
                     </h3>
                     <p className="!mb-0 break-all text-[11px] !text-slate-500">Model: {item.sku}</p>
-                    <span className="mt-auto inline-flex items-center gap-1.5 pt-2 text-xs font-bold !text-[#07546B]">
+                    <span className="mt-auto inline-flex items-center gap-1.5 pt-2 text-xs font-bold !text-[#D84312]">
                       View product <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
                     </span>
                   </div>
@@ -248,7 +248,7 @@ export default function ProductDetailPage() {
           </ul>
         </section>}
 
-        <div className="mt-12 border-t border-slate-200 pt-7"><Link to="/products" className="inline-flex items-center gap-2 text-sm font-semibold !text-[#07546B] hover:underline"><ArrowLeft size={17}/> Back to all products</Link></div>
+        <div className="mt-12 border-t border-slate-200 pt-7"><Link to="/products" className="inline-flex items-center gap-2 text-sm font-semibold !text-[#D84312] hover:underline"><ArrowLeft size={17}/> Back to all products</Link></div>
       </div>
     </main>
   );
