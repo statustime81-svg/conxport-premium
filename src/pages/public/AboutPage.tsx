@@ -73,7 +73,7 @@ export default function AboutPage() {
             <div className="relative mx-auto w-full max-w-[625px] lg:ml-auto">
               <div aria-hidden="true" className="absolute -left-5 -top-5 h-32 w-32 rounded-[26px] border border-[#d5e9ee] bg-[#eaf5f8] sm:-left-7 sm:-top-7" />
               <div className="relative overflow-hidden rounded-[30px] rounded-bl-[76px] border border-[#dce8ec] bg-[#e9f3f0] shadow-[0_40px_100px_-55px_rgba(6,53,75,.5)]">
-                <img src="/images/why-conxport/healthcare.png" alt="Hospital healthcare equipment and facility" className="block h-[360px] w-full object-cover sm:h-[470px] lg:h-[550px]" />
+                <img src="/images/about/about-modern-healthcare-infrastructure.webp" alt="Hospital healthcare equipment and facility" className="block h-[360px] w-full object-cover sm:h-[470px] lg:h-[550px]" />
                 <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#061f2d]/45 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-7">
                   <div className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/90 px-4 py-2.5 text-[11px] font-bold text-[#043C50] shadow-lg backdrop-blur-md sm:text-[12px]">
@@ -124,7 +124,7 @@ export default function AboutPage() {
           <Reveal>
             <div className="relative max-w-[620px]">
               <div className="overflow-hidden rounded-[30px] rounded-tr-[84px] border border-[#dae7eb] bg-white shadow-[0_32px_80px_-50px_rgba(7,84,107,.4)]">
-                <img src="/images/why-conxport/sourcing.png" loading="lazy" alt="Medical equipment sourcing and supply" className="block h-[350px] w-full object-cover sm:h-[470px] lg:h-[540px]" />
+                <img src="/images/about/about-medical-equipment-showroom.webp" loading="lazy" alt="Medical equipment sourcing and supply" className="block h-[350px] w-full object-cover sm:h-[470px] lg:h-[540px]" />
               </div>
               <div className="absolute -bottom-5 right-4 flex items-center gap-3 rounded-[19px] border border-[#e1e9ed] bg-white px-5 py-4 shadow-[0_18px_50px_-22px_rgba(7,84,107,.22)] sm:right-8">
                 <Globe2 size={24} className="text-[#043C50]" />
