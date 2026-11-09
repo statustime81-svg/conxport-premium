@@ -64,7 +64,7 @@ export default function HomeAboutSection() {
                 "
               >
                 <img
-                  src="https://images.unsplash.com/photo-1766297246958-b6ca17b56fb7?auto=format&fit=crop&w=1400&q=85"
+                  src="/images/home/hero-about-img.webp"
                   alt="Medical laboratory professional working with diagnostic equipment"
                   loading="lazy"
                   className="
