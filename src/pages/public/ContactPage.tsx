@@ -170,7 +170,7 @@ export default function ContactPage() {
               <div className="relative min-h-[350px] sm:min-h-[480px] lg:min-h-[570px]">
                 <div className="absolute -right-8 -top-8 h-[80%] w-[80%] rounded-full bg-[#E7F4F4] blur-[70px]" aria-hidden="true" />
                 <div className="absolute inset-4 overflow-hidden rounded-[33px] rounded-bl-[100px] border border-white/80 shadow-[0_35px_100px_-48px_rgba(4,60,80,.35)] sm:inset-6">
-                  <img src="/images/why-conxport/healthcare.png" alt="ConXport medical equipment and healthcare environment" className="h-full w-full object-cover" loading="eager" />
+                  <img src="/images/contact/contect-img.webp" alt="ConXport medical equipment and healthcare environment" className="h-full w-full object-cover" loading="eager" />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#062E40]/85 via-[#062E40]/15 to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 p-6 sm:p-10">
                     <div className="mb-4 h-[3px] w-12 rounded-full bg-[#D84312]" />
