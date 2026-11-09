@@ -92,7 +92,7 @@ export default function Footer() {
     <footer className="relative isolate w-full overflow-hidden !bg-[#08151c] !text-white">
       {/* Premium, subtle navy / teal background. No decorative cards or extra CTA. */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,#07141d_0%,#102530_48%,#0a2024_100%)]" />
-      <div aria-hidden="true" className="pointer-events-none absolute -right-44 -top-64 h-[490px] w-[490px] rounded-full bg-[#168475]/[0.11] blur-[100px]" />
+      <div aria-hidden="true" className="pointer-events-none absolute -right-44 -top-64 h-[490px] w-[490px] rounded-full bg-[#D84312]/[0.10] blur-[100px]" />
       <div aria-hidden="true" className="pointer-events-none absolute -bottom-56 -left-32 h-[420px] w-[420px] rounded-full bg-[#194e73]/[0.15] blur-[100px]" />
 
       <div className="relative mx-auto max-w-[1440px] px-5 pb-6 pt-12 sm:px-8 lg:px-12 lg:pt-16">
@@ -149,12 +149,12 @@ export default function Footer() {
             {footerGroups.map((group) => (
               <section key={group.title} aria-label={`${group.title} links`} className="min-w-0">
                 <h2 className="!m-0 !text-[13px] !font-extrabold !uppercase !tracking-[.13em] !text-white">{group.title}</h2>
-                <div className="mt-3 h-[2px] w-8 rounded-full bg-[#60d9c3]" />
+                <div className="mt-3 h-[2px] w-8 rounded-full bg-[#D84312]" />
                 <ul className="!m-0 !mt-5 space-y-3 !p-0">
                   {group.links.map(({ label, href, icon: Icon }) => (
                     <li key={href} className="list-none">
                       <Link to={href} className={footerLinkClass}>
-                        <Icon size={15} strokeWidth={1.8} className="shrink-0 text-[#67bcae] transition-colors group-hover:text-[#83ead4]" aria-hidden="true" />
+                        <Icon size={15} strokeWidth={1.8} className="shrink-0 text-[#FF9C7D] transition-colors group-hover:text-white" aria-hidden="true" />
                         <span>{label}</span>
                       </Link>
                     </li>
@@ -164,7 +164,7 @@ export default function Footer() {
             ))}
             <div className="col-span-2 sm:col-span-3">
               <a href="/downloads/conxport-company-profile.pdf" download="ConXport-Company-Profile.pdf"
-                className="group inline-flex items-center gap-2.5 rounded-full border border-[#367b73] bg-[#14564e]/70 px-5 py-2.5 text-[13px] font-bold !text-white transition-all duration-200 hover:-translate-y-0.5 hover:!bg-[#1a6d60] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#70dbc7]">
+                className="group inline-flex items-center gap-2.5 rounded-full border border-[#D84312]/40 bg-[#D84312] px-5 py-2.5 text-[13px] font-bold !text-white transition-all duration-200 hover:-translate-y-0.5 hover:!bg-[#B9320A] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#70dbc7]">
                 <Download size={16} /> Download Company Profile
                 <ArrowUpRight size={15} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>

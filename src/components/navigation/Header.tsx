@@ -80,12 +80,12 @@ export default function Header() {
     shrink-0 items-center justify-center
     whitespace-nowrap !px-0
     text-[15px] xl:text-[16px]
-    font-bold tracking-[-0.015em]
+    font-bold font-['Manrope',system-ui,sans-serif] tracking-[-0.015em]
     transition-colors duration-300
     after:absolute after:bottom-[3px]
     after:left-1/2 after:h-[2px]
     after:w-0 after:-translate-x-1/2
-    after:rounded-full after:bg-[#F93E02]
+    after:rounded-full after:bg-[#D84312]
     after:transition-all after:duration-300
     hover:after:w-full
   `;
@@ -97,8 +97,8 @@ export default function Header() {
   }) =>
     `${navBase} ${
       isActive
-        ? '!text-[#F93E02] after:w-full'
-        : '!text-[#18323d] hover:!text-[#F93E02]'
+        ? '!text-[#D84312] after:w-full'
+        : '!text-[#043C50] hover:!text-[#D84312]'
     }`;
 
   return (
@@ -123,7 +123,7 @@ export default function Header() {
       <div className="w-full !border-0 bg-white">
         <div
           className="
-            mx-auto flex h-[82px] w-full
+            mx-auto flex h-[78px] w-full
             max-w-[1600px]
             items-center justify-between
             gap-4 px-4
@@ -195,11 +195,11 @@ export default function Header() {
                 border border-[#dfeae8]
                 bg-[#F1F7FA]
                 px-3 sm:px-5
-                !text-[#153c37]
+                !text-[#043C50]
                 transition-all duration-300
                 hover:-translate-y-0.5
-                hover:border-[#a0d2c5]
-                hover:bg-[#E7F5F7]
+                hover:border-[#D84312]/40
+                hover:bg-[#FFF1EB]
               "
             >
               <Download
@@ -238,7 +238,7 @@ export default function Header() {
                 shadow-[0_6px_18px_rgba(13,92,79,0.15)]
                 transition-all duration-300
                 hover:-translate-y-0.5
-                hover:!bg-[#B9320A]
+                hover:!bg-[#043C50]
                 hover:shadow-[0_12px_25px_rgba(13,92,79,0.22)]
               "
             >
@@ -273,9 +273,9 @@ export default function Header() {
                 shrink-0 place-items-center
                 rounded-xl
                 border border-[#dfeae8]
-                bg-white !text-[#153c37]
+                bg-white !text-[#043C50]
                 transition-colors duration-300
-                hover:bg-[#E7F5F7]
+                hover:bg-[#FFF1EB]
                 lg:hidden
               "
             >
@@ -369,8 +369,8 @@ export default function Header() {
                 !p-0 !py-0
                 ${
                   categoriesOpen
-                    ? '!text-[#F93E02] after:w-full'
-                    : '!text-[#18323d] hover:!text-[#F93E02]'
+                    ? '!text-[#D84312] after:w-full'
+                    : '!text-[#043C50] hover:!text-[#D84312]'
                 }
               `}
             >

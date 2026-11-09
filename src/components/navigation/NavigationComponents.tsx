@@ -67,7 +67,7 @@ export function MegaMenu({ onNavigate }: { onNavigate: () => void }) {
         <Link
           to="/categories"
           onClick={onNavigate}
-          className="inline-flex items-center gap-1.5 text-xs font-bold !text-[#07546B] hover:!text-[#FF4F18]"
+          className="inline-flex items-center gap-1.5 text-xs font-bold !text-[#043C50] hover:!text-[#D84312]"
         >
           View all categories <ArrowUpRight size={14} aria-hidden="true" />
         </Link>
@@ -101,7 +101,7 @@ export function MegaMenu({ onNavigate }: { onNavigate: () => void }) {
 
       <div className="cx-mega-wide-footer">
         <span>Explore our published medical equipment categories</span>
-        <Link to="/products" onClick={onNavigate} className="inline-flex items-center gap-1 font-bold !text-[#07546B] hover:!text-[#FF4F18]">
+        <Link to="/products" onClick={onNavigate} className="inline-flex items-center gap-1 font-bold !text-[#043C50] hover:!text-[#D84312]">
           <Layers3 size={15} aria-hidden="true" /> All products
         </Link>
       </div>
@@ -116,7 +116,7 @@ export function MobileNavigation({ onNavigate }: { onNavigate: () => void }) {
     ['Products', '/products'], ['Blog', '/blog'],
     ['Case studies', '/case-studies'], ['Resources', '/resources'], ['About', '/about'],
     ['Certificates', '/certifications'], ['Our Expo', '/our-expo'],
-    ['Distributor', '/distributor'], ['Download Profile', '/downloads/conxport-company-profile.pdf'],
+    ['Distributor', '/distributor'], ['Turnkey Projects', '/turnkey-projects'], ['Download Profile', '/downloads/conxport-company-profile.pdf'],
     ['Contact', '/contact'], ['Quote list', '/quote-list'], ['My account', '/account'],
   ];
 
@@ -125,7 +125,7 @@ export function MobileNavigation({ onNavigate }: { onNavigate: () => void }) {
       <NavLink
         to="/categories"
         onClick={onNavigate}
-        className={({ isActive }) => isActive ? '!text-[#F93E02]' : 'hover:!text-[#F93E02]'}
+        className={({ isActive }) => isActive ? '!text-[#D84312]' : 'hover:!text-[#D84312]'}
       >
         All Categories <ArrowUpRight size={17} aria-hidden="true" />
       </NavLink>
@@ -139,7 +139,7 @@ export function MobileNavigation({ onNavigate }: { onNavigate: () => void }) {
         Browse Categories <ChevronDown size={18} className={`transition-transform ${showCategories ? 'rotate-180' : ''}`} />
       </button>
       {showCategories && (
-        <div id="cx-mobile-category-list" className="max-h-[45vh] overflow-y-auto overscroll-contain bg-[#F1F7FA] px-3 py-2">
+        <div id="cx-mobile-category-list" className="max-h-[45vh] overflow-y-auto overscroll-contain bg-[#FFFCF9] px-3 py-2">
           {loading ? (
             <p role="status" className="!m-0 px-2 py-4 text-sm">Loading categories…</p>
           ) : error ? (
@@ -151,7 +151,7 @@ export function MobileNavigation({ onNavigate }: { onNavigate: () => void }) {
               <NavLink
                 to={menuCategoryPath(category, byId)}
                 onClick={onNavigate}
-                className={({ isActive }) => `!flex !items-center !justify-between !py-3 text-sm !font-bold ${isActive ? '!text-[#F93E02]' : '!text-[#18323d] hover:!text-[#F93E02]'}`}
+                className={({ isActive }) => `!flex !items-center !justify-between !py-3 text-sm !font-bold ${isActive ? '!text-[#D84312]' : '!text-[#18323d] hover:!text-[#D84312]'}`}
               >
                 {category.name} <ArrowUpRight size={15} aria-hidden="true" />
               </NavLink>
@@ -160,7 +160,7 @@ export function MobileNavigation({ onNavigate }: { onNavigate: () => void }) {
                   key={child.id}
                   to={menuCategoryPath(child, byId)}
                   onClick={onNavigate}
-                  className={({ isActive }) => `!flex !items-center !justify-between !py-2 !pl-5 text-[13px] ${isActive ? '!text-[#F93E02]' : '!text-[#526973] hover:!text-[#F93E02]'}`}
+                  className={({ isActive }) => `!flex !items-center !justify-between !py-2 !pl-5 text-[13px] ${isActive ? '!text-[#D84312]' : '!text-[#526973] hover:!text-[#D84312]'}`}
                 >
                   {child.name} <ArrowUpRight size={13} aria-hidden="true" />
                 </NavLink>
@@ -175,7 +175,7 @@ export function MobileNavigation({ onNavigate }: { onNavigate: () => void }) {
             to={to}
             key={to}
             onClick={onNavigate}
-            className={({ isActive }) => isActive ? '!text-[#F93E02]' : 'hover:!text-[#F93E02]'}
+            className={({ isActive }) => isActive ? '!text-[#D84312]' : 'hover:!text-[#D84312]'}
           >{label}<ArrowUpRight size={17} aria-hidden="true" /></NavLink>)}
     </nav>
   );

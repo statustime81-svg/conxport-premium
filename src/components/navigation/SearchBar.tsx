@@ -55,7 +55,7 @@ export default function SearchBar({
     <form
       role="search"
       onSubmit={submit}
-      className={`flex h-11 w-full min-w-0 items-center overflow-hidden rounded-full border border-[#FF4F18] bg-white shadow-[0_6px_22px_rgba(15,45,49,0.07)] transition-colors focus-within:border-[#FF4F18] ${className}`}
+      className={`flex h-11 w-full min-w-0 items-center overflow-hidden rounded-full border border-[#E1E8EB] bg-white shadow-[0_6px_22px_rgba(15,45,49,0.07)] transition-colors focus-within:border-[#D84312] ${className}`}
     >
       <label htmlFor={id} className="sr-only">
         Search hospital equipment
@@ -64,7 +64,7 @@ export default function SearchBar({
       <Search
         size={18}
         aria-hidden="true"
-        className="ml-4 shrink-0 text-[#07546B]"
+        className="ml-4 shrink-0 text-[#043C50]"
       />
 
       <input
@@ -79,7 +79,7 @@ export default function SearchBar({
         autoComplete="off"
         enterKeyHint="search"
         maxLength={160}
-        className="h-full min-w-0 flex-1 border-0 bg-transparent px-3 text-sm text-[#142b33] outline-none placeholder:text-[#849a9a]"
+        className="h-full min-w-0 flex-1 border-0 bg-transparent px-3 text-sm text-[#043C50] outline-none placeholder:text-[#849a9a]"
       />
 
       {query.length > 0 && (
@@ -90,7 +90,7 @@ export default function SearchBar({
           title="Clear search"
           className="grid h-8 w-8 shrink-0 cursor-pointer place-items-center rounded-full border-0 bg-transparent transition-colors hover:bg-[#FFF0E8]"
           style={{
-            color: '#FF4F18',
+            color: '#D84312',
           }}
         >
           <X size={17} strokeWidth={2.2} />
@@ -107,9 +107,9 @@ export default function SearchBar({
     rounded-full border-0 px-5
     text-xs font-bold text-white
     cursor-pointer
-    !bg-[#07546B]
-    hover:!bg-[#FF4F18]
-    focus-visible:!bg-[#FF4F18]
+    !bg-[#D84312]
+    hover:!bg-[#043C50]
+    focus-visible:!bg-[#043C50]
     transition-colors duration-300 ease-in-out
     disabled:cursor-not-allowed
   "
