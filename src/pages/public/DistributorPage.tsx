@@ -41,26 +41,26 @@ export default function DistributorPage() {
   });
 
   return (
-    <main className="min-h-screen bg-white font-sans !text-[#17333b]">
+    <main className="min-h-screen bg-white font-['Manrope',system-ui,sans-serif] !text-[#043C50]">
       {/* Page-specific styles only. No changes to the global design system. */}
-      <section className="relative isolate overflow-hidden bg-[#f3f8f9]">
+      <section className="relative isolate overflow-hidden bg-[#FFFCF9]">
         <div aria-hidden="true" className="pointer-events-none absolute -right-28 -top-52 h-[500px] w-[500px] rounded-full bg-[#d8efeb]/60 blur-[90px]" />
         <div className="relative mx-auto grid w-full max-w-[1280px] items-center gap-10 px-5 pb-14 pt-16 sm:px-8 lg:grid-cols-[.92fr_1.08fr] lg:gap-16 lg:px-10 lg:pb-20 lg:pt-24">
           <div className="max-w-xl">
             <p className="!mb-5 inline-flex items-center gap-2 rounded-full border border-[#c8e4df] bg-white px-4 py-2 text-xs font-extrabold uppercase tracking-[.13em] !text-[#0b655a]">
               <Globe2 size={15} /> ConXport Network
             </p>
-            <h1 className="!mb-5 !font-sans !text-[clamp(2.6rem,4.9vw,4.9rem)] !font-extrabold !leading-[1.08] !tracking-[-.055em] !text-[#112e38]">
-              Connecting healthcare needs <span className="!text-[#0b796e]">across India.</span>
+            <h1 className="!mb-5 !font-['DM_Serif_Display',Georgia,serif] !font-normal !text-[clamp(2.6rem,4.9vw,4.9rem)] !font-normal !leading-[1.08] !tracking-[-.055em] !text-[#043C50]">
+              Connecting healthcare needs <span className="italic !text-[#D84312]">across India.</span>
             </h1>
             <p className="!mb-0 max-w-lg !text-[15px] !leading-8 !text-[#587079] sm:!text-[16px]">
               Explore the locations highlighted on our distributor network map. ConXport supports enquiries for hospital furniture, medical equipment, surgical instruments and laboratory solutions, helping institutions find the right product information and quotation support.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/contact" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl !bg-[#07546B] px-6 text-sm font-bold !text-white transition hover:!bg-[#08483d]">
+              <Link to="/contact" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full !bg-[#D84312] px-6 text-sm font-bold !text-white transition hover:!bg-[#B9320A]">
                 Contact our team <ArrowUpRight size={17}/>
               </Link>
-              <a href="#network-locations" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-[#cddbdc] bg-white px-6 text-sm font-bold !text-[#18373e] transition hover:border-[#07546B]">
+              <a href="#network-locations" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#cddbdc] bg-white px-6 text-sm font-bold !text-[#18373e] transition hover:border-[#07546B]">
                 Explore locations <ArrowRight size={17}/>
               </a>
             </div>
@@ -72,7 +72,7 @@ export default function DistributorPage() {
             <div className="relative overflow-hidden rounded-[26px] border border-[#e3edec] bg-white p-3 shadow-[0_22px_70px_-35px_rgba(6,46,46,.24)] sm:p-5">
               <div className="mb-4 flex flex-wrap items-center justify-between gap-3 px-1">
                 <div>
-                  <p className="!mb-1 text-[11px] font-extrabold uppercase tracking-[.17em] !text-[#0d776d]">Network at a glance</p>
+                  <p className="!mb-1 text-[11px] font-extrabold uppercase tracking-[.17em] !text-[#D84312]">Network at a glance</p>
                   <p className="!mb-0 text-[15px] font-extrabold !text-[#18333b]">India distributor location map</p>
                 </div>
                 <span className="rounded-full bg-[#e5f5f0] px-3 py-1.5 text-xs font-extrabold !text-[#07546B]">16 map markers</span>
@@ -87,8 +87,8 @@ export default function DistributorPage() {
       <section id="network-locations" aria-labelledby="network-heading" className="mx-auto w-full max-w-[1280px] scroll-mt-28 px-5 py-16 sm:px-8 lg:px-10 lg:py-20">
         <div className="mb-9 flex flex-wrap items-end justify-between gap-5">
           <div className="max-w-2xl">
-            <p className="!mb-3 text-xs font-extrabold uppercase tracking-[.16em] !text-[#0c796d]">Regional coverage</p>
-            <h2 id="network-heading" className="!mb-3 !font-sans !text-[clamp(1.8rem,3.2vw,2.8rem)] !font-extrabold !tracking-[-.04em] !text-[#142e39]">Explore our distributor network</h2>
+            <p className="!mb-3 text-xs font-extrabold uppercase tracking-[.16em] !text-[#D84312]">Regional coverage</p>
+            <h2 id="network-heading" className="!mb-3 !font-['DM_Serif_Display',Georgia,serif] !font-normal !text-[clamp(1.8rem,3.2vw,2.8rem)] !font-extrabold !tracking-[-.04em] !text-[#043C50]">Explore our distributor <em className="italic !text-[#D84312]">network.</em></h2>
             <p className="!mb-0 !text-sm !leading-7 !text-slate-600">Find locations referenced in the ConXport network map, grouped for easier browsing.</p>
           </div>
           <span className="rounded-lg border border-slate-200 px-3 py-2 text-xs font-bold !text-slate-500">6 geographic regions</span>
@@ -114,11 +114,11 @@ export default function DistributorPage() {
         </div>
       </section>
 
-      <section className="bg-[#f4f8f9] py-16 lg:py-20" aria-labelledby="support-heading">
+      <section className="bg-[#FFF9F5] py-16 lg:py-20" aria-labelledby="support-heading">
         <div className="mx-auto w-full max-w-[1280px] px-5 sm:px-8 lg:px-10">
           <div className="mx-auto mb-10 max-w-2xl text-center">
-            <p className="!mb-3 text-xs font-extrabold uppercase tracking-[.16em] !text-[#0c796d]">How we can help</p>
-            <h2 id="support-heading" className="!mb-3 !font-sans !text-[clamp(1.8rem,3vw,2.6rem)] !font-extrabold !tracking-tight !text-[#142e39]">Product and distribution enquiries</h2>
+            <p className="!mb-3 text-xs font-extrabold uppercase tracking-[.16em] !text-[#D84312]">How we can help</p>
+            <h2 id="support-heading" className="!mb-3 !font-['DM_Serif_Display',Georgia,serif] !font-normal !text-[clamp(1.8rem,3vw,2.6rem)] !font-extrabold !tracking-tight !text-[#043C50]">Product and distribution <em className="italic !text-[#D84312]">enquiries.</em></h2>
             <p className="!mb-0 !text-sm !leading-7 !text-[#60737b]">Share your product category, location and requirements. Our team can guide you through the next steps.</p>
           </div>
           <div className="grid gap-5 md:grid-cols-3">
@@ -142,7 +142,7 @@ export default function DistributorPage() {
           <div aria-hidden="true" className="pointer-events-none absolute -right-16 -top-20 h-72 w-72 rounded-full border-[50px] border-white/5" />
           <div className="relative max-w-2xl">
             <div className="mb-4 flex items-center gap-2 text-xs font-extrabold uppercase tracking-[.15em] !text-[#9fe3ce]"><Building2 size={15} /> Distribution enquiries</div>
-            <h2 className="!mb-3 !font-sans !text-[clamp(1.8rem,3vw,2.6rem)] !font-extrabold !tracking-tight !text-white">Need a distributor contact or equipment quotation?</h2>
+            <h2 className="!mb-3 !font-['DM_Serif_Display',Georgia,serif] !font-normal !text-[clamp(1.8rem,3vw,2.6rem)] !font-extrabold !tracking-tight !text-white">Need a distributor contact or <em className="italic !text-[#FFAD91]">equipment quotation?</em></h2>
             <p className="!mb-0 !text-sm !leading-7 !text-[#d5e8e4]">Tell us your city, the equipment you need and your expected quantity. ConXport can confirm the appropriate enquiry channel and available next steps.</p>
           </div>
           <div className="relative mt-7 flex shrink-0 flex-wrap gap-3 lg:mt-0">

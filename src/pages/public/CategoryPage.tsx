@@ -1,2 +1,3 @@
 import CategoriesPage from "./CategoriesPage";
-export default function CategoryPage(){return <CategoriesPage/>;}
+/** Legacy route, intentionally uses the same premium categories UI. */
+export default function CategoryPage() { return <CategoriesPage />; }

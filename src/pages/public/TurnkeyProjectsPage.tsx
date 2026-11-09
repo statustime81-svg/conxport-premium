@@ -52,8 +52,8 @@ const reasonIcons = [BadgeCheck, Layers3, ShieldCheck, Handshake, Headset];
 
 function SectionEyebrow({ children }: { children: ReactNode }) {
   return (
-    <p className="!mb-0 inline-flex items-center gap-3 text-[11px] font-extrabold uppercase tracking-[0.22em] !text-[#F93E02]">
-      <span className="h-[2px] w-7 rounded-full bg-[#F93E02]" />
+    <p className="!mb-0 inline-flex items-center gap-3 text-[11px] font-extrabold uppercase tracking-[0.22em] !text-[#D84312]">
+      <span className="h-[2px] w-7 rounded-full bg-[#D84312]" />
       {children}
     </p>
   );
@@ -84,18 +84,18 @@ export default function TurnkeyProjectsPage() {
 
       {/* HERO: same CMS heading and introduction */}
       <section className="relative isolate overflow-hidden bg-[linear-gradient(120deg,#f7fafb_0%,#e9f2f5_58%,#fdf4f0_100%)] py-16 sm:py-20 lg:py-24">
-        <div aria-hidden="true" className="pointer-events-none absolute -right-20 -top-20 h-[440px] w-[440px] rounded-full bg-[#F93E02]/[.055] blur-3xl" />
+        <div aria-hidden="true" className="pointer-events-none absolute -right-20 -top-20 h-[440px] w-[440px] rounded-full bg-[#D84312]/[.055] blur-3xl" />
         <div className="container relative grid min-w-0 items-center gap-12 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,.88fr)] lg:gap-16">
           <div className="tk-enter max-w-[790px]">
             <SectionEyebrow>{info.eyebrow}</SectionEyebrow>
-            <h1 className="!mb-0 mt-6 max-w-[850px] font-['DM_Serif_Display',Georgia,serif] text-[clamp(3rem,5.3vw,5.65rem)] font-normal leading-[1.06] tracking-[-0.045em] !text-[#102D3C]">
-              {info.heading}
+            <h1 className="!mb-0 mt-6 max-w-[850px] font-['DM_Serif_Display',Georgia,serif] text-[clamp(3rem,5.3vw,5.65rem)] font-normal leading-[1.06] tracking-[-0.045em] !text-[#043C50]">
+              {info.heading.toLowerCase().includes('projects') ? <>{info.heading.slice(0, info.heading.toLowerCase().lastIndexOf('projects'))}<em className="font-normal italic !text-[#D84312]">{info.heading.slice(info.heading.toLowerCase().lastIndexOf('projects'))}</em></> : <>{info.heading} <em className="italic !text-[#D84312]">solutions.</em></>}
             </h1>
             <p className="!mb-0 mt-6 max-w-[720px] text-[15px] leading-[1.95] !text-[#5F7280] sm:text-[17px]">
               {info.intro}
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Link to="/contact" className="group inline-flex min-h-[52px] items-center justify-center gap-2.5 rounded-full bg-[#F93E02] px-7 py-3 text-[13px] font-extrabold !text-white shadow-[0_14px_38px_-16px_rgba(249,62,2,.55)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#de3905]">
+              <Link to="/contact" className="group inline-flex min-h-[52px] items-center justify-center gap-2.5 rounded-full bg-[#D84312] px-7 py-3 text-[13px] font-extrabold !text-white shadow-[0_14px_38px_-16px_rgba(249,62,2,.55)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#de3905]">
                 Discuss Your Project <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
               </Link>
               <a href="#our-process" className="group inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full border border-[#cddce2] bg-white px-7 py-3 text-[13px] font-extrabold !text-[#043C50] transition-all duration-300 hover:-translate-y-1 hover:border-[#F93E02]/50">
@@ -118,7 +118,7 @@ export default function TurnkeyProjectsPage() {
           >
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute -bottom-4 -right-4 left-5 top-5 rounded-[34px] bg-[#F93E02]/10"
+              className="pointer-events-none absolute -bottom-4 -right-4 left-5 top-5 rounded-[34px] bg-[#D84312]/10"
             />
             <figure className="relative m-0 overflow-hidden rounded-[30px] border-[6px] border-white bg-[#e7f1f3] shadow-[0_30px_85px_-32px_rgba(4,60,80,.35)]">
               <img
@@ -134,7 +134,7 @@ export default function TurnkeyProjectsPage() {
               />
               <figcaption className="absolute bottom-0 left-0 right-0 p-5 sm:p-8">
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/15 px-3 py-2 text-[10px] font-bold uppercase tracking-[.14em] text-white backdrop-blur-md">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#F93E02]" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#D84312]" />
                   CONXPORT / TURNKEY PROJECTS
                 </span>
                 <p className="!mb-0 mt-4 max-w-[380px] font-['Manrope',system-ui,sans-serif] text-[clamp(1.3rem,2.1vw,1.9rem)] font-extrabold leading-[1.3] !text-white">
@@ -152,7 +152,7 @@ export default function TurnkeyProjectsPage() {
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div className="max-w-[860px]">
               <SectionEyebrow>How it works</SectionEyebrow>
-              <h2 className="!mb-0 mt-5 font-['DM_Serif_Display',Georgia,serif] text-[clamp(2.5rem,4.6vw,4.3rem)] font-normal leading-[1.1] tracking-[-.045em] !text-[#102D3C]">Key Components of Turnkey Projects</h2>
+              <h2 className="!mb-0 mt-5 font-['DM_Serif_Display',Georgia,serif] text-[clamp(2.5rem,4.6vw,4.3rem)] font-normal leading-[1.1] tracking-[-.045em] !text-[#043C50]">Key Components of <em className="italic !text-[#D84312]">Turnkey Projects</em></h2>
               <p className="!mb-0 mt-5 max-w-[680px] text-[15px] leading-8 !text-[#5F7280]">A coordinated approach from needs assessment through equipment installation and compliance.</p>
             </div>
             <span className="w-fit rounded-full border border-[#d8e7eb] px-5 py-2.5 text-[11px] font-extrabold uppercase tracking-[.14em] text-[#5f7280]">Four key stages</span>
@@ -162,14 +162,14 @@ export default function TurnkeyProjectsPage() {
               const Icon = processIcons[i] ?? ClipboardList;
               return (
                 <article key={i} className="tk-elevate tk-enter group relative min-w-0 overflow-hidden rounded-[28px] border border-[#deeaee] bg-white p-6 shadow-[0_14px_45px_-35px_rgba(4,60,80,.22)] sm:p-8 lg:p-9" style={{animationDelay:`${i*75}ms`}}>
-                  <div aria-hidden="true" className="pointer-events-none absolute -right-14 -top-14 h-40 w-40 rounded-full bg-[#F93E02]/[.035] transition-transform duration-500 group-hover:scale-125" />
+                  <div aria-hidden="true" className="pointer-events-none absolute -right-14 -top-14 h-40 w-40 rounded-full bg-[#D84312]/[.035] transition-transform duration-500 group-hover:scale-125" />
                   <div className="relative flex items-start justify-between gap-4">
                     <span className="grid h-[60px] w-[60px] place-items-center rounded-[18px] border border-[#dce9ef] bg-[#eef6f8] text-[#043C50] transition-colors duration-300 group-hover:border-[#F93E02]/25 group-hover:bg-[#fff0eb] group-hover:text-[#F93E02]"><Icon size={27} strokeWidth={1.7}/></span>
                     <span className="font-['DM_Serif_Display',Georgia,serif] text-[52px] leading-none text-[#dce9ef]">0{i+1}</span>
                   </div>
-                  <h3 className="relative !mb-0 mt-8 !font-sans text-[20px] font-extrabold tracking-[-.03em] !text-[#102D3C] sm:text-[23px]">{step.title}</h3>
+                  <h3 className="relative !mb-0 mt-8 !font-sans text-[20px] font-extrabold tracking-[-.03em] !text-[#043C50] sm:text-[23px]">{step.title}</h3>
                   <p className="relative !mb-0 mt-4 whitespace-pre-wrap text-[14px] leading-[1.9] !text-[#607580] sm:text-[15px]">{step.description}</p>
-                  <div className="relative mt-8 h-[3px] w-12 rounded-full bg-[#F93E02] transition-all duration-500 group-hover:w-24" />
+                  <div className="relative mt-8 h-[3px] w-12 rounded-full bg-[#D84312] transition-all duration-500 group-hover:w-24" />
                 </article>
               );
             })}
@@ -181,8 +181,8 @@ export default function TurnkeyProjectsPage() {
       <section className="bg-[#f2f7f9] py-20 sm:py-24 lg:py-28">
         <div className="container">
           <div className="mx-auto max-w-[900px] text-center">
-            <p className="!mb-0 text-[11px] font-extrabold uppercase tracking-[.2em] !text-[#F93E02]">The Advantages</p>
-            <h2 className="!mb-0 mt-5 font-['DM_Serif_Display',Georgia,serif] text-[clamp(2.5rem,4.6vw,4.3rem)] font-normal leading-[1.08] tracking-[-.045em] !text-[#102D3C]">Benefits of Hospital Setup Turnkey Projects</h2>
+            <p className="!mb-0 text-[11px] font-extrabold uppercase tracking-[.2em] !text-[#D84312]">The Advantages</p>
+            <h2 className="!mb-0 mt-5 font-['DM_Serif_Display',Georgia,serif] text-[clamp(2.5rem,4.6vw,4.3rem)] font-normal leading-[1.08] tracking-[-.045em] !text-[#043C50]">Benefits of Hospital Setup <em className="italic !text-[#D84312]">Turnkey Projects</em></h2>
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {info.benefits.map((benefit, i) => {
@@ -190,9 +190,9 @@ export default function TurnkeyProjectsPage() {
               return (
                 <article key={i} className="tk-elevate tk-enter group flex min-w-0 flex-col rounded-[26px] border border-[#dfebf0] bg-white p-6 shadow-[0_14px_50px_-35px_rgba(4,60,80,.22)] lg:p-7" style={{animationDelay:`${i*75}ms`}}>
                   <div className="flex items-start justify-between gap-3"><span className="grid h-14 w-14 place-items-center rounded-2xl bg-[#eaf3f6] text-[#043C50] transition-colors duration-300 group-hover:bg-[#ffede6] group-hover:text-[#F93E02]"><Icon size={24} strokeWidth={1.8}/></span><span className="text-xs font-extrabold text-[#c4d6df]">0{i+1}</span></div>
-                  <h3 className="!mb-0 mt-7 !font-sans text-[18px] font-extrabold leading-snug !text-[#102D3C]">{benefit.title}</h3>
+                  <h3 className="!mb-0 mt-7 !font-sans text-[18px] font-extrabold leading-snug !text-[#043C50]">{benefit.title}</h3>
                   <p className="!mb-0 mt-4 flex-1 text-[13px] leading-[1.9] !text-[#5f7280] sm:text-[14px]">{benefit.description}</p>
-                  <div className="mt-7 h-[3px] w-12 rounded-full bg-[#F93E02] transition-all duration-500 group-hover:w-20"/>
+                  <div className="mt-7 h-[3px] w-12 rounded-full bg-[#D84312] transition-all duration-500 group-hover:w-20"/>
                 </article>
               );
             })}
@@ -205,12 +205,12 @@ export default function TurnkeyProjectsPage() {
         <div className="container grid items-start gap-12 lg:grid-cols-[minmax(0,.82fr)_minmax(0,1.18fr)] lg:gap-14">
           <div className="lg:sticky lg:top-28">
             <SectionEyebrow>Why choose us</SectionEyebrow>
-            <h2 className="!mb-0 mt-5 max-w-[550px] font-['DM_Serif_Display',Georgia,serif] text-[clamp(2.4rem,4.1vw,4.1rem)] font-normal leading-[1.1] tracking-[-.04em] !text-[#102D3C]">A dependable partner for your healthcare project</h2>
+            <h2 className="!mb-0 mt-5 max-w-[550px] font-['DM_Serif_Display',Georgia,serif] text-[clamp(2.4rem,4.1vw,4.1rem)] font-normal leading-[1.1] tracking-[-.04em] !text-[#043C50]">A dependable partner for your <em className="italic !text-[#D84312]">healthcare project.</em></h2>
             <div className="relative mt-8 overflow-hidden rounded-[26px] bg-[linear-gradient(125deg,#043C50_0%,#07546B_100%)] p-7 shadow-[0_26px_65px_-35px_rgba(4,60,80,.46)] sm:p-9">
               <div aria-hidden="true" className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full border border-white/15" />
               <CheckCircle2 size={31} className="text-[#ff9a79]" />
               <p className="relative !mb-0 mt-6 max-w-sm text-[17px] font-extrabold leading-[1.65] !text-white">Planning, procurement, execution and ongoing support.</p>
-              <div className="mt-7 h-[3px] w-16 rounded-full bg-[#F93E02]" />
+              <div className="mt-7 h-[3px] w-16 rounded-full bg-[#D84312]" />
             </div>
           </div>
           <div className="grid gap-4">
@@ -219,7 +219,7 @@ export default function TurnkeyProjectsPage() {
               return (
                 <article key={i} className="tk-elevate group flex min-w-0 gap-5 rounded-[22px] border border-[#deebef] bg-white p-5 shadow-[0_8px_35px_-30px_rgba(4,60,80,.2)] sm:p-7">
                   <span className="grid h-12 w-12 shrink-0 place-items-center rounded-[15px] bg-[#ecf5f7] text-[#043C50] transition-colors duration-300 group-hover:bg-[#fff0eb] group-hover:text-[#F93E02]"><Icon size={22} strokeWidth={1.8}/></span>
-                  <div className="min-w-0 flex-1"><div className="flex items-center justify-between gap-4"><h3 className="!m-0 !font-sans text-[16px] font-extrabold !text-[#102D3C] sm:text-[18px]">{reason.title}</h3><span className="text-[11px] font-extrabold text-[#b0c8d1]">0{i+1}</span></div><p className="!mb-0 mt-2 text-[14px] leading-[1.85] !text-[#5f7280]">{reason.description}</p></div>
+                  <div className="min-w-0 flex-1"><div className="flex items-center justify-between gap-4"><h3 className="!m-0 !font-sans text-[16px] font-extrabold !text-[#043C50] sm:text-[18px]">{reason.title}</h3><span className="text-[11px] font-extrabold text-[#b0c8d1]">0{i+1}</span></div><p className="!mb-0 mt-2 text-[14px] leading-[1.85] !text-[#5f7280]">{reason.description}</p></div>
                 </article>
               );
             })}
@@ -235,10 +235,10 @@ export default function TurnkeyProjectsPage() {
         <div className="container relative flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
           <div className="max-w-[830px]">
             <p className="!mb-0 text-[11px] font-extrabold uppercase tracking-[.2em] !text-[#ff9e7b]">Start your project</p>
-            <h2 className="!mb-0 mt-3 font-['DM_Serif_Display',Georgia,serif] text-[clamp(2.1rem,3.4vw,3.5rem)] font-normal leading-tight !text-white">Planning a hospital or medical college setup?</h2>
+            <h2 className="!mb-0 mt-3 font-['DM_Serif_Display',Georgia,serif] text-[clamp(2.1rem,3.4vw,3.5rem)] font-normal leading-tight !text-white">Planning a hospital or <em className="italic !text-[#FFAD91]">medical college setup?</em></h2>
             <p className="!mb-0 mt-3 text-[15px] leading-7 !text-[#d7e7ec]">Tell our team about your infrastructure and equipment requirements.</p>
           </div>
-          <Link to="/contact" className="group inline-flex min-h-[52px] shrink-0 items-center justify-center gap-2 rounded-full bg-[#F93E02] px-7 py-3 text-[13px] font-extrabold !text-white shadow-[0_15px_35px_-15px_rgba(249,62,2,.5)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#dc3907]">Contact Our Team <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" /></Link>
+          <Link to="/contact" className="group inline-flex min-h-[52px] shrink-0 items-center justify-center gap-2 rounded-full bg-[#D84312] px-7 py-3 text-[13px] font-extrabold !text-white shadow-[0_15px_35px_-15px_rgba(249,62,2,.5)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#dc3907]">Contact Our Team <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" /></Link>
         </div>
       </section>
     </main>

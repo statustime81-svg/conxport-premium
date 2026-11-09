@@ -73,7 +73,7 @@ export default function CategoryDetailPage() {
   }, [categorySlug]);
 
   return (
-    <main className="min-h-[65vh] bg-white text-[#173139]">
+    <main className="min-h-[65vh] bg-[#FFFCF9] text-[#043C50]">
       <div className="mx-auto w-[min(1240px,calc(100%-32px))] py-9 sm:w-[min(1240px,calc(100%-48px))] sm:py-12">
         <nav aria-label="Breadcrumb" className="mb-8 flex flex-wrap items-center gap-2 text-xs text-[#70818a]">
           <Link to="/" className="hover:text-[#07546B]">Home</Link><span>/</span>
@@ -87,19 +87,19 @@ export default function CategoryDetailPage() {
           <p role="alert" className="rounded-xl border border-red-200 bg-red-50 p-5 !text-red-700">{error}</p>
         ) : !category ? (
           <section className="py-12">
-            <h1 className="!font-sans !text-3xl !font-bold !text-[#173139]">Category not found</h1>
+            <h1 className="!font-['DM_Serif_Display',Georgia,serif] !text-[clamp(2.5rem,4.8vw,4.8rem)] !font-normal !text-[#043C50]">Category not found</h1>
             <Link to="/categories" className="mt-5 inline-flex gap-2 font-semibold text-[#07546B]"><ArrowLeft size={17} /> Back to categories</Link>
           </section>
         ) : (
           <>
             <section className="grid items-start gap-8 border-b border-[#e2ebeb] pb-10 md:grid-cols-[minmax(0,1fr)_minmax(250px,360px)] md:gap-12">
               <div className="min-w-0">
-                <p className="!mb-3 text-xs font-bold uppercase tracking-[0.15em] !text-[#07546B]">Equipment category</p>
-                <h1 className="!mb-4 !font-sans !text-3xl !font-bold !leading-tight !tracking-[-0.045em] !text-[#173139] sm:!text-4xl lg:!text-[44px]">{category.name}</h1>
+                <p className="!mb-3 text-xs font-bold uppercase tracking-[0.15em] !text-[#D84312]">Equipment category</p>
+                <h1 className="!mb-4 !font-['DM_Serif_Display',Georgia,serif] !text-[clamp(2.5rem,4.8vw,4.8rem)] !font-normal !leading-tight !tracking-[-0.045em] !text-[#043C50] sm:!text-4xl lg:!text-[44px]">{category.name} <em className="italic !text-[#D84312]">equipment.</em></h1>
                 <p className="!mb-0 max-w-2xl whitespace-pre-line text-base !leading-8 !text-[#5e737d]">
                   {category.description?.trim() || 'Explore the equipment available in this category. Open a product to see more details and request a quotation.'}
                 </p>
-                <p className="!mb-0 !mt-5 text-sm font-semibold !text-[#07546B]">
+                <p className="!mb-0 !mt-5 text-sm font-semibold !text-[#D84312]">
                   {children.length} {children.length === 1 ? 'subcategory' : 'subcategories'} · {products.length} {products.length === 1 ? 'product' : 'products'}
                 </p>
               </div>
@@ -112,7 +112,7 @@ export default function CategoryDetailPage() {
 
             {children.length > 0 && (
               <section aria-labelledby="subcategories-title" className="border-b border-[#e2ebeb] py-10">
-                <h2 id="subcategories-title" className="!mb-5 !font-sans !text-2xl !font-bold !tracking-[-0.035em] !text-[#173139]">Subcategories</h2>
+                <h2 id="subcategories-title" className="!mb-5 !font-['DM_Serif_Display',Georgia,serif] !text-[clamp(1.9rem,3vw,3rem)] !font-normal !tracking-[-0.035em] !text-[#043C50]">Explore <em className="italic !text-[#D84312]">subcategories.</em></h2>
                 <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                   {children.map(child => <CategoryTile category={child} key={child.id} />)}
                 </div>
@@ -121,7 +121,7 @@ export default function CategoryDetailPage() {
 
             <section aria-labelledby="category-products-title" className="py-10">
               <div className="mb-3 flex flex-wrap items-center justify-between gap-4">
-                <h2 id="category-products-title" className="!m-0 !font-sans !text-2xl !font-bold !tracking-[-0.035em] !text-[#173139]">Products in this category</h2>
+                <h2 id="category-products-title" className="!m-0 !font-['DM_Serif_Display',Georgia,serif] !text-[clamp(1.9rem,3vw,3rem)] !font-normal !tracking-[-0.035em] !text-[#043C50]">Products in this <em className="italic !text-[#D84312]">category.</em></h2>
                 <span className="text-sm text-[#69818a]">{products.length} products</span>
               </div>
               {products.length ? (
@@ -131,7 +131,7 @@ export default function CategoryDetailPage() {
               ) : (
                 <div className="flex flex-col gap-3 rounded-2xl border border-dashed border-[#d8e3e1] bg-[#f8faf9] px-6 py-10">
                   <PackageSearch size={28} className="text-[#87a19b]" />
-                  <p className="!m-0 font-semibold !text-[#173139]">No published products assigned to this category yet.</p>
+                  <p className="!m-0 font-semibold !text-[#043C50]">No published products assigned to this category yet.</p>
                   <p className="!m-0 text-sm !text-[#667b83]">Products appear here after they are published and assigned to this category in Admin.</p>
                   <Link to="/products" className="mt-1 inline-flex items-center gap-2 self-start text-sm font-bold text-[#07546B]">Browse all products <ArrowUpRight size={16} /></Link>
                 </div>

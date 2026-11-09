@@ -27,16 +27,16 @@ export default function CategoriesPage() {
   }, [items, query]);
 
   return (
-    <main className="min-h-[70vh] bg-[#f7f9f9] text-[#173139]">
+    <main className="min-h-[70vh] bg-[#FFFCF9] text-[#173139]">
       <section className="border-b border-[#e6eded] bg-white py-10 sm:py-14">
         <div className="mx-auto w-[min(1240px,calc(100%-32px))] sm:w-[min(1240px,calc(100%-48px))]">
           <nav aria-label="Breadcrumb" className="mb-5 flex items-center gap-2 text-xs text-[#70818a]">
             <Link to="/" className="hover:text-[#07546B]">Home</Link>
             <span>/</span><span className="font-semibold text-[#07546B]">Categories</span>
           </nav>
-          <p className="!mb-2 text-xs font-bold uppercase tracking-[0.15em] !text-[#07546B]">CONXPORT CATEGORIES</p>
-          <h1 className="!mb-3 !font-sans !text-3xl !font-bold !leading-tight !tracking-[-0.045em] !text-[#173139] sm:!text-4xl">
-            Explore equipment categories
+          <p className="!mb-2 text-xs font-bold uppercase tracking-[0.15em] !text-[#D84312]">CONXPORT CATEGORIES</p>
+          <h1 className="!mb-3 !font-['DM_Serif_Display',Georgia,serif] !text-[clamp(2.8rem,5vw,5.2rem)] !font-normal !leading-tight !tracking-[-0.045em] !text-[#043C50] sm:!text-4xl">
+            Explore equipment <em className="italic !text-[#D84312]">categories.</em>
           </h1>
           <p className="!mb-0 max-w-2xl !text-base !leading-relaxed !text-[#617681]">
             Browse hospital and laboratory equipment by category to find what you need.
@@ -57,7 +57,7 @@ export default function CategoriesPage() {
               value={query}
               onChange={event => setQuery(event.target.value)}
               placeholder="Search categories"
-              className="h-11 w-full rounded-xl border border-[#dbe6e6] bg-white pl-11 pr-4 text-sm text-[#173139] outline-none transition focus:border-[#07546B] focus:ring-2 focus:ring-[#07546B]/10"
+              className="h-11 w-full rounded-xl border border-[#dbe6e6] bg-white pl-11 pr-4 text-sm text-[#173139] outline-none transition focus:border-[#D84312] focus:ring-2 focus:ring-[#D84312]/10"
             />
           </label>
         </div>
@@ -74,7 +74,7 @@ export default function CategoriesPage() {
         ) : (
           <div className="flex flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-[#d4e0df] bg-white px-5 py-14 text-center">
             <Layers3 className="text-[#7c9994]" size={30} />
-            <h2 className="!m-0 !font-sans !text-xl !font-bold !text-[#173139]">{query ? 'No matching categories' : 'No published categories yet'}</h2>
+            <h2 className="!m-0 !font-sans !text-xl !font-bold !text-[#043C50]">{query ? 'No matching categories' : 'No published categories yet'}</h2>
             <p className="!m-0 text-sm !text-[#647780]">{query ? 'Try a different search term.' : 'Published equipment categories will appear here.'}</p>
           </div>
         )}
