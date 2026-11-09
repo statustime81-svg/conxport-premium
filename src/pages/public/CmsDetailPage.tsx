@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import BlogDetailPage from './BlogDetailPage';
 import { useParams } from 'react-router';
 import CmsBody from '../../components/public/cms/CmsBody';
 import { getCmsPublic } from '../../services/cmsPublic';
@@ -9,6 +10,11 @@ import { articleSchema } from '../../seo/structuredData';
 type Props = { kind: CmsKind; slugOverride?: string };
 
 export default function CmsDetailPage({ kind, slugOverride }: Props) {
+  if (kind === 'blog' && !slugOverride) return <BlogDetailPage />;
+  return <CmsDetailOther kind={kind} slugOverride={slugOverride} />;
+}
+
+function CmsDetailOther({ kind, slugOverride }: Props) {
   const { slug } = useParams();
   const [item, setItem] = useState<CmsEntry | null>(null);
   const [loading, setLoading] = useState(true);

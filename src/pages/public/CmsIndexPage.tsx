@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import BlogPage from './BlogPage';
 import { BookOpen, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router';
 import { useDocumentMeta } from '../../seo/useDocumentMeta';
@@ -7,6 +8,11 @@ import { listCmsPublic } from '../../services/cmsPublic';
 import type { CmsEntry, CmsKind } from '../../types/cms';
 
 export default function CmsIndexPage({ kind, title }: { kind: CmsKind; title: string }) {
+  if (kind === 'blog') return <BlogPage />;
+  return <CmsIndexOther kind={kind} title={title} />;
+}
+
+function CmsIndexOther({ kind, title }: { kind: CmsKind; title: string }) {
   const canonicalPath = kind === 'blog' ? '/blog' : kind === 'case_study' ? '/case-studies' : '/resources';
   useDocumentMeta({
     title: `${title} | ConXport`,
