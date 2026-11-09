@@ -55,7 +55,7 @@ export default function HomeServicesSection() {
     <section
       id="our-services"
       aria-labelledby="home-services-heading"
-      className="relative isolate overflow-hidden bg-[#F1F7FA] py-16 text-[#102D3C] sm:py-20 lg:py-24"
+      className="relative isolate overflow-hidden bg-[#FFF9F5] py-16 text-[#043C50] sm:py-20 lg:py-24"
     >
       <style>{`
         .cx-svc-3d-stage { perspective: 1300px; position: relative; }
@@ -146,22 +146,22 @@ export default function HomeServicesSection() {
         <Reveal>
           <div className="mb-10 flex flex-wrap items-end justify-between gap-6 sm:mb-12">
             <div>
-              <p className="!mb-4 inline-flex items-center gap-3 font-['Manrope',system-ui,sans-serif] text-[11px] font-extrabold uppercase tracking-[0.22em] !text-[#07546B]">
-                <span className="h-[2px] w-8 rounded-full bg-[#F93E02]" />
+              <p className="!mb-4 inline-flex items-center gap-3 font-['Manrope',system-ui,sans-serif] text-[11px] font-extrabold uppercase tracking-[0.22em] !text-[#043C50]">
+                <span className="h-[2px] w-8 rounded-full bg-[#D84312]" />
                 WHAT WE OFFER
               </p>
               <h2
                 id="home-services-heading"
-                className="!m-0 font-['DM_Serif_Display',Georgia,serif] text-[clamp(2.8rem,5vw,5.2rem)] font-normal leading-[1.04] tracking-[-0.055em] !text-[#102D3C]"
+                className="!m-0 font-['DM_Serif_Display',Georgia,serif] text-[clamp(2.8rem,5vw,5.2rem)] font-normal leading-[1.04] tracking-[-0.055em] !text-[#043C50]"
               >
-                Our Services<span className="!text-[#F93E02]">.</span>
+                Our <span className="italic !text-[#D84312]">Services.</span>
               </h2>
               <p className="!mb-0 mt-4 max-w-2xl text-[15px] leading-7 !text-[#617784] sm:text-[16px]">
                 Complete equipment solutions for modern healthcare environments.
               </p>
             </div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#cfdee4] bg-white/80 px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.14em] text-[#07546B] shadow-sm">
-              <Sparkles size={15} className="text-[#F93E02]" />
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#cfdee4] bg-white/80 px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.14em] text-[#043C50] shadow-sm">
+              <Sparkles size={15} className="text-[#D84312]" />
               OUR EXPERTISE
             </span>
           </div>
@@ -182,11 +182,11 @@ export default function HomeServicesSection() {
                   <div aria-hidden="true" className="cx-svc-orbit pointer-events-none absolute left-1/2 top-1/2 h-[69%] w-[69%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#c3dfe6]/70" />
                   <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-[56%] h-[45%] w-[78%] -translate-x-1/2 rounded-full bg-[#B9D6DF]/25 blur-3xl" />
 
-                  <span className="absolute left-5 top-5 z-10 inline-flex h-10 min-w-10 items-center justify-center rounded-full border border-white/90 bg-white/90 px-2 text-[11px] font-extrabold tracking-[0.06em] text-[#07546B] shadow-[0_8px_22px_-13px_rgba(5,54,72,.4)] backdrop-blur-md">
+                  <span className="absolute left-5 top-5 z-10 inline-flex h-10 min-w-10 items-center justify-center rounded-full border border-white/90 bg-white/90 px-2 text-[11px] font-extrabold tracking-[0.06em] text-[#043C50] shadow-[0_8px_22px_-13px_rgba(5,54,72,.4)] backdrop-blur-md">
                     {String(index + 1).padStart(2, '0')}
                   </span>
 
-                  <span className="absolute right-5 top-5 z-10 inline-flex rounded-full border border-[#b9d9e0]/85 bg-white/65 px-3 py-1.5 text-[9px] font-extrabold uppercase tracking-[0.15em] text-[#07546B] backdrop-blur-md">
+                  <span className="absolute right-5 top-5 z-10 inline-flex rounded-full border border-[#b9d9e0]/85 bg-white/65 px-3 py-1.5 text-[9px] font-extrabold uppercase tracking-[0.15em] text-[#043C50] backdrop-blur-md">
                     CONXPORT
                   </span>
 
@@ -203,11 +203,11 @@ export default function HomeServicesSection() {
 
                 <div className="relative z-[2] flex flex-1 items-center gap-4 px-5 py-6 sm:px-7 sm:py-7">
                   <div className="min-w-0">
-                    <span className="mb-3 block h-[3px] w-10 rounded-full bg-[#F93E02] transition-[width] duration-500 group-hover:w-16" />
+                    <span className="mb-3 block h-[3px] w-10 rounded-full bg-[#D84312] transition-[width] duration-500 group-hover:w-16" />
                     <p className="!mb-1 text-[10px] font-extrabold uppercase tracking-[0.19em] !text-[#758c96]">
                       MEDICAL EQUIPMENT SOLUTIONS
                     </p>
-                    <h3 className="!m-0 font-['Manrope',system-ui,sans-serif] text-[clamp(17px,1.45vw,22px)] font-extrabold leading-[1.35] tracking-[-0.035em] !text-[#102D3C]">
+                    <h3 className="!m-0 font-['Manrope',system-ui,sans-serif] text-[clamp(17px,1.45vw,22px)] font-extrabold leading-[1.35] tracking-[-0.035em] !text-[#043C50]">
                       {service.title}
                     </h3>
                   </div>

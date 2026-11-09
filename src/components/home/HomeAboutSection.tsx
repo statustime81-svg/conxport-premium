@@ -11,7 +11,7 @@ export default function HomeAboutSection() {
       className="
         relative isolate overflow-hidden
         bg-white py-[clamp(80px,9vw,140px)]
-        text-[#102D3C]
+        text-[#043C50]
       "
     >
       <div className="container relative z-10 !max-w-[1440px]">
@@ -98,13 +98,13 @@ export default function HomeAboutSection() {
                   text-[11px]
                   font-extrabold uppercase
                   tracking-[0.22em]
-                  text-[#07546B]
+                  text-[#043C50]
                 "
               >
                 <span
                   className="
                     h-[2px] w-9
-                    rounded-full bg-[#FF4F18]
+                    rounded-full bg-[#D84312]
                   "
                 />
                 About ConXport
@@ -120,11 +120,11 @@ export default function HomeAboutSection() {
                   font-normal
                   leading-[1.06]
                   tracking-[-0.055em]
-                  !text-[#102D3C]
+                  !text-[#043C50]
                 "
               >
                 The leading manufacturer &amp; exporter of
-                medical &amp; hospital equipment.
+                <span className="mt-1 block italic !text-[#D84312]">medical &amp; hospital equipment.</span>
               </h2>
 
               {/* Original About Information */}
@@ -159,7 +159,7 @@ export default function HomeAboutSection() {
                     group inline-flex
                     items-center gap-3
                     rounded-full
-                    bg-[#07546B]
+                    bg-[#D84312]
                     px-8 py-4
                     font-['Manrope',system-ui,sans-serif]
                     text-sm font-bold
@@ -167,7 +167,7 @@ export default function HomeAboutSection() {
                     shadow-[0_14px_30px_-16px_rgba(7,84,107,0.5)]
                     transition-all duration-300
                     hover:-translate-y-1
-                    hover:!bg-[#FF4F18]
+                    hover:!bg-[#B9320A]
                   "
                 >
                   Discover our story

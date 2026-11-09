@@ -34,12 +34,12 @@ export default function StackedTestimonials({ items }: Props) {
       <div className="container relative z-10 !max-w-[1380px]">
         <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:gap-16 xl:gap-24">
           <div className="max-w-[590px]">
-            <div className="mb-7 inline-flex items-center gap-3 text-[11px] font-extrabold uppercase tracking-[0.22em] !text-[#07546B]">
-              <span className="h-[2px] w-9 rounded-full bg-[#FF4F18]" />
+            <div className="mb-7 inline-flex items-center gap-3 text-[11px] font-extrabold uppercase tracking-[0.22em] !text-[#043C50]">
+              <span className="h-[2px] w-9 rounded-full bg-[#F93E02]" />
               Customer experiences
             </div>
-            <h2 id="cx-testimonials-title" className="!m-0 font-['DM_Serif_Display',Georgia,serif] text-[clamp(3.4rem,6vw,6.5rem)] font-normal leading-[0.99] tracking-[-0.055em] !text-[#102D3C]">
-              What our<br />clients say<span className="!text-[#07546B]">.</span>
+            <h2 id="cx-testimonials-title" className="!m-0 font-['DM_Serif_Display',Georgia,serif] text-[clamp(3.4rem,6vw,6.5rem)] font-normal leading-[0.99] tracking-[-0.055em] !text-[#043C50]">
+              What our<br /><span className="italic !text-[#D84312]">clients say.</span>
             </h2>
             <p className="!mb-0 mt-7 max-w-[480px] font-['Manrope',system-ui,sans-serif] text-[15px] leading-[1.9] !text-[#596670] sm:text-[17px]">
               Feedback shared by customers and organisations who have worked with ConXport.
@@ -47,15 +47,15 @@ export default function StackedTestimonials({ items }: Props) {
             {count > 1 && (
               <div className="mt-10 flex flex-wrap items-center gap-5">
                 <div className="flex gap-3">
-                  <button type="button" onClick={() => navigate(-1)} aria-label="Previous testimonial" className="grid h-13 w-13 place-items-center rounded-full border border-[#cadde4] bg-white !text-[#07546B] transition-all duration-300 hover:-translate-y-1 hover:!border-[#FF4F18] hover:!bg-[#FF4F18] hover:!text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF4F18]">
+                  <button type="button" onClick={() => navigate(-1)} aria-label="Previous testimonial" className="grid h-13 w-13 place-items-center rounded-full border border-[#cadde4] bg-white !text-[#043C50] transition-all duration-300 hover:-translate-y-1 hover:!border-[#F93E02] hover:!bg-[#F93E02] hover:!text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F93E02]">
                     <ArrowLeft size={20} aria-hidden="true" />
                   </button>
-                  <button type="button" onClick={() => navigate(1)} aria-label="Next testimonial" className="grid h-13 w-13 place-items-center rounded-full bg-[#07546B] !text-white transition-all duration-300 hover:-translate-y-1 hover:!bg-[#FF4F18] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF4F18]">
+                  <button type="button" onClick={() => navigate(1)} aria-label="Next testimonial" className="grid h-13 w-13 place-items-center rounded-full bg-[#D84312] !text-white transition-all duration-300 hover:-translate-y-1 hover:!bg-[#F93E02] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F93E02]">
                     <ArrowRight size={20} aria-hidden="true" />
                   </button>
                 </div>
                 <span className="font-['Manrope',system-ui,sans-serif] text-sm font-semibold tabular-nums !text-[#596670]">
-                  <strong className="!text-[#102D3C]">{String(index + 1).padStart(2, '0')}</strong>
+                  <strong className="!text-[#043C50]">{String(index + 1).padStart(2, '0')}</strong>
                   <span className="mx-2 text-[#9bb0ba]">/</span>
                   {String(count).padStart(2, '0')}
                 </span>
@@ -89,15 +89,15 @@ export default function StackedTestimonials({ items }: Props) {
                     aria-live="polite"
                   >
                     <div className="flex items-center justify-between gap-4">
-                      <span className="grid h-14 w-14 place-items-center rounded-[18px] bg-[#E7F5F7] !text-[#07546B]">
+                      <span className="grid h-14 w-14 place-items-center rounded-[18px] bg-[#E7F5F7] !text-[#043C50]">
                         <Quote size={27} strokeWidth={1.6} aria-hidden="true" />
                       </span>
-                      <span className="inline-flex items-center gap-2 rounded-full border border-[#e2edf1] px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.14em] !text-[#07546B]">
+                      <span className="inline-flex items-center gap-2 rounded-full border border-[#e2edf1] px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.14em] !text-[#043C50]">
                         <Sparkles size={13} aria-hidden="true" /> Client feedback
                       </span>
                     </div>
                     <blockquote className="mt-6 flex-1 overflow-y-auto pr-1 sm:mt-8">
-                      <p className="!mb-0 whitespace-pre-wrap font-['DM_Serif_Display',Georgia,serif] text-[clamp(1.55rem,2.4vw,2.15rem)] leading-[1.38] !text-[#102D3C]">
+                      <p className="!mb-0 whitespace-pre-wrap font-['DM_Serif_Display',Georgia,serif] text-[clamp(1.55rem,2.4vw,2.15rem)] leading-[1.38] !text-[#043C50]">
                         “{current.body}”
                       </p>
                     </blockquote>
@@ -105,10 +105,10 @@ export default function StackedTestimonials({ items }: Props) {
                       {safeImage(current.media_url) ? (
                         <img src={safeImage(current.media_url)} alt="" loading="lazy" className="h-12 w-12 shrink-0 rounded-full border border-[#e2edf1] object-cover" />
                       ) : (
-                        <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[#07546B] font-['Manrope',system-ui,sans-serif] text-lg font-bold !text-white">{current.title.charAt(0) || 'C'}</span>
+                        <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[#043C50] font-['Manrope',system-ui,sans-serif] text-lg font-bold !text-white">{current.title.charAt(0) || 'C'}</span>
                       )}
                       <div className="min-w-0">
-                        <p className="!mb-0 truncate font-['Manrope',system-ui,sans-serif] text-[15px] font-extrabold !text-[#102D3C]">{current.title}</p>
+                        <p className="!mb-0 truncate font-['Manrope',system-ui,sans-serif] text-[15px] font-extrabold !text-[#043C50]">{current.title}</p>
                         <p className="!mb-0 mt-1 font-['Manrope',system-ui,sans-serif] text-[12px] !text-[#596670]">ConXport customer</p>
                       </div>
                       <span className="ml-auto hidden text-[11px] font-bold uppercase tracking-[0.12em] !text-[#8ba1aa] sm:block">Customer review</span>
@@ -124,7 +124,7 @@ export default function StackedTestimonials({ items }: Props) {
             {count > 1 && (
               <div className="mt-3 flex items-center justify-center gap-2" aria-label="Select testimonial">
                 {items.map((item, dotIndex) => (
-                  <button key={item.id} type="button" onClick={() => { setDirection(dotIndex >= index ? 1 : -1); setIndex(dotIndex); }} aria-label={`Show testimonial ${dotIndex + 1}`} aria-current={index === dotIndex ? 'true' : undefined} className={`h-2.5 rounded-full transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF4F18] ${index === dotIndex ? 'w-8 bg-[#FF4F18]' : 'w-2.5 bg-[#b4cbd3] hover:bg-[#07546B]'}`} />
+                  <button key={item.id} type="button" onClick={() => { setDirection(dotIndex >= index ? 1 : -1); setIndex(dotIndex); }} aria-label={`Show testimonial ${dotIndex + 1}`} aria-current={index === dotIndex ? 'true' : undefined} className={`h-2.5 rounded-full transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F93E02] ${index === dotIndex ? 'w-8 bg-[#F93E02]' : 'w-2.5 bg-[#b4cbd3] hover:bg-[#043C50]'}`} />
                 ))}
               </div>
             )}

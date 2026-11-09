@@ -1,7 +1,8 @@
-﻿
+
 import { lazy, Suspense } from 'react';
 import { Link } from 'react-router';
 import { ArrowUpRight } from 'lucide-react';
+import './styles/home-theme.css';
 
 import { useDocumentMeta } from './seo/useDocumentMeta';
 import { websiteSchema } from './seo/structuredData';
@@ -36,7 +37,7 @@ export default function App() {
   return (
     <Suspense fallback={<main><HeroSection /></main>}>
       <SmoothScroll>
-        <div className="home-content">
+        <div className="home-content cx-home-option4">
           <HeroSection />
           <ManagedClients />
           <HomeAboutSection />
@@ -45,11 +46,11 @@ export default function App() {
        
           <HomepageCmsSection slug="main" />
           <WhyConXportSection />
-          <section className="bg-[#f3f8fb] py-20 sm:py-24" id="latest-products">
+          <section className="bg-[#FFF9F5] py-20 sm:py-24" id="latest-products">
             <div className="container">
               <div className="mb-10 flex flex-wrap items-end justify-between gap-6">
-                <div><p className="text-xs font-extrabold uppercase tracking-[.18em] !text-[#07546B]">From our catalogue</p><h2 className="mt-3 text-3xl font-extrabold !text-[#101b22] sm:text-4xl">Our Latest Products</h2><p className="mt-3 !text-slate-600">Recently published hospital and laboratory equipment.</p></div>
-                <Link to="/products" className="inline-flex items-center gap-2 rounded-full bg-[#07546B] px-6 py-3 font-bold !text-white transition hover:-translate-y-1 hover:bg-[#053F52]">All products <ArrowUpRight size={17}/></Link>
+                <div><p className="text-xs font-extrabold uppercase tracking-[.18em] !text-[#D84312]">From our catalogue</p><h2 className="!mb-0 mt-3 font-['DM_Serif_Display',Georgia,serif] text-[clamp(2.8rem,5vw,5.2rem)] font-normal leading-[1.04] tracking-[-0.055em] !text-[#043C50]">Our Latest <span className="italic !text-[#D84312]">Products.</span></h2><p className="mt-3 !text-slate-600">Recently published hospital and laboratory equipment.</p></div>
+                <Link to="/products" className="inline-flex items-center gap-2 cx-home-button-primary rounded-full !bg-[#D84312] px-7 py-3.5 font-bold !text-white transition hover:-translate-y-1 hover:!bg-[#B9320A]">All products <ArrowUpRight size={17}/></Link>
               </div>
               <LatestProducts />
             </div>
