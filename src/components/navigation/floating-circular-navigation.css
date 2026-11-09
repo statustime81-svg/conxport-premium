@@ -36,3 +36,35 @@
 /* Option 4 theme: accessible orange focus, crisp navy labels */
 .cx-floating-orbit-item:focus-visible { outline: 3px solid #D84312; outline-offset: 3px; }
 .cx-floating-orbit-core { font-weight: 800; }
+
+/* Dismiss the floating control without affecting its draggable gesture. */
+.cx-floating-hide {
+  position: fixed; z-index: 12030; transform: translate(-50%, -50%);
+  display: grid; place-items: center; width: 27px; height: 27px;
+  padding: 0; border-radius: 50%;
+  border: 2px solid white !important; background: #D84312 !important;
+  color: #fff !important; box-shadow: 0 4px 12px rgba(4,36,50,.25);
+  cursor: pointer; transition: background .2s ease, scale .2s ease;
+}
+.cx-floating-hide:hover { background: #043C50 !important; scale: 1.08; }
+.cx-floating-hide:focus-visible { outline: 3px solid #D84312; outline-offset: 3px; }
+/* When hidden, only a compact non-intrusive restore tab remains. */
+.cx-floating-restore {
+  position: fixed; left: 12px; bottom: 14px; z-index: 12020;
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 9px 13px; min-height: 36px; border-radius: 30px;
+  border: 1px solid rgba(4,60,80,.18) !important;
+  background: rgba(255,255,255,.96) !important; color: #043C50 !important;
+  box-shadow: 0 5px 16px rgba(4,60,80,.12);
+  font: 700 11px/1.2 Manrope,system-ui,sans-serif;
+  cursor: pointer; transition: background .2s ease, transform .2s ease;
+}
+.cx-floating-restore:hover { background: #FFF1EB !important; transform: translateY(-2px); }
+.cx-floating-restore:focus-visible { outline: 3px solid #D84312; outline-offset: 3px; }
+@media (max-width:480px) {
+  .cx-floating-hide { width: 26px; height: 26px; }
+  .cx-floating-restore { left: 8px; bottom: 9px; padding: 8px 10px; font-size: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cx-floating-hide,.cx-floating-restore { transition: none !important; }
+}

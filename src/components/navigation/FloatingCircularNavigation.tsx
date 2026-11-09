@@ -23,6 +23,14 @@ const navigation: MenuItem[] = [
 ];
 
 const BUTTON_RADIUS = 30;
+const VISIBILITY_KEY = 'conxport-floating-navigation-hidden-v1';
+
+function initiallyVisible(): boolean {
+  if (typeof window === 'undefined') return true;
+  try { return window.localStorage.getItem(VISIBILITY_KEY) !== '1'; }
+  catch { return true; }
+}
+
 function bounded(point: Position): Position {
   if (typeof window === 'undefined') return point;
   return {
@@ -37,6 +45,7 @@ export default function FloatingCircularNavigation() {
     ? { x: 65, y: 260 }
     : { x: 62, y: Math.max(72, window.innerHeight - 160) });
   const [open, setOpen] = useState(false);
+  const [visible, setVisible] = useState(initiallyVisible);
   const [dragging, setDragging] = useState(false);
   const pointer = useRef<{ id: number; originX: number; originY: number; initial: Position; moved: boolean } | null>(null);
   const trigger = useRef<HTMLButtonElement>(null);
@@ -61,6 +70,18 @@ export default function FloatingCircularNavigation() {
       window.removeEventListener('keydown', onKeyDown);
     };
   }, []);
+
+  const hideNavigation = () => {
+    setOpen(false);
+    setVisible(false);
+    try { window.localStorage.setItem(VISIBILITY_KEY, '1'); } catch { /* Storage is optional. */ }
+  };
+
+  const showNavigation = () => {
+    setOpen(false);
+    setVisible(true);
+    try { window.localStorage.removeItem(VISIBILITY_KEY); } catch { /* Storage is optional. */ }
+  };
 
   const onPointerDown = (event: ReactPointerEvent<HTMLButtonElement>) => {
     if (event.button !== 0) return;
@@ -107,6 +128,19 @@ export default function FloatingCircularNavigation() {
 
   return (
     <>
+      {!visible ? (
+        <button
+          type="button"
+          onClick={showNavigation}
+          className="cx-floating-restore"
+          aria-label="Show floating quick navigation"
+          title="Show floating quick navigation"
+        >
+          <Menu size={17} aria-hidden="true" />
+          <span>Show quick menu</span>
+        </button>
+      ) : (
+        <>
       {open && (
         <div className="cx-floating-menu-layer" aria-label="Quick navigation">
           <button type="button" className="cx-floating-menu-dismiss" aria-label="Close quick navigation" onClick={() => setOpen(false)} />
@@ -162,6 +196,18 @@ export default function FloatingCircularNavigation() {
         {open ? <X size={22} /> : <Menu size={22} />}
         <span className="cx-floating-trigger-dot" aria-hidden="true" />
       </button>
+      <button
+        type="button"
+        className="cx-floating-hide"
+        style={{ left: position.x + 24, top: position.y - 25 }}
+        onClick={hideNavigation}
+        aria-label="Hide floating quick navigation"
+        title="Hide quick navigation"
+      >
+        <X size={14} strokeWidth={2.8} aria-hidden="true" />
+      </button>
+        </>
+      )}
     </>
   );
 }
