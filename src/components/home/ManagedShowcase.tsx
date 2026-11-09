@@ -180,15 +180,15 @@ export function ManagedFaq() {
 
         <header className="mx-auto mb-12 max-w-[940px] text-center sm:mb-16">
 
-          <p className="!mb-0 font-['Manrope',system-ui,sans-serif] text-[11px] font-extrabold uppercase tracking-[0.2em] !text-[#07546B]">
+          <p className="!mb-0 font-['Manrope',system-ui,sans-serif] text-[11px] font-extrabold uppercase tracking-[0.2em] !text-[#043C50]">
 
             Frequently asked questions
 
           </p>
 
-          <h2 id="cx-faq-heading" className="!mb-0 mt-4 font-['DM_Serif_Display',Georgia,serif] text-[clamp(2.8rem,5.5vw,5.4rem)] font-normal leading-[1.05] tracking-[-0.055em] !text-[#102D3C]">
+          <h2 id="cx-faq-heading" className="!mb-0 mt-4 font-['DM_Serif_Display',Georgia,serif] text-[clamp(2.8rem,5.5vw,5.4rem)] font-normal leading-[1.05] tracking-[-0.055em] !text-[#043C50]">
 
-            How can we <span className="!text-[#07546B]">help you?</span>
+            How can we <span className="italic !text-[#D84312]">help you?</span>
 
           </h2>
 
@@ -215,6 +215,15 @@ export function ManagedFaq() {
                 <details
 
                   key={x.id}
+                  name="cx-home-faq"
+                  onToggle={(event) => {
+                    // Keep only one FAQ open, including on browsers without native named-details grouping.
+                    const current = event.currentTarget;
+                    if (!current.open) return;
+                    current.parentElement?.querySelectorAll<HTMLDetailsElement>('details[name="cx-home-faq"]').forEach((other) => {
+                      if (other !== current) other.open = false;
+                    });
+                  }}
 
                   className="cx-faq-item group overflow-hidden rounded-[20px] border border-[#d9e5ec] bg-white shadow-[0_12px_32px_-24px_rgba(7,84,107,0.3)] transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-[#9bc7d1] hover:shadow-[0_20px_44px_-28px_rgba(7,84,107,0.35)] open:border-[#91c2ce]"
 
@@ -222,11 +231,11 @@ export function ManagedFaq() {
 
                 >
 
-                  <summary className="flex min-h-[78px] cursor-pointer list-none items-center justify-between gap-5 px-6 py-6 font-['Manrope',system-ui,sans-serif] text-[15px] font-bold leading-[1.6] !text-[#102D3C] marker:hidden sm:min-h-[86px] sm:px-8 sm:text-[16px] [&::-webkit-details-marker]:hidden">
+                  <summary className="flex min-h-[78px] cursor-pointer list-none items-center justify-between gap-5 px-6 py-6 font-['Manrope',system-ui,sans-serif] text-[15px] font-bold leading-[1.6] !text-[#043C50] marker:hidden sm:min-h-[86px] sm:px-8 sm:text-[16px] [&::-webkit-details-marker]:hidden">
 
                     <span>{x.title}</span>
 
-                    <span className="cx-faq-arrow grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#E7F5F7] !text-[#07546B] transition-all duration-300 group-hover:bg-[#07546B] group-hover:!text-white">
+                    <span className="cx-faq-arrow grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#E7F5F7] !text-[#043C50] transition-all duration-300 group-hover:bg-[#043C50] group-hover:!text-white">
 
                       <ArrowRight size={20} strokeWidth={2} aria-hidden="true" />
 
@@ -254,7 +263,7 @@ export function ManagedFaq() {
 
                 to="/contact"
 
-                className="group inline-flex items-center gap-2.5 rounded-full bg-[#07546B] px-7 py-4 font-['Manrope',system-ui,sans-serif] text-sm font-bold !text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#053F52]"
+                className="group inline-flex items-center gap-2.5 rounded-full bg-[#D84312] px-7 py-4 font-['Manrope',system-ui,sans-serif] text-sm font-bold !text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#032C3C]"
 
               >
 
@@ -464,7 +473,7 @@ export function ManagedCertificates() {
 
   return (
 
-    <section className="bg-white py-14 sm:py-20">
+    <section className="cx-option4-certificates min-h-[75vh] bg-[#FFFCF9] pb-20 font-['Manrope',system-ui,sans-serif] sm:pb-28">
 
       <style>{`
 
@@ -483,22 +492,32 @@ export function ManagedCertificates() {
         .cx-certificate-card { animation: cxCertificateEnter .6s ease-out both; }
 
         .cx-certificate-modal { animation: cxCertificateModal .22s ease-out both; }
+        .cx-option4-certificates h1, .cx-option4-certificates h2 { font-family:'DM Serif Display',Georgia,serif !important; font-weight:400 !important; color:#043C50 !important; }
+        .cx-option4-certificates h1 .italic, .cx-option4-certificates h2 .italic { color:#D84312 !important; font-style:italic !important; }
+        .cx-option4-certificates .cx-certificate-card:hover img { transform:scale(1.035); }
 
         @media (prefers-reduced-motion: reduce) { .cx-certificate-card, .cx-certificate-modal, .cx-certificate-backdrop, .cx-certificate-image { animation: none !important; } }
 
       `}</style>
 
-      <div className="container">
+      <header className="relative isolate overflow-hidden border-b border-[#EEE7E2] bg-[#FFFCF9] py-16 sm:py-20 lg:py-24">
+        <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-36 h-[480px] w-[480px] rounded-full bg-[#FDE9DF]/70 blur-[100px]" />
+        <div className="container relative z-10 !max-w-[1360px]">
+          <p className="!mb-5 inline-flex items-center gap-2 rounded-full border border-[#F3D8C9] bg-white px-4 py-2 font-['Manrope',system-ui,sans-serif] text-[11px] font-extrabold uppercase tracking-[.17em] !text-[#043C50]"><ShieldCheck size={15} className="text-[#D84312]" /> CONXPORT CREDENTIALS</p>
+          <h1 className="!m-0 max-w-[1050px] !font-['DM_Serif_Display',Georgia,serif] !text-[clamp(3rem,7vw,6.5rem)] !font-normal !leading-[1.02] !tracking-[-.06em] !text-[#043C50]" style={{fontFamily:"'DM Serif Display', Georgia, serif"}}>Certificates <span className="italic !text-[#D84312]">&amp; documentation.</span></h1>
+          <p className="!mb-0 !mt-7 max-w-[720px] font-['Manrope',system-ui,sans-serif] !text-[clamp(15px,1.5vw,19px)] !leading-[1.85] !text-[#61737C]">Browse documents published by our team. Confirm applicable product requirements with us before ordering.</p>
+          <div aria-hidden="true" className="mt-8 h-[3px] w-16 rounded-full bg-[#D84312]" />
+        </div>
+      </header>
+      <div className="container !max-w-[1360px] pt-12 sm:pt-16">
+        <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
+          <h2 className="!m-0 !font-['DM_Serif_Display',Georgia,serif] !text-[clamp(2rem,3.6vw,3.5rem)] !font-normal !leading-tight !text-[#043C50]" style={{fontFamily:"'DM Serif Display', Georgia, serif"}}>Explore our <span className="italic !text-[#D84312]">certifications.</span></h2>
+          <span className="rounded-full border border-[#EEDDD3] bg-white px-4 py-2 text-xs font-semibold text-[#043C50]">{items.length} {items.length === 1 ? 'document' : 'documents'}</span>
+        </div>
 
-        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#07546B]">ConXport credentials</p>
-
-        <h1 className="mt-2 font-serif text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Certificates &amp; documentation</h1>
-
-        <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-500 sm:text-base">Browse documents published by our team. Confirm applicable product requirements with us before ordering.</p>
 
 
-
-        <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 
           {items.map((item, index) => {
 
@@ -514,11 +533,11 @@ export function ManagedCertificates() {
 
                 style={{ animationDelay: `${Math.min(index, 9) * 75}ms` }}
 
-                className="cx-certificate-card group min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_4px_20px_rgba(15,23,42,.04)] transition-all duration-300 hover:-translate-y-1 hover:border-teal-200 hover:shadow-[0_20px_45px_rgba(15,23,42,.12)]"
+                className="cx-certificate-card group min-w-0 overflow-hidden rounded-[24px] border border-[#E7E0DC] bg-white shadow-[0_12px_35px_-24px_rgba(4,60,80,.24)] transition-all duration-500 hover:-translate-y-2 hover:border-[#E4AA8E] hover:shadow-[0_28px_62px_-30px_rgba(4,60,80,.35)]"
 
               >
 
-                <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#f7f9fa]">
+                <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#FAF6F2]">
 
                   {url ? (
 
@@ -528,7 +547,7 @@ export function ManagedCertificates() {
 
                       onClick={() => openPreview(item)}
 
-                      className="absolute inset-0 flex h-full w-full items-center justify-center p-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-teal-600"
+                      className="absolute inset-0 flex h-full w-full items-center justify-center p-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#D84312]"
 
                       aria-label={`Open full certificate: ${item.title}`}
 
@@ -536,7 +555,7 @@ export function ManagedCertificates() {
 
                       {isPdf ? (
 
-                        <span className="flex flex-col items-center gap-2 text-[#07546B]"><FileText size={66} strokeWidth={1.5} /><span className="text-xs font-semibold">View PDF certificate</span></span>
+                        <span className="flex flex-col items-center gap-2 text-[#043C50]"><FileText size={66} strokeWidth={1.5} /><span className="text-xs font-semibold">View PDF certificate</span></span>
 
                       ) : (
 
@@ -548,7 +567,7 @@ export function ManagedCertificates() {
 
                   ) : (
 
-                    <div className="flex h-full flex-col items-center justify-center gap-2 text-[#07546B]"><ShieldCheck size={65} strokeWidth={1.5} /><span className="text-xs font-semibold">Certificate document</span></div>
+                    <div className="flex h-full flex-col items-center justify-center gap-2 text-[#043C50]"><ShieldCheck size={65} strokeWidth={1.5} /><span className="text-xs font-semibold">Certificate document</span></div>
 
                   )}
 
@@ -564,7 +583,7 @@ export function ManagedCertificates() {
 
                       title={`Download ${item.title}`}
 
-                      className="absolute right-3 top-3 z-10 grid h-10 w-10 place-items-center rounded-full border border-white/90 bg-white/95 text-[#07546B] shadow-[0_4px_14px_rgba(0,0,0,.12)] transition-transform duration-200 hover:scale-110 hover:bg-[#07546B] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
+                      className="absolute right-3 top-3 z-10 grid h-11 w-11 place-items-center rounded-full border border-white/90 bg-white/95 text-[#D84312] shadow-[0_4px_14px_rgba(0,0,0,.12)] transition duration-200 hover:scale-110 hover:bg-[#D84312] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D84312]"
 
                     ><Download size={19} strokeWidth={2.2} /></button>
 
@@ -574,13 +593,13 @@ export function ManagedCertificates() {
 
                 {/* Name is OUTSIDE the certificate image so it stays readable and never overlaps the document. */}
 
-                <div className="flex min-h-[58px] items-center border-t border-slate-100 bg-white px-4 py-3">
+                <div className="flex min-h-[80px] items-center border-t border-[#F0E6E0] bg-white px-5 py-4">
 
                   <p
 
                     title={item.title}
 
-                    className="!m-0 w-full min-w-0 !font-sans !text-[14px] !font-semibold !leading-[20px] !tracking-normal !text-slate-800"
+                    className="!m-0 w-full min-w-0 !font-['Manrope',system-ui,sans-serif] !text-[14px] !font-bold !leading-[1.55] !tracking-normal !text-[#043C50]"
 
                     style={{ display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 2, overflow: 'hidden', overflowWrap: 'anywhere' }}
 
@@ -648,7 +667,7 @@ export function ManagedCertificates() {
 
                 )}
 
-                <button type="button" onClick={() => void downloadCertificate(preview)} title="Download certificate" aria-label={`Download ${preview.title}`} className="grid h-9 w-9 place-items-center rounded-lg bg-[#07546B] text-white hover:bg-[#053F52]"><Download size={17} /></button>
+                <button type="button" onClick={() => void downloadCertificate(preview)} title="Download certificate" aria-label={`Download ${preview.title}`} className="grid h-9 w-9 place-items-center rounded-lg bg-[#043C50] text-white hover:bg-[#032C3C]"><Download size={17} /></button>
 
                 <button type="button" onClick={() => setPreview(null)} title="Close preview" aria-label="Close certificate preview" className="grid h-9 w-9 place-items-center rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200"><X size={19} /></button>
 
@@ -1074,7 +1093,7 @@ export function ManagedExpo() {
 
   const photo = photoIndex === null ? null : photos[photoIndex];
 
-  return <main className="bg-white">
+  return <main className="cx-option4-expo bg-white font-['Manrope',system-ui,sans-serif]">
 
     <style>{`
 
@@ -1089,32 +1108,35 @@ export function ManagedExpo() {
       .cx-expo-overlay{animation:cxExpoOverlay .22s ease both}
 
       .cx-expo-reveal{animation:cxExpoReveal .35s cubic-bezier(.18,.8,.2,1) both}
+      .cx-option4-expo h1, .cx-option4-expo h2 { font-family:'DM Serif Display',Georgia,serif !important; font-weight:400 !important; color:#043C50 !important; }
+      .cx-option4-expo h1 .italic, .cx-option4-expo h2 .italic { color:#D84312 !important; font-style:italic !important; }
 
       @media(prefers-reduced-motion:reduce){.cx-expo-card,.cx-expo-overlay,.cx-expo-reveal{animation:none!important;transition:none!important}}
 
     `}</style>
 
-    <section className="relative overflow-hidden bg-[#f0f8f6] py-16 sm:py-20">
+    <section className="relative isolate overflow-hidden border-b border-[#F0E4DD] bg-[#FFFCF9] py-16 sm:py-24 lg:py-28">
 
-      <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-36 h-96 w-96 rounded-full bg-[#ccebe5]/60 blur-3xl"/>
+      <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-36 h-96 w-96 rounded-full bg-[#FCE4D8]/80 blur-3xl"/>
 
       <div className="container relative">
 
-        <p className="!mb-0 text-[11px] font-extrabold uppercase tracking-[.22em] !text-[#0c705e]">ConXport events</p>
+        <p className="!mb-5 inline-flex items-center rounded-full border border-[#F0D8CA] bg-white px-4 py-2 font-['Manrope',system-ui,sans-serif] text-[11px] font-extrabold uppercase tracking-[.20em] !text-[#043C50]">CONXPORT EVENTS</p>
 
-        <h1 className="!mb-0 mt-3 font-serif text-[clamp(2.5rem,5vw,4.5rem)] font-bold tracking-[-.045em] !text-[#101d30]">Our Expo</h1>
+        <h1 className="!m-0 !font-['DM_Serif_Display',Georgia,serif] !text-[clamp(3.5rem,8vw,7rem)] !font-normal !leading-[1.04] !tracking-[-.06em] !text-[#043C50]" style={{fontFamily:"'DM Serif Display', Georgia, serif"}}>Our <span className="italic !text-[#D84312]">Expo.</span></h1>
 
-        <p className="!mb-0 mt-4 max-w-2xl text-sm leading-7 !text-slate-600 sm:text-base">Explore moments from our exhibitions, product showcases and live equipment demonstrations.</p>
+        <p className="!mb-0 !mt-7 max-w-[730px] !text-[clamp(15px,1.5vw,19px)] !leading-[1.85] !text-[#61737C]">Explore moments from our exhibitions, product showcases and live equipment demonstrations.</p>
+        <div aria-hidden="true" className="mt-7 h-[3px] w-16 rounded-full bg-[#D84312]"/>
 
       </div>
 
     </section>
 
-    <section className="container py-14 sm:py-20" aria-labelledby="expo-gallery-heading">
+    <section className="container !max-w-[1360px] py-16 sm:py-24" aria-labelledby="expo-gallery-heading">
 
       <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
 
-        <div><p className="!mb-0 text-[11px] font-bold uppercase tracking-[.2em] !text-[#0d7664]">Moments from our events</p><h2 id="expo-gallery-heading" className="!mb-0 mt-2 font-serif text-[clamp(1.9rem,3vw,2.8rem)] !font-bold !text-[#102536]">Our Expo Gallery</h2></div>
+        <div><p className="!mb-3 text-[11px] font-extrabold uppercase tracking-[.2em] !text-[#D84312]">MOMENTS FROM OUR EVENTS</p><h2 id="expo-gallery-heading" className="!m-0 !font-['DM_Serif_Display',Georgia,serif] !text-[clamp(2.3rem,4vw,4.2rem)] !font-normal !leading-tight !text-[#043C50]" style={{fontFamily:"'DM Serif Display', Georgia, serif"}}>Our Expo <span className="italic !text-[#D84312]">Gallery.</span></h2></div>
 
         <p className="!mb-0 text-sm !text-slate-500">Select any image to explore</p>
 
@@ -1128,13 +1150,13 @@ export function ManagedExpo() {
 
           if (!url) return null;
 
-          return <button key={item.id} type="button" style={{animationDelay:`${Math.min(i, 10)*55}ms`}} onClick={() => setPhotoIndex(i)} aria-label={`View exhibition image ${i+1} of ${photos.length}`} className="cx-expo-card group relative block aspect-[4/3] w-full min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-[#f1f6f7] shadow-[0_8px_28px_-20px_rgba(15,45,55,.3)] transition-all duration-500 hover:-translate-y-1 hover:border-teal-200 hover:shadow-[0_18px_35px_-18px_rgba(15,45,55,.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700">
+          return <button key={item.id} type="button" style={{animationDelay:`${Math.min(i, 10)*55}ms`}} onClick={() => setPhotoIndex(i)} aria-label={`View exhibition image ${i+1} of ${photos.length}`} className="cx-expo-card group relative block aspect-[4/3] w-full min-w-0 overflow-hidden rounded-[22px] border border-[#E7E0DC] bg-[#FFFCF9] shadow-[0_12px_34px_-24px_rgba(4,60,80,.35)] transition-all duration-500 hover:-translate-y-2 hover:border-[#E4AA8E] hover:shadow-[0_22px_44px_-20px_rgba(4,60,80,.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D84312]">
 
             <img src={url} alt={`ConXport exhibition photo ${i+1}`} loading={i<4?'eager':'lazy'} decoding="async" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"/>
 
             <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#062827]/30 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"/>
 
-            <span className="pointer-events-none absolute bottom-3 right-3 grid h-9 w-9 translate-y-2 place-items-center rounded-full bg-white/95 text-[#07546B] opacity-0 shadow-lg transition duration-300 group-hover:translate-y-0 group-hover:opacity-100"><ZoomIn size={17}/></span>
+            <span className="pointer-events-none absolute bottom-3 right-3 grid h-9 w-9 translate-y-2 place-items-center rounded-full bg-white/95 text-[#043C50] opacity-0 shadow-lg transition duration-300 group-hover:translate-y-0 group-hover:opacity-100"><ZoomIn size={17}/></span>
 
           </button>;
 
@@ -1146,11 +1168,11 @@ export function ManagedExpo() {
 
     </section>
 
-    <section className="bg-[#f3f8fa] py-16 sm:py-20" aria-labelledby="expo-videos-heading">
+    <section className="bg-[#FFFCF9] py-16 sm:py-24" aria-labelledby="expo-videos-heading">
 
       <div className="container">
 
-        <div className="mb-9 max-w-3xl"><p className="!mb-0 text-[11px] font-bold uppercase tracking-[.2em] !text-[#0d7664]">See our products in action</p><h2 id="expo-videos-heading" className="!mb-0 mt-2 font-serif text-[clamp(1.9rem,3vw,2.8rem)] !font-bold !text-[#102536]">Product Demonstrations &amp; Tutorials</h2><p className="!mb-0 mt-3 text-sm leading-7 !text-slate-600">Watch product demonstrations, explore features and learn how ConXport equipment works.</p></div>
+        <div className="mb-10 max-w-4xl"><p className="!mb-3 text-[11px] font-extrabold uppercase tracking-[.2em] !text-[#D84312]">SEE OUR PRODUCTS IN ACTION</p><h2 id="expo-videos-heading" className="!m-0 !font-['DM_Serif_Display',Georgia,serif] !text-[clamp(2.3rem,4vw,4.2rem)] !font-normal !leading-[1.1] !text-[#043C50]" style={{fontFamily:"'DM Serif Display', Georgia, serif"}}>Product Demonstrations <span className="italic !text-[#D84312]">&amp; Tutorials.</span></h2><p className="!mb-0 !mt-5 text-[15px] leading-8 !text-[#61737C]">Watch product demonstrations, explore features and learn how ConXport equipment works.</p></div>
 
         <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
 
@@ -1160,7 +1182,7 @@ export function ManagedExpo() {
 
             if (!id) return null;
 
-            return <article key={item.id} style={{animationDelay:`${Math.min(i,10)*50}ms`}} className="cx-expo-card group min-w-0 overflow-hidden rounded-[22px] border border-[#dce6e8] bg-white shadow-[0_12px_35px_-30px_rgba(15,45,60,.5)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_25px_55px_-30px_rgba(15,45,60,.5)]">
+            return <article key={item.id} style={{animationDelay:`${Math.min(i,10)*50}ms`}} className="cx-expo-card group min-w-0 overflow-hidden rounded-[24px] border border-[#E7E0DC] bg-white shadow-[0_12px_35px_-25px_rgba(4,60,80,.28)] transition-all duration-300 hover:-translate-y-2 hover:border-[#E4AA8E] hover:shadow-[0_25px_55px_-25px_rgba(4,60,80,.35)]">
 
               <button type="button" onClick={() => setActiveVideo(item)} className="relative block aspect-video w-full overflow-hidden bg-[#0c2838] text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal-600" aria-label={`Play product video: ${item.title}`}>
 
@@ -1168,13 +1190,13 @@ export function ManagedExpo() {
 
                 <span className="absolute inset-0 bg-[#031924]/25 transition group-hover:bg-[#031924]/35"/>
 
-                <span className="absolute left-1/2 top-1/2 grid h-14 w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-white/60 bg-white/90 text-[#0b6355] shadow-xl transition duration-300 group-hover:scale-110 group-hover:bg-white"><Play size={24} fill="currentColor" className="ml-1"/></span>
+                <span className="absolute left-1/2 top-1/2 grid h-14 w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-white/60 bg-white/95 text-[#D84312] shadow-xl transition duration-300 group-hover:scale-110 group-hover:bg-white"><Play size={24} fill="currentColor" className="ml-1"/></span>
 
                 <span className="absolute bottom-3 left-3 rounded-full border border-white/30 bg-black/45 px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest text-white backdrop-blur">Watch demonstration</span>
 
               </button>
 
-              <div className="p-5"><h3 className="!m-0 !font-sans !text-base !font-bold !leading-6 !tracking-normal !text-[#142c36]" style={{display:'-webkit-box',WebkitBoxOrient:'vertical',WebkitLineClamp:2,overflow:'hidden'}}>{item.title}</h3><p className="!mb-0 mt-2 text-sm leading-6 !text-slate-500" style={{display:'-webkit-box',WebkitBoxOrient:'vertical',WebkitLineClamp:2,overflow:'hidden'}}>{item.body || 'Watch the full equipment demonstration and learn more about this product.'}</p><button type="button" onClick={() => setActiveVideo(item)} className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[#07546B] hover:text-[#083c34]">Watch video <ArrowUpRight size={16}/></button></div>
+              <div className="p-5"><h3 className="!m-0 !font-['Manrope',system-ui,sans-serif] !text-base !font-extrabold !leading-6 !tracking-normal !text-[#043C50]" style={{display:'-webkit-box',WebkitBoxOrient:'vertical',WebkitLineClamp:2,overflow:'hidden'}}>{item.title}</h3><p className="!mb-0 mt-2 text-sm leading-6 !text-slate-500" style={{display:'-webkit-box',WebkitBoxOrient:'vertical',WebkitLineClamp:2,overflow:'hidden'}}>{item.body || 'Watch the full equipment demonstration and learn more about this product.'}</p><button type="button" onClick={() => setActiveVideo(item)} className="mt-4 inline-flex items-center gap-2 text-sm font-bold !text-[#D84312] transition hover:gap-3 hover:!text-[#A8320C]">Watch video <ArrowUpRight size={16}/></button></div>
 
             </article>;
 
