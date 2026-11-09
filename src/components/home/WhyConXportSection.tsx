@@ -74,7 +74,7 @@ export default function WhyConXportSection() {
   }
 
   return (
-    <section id="why-conxport" aria-labelledby="why-conxport-heading" className="cx-why-cinema relative isolate overflow-hidden bg-white pb-16 pt-12 text-[#102D3C] sm:pb-24 sm:pt-20">
+    <section id="why-conxport" aria-labelledby="why-conxport-heading" className="cx-why-cinema relative isolate overflow-hidden bg-white pb-16 pt-12 text-[#043C50] sm:pb-24 sm:pt-20">
       <style>{`
         .cx-why-cinema .cx-why-stage { display:flex; gap:14px; height:clamp(440px,46vw,600px); perspective:1600px; }
         .cx-why-cinema .cx-why-panel { --why-rx:0deg; --why-ry:0deg; --why-image-x:0px; --why-image-y:0px; --why-mx:50%; --why-my:50%; flex:1 1 0%; min-width:0; position:relative; isolation:isolate; overflow:hidden; border-radius:29px; transform:perspective(1400px) rotateX(var(--why-rx)) rotateY(var(--why-ry)); transition:flex-grow .82s cubic-bezier(.2,.78,.2,1), transform .35s ease, box-shadow .5s ease, opacity .5s ease, border-color .4s ease; border:1px solid rgba(190,220,230,.72); box-shadow:0 22px 60px -37px rgba(4,60,80,.5); outline-offset:5px; cursor:default; }
@@ -103,13 +103,13 @@ export default function WhyConXportSection() {
         <div className="mb-10 grid items-end gap-6 lg:grid-cols-[1.4fr_.6fr] lg:gap-16">
           <Reveal>
             <div>
-              <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-[#07546B]/15 bg-[#edf6f3] px-5 py-2.5">
-                <CheckCircle2 size={16} className="text-[#07546B]" />
-                <span className="text-[11px] font-extrabold uppercase tracking-[.18em] text-[#07546B]">WHY CONXPORT</span>
+              <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-[#043C50]/15 bg-[#edf6f3] px-5 py-2.5">
+                <CheckCircle2 size={16} className="text-[#043C50]" />
+                <span className="text-[11px] font-extrabold uppercase tracking-[.18em] text-[#043C50]">WHY CONXPORT</span>
               </div>
-              <h2 id="why-conxport-heading" className="!m-0 font-['Manrope',system-ui,sans-serif] text-[clamp(3rem,6vw,6.5rem)] font-extrabold leading-[1.05] tracking-[-.065em] !text-[#101b22]">
+              <h2 id="why-conxport-heading" className="!m-0 font-['DM_Serif_Display',Georgia,serif] text-[clamp(3rem,6vw,6.5rem)] font-normal leading-[1.05] tracking-[-.065em] !text-[#043C50]">
                 Healthcare procurement<br className="hidden sm:block" />
-                <span className="text-[#07546B]"> deserves clarity.</span>
+                <span className="italic !text-[#D84312]"> deserves clarity.</span>
               </h2>
             </div>
           </Reveal>
@@ -156,7 +156,7 @@ export default function WhyConXportSection() {
           ))}
         </div>
         <div className="mt-12 text-center">
-          <Link to="/products" className="group inline-flex items-center gap-3 text-sm font-extrabold !text-[#07546B] transition-colors duration-300 hover:!text-[#F93E02]">
+          <Link to="/products" className="group inline-flex items-center gap-3 text-sm font-extrabold !text-[#D84312] transition-colors duration-300 hover:!text-[#F93E02]">
             Explore our equipment catalogue
             <ArrowUpRight size={19} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
           </Link>

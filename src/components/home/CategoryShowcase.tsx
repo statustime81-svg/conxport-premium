@@ -49,7 +49,7 @@ export default function CategoryShowcase() {
       aria-labelledby="categories-heading"
       className="
         relative isolate overflow-hidden
-        bg-white text-[#102D3C]
+        bg-white text-[#043C50]
         py-[clamp(90px,11vw,160px)]
       "
     >
@@ -79,20 +79,20 @@ export default function CategoryShowcase() {
               <div
                 className="
                   mb-7 inline-flex items-center gap-3
-                  rounded-full border border-[#07546B]/15
-                  bg-[#07546B]/[0.04]
+                  rounded-full border border-[#043C50]/15
+                  bg-[#043C50]/[0.04]
                   px-4 py-2
                 "
               >
                 <Layers3
                   size={15}
-                  className="text-[#07546B]"
+                  className="text-[#043C50]"
                 />
 
                 <span
                   className="
                     text-[11px] font-bold uppercase
-                    tracking-[0.20em] text-[#07546B]
+                    tracking-[0.20em] text-[#043C50]
                   "
                 >
                   EXPLORE OUR CATALOGUE
@@ -103,15 +103,15 @@ export default function CategoryShowcase() {
               <h2
                 id="categories-heading"
                 className="
-                  m-0 font-['Manrope',system-ui,sans-serif]
-                  text-[clamp(3rem,6.5vw,7rem)]
-                  font-extrabold leading-[0.99]
-                  tracking-[-0.065em] text-[#102D3C]
+                  m-0 font-['DM_Serif_Display',Georgia,serif]
+                  text-[clamp(3rem,5.5vw,6rem)]
+                  font-normal leading-[0.99]
+                  tracking-[-0.065em] text-[#043C50]
                 "
               >
                 Equipment for
                 <br />
-                <span className="text-[#07546B]">
+                <span className="italic !text-[#D84312]">
                   every environment.
                 </span>
               </h2>
@@ -134,10 +134,10 @@ export default function CategoryShowcase() {
               className="
                 group inline-flex shrink-0 items-center gap-3
                 self-start rounded-full
-                border-2 border-[#07546B]
-                px-7 py-4 font-bold text-[#07546B]
+                border-2 border-[#D84312]
+                px-7 py-4 font-bold text-[#D84312]
                 transition-all duration-300
-                hover:bg-[#07546B] hover:text-white
+                hover:bg-[#D84312] hover:border-[#D84312] hover:text-white
               "
             >
               All Categories
@@ -185,17 +185,17 @@ export default function CategoryShowcase() {
               flex min-h-[300px] flex-col
               items-center justify-center
               rounded-[28px]
-              border border-[#07546B]/10
+              border border-[#043C50]/10
               bg-[#F1F7FA] px-8 text-center
             "
           >
             <Layers3
               size={35}
               strokeWidth={1.3}
-              className="mb-5 text-[#07546B]"
+              className="mb-5 text-[#043C50]"
             />
 
-            <h3 className="mb-3 text-2xl font-bold text-[#102D3C]">
+            <h3 className="mb-3 text-2xl font-bold text-[#043C50]">
               Categories coming soon
             </h3>
 
@@ -230,7 +230,7 @@ export default function CategoryShowcase() {
               to="/categories"
               className="
                 group inline-flex items-center gap-3
-                text-base font-bold text-[#07546B]
+                text-base font-bold text-[#043C50]
               "
             >
               Explore all equipment categories
