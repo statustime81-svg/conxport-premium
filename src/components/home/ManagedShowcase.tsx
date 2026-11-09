@@ -285,9 +285,9 @@ export function ManagedFaq() {
 
               <img
 
-                src="/images/why-conxport/healthcare.png"
+                src="/images/home/faq-medical-equipment-showroom.webp"
 
-                alt="Hospital and healthcare equipment environment"
+                alt="Modern operating theatre with surgical lighting and medical equipment"
 
                 loading="lazy"
 
