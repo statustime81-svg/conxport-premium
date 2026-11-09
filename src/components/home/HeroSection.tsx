@@ -55,7 +55,8 @@ function CountUp({ end, suffix = '', duration = 1600 }: { end: number; suffix?: 
   }, [duration, end, reduceMotion]);
 
   return (
-    <span ref={elementRef} aria-label={`${end.toLocaleString('en-IN')}${suffix}`} className="tabular-nums">
+    <span ref={elementRef} className="tabular-nums">
+      <span className="sr-only">{end.toLocaleString('en-IN')}{suffix}</span>
       <span aria-hidden="true">{value.toLocaleString('en-IN')}{suffix}</span>
     </span>
   );
@@ -117,7 +118,7 @@ export default function HeroSection() {
 
             <Reveal delay={0.2}>
               <div className="mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
-                <Link to="/products" className="group inline-flex min-h-[52px] items-center justify-center gap-3 rounded-full !bg-[#D84312] px-6 py-3.5 font-['Manrope',system-ui,sans-serif] text-[13px] font-extrabold !text-white shadow-[0_14px_30px_-13px_rgba(216,67,18,.6)] transition-[transform,background-color,box-shadow] duration-300 hover:-translate-y-1 hover:!bg-[#B9320A] hover:shadow-[0_19px_38px_-12px_rgba(216,67,18,.6)] sm:px-8 sm:text-[15px]">
+                <Link to="/products" className="group inline-flex min-h-[52px] items-center justify-center gap-3 rounded-full !bg-[#BE3710] px-6 py-3.5 font-['Manrope',system-ui,sans-serif] text-[13px] font-extrabold !text-white shadow-[0_14px_30px_-13px_rgba(216,67,18,.6)] transition-[transform,background-color,box-shadow] duration-300 hover:-translate-y-1 hover:!bg-[#B9320A] hover:shadow-[0_19px_38px_-12px_rgba(216,67,18,.6)] sm:px-8 sm:text-[15px]">
                   Browse Equipment Catalogue
                   <ArrowRight size={19} className="transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>

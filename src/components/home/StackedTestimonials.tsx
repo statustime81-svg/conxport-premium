@@ -50,7 +50,7 @@ export default function StackedTestimonials({ items }: Props) {
                   <button type="button" onClick={() => navigate(-1)} aria-label="Previous testimonial" className="grid h-13 w-13 place-items-center rounded-full border border-[#cadde4] bg-white !text-[#043C50] transition-all duration-300 hover:-translate-y-1 hover:!border-[#F93E02] hover:!bg-[#F93E02] hover:!text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F93E02]">
                     <ArrowLeft size={20} aria-hidden="true" />
                   </button>
-                  <button type="button" onClick={() => navigate(1)} aria-label="Next testimonial" className="grid h-13 w-13 place-items-center rounded-full bg-[#D84312] !text-white transition-all duration-300 hover:-translate-y-1 hover:!bg-[#F93E02] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F93E02]">
+                  <button type="button" onClick={() => navigate(1)} aria-label="Next testimonial" className="grid h-13 w-13 place-items-center rounded-full bg-[#BE3710] !text-white transition-all duration-300 hover:-translate-y-1 hover:!bg-[#F93E02] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F93E02]">
                     <ArrowRight size={20} aria-hidden="true" />
                   </button>
                 </div>
@@ -124,7 +124,7 @@ export default function StackedTestimonials({ items }: Props) {
             {count > 1 && (
               <div className="mt-3 flex items-center justify-center gap-2" aria-label="Select testimonial">
                 {items.map((item, dotIndex) => (
-                  <button key={item.id} type="button" onClick={() => { setDirection(dotIndex >= index ? 1 : -1); setIndex(dotIndex); }} aria-label={`Show testimonial ${dotIndex + 1}`} aria-current={index === dotIndex ? 'true' : undefined} className={`h-2.5 rounded-full transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F93E02] ${index === dotIndex ? 'w-8 bg-[#F93E02]' : 'w-2.5 bg-[#b4cbd3] hover:bg-[#043C50]'}`} />
+                  <button key={item.id} type="button" onClick={() => { setDirection(dotIndex >= index ? 1 : -1); setIndex(dotIndex); }} aria-label={`Show testimonial ${dotIndex + 1}`} aria-current={index === dotIndex ? 'true' : undefined} className="group grid h-11 min-w-11 place-items-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BE3710]"><span aria-hidden="true" className={`block h-2.5 rounded-full transition-all duration-300 ${index === dotIndex ? 'w-8 bg-[#BE3710]' : 'w-2.5 bg-[#b4cbd3] group-hover:bg-[#043C50]'}`} /></button>
                 ))}
               </div>
             )}
