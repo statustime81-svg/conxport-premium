@@ -8,3 +8,5 @@ coverage/
 backup-*/
 **/backup-*/
 .DS_Store
+
+.conxport-performance-backup/
