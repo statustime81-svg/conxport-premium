@@ -135,7 +135,7 @@ export default function HeroSection() {
             <div aria-hidden="true" className="cx-hero-orbit pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[72%] w-[82%] rounded-full border border-[#37B6AE]/20 [transform:translate(-50%,-50%)]" />
             <Parallax distance={reduceMotion ? 0 : 24}>
               <img
-                src="/images/medical-hero.png"
+                src="/images/medical-hero.webp"
                 alt="3D illustration of advanced hospital medical equipment"
                 loading="eager"
                 fetchPriority="high"
