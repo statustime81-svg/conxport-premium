@@ -17,7 +17,7 @@ export default function RequestQuotePage() {
             Request a <span className="italic !text-[#D84312]">quote.</span>
           </h1>
           <p className="mt-6 max-w-[710px] text-[17px] leading-[1.8] !text-[#617771]">
-            Tell us which medical equipment you need. Share your specifications and our team can review your request. Pricing and availability require confirmation.
+            Tell us which medical equipment you need and share your specifications. Our team will review your enquiry and get in touch with the next steps.
           </p>
           <div className="mt-7 flex flex-wrap items-center gap-4">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#d8e9e3] bg-white px-4 py-2.5 text-sm font-bold text-[#21423a]">
