@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import BlogPage from './BlogPage';
-import { ArrowRight, ArrowUpRight, BookOpen, FileText } from 'lucide-react';
+import { BookOpen, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router';
 import { useDocumentMeta } from '../../seo/useDocumentMeta';
 import CmsContentCard from '../../components/public/cms/CmsContentCard';
