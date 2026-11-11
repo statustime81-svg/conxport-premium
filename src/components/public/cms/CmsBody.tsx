@@ -16,64 +16,47 @@ export default function CmsBody({ entry }: { entry: CmsEntry }) {
   const validDate = date && !Number.isNaN(date.getTime());
 
   return (
-    <article className="min-h-[55vh] bg-white font-sans text-[#142c35]">
-      <div className="mx-auto w-full max-w-[920px] px-5 pb-16 pt-8 sm:px-8 sm:pb-20 sm:pt-12">
-        {collection && (
-          <Link
-            to={collection.href}
-            className="mb-7 inline-flex items-center gap-2 text-sm font-semibold !text-[#07546B] transition hover:gap-3 hover:!text-[#09483f]"
-          >
-            <ArrowLeft size={16} aria-hidden="true" />
-            {collection.label}
-          </Link>
-        )}
-
-        <div className="mb-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#07546B]">
-          <span>ConXport / {entry.kind.replace(/_/g, ' ')}</span>
-          {validDate && (
-            <span className="inline-flex items-center gap-1.5 normal-case tracking-normal text-slate-500">
-              <CalendarDays size={14} aria-hidden="true" />
-              {date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
-            </span>
+    <article className="min-h-[60vh] bg-white font-['Manrope',system-ui,sans-serif] !text-[#043C50]">
+      <header className="border-b border-[#E3ECF0] bg-[#F1F7FA]">
+        <div className="mx-auto w-full max-w-[1000px] px-5 pb-12 pt-10 sm:px-8 sm:pb-14 sm:pt-12">
+          {collection && (
+            <Link to={collection.href} className="group mb-9 inline-flex items-center gap-2 text-[13px] font-bold !text-[#59717D] no-underline transition hover:!text-[#D84312]">
+              <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" aria-hidden="true" /> {collection.label}
+            </Link>
           )}
+          <div className="mb-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] font-extrabold uppercase tracking-[0.14em] !text-[#D84312]">
+            <span>ConXport / {entry.kind.replace(/_/g, ' ')}</span>
+            {validDate && (
+              <span className="inline-flex items-center gap-1.5 font-semibold normal-case tracking-normal !text-[#718792]">
+                <CalendarDays size={14} aria-hidden="true" />
+                <time dateTime={entry.published_at ?? undefined}>{date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</time>
+              </span>
+            )}
+          </div>
+          <h1 className="!m-0 max-w-[950px] !font-['Manrope',system-ui,sans-serif] !text-[clamp(2rem,4.1vw,3.45rem)] !font-extrabold !leading-[1.18] !tracking-[-0.045em] !text-[#043C50] [overflow-wrap:anywhere]">{entry.title}</h1>
+          {entry.excerpt && <p className="!mb-0 !mt-5 max-w-[830px] !text-[15px] !leading-[1.85] !text-[#59717D] sm:!text-[17px]">{entry.excerpt}</p>}
         </div>
+      </header>
 
-        <h1 className="!m-0 max-w-[900px] !font-sans !text-[clamp(30px,4vw,50px)] !font-extrabold !leading-[1.14] !tracking-[-0.035em] !text-[#112c35] [overflow-wrap:anywhere]">
-          {entry.title}
-        </h1>
-
-        {entry.excerpt && (
-          <p className="!mb-0 !mt-4 max-w-[760px] !text-[16px] !leading-[1.7] !text-[#637681] sm:!text-[18px]">
-            {entry.excerpt}
-          </p>
-        )}
-
+      <div className="mx-auto w-full max-w-[1000px] px-5 pb-20 pt-9 sm:px-8 sm:pt-12">
         {imageUrl && (
-          <figure className="!mb-0 !mt-7 flex h-[210px] w-full items-center justify-center overflow-hidden rounded-xl bg-[#f5f8f8] sm:h-[300px]">
-            <img
-              src={imageUrl}
-              alt={entry.title}
-              loading="eager"
-              decoding="async"
-              className="!m-0 !block !h-full !w-full !max-w-full !object-contain"
-            />
+          <figure className="!m-0 overflow-hidden rounded-2xl border border-[#E0EAEE] bg-[#F1F7FA] p-3 sm:p-5">
+            <div className="flex h-[220px] items-center justify-center sm:h-[310px] lg:h-[360px]">
+              <img src={imageUrl} alt={entry.title} loading="eager" decoding="async" className="!m-0 !block !h-full !w-full !max-w-full !object-contain" />
+            </div>
           </figure>
         )}
-
-        <div className="mt-8 max-w-[800px] border-t border-[#e6eceb] pt-7 sm:mt-9 sm:pt-8">
-          <div className="whitespace-pre-wrap break-words font-sans text-[16px] leading-[1.9] text-[#293e47] sm:text-[17px]">
+        <div className="mt-9 max-w-[880px] border-t border-[#E3ECF0] pt-8 sm:mt-11 sm:pt-10">
+          {/* Body is stored as plain text. Preserve line breaks; do not interpret untrusted HTML. */}
+          <div className="whitespace-pre-wrap break-words !font-['Manrope',system-ui,sans-serif] !text-[15px] !leading-[2] !text-[#365463] sm:!text-[16px]">
             {entry.body || 'More details will be published soon.'}
           </div>
         </div>
-
         {collection && (
-          <div className="mt-12 border-t border-[#e6eceb] pt-6">
-            <Link
-              to={collection.href}
-              className="group inline-flex items-center gap-2 text-sm font-bold !text-[#07546B] hover:!text-[#09483f]"
-            >
+          <div className="mt-14 border-t border-[#E3ECF0] pt-7">
+            <Link to={collection.href} className="group inline-flex items-center gap-2 text-[13px] font-extrabold !text-[#D84312] no-underline transition hover:!text-[#043C50]">
               Back to {collection.label.toLowerCase()}
-              <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+              <ArrowUpRight size={17} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
             </Link>
           </div>
         )}
