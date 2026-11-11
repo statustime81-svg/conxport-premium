@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import BlogPage from './BlogPage';
-import { ArrowUpRight, BookOpen, FileText } from 'lucide-react';
+import { ArrowUpRight, FileText } from 'lucide-react';
 import '../../styles/resources-theme.css';
 import { Link } from 'react-router';
 import { useDocumentMeta } from '../../seo/useDocumentMeta';
