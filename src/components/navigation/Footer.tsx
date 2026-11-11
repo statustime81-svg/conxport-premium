@@ -664,51 +664,25 @@ export default function Footer() {
                     )
                   )}
                 </ul>
-
-                {/* ====================================
-                    NEXOVA LOGO BELOW COOKIES
-                ==================================== */}
-
-                {group.title === "Support" && (
-                  <NexovaFooterCredit />
-                )}
               </section>
             ))}
 
-            {/* Download Company Profile */}
+            {/* Profile download and developer credit, aligned side by side */}
             <div className="col-span-2 sm:col-span-3">
-              <a
-                href="/downloads/conxport-company-profile.pdf"
-                download="ConXport-Company-Profile.pdf"
-                className="
-                  group inline-flex items-center
-                  gap-2.5 rounded-full
-                  border border-[#D84312]/40
-                  bg-[#D84312]
-                  px-5 py-2.5
-                  text-[13px] font-bold
-                  !text-white
-                  transition-all duration-200
-                  hover:-translate-y-0.5
-                  hover:!bg-[#B9320A]
-                  focus-visible:outline-2
-                  focus-visible:outline-offset-2
-                  focus-visible:outline-[#70dbc7]
-                "
-              >
-                <Download size={16} />
-
-                Download Company Profile
-
-                <ArrowUpRight
-                  size={15}
-                  className="
-                    transition-transform
-                    group-hover:translate-x-0.5
-                    group-hover:-translate-y-0.5
-                  "
-                />
-              </a>
+              <div className="flex flex-wrap items-center gap-x-8 gap-y-5 rounded-2xl border border-white/[0.08] bg-white/[0.035] px-5 py-5 sm:px-6">
+                <a
+                  href="/downloads/conxport-company-profile.pdf"
+                  download="ConXport-Company-Profile.pdf"
+                  className="group inline-flex min-h-[48px] shrink-0 items-center justify-center gap-2.5 rounded-full border border-[#D84312]/40 !bg-[#D84312] px-5 py-3 text-[13px] font-bold !text-white no-underline shadow-[0_8px_24px_rgba(216,67,18,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:!bg-[#B9320A] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF8A59]"
+                >
+                  <Download size={17} aria-hidden="true" />
+                  <span>Download Company Profile</span>
+                  <ArrowUpRight size={16} aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </a>
+                <div className="flex min-w-0 items-center [&>a]:!mt-0">
+                  <NexovaFooterCredit />
+                </div>
+              </div>
             </div>
           </div>
         </div>
