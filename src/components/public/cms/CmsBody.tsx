@@ -1,3 +1,4 @@
+import '../../../styles/resources-theme.css';
 import { Link } from 'react-router';
 import { ArrowLeft, ArrowUpRight, CalendarDays } from 'lucide-react';
 import type { CmsEntry } from '../../../types/cms';
@@ -17,7 +18,7 @@ export default function CmsBody({ entry }: { entry: CmsEntry }) {
 
   return (
     <article className="min-h-[60vh] bg-white font-['Manrope',system-ui,sans-serif] !text-[#043C50]">
-      <header className="border-b border-[#E3ECF0] bg-[#F1F7FA]">
+      <header className="cx-resource-hero border-b border-[#E3ECF0]">
         <div className="mx-auto w-full max-w-[1000px] px-5 pb-12 pt-10 sm:px-8 sm:pb-14 sm:pt-12">
           {collection && (
             <Link to={collection.href} className="group mb-9 inline-flex items-center gap-2 text-[13px] font-bold !text-[#59717D] no-underline transition hover:!text-[#D84312]">
@@ -52,6 +53,14 @@ export default function CmsBody({ entry }: { entry: CmsEntry }) {
             {entry.body || 'More details will be published soon.'}
           </div>
         </div>
+        {entry.kind === 'resource' && (
+          <div className="cx-resource-cta mt-14 rounded-[26px] border border-[#E2EAED] bg-[#F8FAFB] px-6 py-9 sm:px-9">
+            <p className="!mb-3 !text-[11px] !font-extrabold uppercase !tracking-[0.18em] !text-[#657C8A]">Need assistance?</p>
+            <h2 className="cx-resource-display !m-0 !text-[clamp(1.75rem,3vw,2.9rem)] !leading-[1.16] !text-[#043C50]">Have a medical equipment <span className="cx-resource-display-italic !text-[#D84312]">requirement?</span></h2>
+            <p className="!mb-5 !mt-3 !text-sm !leading-[1.8] !text-[#667C8A]">Share your requirements and our team can discuss the next steps.</p>
+            <Link to="/contact" className="group inline-flex items-center gap-3 rounded-full !bg-[#D84312] px-6 py-3 text-sm font-bold !text-white no-underline transition hover:!bg-[#043C50]">Contact ConXport <ArrowUpRight size={16} aria-hidden="true" /></Link>
+          </div>
+        )}
         {collection && (
           <div className="mt-14 border-t border-[#E3ECF0] pt-7">
             <Link to={collection.href} className="group inline-flex items-center gap-2 text-[13px] font-extrabold !text-[#D84312] no-underline transition hover:!text-[#043C50]">
