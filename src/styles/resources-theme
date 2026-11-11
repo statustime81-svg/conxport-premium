@@ -1,0 +1,6 @@
+/* Scoped Resources editorial typography. Georgia is the offline fallback. */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+.cx-resource-display { font-family: 'DM Serif Display', Georgia, 'Times New Roman', serif !important; font-weight: 400 !important; }
+.cx-resource-display-italic { font-family: 'DM Serif Display', Georgia, 'Times New Roman', serif !important; font-weight: 400 !important; font-style: italic !important; }
+.cx-resource-hero { background: linear-gradient(112deg,#FFF5F0 0%, #FCFAF8 47%, #FFFFFF 100%); }
+.cx-resource-cta { box-shadow: 0 10px 36px -32px rgba(4,60,80,.28); }
