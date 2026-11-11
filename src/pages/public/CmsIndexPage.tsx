@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import BlogPage from './BlogPage';
-import { BookOpen, ArrowUpRight, FileText } from 'lucide-react';
+import { ArrowUpRight, BookOpen, FileText } from 'lucide-react';
+import '../../styles/resources-theme.css';
 import { Link } from 'react-router';
 import { useDocumentMeta } from '../../seo/useDocumentMeta';
 import CmsContentCard from '../../components/public/cms/CmsContentCard';
@@ -45,24 +46,19 @@ function CmsIndexOther({ kind, title }: { kind: CmsKind; title: string }) {
 
   return (
     <main className="min-h-[65vh] bg-white font-['Manrope',system-ui,sans-serif] !text-[#043C50]">
-      <section className="relative overflow-hidden border-b border-[#E1EAEE] bg-[#F1F7FA]">
-        <div aria-hidden="true" className="pointer-events-none absolute -right-28 -top-48 h-[440px] w-[440px] rounded-full bg-[#D84312]/[0.045] blur-3xl" />
-        <div className="relative mx-auto w-full max-w-[1320px] px-5 pb-14 pt-10 sm:px-8 sm:pb-16 sm:pt-14 lg:px-12 lg:pb-20">
+      <section className="cx-resource-hero relative overflow-hidden border-b border-[#E5ECEE]">
+        <div className="relative mx-auto w-full max-w-[1320px] px-5 pb-16 pt-9 sm:px-8 sm:pb-20 sm:pt-12 lg:px-12 lg:pb-24">
           <nav aria-label="Breadcrumb" className="mb-10 flex flex-wrap items-center gap-2 text-[12px] font-semibold sm:text-[13px]">
-            <Link to="/" className="!text-[#647D88] no-underline transition hover:!text-[#D84312]">Home</Link>
-            <span className="text-[#9CACB5]" aria-hidden="true">/</span>
+            <Link to="/" className="!text-[#667E89] no-underline transition hover:!text-[#D84312]">Home</Link>
+            <span aria-hidden="true" className="text-[#9CACB5]">/</span>
             <span className="!text-[#D84312]">{pageLabel}</span>
           </nav>
-          <div className="mb-5 inline-flex items-center gap-2.5 rounded-full border border-[#D84312]/20 bg-white px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.15em] !text-[#D84312] shadow-sm">
-            <BookOpen size={15} aria-hidden="true" /> ConXport Knowledge Hub
-          </div>
-          <h1 className="!m-0 max-w-[900px] !font-['Manrope',system-ui,sans-serif] !text-[clamp(2.35rem,5vw,4.5rem)] !font-extrabold !leading-[1.1] !tracking-[-0.052em] !text-[#043C50]">
-            {pageLabel}<span className="!text-[#D84312]">.</span>
+          <p className="!mb-5 !text-[11px] !font-extrabold uppercase !tracking-[0.2em] !text-[#637986]">ConXport / Knowledge Center</p>
+          <h1 className="cx-resource-display !m-0 max-w-[1050px] !text-[clamp(2.65rem,5.8vw,5.5rem)] !leading-[1.07] !tracking-[-0.045em] !text-[#043C50]">
+            {isResource ? (<>Resources for <span className="cx-resource-display-italic !text-[#D84312]">better healthcare.</span></>) : (<>{pageLabel}<span className="cx-resource-display-italic !text-[#D84312]"> & insights.</span></>)}
           </h1>
-          <p className="!mb-0 !mt-5 max-w-[685px] !text-[15px] !leading-[1.85] !text-[#59717D] sm:!text-[17px]">
-            {isResource
-              ? 'Explore helpful resources, industry knowledge and practical guidance from ConXport.'
-              : `Explore ConXport ${title.toLowerCase()} and discover relevant insights and information.`}
+          <p className="!mb-0 !mt-6 max-w-[680px] !text-[15px] !leading-[1.85] !text-[#637986] sm:!text-[17px]">
+            {isResource ? 'Explore practical guides, medical equipment information and resources to help you make informed decisions.' : `Explore ConXport ${title.toLowerCase()} and discover relevant insights and information.`}
           </p>
         </div>
       </section>
@@ -111,14 +107,19 @@ function CmsIndexOther({ kind, title }: { kind: CmsKind; title: string }) {
           </div>
         )}
 
-        <div className="mt-14 flex flex-col items-start justify-between gap-5 rounded-2xl border border-[#E1EAEE] bg-[#F1F7FA] px-6 py-7 sm:flex-row sm:items-center sm:px-8">
-          <div>
-            <h3 className="!m-0 !font-['Manrope',system-ui,sans-serif] !text-lg !font-extrabold !text-[#043C50]">Looking for medical equipment?</h3>
-            <p className="!mb-0 !mt-2 !text-sm !leading-relaxed !text-[#59717D]">Browse our catalogue and discover products for your requirements.</p>
+        <div className="cx-resource-cta mt-16 rounded-[26px] border border-[#E2EAED] bg-[#F8FAFB] px-6 py-10 sm:px-10 sm:py-11 lg:px-11">
+          <div className="flex flex-col gap-7 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
+            <div className="min-w-0">
+              <p className="!mb-3 !text-[11px] !font-extrabold uppercase !tracking-[0.20em] !text-[#657C8A]">Need assistance?</p>
+              <h2 className="cx-resource-display !m-0 !text-[clamp(1.95rem,3.6vw,3.5rem)] !leading-[1.15] !tracking-[-0.035em] !text-[#043C50]">
+                Have a medical equipment <span className="cx-resource-display-italic !text-[#D84312]">requirement?</span>
+              </h2>
+              <p className="!mb-0 !mt-4 !text-[14px] !leading-[1.8] !text-[#667C8A] sm:!text-[16px]">Share your requirements and our team can discuss the next steps.</p>
+            </div>
+            <Link to="/contact" className="group inline-flex min-h-[52px] shrink-0 items-center justify-center gap-3 self-start rounded-full !bg-[#D84312] px-7 py-3 text-[13px] font-extrabold !text-white no-underline transition-all duration-300 hover:-translate-y-0.5 hover:!bg-[#043C50] lg:self-center">
+              Contact ConXport <ArrowUpRight size={17} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+            </Link>
           </div>
-          <Link to="/products" className="group inline-flex shrink-0 items-center gap-2 rounded-full !bg-[#D84312] px-5 py-3 text-[13px] font-extrabold !text-white no-underline transition-all hover:-translate-y-0.5 hover:!bg-[#043C50]">
-            Explore Products <ArrowUpRight size={17} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
-          </Link>
         </div>
       </section>
     </main>
