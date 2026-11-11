@@ -1,3 +1,4 @@
+import '../../../styles/resources-theme.css';
 import { ArrowUpRight, CalendarDays, FileText } from 'lucide-react';
 import { Link } from 'react-router';
 import type { CmsEntry } from '../../../types/cms';
@@ -41,7 +42,7 @@ export default function CmsContentCard({ item }: { item: CmsEntry }) {
               <time dateTime={dateValue ?? undefined}>{date}</time>
             </div>
           )}
-          <h2 className="!m-0 line-clamp-2 !font-['Manrope',system-ui,sans-serif] !text-[19px] !font-extrabold !leading-[1.4] !tracking-[-0.035em] !text-[#043C50] transition-colors duration-200 group-hover:!text-[#D84312] sm:!text-[21px]">{item.title}</h2>
+          <h2 className="!m-0 line-clamp-2 !font-['Manrope',system-ui,sans-serif] !text-[19px] !font-extrabold !leading-[1.4] !tracking-[-0.035em] !text-[#043C50] transition-colors duration-200 group-hover:!text-[#D84312] sm:!text-[27px]">{item.title}</h2>
           {item.excerpt && <p className="!mb-0 !mt-3 line-clamp-3 !text-[14px] !leading-[1.8] !text-[#607986]">{item.excerpt}</p>}
           <span className="mt-auto inline-flex items-center gap-2 pt-6 text-[13px] font-extrabold !text-[#D84312]">
             {actionLabels[item.kind]}
