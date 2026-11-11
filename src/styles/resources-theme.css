@@ -32,3 +32,48 @@
 .cx-resources a:hover {
   color: var(--cx-orange);
 }
+
+
+/* ConXport Resources Typography */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap');
+
+.cx-resources {
+  --cx-navy: #043C50;
+  --cx-orange: #D84312;
+  --cx-muted: #657A80;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.cx-resources .cx-display-title {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  color: #043C50 !important;
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 1.13;
+}
+
+.cx-resources .cx-display-title em {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-style: italic !important;
+  font-weight: 600;
+  color: #D84312 !important;
+}
+
+.cx-resources .cx-cta {
+  background: #F8FAFB;
+  border: 1px solid #E4ECEF;
+  border-radius: 26px;
+}
+
+.cx-resources .cx-cta-button {
+  background: #D84312;
+  color: #FFFFFF !important;
+  border-radius: 9999px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.cx-resources .cx-cta-button:hover {
+  background: #043C50;
+  transform: translateY(-2px);
+}
